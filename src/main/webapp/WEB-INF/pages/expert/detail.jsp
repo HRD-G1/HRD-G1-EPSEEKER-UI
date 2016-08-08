@@ -13,9 +13,6 @@
         <!--[*my CSS*] for general uses for only detail page-->
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/expert/css/detail.css"/>
 
-        <!-- Sweet Alert  -->
-        <%-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resource/dist/sweetalert.css">
-        <script type="text/javascript" src="${pageContext.request.contextPath }/resource/sweetalert.min.js"></script> --%>
 
         <!--bootstrap modal-->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -91,6 +88,7 @@
         </div>
       </div>
     </div>
+    
     <!--end bavbar-->
 	<%-- <jsp:include page="fragements/nav/header-navigation.jsp"></jsp:include> --%>
 	
