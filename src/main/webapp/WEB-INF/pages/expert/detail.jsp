@@ -10,10 +10,6 @@
         <!--font awesome-->
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/expert/font-awesome-4.6.3/css/font-awesome.min.css"/>
 
-        <!--[*my CSS*] for general uses for only detail page-->
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/expert/css/detail.css"/>
-
-
         <!--bootstrap modal-->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -46,14 +42,12 @@
                 color: red;
             }
         </style>
+        
         <!-- footer -->
         <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
-	
 </head>
 <body>
-
- <!-- start nvabar -->
-    <div class="navbar navbar-default navbar-fixed-top">
+	<div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header ">
           <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#navbar-ex-collapse">
@@ -62,11 +56,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand"><i class="fa -retro fa-crosshairs"></i></a>
+          <a class="navbar-brand"><i class="-retro fa fa-crosshairs"></i></a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li>
+            <li class="active">
               <a href="/" class="waves-effect waves-light ">HOME</a>
             </li>
             <li>
@@ -88,8 +82,8 @@
         </div>
       </div>
     </div>
-    
     <!--end bavbar-->
+	<br><br><br><br>
 	<%-- <jsp:include page="fragements/nav/header-navigation.jsp"></jsp:include> --%>
 	
 	<jsp:include page="fragements/detail/EpDetail.jsp"></jsp:include>

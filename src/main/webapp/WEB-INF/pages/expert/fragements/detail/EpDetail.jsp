@@ -1,4 +1,5 @@
-
+<!--[*my CSS*] for general uses for only detail page-->
+ <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/expert/css/detail.css"/> 
 
 <div ng-app="exApp">
         <!--start row personal data by visal-->

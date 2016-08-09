@@ -109,13 +109,13 @@
               <div class="row">
                 <div class="col-xs-12">
                   <ul class="tabs text-center">
-                    <li class="tab col-xs-4 ">
+                    <li class="tab col-md-6">
                       <a href="#developer">Developers</a>
                     </li>
-                    <li class="tab col-xs-4">
+                    <li class="tab col-md-6">
                       <a class="active" href="#sysengineer">System Engineers</a>
                     </li>
-                    <li class="tab col-xs-4">
+                    <li class="tab col-md-6">
                       <a href="#managers">IT Managers </a>
                     </li>
                   </ul>
@@ -219,22 +219,22 @@
           <div class="panel panel-primary text-center">
             <div class="panel-heading  text-center">STATISTICS</div>
             <div class="panel-body">
-              <div class="col-xs-4">
-                <div class="col-xs-12  text-center">
+              <div class="col-sm-6">
+                <div class="text-center">
                   <h5>Developers
                     <span class="badge blue">256</span>
                   </h5>
                 </div>
               </div>
-              <div class="col-xs-4">
-                <div class="col-xs-12 text-center">
+              <div class="col-sm-6">
+                <div class=" text-center">
                   <h5>System Engineers
                     <span class="badge blue">128</span>
                   </h5>
                 </div>
               </div>
-              <div class="col-xs-4">
-                <div class="col-xs-12 text-center">
+              <div class="col-sm-6">
+                <div class=" text-center">
                   <h5>IT Managers
                     <span class="badge blue">64</span>
                   </h5>
