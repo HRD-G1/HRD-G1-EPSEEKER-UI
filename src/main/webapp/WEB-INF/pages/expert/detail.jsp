@@ -49,9 +49,49 @@
                 color: red;
             }
         </style>
+        <!-- footer -->
+        <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
 	
 </head>
 <body>
+
+ <!-- start nvabar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header ">
+          <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#navbar-ex-collapse">
+            <span class="sr-only ">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand"><i class="fa -retro fa-crosshairs"></i></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/" class="waves-effect waves-light ">HOME</a>
+            </li>
+            <li>
+              <a href="/contact" class="waves-effect waves-light ">CONTACT</a>
+            </li>
+            <li>
+              <a href="/about" class="waves-effect waves-light">ABOUT</a>
+            </li>
+            <li>
+              <a href="/login" class="waves-effect waves-light ">LOGIN</a>
+            </li>
+            <li>
+              <a href="/signup" class="waves-effect waves-light ">SIGN UP</a>
+            </li>
+            <li>
+              <a href="/search" class="waves-effect waves-light ">SEARCH</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--end bavbar-->
 	<%-- <jsp:include page="fragements/nav/header-navigation.jsp"></jsp:include> --%>
 	
 	<jsp:include page="fragements/detail/EpDetail.jsp"></jsp:include>
@@ -59,5 +99,9 @@
 	<!-- Include Date Range Picker -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+	<!-- footer -->
+	
+	 <jsp:include page="fragements/footer/footer.jsp"></jsp:include>
+
 </body>
 </html>

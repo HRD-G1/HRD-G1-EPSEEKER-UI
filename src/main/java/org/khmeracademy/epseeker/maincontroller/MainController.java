@@ -28,10 +28,10 @@ public class MainController {
 	{
 		return "login";
 	}
-	@RequestMapping(value="/register")
+	@RequestMapping(value="/signup")
 	public String register()
 	{
-		return "register";
+		return "signup";
 	}
 	@RequestMapping(value="/search")
 	public String search()

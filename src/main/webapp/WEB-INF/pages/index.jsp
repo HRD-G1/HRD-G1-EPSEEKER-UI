@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="resources/expertsui/ui.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/expertsui/ui.min.css">
     <!--custom-->
-    <link href="resources/experts/css/custom.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
     <script>
       $.noConflict();
           jQuery(document).ready(function($){
@@ -40,22 +40,22 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active">
-              <a href="index.html" class="waves-effect waves-light ">HOME</a>
+              <a href="/" class="waves-effect waves-light ">HOME</a>
             </li>
             <li>
-              <a href="contact.html" class="waves-effect waves-light ">CONTACT</a>
+              <a href="/contact" class="waves-effect waves-light ">CONTACT</a>
             </li>
             <li>
-              <a href="about.html" class="waves-effect waves-light">ABOUT</a>
+              <a href="/about" class="waves-effect waves-light">ABOUT</a>
             </li>
             <li>
-              <a href="login.html" class="waves-effect waves-light ">LOGIN</a>
+              <a href="/login" class="waves-effect waves-light ">LOGIN</a>
             </li>
             <li>
-              <a href="register.html" class="waves-effect waves-light ">SIGN UP</a>
+              <a href="/signup" class="waves-effect waves-light ">SIGN UP</a>
             </li>
             <li>
-              <a href="search.html" class="waves-effect waves-light ">SEARCH</a>
+              <a href="/search" class="waves-effect waves-light ">SEARCH</a>
             </li>
           </ul>
         </div>
@@ -207,35 +207,6 @@
           			</a>
                 </div>
               </div>
-           <!--    <div class="row">
-             <div class="col-md-3 col-xs-6">
-               <a href="#"><img src="../../resource/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
-                           Full Name
-                           <br>
-                           Subject
-                           </a>
-             </div>
-             <div class="col-md-3 col-xs-6">
-               <a href="#"><img src="../../resource/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
-                           Full Name
-                           <br>
-                           Subject
-                           </a>
-             </div>
-             <div class="col-md-3 col-xs-6">
-               <a href="#"><img src="../../resource/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
-                           Full Name
-                           <br>
-                           Subject
-                           </a>
-             </div>
-             <div class="col-md-3 col-xs-6">
-               <a href="#"><img src="../../resource/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
-                           Full Name
-                           <br>
-                           Subject
-                           </a>
-             </div> -->
               </div>
             </div>
           </div>
