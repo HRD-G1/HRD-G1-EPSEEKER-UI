@@ -70,7 +70,7 @@
        
         
          <li><br><br>
-          <img src="${pageContext.request.contextPath}/resources/experts/img/b2.jpg">
+          <img src="${pageContext.request.contextPath}/resources/experts/img/3rd.jfif">
          <!--  random image-->
           <div class="caption left-align">
             <h2 class="text-center" style="color:black; font-weight: 100px"><em><i>Welcome <br> To <br>EPSEEKER</i></em></h2>
