@@ -122,47 +122,77 @@
                 </div>
               </div>
             </div>
-            <div class="panel-body">
-              <div id="developer" class="col-xs-12 text-center">
-                <div class="col-xs-4">
-                  <a href="#">Android<span class="badge blue">256</span></a>
+            <div class="panel-body" >
+              <div id="developer" class="col-xs-12 text-left" >
+              	
+                <div class="col-xs-6 col-md-4">
+                  <a href="#"><h6>Android<span class="badge blue">256</span></h6></a>
                 </div>
-                <div class="col-xs-4">
-                  <a href="#">IOS<span class="badge blue">256</span></a>
+                <div class="col-xs-6 col-md-4">
+                  <a href="#"><h6>IOS<span class="badge blue">256</span></h6></a>
+                  
                 </div>
-                <div class="col-xs-4">
-                  <a href="#">Web Design<span class="badge blue">256</span></a>
+                <div class="col-xs-6 col-md-4">
+                  
+                  <a href="#"><h6>Web Design<span class="badge blue">256</span></h6></a>
                 </div>
-                <div class="col-xs-4">
-                  <a href="#">Spring<span class="badge blue">256</span></a>
+                <div class="col-xs-6 col-md-4">
+                  
+                  <a href="#"><h6>Spring<span class="badge blue">256</span></h6></a>
                 </div>
-                <div class="col-xs-4">
-                  <a href="#">C#<span class="badge blue">256</span></a>
+                <div class="col-xs-6 col-md-4">
+                  <a href="#"><h6>C#<span class="badge blue">256</span></h6></a>
                 </div>
-                <div class="col-xs-4">
-                  <a href="#">VB.NET<span class="badge blue">256</span></a>
+                <div class="col-xs-6 col-md-4">
+                  <a href="#"><h6>VB.NET<span class="badge blue">256</span></h6></a>
+                </div>
+              
+              </div>
+              
+              <div id="sysengineer" class="col-xs-12 text-left">
+                <div class="col-xs-6 col-md-4">
+                  <a href="#"><h6>Network<span class="badge blue">256</span></h6></a>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  
+                </div>
+                <div class="col-xs-6 col-md-4">
+                  
+                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                  
+                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                 </div>
               </div>
-              <div id="sysengineer" class="col-xs-12 text-center">
+              <div id="managers" class="col-xs-12 text-left">
                 <div class="col-xs-6 col-md-4">
-                  <a href="#">Skills<span class="badge blue">256</span></a>
+                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                  <a href="#">Skills<span class="badge blue">256</span></a>
+                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  
                 </div>
                 <div class="col-xs-6 col-md-4">
-                  <a href="#">Skills<span class="badge blue">256</span></a>
-                </div>
-              </div>
-              <div id="managers" class="col-xs-12 text-center">
-                <div class="col-xs-6 col-md-4">
-                  <a href="#">Skills dsfdffsdf <span class="badge blue">256</span></a>
-                </div>
-                <div class="col-xs-6 col-md-4 text-center">
-                  <a href="#">Skills<span class="badge blue">256</span></a>
+                  
+                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                  <a href="#">Skills<span class="badge blue">256</span></a>
+                  
+                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                 </div>
               </div>
             </div>
