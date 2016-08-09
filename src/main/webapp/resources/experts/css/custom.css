@@ -8,8 +8,8 @@
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color: #000000;
-    background-color: #21BA45;
+    color: #fff;
+    background-color: #00897B;
 }
 
 .navbar-default .navbar-toggle {
