@@ -68,7 +68,7 @@
     <div class="slider">
       <ul class="slides">
         <li>
-          <img src="${pageContext.request.contextPath}/resources/experts/img/slide.jfif">
+          <img src="${pageContext.request.contextPath}/resources/experts/img/b1.png">
           <!-- random image -->
           <div class="caption center-align">
             <h2 class="text-"><em><i>Welcome</i></em></h2>
@@ -77,9 +77,9 @@
           </div>
         </li>
         <li>
-          <img src="${pageContext.request.contextPath}/resources/experts/img/HR-2.jpg">
+          <img src="${pageContext.request.contextPath}/resources/experts/img/b2.png">
           <!-- random image -->
-          <div class="caption right-align">
+          <div class="caption left-align">
             <h2 style="color:black"><em><i>The Best Website</i></em></h2>
             <h3 style="color:black;box-shadow:2px;">For Employee Recruitment.....</h3>
           </div>
