@@ -131,13 +131,17 @@ body {
     border: 0px solid transparent;
 }
 
-a img:hover {
+/* a img:hover {
     border: solid !important;
-}
+} */
 /*button color: #3CC66A*/
 
 .panel-primary > .panel-heading {
     color: #ffffff;
     background-color: teal;
     border-color: #337cbb;
+}
+
+.navbar-brand {
+    padding:0px;
 }

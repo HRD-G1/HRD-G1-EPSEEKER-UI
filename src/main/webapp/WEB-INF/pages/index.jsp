@@ -37,7 +37,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand"><i class="-retro fa fa-crosshairs"></i></a>
+          <!-- <a class="navbar-brand"><i class="-retro fa fa-crosshairs"></i></a> -->
+          	<a class="navbar-brand">
+          		<img alt="EPSEEKER" src="${pageContext.request.contextPath}/resources/experts/img/logo.gif">
+          	</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -66,16 +69,9 @@
     <!--end bavbar-->
     <!--start carousel-->
     <div class="slider">
-      <ul class="slides">
-       
-        
+      <ul class="slides">      
          <li><br><br>
           <img src="${pageContext.request.contextPath}/resources/experts/img/3rd.jfif">
-         <!--  random image-->
-          <!-- <div class="caption left-align">
-            <h2 class="text-center" style="color:black; font-weight: 100px"><em><i>Welcome <br> To <br>EPSEEKER</i></em></h2>
-            
-          </div> -->
         </li>
         <li><br><br>
           <img src="${pageContext.request.contextPath}/resources/experts/img/4th.jpg">
@@ -202,11 +198,17 @@
     <div class="container">
       <div class="row">
       <!-- ly -->
-        <jsp:include page="expert/fragements/random/random.jsp"></jsp:include>
+      <div class="panel panel-primary text-center">
+            <div class="panel-heading  text-center">POPULAR EXPERTS</div>
+            <div class="panel-body">
+       				 <jsp:include page="expert/fragements/random/random.jsp"></jsp:include>
+       		</div>
+        	</div>
+        </div>
       <!-- ly  -->
         </div>
-      </div>
-    </div>
+<!--       </div>
+    </div> -->
     <div class="container">
       <div class="row">
         <div class="col-md-12">
