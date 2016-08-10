@@ -25,11 +25,13 @@
                                                                                  	
         });
     </script>
+    <!-- statistic css  -->
+    <link href="${pageContext.request.contextPath}/resources/experts/css/statistic.css" rel="stylesheet" type="text/css">
   </head><body>
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header ">
-          <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#navbar-ex-collapse">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
             <span class="sr-only ">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -249,27 +251,45 @@
           <div class="panel panel-primary text-center">
             <div class="panel-heading  text-center">STATISTICS</div>
             <div class="panel-body">
-              <div class="col-sm-6">
-                <div class="text-center">
-                  <h5>Developers
-                    <span class="badge blue">256</span>
-                  </h5>
+         
+              <!-- ly  -->
+              
+              <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-5">
+        	<div class="profile-header-container">   
+    		<div class="profile-header-img">
+                <img class="img-circle" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
+                <!-- badge -->
+                <div class="rank-label-container">
+                    <span class="label label-default rank-label" style="font-size:15px"><em>Developer(100)</em></span>
                 </div>
-              </div>
-              <div class="col-sm-6">
-                <div class=" text-center">
-                  <h5>System Engineers
-                    <span class="badge blue">128</span>
-                  </h5>
+            </div>
+        </div> 
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-5">
+        	<div class="profile-header-container">   
+    		<div class="profile-header-img">
+                <img class="img-circle" src="${pageContext.request.contextPath}/resources/experts/img/engineer.jpg" rel="stylesheet" type="text/css">
+                <!-- badge -->
+                <div class="rank-label-container">
+                    <span class="label label-default rank-label" style="font-size:15px"><em>System Engineer (100)</em></span>
                 </div>
-              </div>
-              <div class="col-sm-6">
-                <div class=" text-center">
-                  <h5>IT Managers
-                    <span class="badge blue">64</span>
-                  </h5>
+            </div>
+        </div> 
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-5">
+        	<div class="profile-header-container">   
+    		<div class="profile-header-img">
+                <img class="img-circle" src="${pageContext.request.contextPath}/resources/experts/img/manager.jpg" rel="stylesheet" type="text/css">
+                <!-- badge -->
+                <div class="rank-label-container">
+                    <span class="label label-default rank-label" style="font-size:15px"><em>IT Manager(100)</em></span>
                 </div>
-              </div>
+            </div>
+       	 </div> 
+        </div>
+	</div>
+              <!-- ly -->
             </div>
           </div>
         </div>
