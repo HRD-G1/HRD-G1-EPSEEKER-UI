@@ -1,4 +1,5 @@
     <!--Footer-->
+    <div style="background-color:#008080">
     <div class="navbar navbar-default navbar-static-top">
       <div class="container-fluid">
         <div class="row">
@@ -30,4 +31,6 @@
         </div>
       </div>
     </div>
+    </div>
+    
     <!--end footer-->

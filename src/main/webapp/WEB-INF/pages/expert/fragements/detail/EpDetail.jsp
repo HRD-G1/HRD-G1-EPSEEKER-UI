@@ -53,7 +53,7 @@
                 end Modal -->
 
                 <!--Personal Information-->
-                <div class="row">
+                <div class="row row1">
                     <div class="profile-option">
                         <center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> PERSONAL DATA</h2></center>
                     </div>                    
@@ -191,7 +191,7 @@
                 end Modal -->
 
                 <!--Start Educatioin-->
-                <div class="row">
+                <div class="row row1">
                     <div class="profile-option">
                         <center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> EDUCATION</h2></center>
                     </div>
@@ -223,7 +223,7 @@
                 <hr>
                 
                 <!--Start Current Job-->
-                <div class="row">
+                <div class="row row1">
                     <div class="col-md-6 col-xs-12">
                     	<table id="edu-container" class="education-container col-md-12 col-xs-12" style="margin-bottom: 0px">
 	                    <div class="profile-option">
@@ -287,7 +287,7 @@
             <!-- end education and experience scope -->
             <hr>       
             <!--Start SKILL Language Contact-->
-            <div class="row" style="padding-bottom: 20px;">
+            <div class="row row1" style="padding-bottom: 20px;">
             	<!-- Start Skill -->
                 <div class="b-border col-md-4 col-xs-12" ng-controller="SkillController">
                  

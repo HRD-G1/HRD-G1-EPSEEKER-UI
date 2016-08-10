@@ -56,12 +56,12 @@ body{
     padding: 10px;
 }
 
-.row{
+.row1{
     /*border: 1px solid #cccccc;*/
     /*border-radius: 5px;*/
     /* box-shadow: -5px 5px 5px #999; */
     /* background-image: url("../img/pattern.jpg"); */
-	/* 	background-color: #ecf0f1; */
+ 	 background-color: #ecf0f1;
     /*background: linear-gradient(#ccccff, #ffffff)  //Standard syntax (must be last)*/
 }
 

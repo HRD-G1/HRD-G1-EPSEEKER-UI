@@ -8,9 +8,10 @@
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color: #fff;
-    background-color: #00897B;
+    color: #000;
+    background-color: #4DB6AC;
 }
+ 
 
 .navbar-default .navbar-toggle {
     border-color: #21BA45;
@@ -43,6 +44,7 @@ span.badge {
 
 .myfooter{
 	color: #FFF;
+    background-color: #008080;
 }
 
 .caret {
@@ -152,4 +154,22 @@ body {
 	text-indent: 50px;
 	line-height: 30px;
 }
+ .nav li:hover
+	{
+		background-color: #B2DFDB;
+		border-bottom: 1px solid red;
+	}
+	
+.navbar 
+{
+	box-shadow: 0px 4px 5px black;	
+}
 
+.slider .indicators .indicator-item.active {
+    background-color: #008080;
+}
+.logo
+{
+	position: absolute;
+	left:7px;
+}

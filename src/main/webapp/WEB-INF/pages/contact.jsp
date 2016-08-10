@@ -35,25 +35,25 @@
           </button>
          <!--  <a class="navbar-brand"><i class="-retro fa fa-crosshairs"></i></a> -->
          <a class="navbar-brand">
-          		<img alt="EPSEEKER" src="${pageContext.request.contextPath}/resources/experts/img/logo.gif">
+          		<img alt="EPSEEKER" class="logo" src="${pageContext.request.contextPath}/resources/experts/img/logo.gif">
           	</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="/" class="waves-effect waves-light ">HOME</a>
+            <li class="menu">
+              <a href="/" class="waves-effect waves-light "><i class="fa fa-home " aria-hidden="true"></i> HOME</a>
             </li>
-            <li class="active">
-              <a href="/contact" class="waves-effect waves-light ">CONTACT</a>
+            <li class=" active menu">
+              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone " aria-hidden="true"></i> CONTACT</a>
             </li>
-            <li>
-              <a href="/about" class="waves-effect waves-light">ABOUT</a>
+            <li class="menu">
+              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" aria-hidden="true"></i> ABOUT</a>
             </li>
-            <li>
-              <a href="/login" class="waves-effect waves-light ">LOGIN</a>
+            <li class="menu">
+              <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in " aria-hidden="true"></i> LOGIN</a>
             </li>
-            <li>
-              <a href="/signup" class="waves-effect waves-light ">SIGN UP</a>
+            <li class="menu">
+              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus" aria-hidden="true"></i> SIGN UP</a>
             </li>
             <!-- <li>
               <a href="/search" class="waves-effect waves-light ">SEARCH</a>
