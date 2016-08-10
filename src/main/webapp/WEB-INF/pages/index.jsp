@@ -84,14 +84,16 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="panel panel-default text-justify">
+          <div class="panel panel-primary text-justify">
+          <div class="panel-heading  text-center">WELCOME TO EPSEEDER</div>
             <div class="panel-body">
-              <p>This website help employers to find their workers by providing a lot of
+              <p class="introduction"><a href="/"><em>EPSEEKER</em></a> website help employers to find their workers by providing a lot of
                 search functions. All candidates here are all Korea Software HRD Center
                 alumni in every generation. Before you can see all details of candiadates
                 like education degrees, majors, skills, certificates, thier location and
                 a lot more, please create and login to your
                 <a href="#">account</a>for free.</p>
+            </div>   
             </div>
           </div>
         </div>
@@ -219,7 +221,7 @@
               <!-- ly  -->
               
               <div class="row">
-        <div class="col-md-4 col-sm-4 col-xs-5">
+        <div class="col-md-6 col-sm-4 col-xs-12">
         	<div class="profile-header-container">   
     		<div class="profile-header-img">
                 <img class="img-circle" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
@@ -230,7 +232,7 @@
             </div>
         </div> 
         </div>
-        <div class="col-md-4 col-sm-4 col-xs-5">
+        <div class="col-md-6 col-sm-4 col-xs-12">
         	<div class="profile-header-container">   
     		<div class="profile-header-img">
                 <img class="img-circle" src="${pageContext.request.contextPath}/resources/experts/img/engineer.jpg" rel="stylesheet" type="text/css">
@@ -241,7 +243,7 @@
             </div>
         </div> 
         </div>
-        <div class="col-md-4 col-sm-4 col-xs-5">
+        <div class="col-md-6 col-sm-4 col-xs-12">
         	<div class="profile-header-container">   
     		<div class="profile-header-img">
                 <img class="img-circle" src="${pageContext.request.contextPath}/resources/experts/img/manager.jpg" rel="stylesheet" type="text/css">

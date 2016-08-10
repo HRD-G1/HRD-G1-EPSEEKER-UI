@@ -31,7 +31,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand"><i class="-retro fa fa-crosshairs"></i></a>
+         <!--  <a class="navbar-brand"><i class="-retro fa fa-crosshairs"></i></a> -->
+         <a class="navbar-brand">
+          		<img alt="EPSEEKER" src="${pageContext.request.contextPath}/resources/experts/img/logo.gif">
+          	</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">

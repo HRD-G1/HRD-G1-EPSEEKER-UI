@@ -145,3 +145,11 @@ body {
 .navbar-brand {
     padding:0px;
 }
+.introduction
+{
+	font-size: 15px;
+	font-family:  arial;
+	text-indent: 50px;
+	line-height: 30px;
+}
+
