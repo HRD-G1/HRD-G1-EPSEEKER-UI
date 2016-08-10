@@ -2,7 +2,7 @@
     <div class="navbar navbar-default navbar-static-top">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-4 text-center myfooter">About
+          <div class="col-md-4 text-center myfooter"><br>About
             <hr>
             <div>
               <p class="text-justify">This website is the sub-domain of Khmeracademy.org that privides a lot
@@ -11,7 +11,7 @@
                 sees thier profile in details and more.</p>
             </div>
           </div>
-          <div class="col-md-4 text-center myfooter">Contact
+          <div class="col-md-4 text-center myfooter"><br>Contact
             <hr>
             <div>
               <p class="text-justify">Address: #12, St 323, Sangkat Boeung Kak II, KhanToul Kork, Phnom Penh,
@@ -21,7 +21,7 @@
                 <br>Email: info.kshrd@gmail.com phirum.gm@gmail.com</p>
             </div>
           </div>
-          <div class="col-md-4 text-center myfooter ">Connect
+          <div class="col-md-4 text-center myfooter "><br>Connect
             <hr>
             <div>
               <p>Face Like Page Here...</p>

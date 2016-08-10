@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/expertsui/ui.min.css">
+    <%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/experts/css/sui/ui.min.css"> --%>
     <!--custom-->
     <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
     <script>
@@ -66,7 +66,7 @@
     <div class="slider">
       <ul class="slides">
         <li>
-          <img src="../../resource/experts/img/slide.jfif">
+          <img src="${pageContext.request.contextPath}/resources/experts/img/slide.jfif">
           <!-- random image -->
           <div class="caption center-align">
             <h2 class="text-"><em><i>Welcome</i></em></h2>
@@ -75,7 +75,7 @@
           </div>
         </li>
         <li>
-          <img src="../../resource/experts/img/HR-2.jpg">
+          <img src="${pageContext.request.contextPath}/resources/experts/img/HR-2.jpg">
           <!-- random image -->
           <div class="caption right-align">
             <h2 style="color:black"><em><i>The Best Website</i></em></h2>
@@ -144,24 +144,24 @@
                 </div>
               </div>
               <div id="sysengineer" class="col-xs-12 text-center">
-                <div class="col-xs-4">
+                <div class="col-xs-6 col-md-4">
                   <a href="#">Skills<span class="badge blue">256</span></a>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-xs-6 col-md-4">
                   <a href="#">Skills<span class="badge blue">256</span></a>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-xs-6 col-md-4">
                   <a href="#">Skills<span class="badge blue">256</span></a>
                 </div>
               </div>
               <div id="managers" class="col-xs-12 text-center">
-                <div class="col-xs-4">
+                <div class="col-xs-6 col-md-4">
+                  <a href="#">Skills dsfdffsdf <span class="badge blue">256</span></a>
+                </div>
+                <div class="col-xs-6 col-md-4 text-center">
                   <a href="#">Skills<span class="badge blue">256</span></a>
                 </div>
-                <div class="col-xs-4 text-center">
-                  <a href="#">Skills<span class="badge blue">256</span></a>
-                </div>
-                <div class="col-xs-4">
+                <div class="col-xs-6 col-md-4">
                   <a href="#">Skills<span class="badge blue">256</span></a>
                 </div>
               </div>
@@ -179,28 +179,28 @@
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-3 col-xs-6">
-                  <a href="#"><img src="../../resource/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
+                  <a href="#"><img src="${pageContext.request.contextPath}/resources/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
           			Full Name
           			<br>
           			Subject
           			</a>
                 </div>
                 <div class="col-md-3 col-xs-6">
-                  <a href="#"><img src="../../resource/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
+                  <a href="#"><img src="${pageContext.request.contextPath}/resources/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
           			Full Name
           			<br>
           			Subject
           			</a>
                 </div>
                 <div class="col-md-3 col-xs-6">
-                  <a href="#"><img src="../../resource/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
+                  <a href="#"><img src="${pageContext.request.contextPath}/resources/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
           			Full Name
           			<br>
           			Subject
           			</a>
                 </div>
                 <div class="col-md-3 col-xs-6">
-                  <a href="#"><img src="../../resource/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
+                  <a href="#"><img src="${pageContext.request.contextPath}/resources/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
           			Full Name
           			<br>
           			Subject
