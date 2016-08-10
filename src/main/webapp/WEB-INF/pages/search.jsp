@@ -303,73 +303,8 @@
 	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
 	            				</td>
             				</tr>
-            				<tr>
-	            				<td style="width: 120px; text-align: center;">
-	            					<div >
-	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
-	            					</div>
-	            				</td>
-	            				<td><br><br>Srun Vannary</td>
-	            				<td><em><i><br><br>Java Developer</i></em></td>
-	            				<td><br><br>$250-$400</td>
-	            				<td style="float: left;"><br><br>
-	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
-	            				</td>
-            				</tr>
             				
             				
-            				<tr>
-	            				<td style="width: 120px; text-align: center;">
-	            					<div >
-	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
-	            					</div>
-	            				</td>
-	            				<td><br><br>Srun Vannary</td>
-	            				<td><em><i><br><br>Java Developer</i></em></td>
-	            				<td><br><br>$250-$400</td>
-	            				<td style="float: left;"><br><br>
-	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
-	            				</td>
-            				</tr>
-            				<tr>
-	            				<td style="width: 120px; text-align: center;">
-	            					<div >
-	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
-	            					</div>
-	            				</td>
-	            				<td><br><br>Srun Vannary</td>
-	            				<td><em><i><br><br>Java Developer</i></em></td>
-	            				<td><br><br>$250-$400</td>
-	            				<td style="float: left;"><br><br>
-	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
-	            				</td>
-            				</tr>
-            				<tr>
-	            				<td style="width: 120px; text-align: center;">
-	            					<div >
-	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
-	            					</div>
-	            				</td>
-	            				<td><br><br>Srun Vannary</td>
-	            				<td><em><i><br><br>Java Developer</i></em></td>
-	            				<td><br><br>$250-$400</td>
-	            				<td style="float: left;"><br><br>
-	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
-	            				</td>
-            				</tr>
-            				<tr>
-	            				<td style="width: 120px; text-align: center;">
-	            					<div >
-	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
-	            					</div>
-	            				</td>
-	            				<td><br><br>Srun Vannary</td>
-	            				<td><em><i><br><br>Java Developer</i></em></td>
-	            				<td><br><br>$250-$400</td>
-	            				<td style="float: left;"><br><br>
-	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
-	            				</td>
-            				</tr>
             			</tbody>
             			
             		</table>
