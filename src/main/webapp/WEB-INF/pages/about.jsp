@@ -50,9 +50,9 @@
             <li>
               <a href="/signup" class="waves-effect waves-light ">SIGN UP</a>
             </li>
-            <li>
+            <!-- <li>
               <a href="/search" class="waves-effect waves-light ">SEARCH</a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -107,16 +107,103 @@
                     <div class="panel panel-primary text-center">
                         <div class="panel-heading  text-center">About Developers</div>
                         <div class="panel-body text-justify">
-                           <p>
-                           	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dignissimos eaque placeat voluptatum blanditiis inventore esse amet eum. Obcaecati pariatur, possimus odit, dolorum quasi cum asperiores repellat quis fugit repudiandae!
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut nisi qui eius hic, animi minima, nulla facere deleniti praesentium quas inventore fugiat doloribus porro nam unde voluptate blanditiis fuga dignissimos!
-                           </p>
+                          <div class="row">
+                          		<div class="col-md-4">
+                          			 <img class="img-thumbnail img-responsive" width="200px;" src="${pageContext.request.contextPath}/resources/experts/img/sal.jpg">
+                          		</div>
+                          		<div class="col-md-7">
+                          			<p>
+		                           	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+										cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+										proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dignissimos eaque placeat voluptatum blanditiis inventore esse amet eum. Obcaecati pariatur, possimus odit, dolorum quasi cum asperiores repellat quis fugit repudiandae!
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut nisi qui eius hic, animi minima, nulla facere deleniti praesentium quas inventore fugiat doloribus porro nam unde voluptate blanditiis fuga dignissimos!
+                          		 </p>
+                          			
+                          		</div>
+                          </div>
+                          
+                           <div class="row">
+                           <div class="col-md-8">
+                          			<p>
+		                           	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+										cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+										proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dignissimos eaque placeat voluptatum blanditiis inventore esse amet eum. Obcaecati pariatur, possimus odit, dolorum quasi cum asperiores repellat quis fugit repudiandae!
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut nisi qui eius hic, animi minima, nulla facere deleniti praesentium quas inventore fugiat doloribus porro nam unde voluptate blanditiis fuga dignissimos!
+                          		 </p>
+                          			
+                          		</div>
+                          		<div class="col-md-4">
+                          			 <img class="img-thumbnail img-responsive" width="200px;" src="${pageContext.request.contextPath}/resources/experts/img/ly.jpg">
+                          		</div>
+                          		
+                          </div>
+                          
+                          
+                          
+                          <div class="row">
+                          		<div class="col-md-4">
+                          			 <img class="img-thumbnail img-responsive" width="200px;" src="${pageContext.request.contextPath}/resources/experts/img/tey.jpg">
+                          		</div>
+                          		<div class="col-md-7">
+                          			<p>
+		                           	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+										cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+										proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dignissimos eaque placeat voluptatum blanditiis inventore esse amet eum. Obcaecati pariatur, possimus odit, dolorum quasi cum asperiores repellat quis fugit repudiandae!
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut nisi qui eius hic, animi minima, nulla facere deleniti praesentium quas inventore fugiat doloribus porro nam unde voluptate blanditiis fuga dignissimos!
+                          		 </p>
+                          			
+                          		</div>
+                          </div>
+                          
+                           <div class="row">
+                           <div class="col-md-8">
+                          			<p>
+		                           	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+										cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+										proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dignissimos eaque placeat voluptatum blanditiis inventore esse amet eum. Obcaecati pariatur, possimus odit, dolorum quasi cum asperiores repellat quis fugit repudiandae!
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut nisi qui eius hic, animi minima, nulla facere deleniti praesentium quas inventore fugiat doloribus porro nam unde voluptate blanditiis fuga dignissimos!
+                          		 </p>
+                          			
+                          		</div>
+                          		<div class="col-md-4">
+                          			 <img class="img-thumbnail img-responsive" width="200px;" src="${pageContext.request.contextPath}/resources/experts/img/ra.jpg">
+                          		</div>
+                          </div>
+                          
+                          <div class="row">
+                          		<div class="col-md-4">
+                          			 <img class="img-thumbnail img-responsive" width="200px;" src="${pageContext.request.contextPath}/resources/experts/img/nang.jpg">
+                          		</div>
+                          		<div class="col-md-7">
+                          			<p>
+		                           	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+										consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+										cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+										proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dignissimos eaque placeat voluptatum blanditiis inventore esse amet eum. Obcaecati pariatur, possimus odit, dolorum quasi cum asperiores repellat quis fugit repudiandae!
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut nisi qui eius hic, animi minima, nulla facere deleniti praesentium quas inventore fugiat doloribus porro nam unde voluptate blanditiis fuga dignissimos!
+                          		 </p>
+                          			
+                          		</div>
+                          </div>
                         </div>
                     </div>
                 </div>

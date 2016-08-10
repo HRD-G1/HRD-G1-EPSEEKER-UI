@@ -24,7 +24,7 @@
           <div class="col-md-4 text-center myfooter "><br>Connect
             <hr>
             <div>
-              <p>Face Like Page Here...</p>
+              <p>Facebook Like Page Here...</p>
             </div>
           </div>
         </div>

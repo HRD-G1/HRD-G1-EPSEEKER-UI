@@ -51,9 +51,9 @@
             <li>
               <a href="/signup" class="waves-effect waves-light ">SIGN UP</a>
             </li>
-            <li>
+            <!-- <li>
               <a href="/search" class="waves-effect waves-light ">SEARCH</a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>

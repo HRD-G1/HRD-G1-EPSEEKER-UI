@@ -56,9 +56,9 @@
             <li>
               <a href="/signup" class="waves-effect waves-light ">SIGN UP</a>
             </li>
-            <li>
+           <!--  <li>
               <a href="/search" class="waves-effect waves-light ">SEARCH</a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -67,21 +67,21 @@
     <!--start carousel-->
     <div class="slider">
       <ul class="slides">
-        <li>
-          <img src="${pageContext.request.contextPath}/resources/experts/img/b1.jpg">
+       
+        <li><br><br>
+          <img src="${pageContext.request.contextPath}/resources/experts/img/4th.jpg">
           <!-- random image -->
-          <div class="caption right-align">
-            <h2><em><i>Welcome</i></em></h2>
-            <h3><em><i>To</i></em>
-            <h3><em><i>EPSEEKER .....</i></em> </h3>
-          </div>
-        </li>
-        <li>
-          <img src="${pageContext.request.contextPath}/resources/experts/img/b2.jpg">
-          <!-- random image -->
-          <div class="caption left-align">
+          <!-- <div class="caption left-align">
             <h2 style="color:black"><em><i>The Best Website</i></em></h2>
             <h3 style="color:black;box-shadow:2px;">For Employee Recruitment.....</h3>
+          </div> -->
+        </li>
+         <li>
+          <img src="${pageContext.request.contextPath}/resources/experts/img/b2.jpg">
+         <!--  random image-->
+          <div class="caption left-align">
+            <h2 class="text-center" style="color:black; font-weight: 100px"><em><i>Welcome <br> To <br>EPSEEKER</i></em></h2>
+            
           </div>
         </li>
       </ul>
@@ -128,73 +128,73 @@
               <div id="developer" class="col-xs-12 text-left" >
               	
                 <div class="col-xs-6 col-md-4">
-                  <a href="#"><h6>Android<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Android<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                  <a href="#"><h6>IOS<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>IOS<span class="badge blue">256</span></h6></a>
                   
                 </div>
                 <div class="col-xs-6 col-md-4">
                   
-                  <a href="#"><h6>Web Design<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Web Design<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
                   
-                  <a href="#"><h6>Spring<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Spring<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                  <a href="#"><h6>C#<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>C#<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                  <a href="#"><h6>VB.NET<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>VB.NET<span class="badge blue">256</span></h6></a>
                 </div>
               
               </div>
               
               <div id="sysengineer" class="col-xs-12 text-left">
                 <div class="col-xs-6 col-md-4">
-                  <a href="#"><h6>Network<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Network<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                   
                 </div>
                 <div class="col-xs-6 col-md-4">
                   
-                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
                   
-                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                 </div>
               </div>
               <div id="managers" class="col-xs-12 text-left">
                 <div class="col-xs-6 col-md-4">
-                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                   
                 </div>
                 <div class="col-xs-6 col-md-4">
                   
-                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
                   
-                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                  <a href="#"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
                 </div>
               </div>
             </div>
@@ -210,32 +210,32 @@
             <div class="panel-heading  text-center">POPULAR DEVELOPERS</div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-xs-6">
+                <div class="col-md-3 col-xs-6 text-center">
                   <a href="#"><img src="${pageContext.request.contextPath}/resources/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
-          			Full Name
+          			Name : Sous Visal
           			<br>
-          			Subject
+          			Skill : Java Developer
           			</a>
                 </div>
-                <div class="col-md-3 col-xs-6">
+                <div class="col-md-3 col-xs-6 text-center">
                   <a href="#"><img src="${pageContext.request.contextPath}/resources/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
-          			Full Name
+          			Name : Sous Visal
           			<br>
-          			Subject
+          			Skill : Java Developer
           			</a>
                 </div>
-                <div class="col-md-3 col-xs-6">
+                <div class="col-md-3 col-xs-6 text-center">
                   <a href="#"><img src="${pageContext.request.contextPath}/resources/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
-          			Full Name
+          			Name : Sous Visal
           			<br>
-          			Subject
+          			Skill : Java Developer
           			</a>
                 </div>
-                <div class="col-md-3 col-xs-6">
+                <div class="col-md-3 col-xs-6 text-center">
                   <a href="#"><img src="${pageContext.request.contextPath}/resources/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
-          			Full Name
+          			Name : Sous Visal
           			<br>
-          			Subject
+          			Skill : Java Developer
           			</a>
                 </div>
               </div>
