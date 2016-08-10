@@ -72,10 +72,10 @@
          <li><br><br>
           <img src="${pageContext.request.contextPath}/resources/experts/img/3rd.jfif">
          <!--  random image-->
-          <div class="caption left-align">
+          <!-- <div class="caption left-align">
             <h2 class="text-center" style="color:black; font-weight: 100px"><em><i>Welcome <br> To <br>EPSEEKER</i></em></h2>
             
-          </div>
+          </div> -->
         </li>
         <li><br><br>
           <img src="${pageContext.request.contextPath}/resources/experts/img/4th.jpg">
@@ -201,43 +201,9 @@
     <!--end container developer-->
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <div class="panel panel-primary text-left">
-            <div class="panel-heading  text-center">POPULAR DEVELOPERS</div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-3 col-xs-6 text-center">
-                  <a href="#"><img src="${pageContext.request.contextPath}/resources/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
-          			Name : Sous Visal
-          			<br>
-          			Skill : Java Developer
-          			</a>
-                </div>
-                <div class="col-md-3 col-xs-6 text-center">
-                  <a href="#"><img src="${pageContext.request.contextPath}/resources/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
-          			Name : Sous Visal
-          			<br>
-          			Skill : Java Developer
-          			</a>
-                </div>
-                <div class="col-md-3 col-xs-6 text-center">
-                  <a href="#"><img src="${pageContext.request.contextPath}/resources/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
-          			Name : Sous Visal
-          			<br>
-          			Skill : Java Developer
-          			</a>
-                </div>
-                <div class="col-md-3 col-xs-6 text-center">
-                  <a href="#"><img src="${pageContext.request.contextPath}/resources/experts/img/stevie.jpg" class="img-fluid img-thumbnail m-y">
-          			Name : Sous Visal
-          			<br>
-          			Skill : Java Developer
-          			</a>
-                </div>
-              </div>
-              </div>
-            </div>
-          </div>
+      <!-- ly -->
+        <jsp:include page="expert/fragements/random/random.jsp"></jsp:include>
+      <!-- ly  -->
         </div>
       </div>
     </div>
