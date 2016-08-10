@@ -68,16 +68,16 @@
     <div class="slider">
       <ul class="slides">
         <li>
-          <img src="${pageContext.request.contextPath}/resources/experts/img/b1.png">
+          <img src="${pageContext.request.contextPath}/resources/experts/img/b1.jpg">
           <!-- random image -->
-          <div class="caption center-align">
-            <h2 class="text-"><em><i>Welcome</i></em></h2>
-            <h3 class="text-"><em><i>To</i></em>
-            <h3 class="text-"><em><i>EPSEEKER .....</i></em> </h3>
+          <div class="caption right-align">
+            <h2><em><i>Welcome</i></em></h2>
+            <h3><em><i>To</i></em>
+            <h3><em><i>EPSEEKER .....</i></em> </h3>
           </div>
         </li>
         <li>
-          <img src="${pageContext.request.contextPath}/resources/experts/img/b2.png">
+          <img src="${pageContext.request.contextPath}/resources/experts/img/b2.jpg">
           <!-- random image -->
           <div class="caption left-align">
             <h2 style="color:black"><em><i>The Best Website</i></em></h2>
