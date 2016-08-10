@@ -68,21 +68,17 @@
     <div class="slider">
       <ul class="slides">
        
-        <li><br><br>
-          <img src="${pageContext.request.contextPath}/resources/experts/img/4th.jpg">
-          <!-- random image -->
-          <!-- <div class="caption left-align">
-            <h2 style="color:black"><em><i>The Best Website</i></em></h2>
-            <h3 style="color:black;box-shadow:2px;">For Employee Recruitment.....</h3>
-          </div> -->
-        </li>
-         <li>
+        
+         <li><br><br>
           <img src="${pageContext.request.contextPath}/resources/experts/img/b2.jpg">
          <!--  random image-->
           <div class="caption left-align">
             <h2 class="text-center" style="color:black; font-weight: 100px"><em><i>Welcome <br> To <br>EPSEEKER</i></em></h2>
             
           </div>
+        </li>
+        <li><br><br>
+          <img src="${pageContext.request.contextPath}/resources/experts/img/4th.jpg">
         </li>
       </ul>
     </div>
