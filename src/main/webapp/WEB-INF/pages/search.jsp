@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/experts/ui/ui.min.css">
     <!--custom-->
     <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
+    <!-- font-awesome-4.6.3 -->
+   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/expert/font-awesome-4.6.3/css/font-awesome.min.css">
     <script>
       $.noConflict();
         jQuery(document).ready(function($){
@@ -24,7 +26,7 @@
         $('.tooltipped').tooltip({delay: 50});                                     	
         });
     </script>
-  </head><body>
+     </head><body>
   <!-- start navbar -->
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -152,7 +154,7 @@
                       <option value="3">HR</option>
                       <option value="4">Admin</option>
                     </select>
-                    <label>Position</label>
+                    <label>Experience Position</label>
                   </div>
                   <div class="input-field col s6">
                     <select>
@@ -217,44 +219,159 @@
           <div class="panel panel-primary text-left">
             <div class="panel-heading ">SEARCH RESULTS</div>
             <div class="panel-body">
-              <ul class="collection">
-                <li class="collection-item avatar">
-                  <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" alt="" class="circle">
-                  <!-- <i class="material-icons circle green">perm_identity</i>-->
-                  <span class="title">Srun Vannara</span>
-                  <p>Java
-                    <br>Phonm Penh</p>
-                  <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
-                </li>
-                <li class="collection-item avatar">
-                  <i class="material-icons circle green">perm_identity</i>
-                  <span class="title">Heng Samnag</span>
-                  <p>Photoshop
-                    <br>Phonm Penh</p>
-                  <a href="#!" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
-                </li>
-                <li class="collection-item avatar">
-                  <i class="material-icons circle green">perm_identity</i>
-                  <span class="title">Torn Sokly</span>
-                  <p>Android
-                    <br>Phonm Penh</p>
-                  <a href="#!" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
-                </li>
-                <li class="collection-item avatar">
-                  <i class="material-icons circle green">perm_identity</i>
-                  <span class="title">Khem Sovaety</span>
-                  <p>IOS
-                    <br>Phonm Penh</p>
-                  <a href="#!" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
-                </li>
-                <li class="collection-item avatar">
-                  <i class="material-icons circle green">perm_identity</i>
-                  <span class="title">Sous Visal</span>
-                  <p>Java
-                    <br>Phonm Penh</p>
-                  <a href="#!" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
-                </li>
-              </ul>
+            
+            <!-- ly  -->
+            
+            		<table class="table table-striped table-hover table-condensed table-responsive">
+            			<thead>
+							<tr>
+								<th>PROFILE</th>
+								<th>NAME</th>
+								<th>SKILL</th>
+								<th>SALARY</th>
+								<th>VIEW</th>
+            				</tr>            			
+            			</thead>
+            			<tbody>
+            				            				<tr>
+	            				<td style="width: 120px; text-align: center;">
+	            					<div >
+	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
+	            					</div>
+	            				</td>
+	            				<td><br><br>Srun Vannary</td>
+	            				<td><em><i><br><br>Java Developer</i></em></td>
+	            				<td><br><br>$250-$400</td>
+	            				<td style="float: left;"><br><br>
+	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
+	            				</td>
+            				</tr>
+            				
+            				
+            				<tr>
+	            				<td style="width: 120px; text-align: center;">
+	            					<div >
+	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
+	            					</div>
+	            				</td>
+	            				<td><br><br>Srun Vannary</td>
+	            				<td><em><i><br><br>Java Developer</i></em></td>
+	            				<td><br><br>$250-$400</td>
+	            				<td style="float: left;"><br><br>
+	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
+	            				</td>
+            				</tr>
+            				<tr>
+	            				<td style="width: 120px; text-align: center;">
+	            					<div >
+	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
+	            					</div>
+	            				</td>
+	            				<td><br><br>Srun Vannary</td>
+	            				<td><em><i><br><br>Java Developer</i></em></td>
+	            				<td><br><br>$250-$400</td>
+	            				<td style="float: left;"><br><br>
+	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
+	            				</td>
+            				</tr>
+            				<tr>
+	            				<td style="width: 120px; text-align: center;">
+	            					<div >
+	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
+	            					</div>
+	            				</td>
+	            				<td><br><br>Srun Vannary</td>
+	            				<td><em><i><br><br>Java Developer</i></em></td>
+	            				<td><br><br>$250-$400</td>
+	            				<td style="float: left;"><br><br>
+	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
+	            				</td>
+            				</tr>
+            				<tr>
+	            				<td style="width: 120px; text-align: center;">
+	            					<div >
+	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
+	            					</div>
+	            				</td>
+	            				<td><br><br>Srun Vannary</td>
+	            				<td><em><i><br><br>Java Developer</i></em></td>
+	            				<td><br><br>$250-$400</td>
+	            				<td style="float: left;"><br><br>
+	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
+	            				</td>
+            				</tr>
+            				<tr>
+	            				<td style="width: 120px; text-align: center;">
+	            					<div >
+	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
+	            					</div>
+	            				</td>
+	            				<td><br><br>Srun Vannary</td>
+	            				<td><em><i><br><br>Java Developer</i></em></td>
+	            				<td><br><br>$250-$400</td>
+	            				<td style="float: left;"><br><br>
+	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
+	            				</td>
+            				</tr>
+            				
+            				
+            				<tr>
+	            				<td style="width: 120px; text-align: center;">
+	            					<div >
+	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
+	            					</div>
+	            				</td>
+	            				<td><br><br>Srun Vannary</td>
+	            				<td><em><i><br><br>Java Developer</i></em></td>
+	            				<td><br><br>$250-$400</td>
+	            				<td style="float: left;"><br><br>
+	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
+	            				</td>
+            				</tr>
+            				<tr>
+	            				<td style="width: 120px; text-align: center;">
+	            					<div >
+	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
+	            					</div>
+	            				</td>
+	            				<td><br><br>Srun Vannary</td>
+	            				<td><em><i><br><br>Java Developer</i></em></td>
+	            				<td><br><br>$250-$400</td>
+	            				<td style="float: left;"><br><br>
+	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
+	            				</td>
+            				</tr>
+            				<tr>
+	            				<td style="width: 120px; text-align: center;">
+	            					<div >
+	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
+	            					</div>
+	            				</td>
+	            				<td><br><br>Srun Vannary</td>
+	            				<td><em><i><br><br>Java Developer</i></em></td>
+	            				<td><br><br>$250-$400</td>
+	            				<td style="float: left;"><br><br>
+	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
+	            				</td>
+            				</tr>
+            				<tr>
+	            				<td style="width: 120px; text-align: center;">
+	            					<div >
+	            						 <img src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG" width="100px" height="100px" alt="" class="circle">
+	            					</div>
+	            				</td>
+	            				<td><br><br>Srun Vannary</td>
+	            				<td><em><i><br><br>Java Developer</i></em></td>
+	            				<td><br><br>$250-$400</td>
+	            				<td style="float: left;"><br><br>
+	            					 <a href="/rest/expert/content" class="secondary-content  tooltipped" data-position="bottom" data-delay="50" data-tooltip="View More Details"><i class="material-icons">visibility</i></a>
+	            				</td>
+            				</tr>
+            			</tbody>
+            			
+            		</table>
+            		
+            <!-- ly -->
               <ul class="pagination pagination-sm ">
                 <li>
                   <a href="#">Prev</a>
