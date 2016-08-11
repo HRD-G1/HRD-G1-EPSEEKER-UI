@@ -17,15 +17,27 @@
     <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
     
     <!-- login js  -->
-    <script src="${pageContext.request.contextPath}/resources/experts/js/login.js" type="text/javascript" ></script>
-    <script>
-      $.noConflict();
-      jQuery(document).ready(function($){
-      $('select').material_select();
-      $('.slider').slider({full_width: true});
-       });
-    </script>
-  </head><body>
+	   
+  	<script>
+			  window.fbAsyncInit = function() {
+			    FB.init({
+			      appId      : '1086449548091842',
+			      xfbml      : true,
+			      version    : 'v2.7'
+			    });
+			  };
+			
+			  (function(d, s, id){
+			     var js, fjs = d.getElementsByTagName(s)[0];
+			     if (d.getElementById(id)) {return;}
+			     js = d.createElement(s); js.id = id;
+			     js.src = "//connect.facebook.net/en_US/sdk.js";
+			     fjs.parentNode.insertBefore(js, fjs);
+			   }(document, 'script', 'facebook-jssdk'));
+	</script>
+  	<!-- ended login via Facebook -->
+  	</head>
+  <body>
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header ">
@@ -94,7 +106,11 @@
                     </div>
                   </div>
                   <button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
-                  <button class="btn waves-effect waves-light" type="submit" name="action">Login Via Facebook!</button>
+                  <!-- <button class="btn waves-effect waves-light" type="submit" name="action">Login Via Facebook!</button> -->
+					<!-- facebook -->
+					<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+					</fb:login-button>
+					<!-- /facebook -->
                   <br><br>
                   <a href="/signup">Don't have an account?</a>
                 </form>
