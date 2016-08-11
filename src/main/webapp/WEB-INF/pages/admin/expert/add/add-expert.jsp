@@ -100,9 +100,9 @@
     				<!-- Country -->
     					<jsp:include page="../../fragements/modal/modal-country.jsp"></jsp:include>
     				<!-- Country -->
-    				<!-- Province Or City -->
+    				<%-- <!-- Province Or City -->
     					<jsp:include page="../../fragements/modal/modal-province-or-city.jsp"></jsp:include>
-    				<!-- Province Or City -->
+    				<!-- Province Or City --> --%>
     				<!-- District -->
     					<jsp:include page="../../fragements/modal/modal-district.jsp"></jsp:include>
     				<!-- District -->
@@ -126,11 +126,11 @@
     					<jsp:include page="../../fragements/modal/modal-language.jsp"></jsp:include>
     				<!-- Language -->
 					<!-- Main Skill -->
-    					<jsp:include page="../../fragements/modal/modal-main-skill.jsp"></jsp:include>
+    					<jsp:include page="../../fragements/modal/modal-main-skill-and-subskill.jsp"></jsp:include>
     				<!-- Main Skill -->
-    				<!-- Skill -->
+    				<%-- <!-- Skill -->
     					<jsp:include page="../../fragements/modal/modal-skill.jsp"></jsp:include>
-    				<!-- Skill -->    				
+    				<!-- Skill --> --%>    				
     				<!-- File Type -->
     					<jsp:include page="../../fragements/modal/modal-file-type.jsp"></jsp:include>
     				<!-- File Type -->
@@ -339,7 +339,7 @@
              <div class="row">
              	<div class="education">
              	<div class="col-md-12">
-             		<h3>Education 1</h3>
+             		<h3><span style="color: #e74c3c; cursor: pointer;" id="removeLanguage" class="fa fa-trash-o"></span>  Education 1</h3>
              	</div>
              	<div class="col-md-6">
              		<label for="gender">University</label>
@@ -387,7 +387,6 @@
 	             <div id="placeToAddEducationPattern" class="col-md-12 text-right">
 	             	<div class="btn-group">
 	             		<button type="button" id="moreEducation" class="btn btn-primary fa fa-plus-circle"> More Education</button>
-	             		<button type="button" id="moreEducation" class="btn btn-danger fa fa-minus-circle"> Remove Education</button>
 	             	</div>	             
 	             </div>
              </div> 
@@ -399,7 +398,7 @@
              <div class="row">
              	<div class="experience">
              	<div class="col-md-12">
-             		<h3>Experience 1</h3>
+             		<h3><span style="color: #e74c3c; cursor: pointer;" id="removeLanguage" class="fa fa-trash-o"></span>  Experience 1</h3>
              	</div>
              	<div class="col-md-6">
              		<label for="gender">Institution</label>
@@ -441,7 +440,6 @@
 	             <div id="placeToAddExperiencePattern" class="col-md-12 text-right">
 	             	<div class="btn-group">
 	             		<button type="button" id="moreExperience" class="btn btn-primary fa fa-plus-circle"> More Experience</button>
-	             		<button type="button" id="moreEducation" class="btn btn-danger fa fa-minus-circle"> Remove Experience</button>
 	             	</div>	             
 	             </div>
              </div> 
@@ -453,7 +451,7 @@
              <div class="row">
              	<div class="currentJob">
              	<div class="col-md-12">
-             		<h3>Current Job 1</h3>
+             		<h3><span style="color: #e74c3c; cursor: pointer;" id="removeLanguage" class="fa fa-trash-o"></span>  Current Job 1</h3>
              	</div>
              	<div class="col-md-6">
              		<label for="gender">Institution</label>
@@ -502,7 +500,6 @@
 	             <div id="placeToAddExperiencePattern" class="col-md-12 text-right">
 	             	<div class="btn-group">
 	             		<button type="button" id="moreCurrentJob" class="btn btn-primary fa fa-plus-circle"> More Current Job</button>
-	             		<button type="button" id="removeCurrentJob" class="btn btn-danger fa fa-minus-circle"> Remove Current Job</button>
 	             	</div>	             
 	             </div>
              </div> 
@@ -514,7 +511,7 @@
              <div class="row">
              	<div class="language">
              	<div class="col-md-12 col-sm-6">
-             		<h3>Language 1</h3>
+             		<h3><span style="color: #e74c3c; cursor: pointer;" id="removeLanguage" class="fa fa-trash-o"></span>  Language 1</h3>
              	</div>
              	<div class="col-md-6">
              		<label for="gender">Language</label>
@@ -544,7 +541,6 @@
 	             <div id="placeToAddExperiencePattern" class="col-md-12 text-right">
 	             	<div class="btn-group">
 	             		<button type="button" id="moreLanguage" class="btn btn-primary fa fa-plus-circle"> More Language</button>
-	             		<button type="button" id="removeLanguage" class="btn btn-danger fa fa-minus-circle"> Remove Language</button>
 	             	</div>	             
 	             </div>
              </div> 
@@ -552,11 +548,60 @@
              
              <hr>
              
+             <!-- Job Expectation -->
+             <div class="row">
+             	<div class="language">
+             	<div class="col-md-12 col-sm-6">
+             		<h3><span style="color: #e74c3c; cursor: pointer;" id="removeLanguage" class="fa fa-trash-o"></span>  Job Expectation 1</h3>
+             	</div>
+             	<div class="col-md-6">
+             		<label for="jobExpectation">Position</label>
+             		<div class="form-group input-group">
+						<select name="Institution" class="form-control">
+							<option value="">IT Manager</option>
+							<option value="">Java Developer</option>
+							<option value="">C# Developer</option>
+						</select>
+							<span class="input-group-btn"><button type="button" class="btn btn-default btn-add" data-toggle="modal" data-target="#addLanguage">+
+							</button></span>
+					</div>
+             	</div>
+             	<div class="col-md-6 col-sm-6">
+              		<div class="form-group">
+		                <label for="address">Position</label>
+		                <input type=number class="form-control" id="position" placeholder="A Place You Wish to Work...">
+		              </div>
+	             </div>
+	             <div class="col-md-6 col-sm-6">
+              		<div class="form-group">
+		                <label for="address">Minimum Salary</label>
+		                <input type=number class="form-control" id="position" placeholder="Minimun Salary">
+		              </div>
+	             </div>
+	             <div class="col-md-6 col-sm-6">
+              		<div class="form-group">
+		                <label for="address">Maximum Salary</label>
+		                <input type=number class="form-control" id="position" placeholder="Maximun Salary">
+		              </div>
+	             </div>
+	             </div>
+	            	             	
+	             
+	             <div id="placeToAddExperiencePattern" class="col-md-12 text-right">
+	             	<div class="btn-group">
+	             		<button type="button" id="moreLanguage" class="btn btn-primary fa fa-plus-circle"> More Language</button>
+	             	</div>	             
+	             </div>
+             </div> 
+             <!-- Job Expectation -->
+             
+             <hr>
+             
              <!-- Skill -->
              <div class="row">
              	<div class="Skill">
              	<div class="col-md-12 col-sm-6">
-             		<h3>Skill 1</h3>
+             		<h3><span style="color: #e74c3c; cursor: pointer;" id="removeLanguage" class="fa fa-trash-o"></span>  Skill 1</h3>
              	</div>
              	<div class="col-md-4 com-sm-6">
              		<label for="gender">Main Skill</label>
@@ -598,7 +643,6 @@
 	             <div class="col-md-12 text-right">
 	             	<div class="btn-group">
 	             		<button type="button" id="moreSkill" class="btn btn-primary fa fa-plus-circle"> More Skill</button>
-	             		<button type="button" id="removeSkill" class="btn btn-danger fa fa-minus-circle"> Remove Skill</button>
 	             	</div>	             
 	             </div>
              </div> 
@@ -610,7 +654,7 @@
              <div class="row">
              	<div class="Document">
              	<div class="col-md-12 col-sm-6">
-             		<h3>Document 1</h3>
+             		<h3><span style="color: #e74c3c; cursor: pointer;" id="removeLanguage" class="fa fa-trash-o"></span>  Document 1</h3>
              	</div>
              	<div class="col-md-6 com-sm-6">
              		<label for="gender">File Type</label>
@@ -649,7 +693,6 @@
 	             <div class="col-md-12 text-right">
 	             	<div class="btn-group">
 	             		<button type="button" id="moreSkill" class="btn btn-primary fa fa-plus-circle"> More Skill</button>
-	             		<button type="button" id="removeSkill" class="btn btn-danger fa fa-minus-circle"> Remove Skill</button>
 	             	</div>	             
 	             </div>
              </div> 

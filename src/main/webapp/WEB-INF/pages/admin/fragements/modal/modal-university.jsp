@@ -1,3 +1,4 @@
+	<div ng-controller="universityController">
 
 <!-- line modal -->
 <div class="modal fade" id="addUniversity" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
@@ -13,7 +14,7 @@
 			<form>			  
               <div class="form-group">
                 <label for="country">Add New University</label>
-                <input type="text" class="form-control" id="commune" placeholder="Add New University">
+                <input type="text" class="form-control" id="commune" placeholder="Add New University" ng-model="universityName">
               </div>              
             </form>
 
@@ -27,10 +28,12 @@
 					<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
 				</div>
 				<div class="btn-group" role="group">
-					<button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
+					<button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button" ng-click="insertUniverty()">Save</button>
 				</div>
 			</div>
 		</div>
 	</div>
   </div>
+</div>
+
 </div>

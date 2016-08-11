@@ -1,11 +1,19 @@
-<!-- Include Modal -->
-    				
+<!-- All Controll -->
+<script src="${pageContext.request.contextPath}/resources/admin/angularJS/angular.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/admin/angularJS/expertskill.js"></script>
+
+<!-- Sweet Alert -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/plugins/sweetalert/sweetalert.css">
+<script src="${pageContext.request.contextPath }/resources/admin/plugins/sweetalert/sweetalert-dev.js"></script>
+
+<div ng-app="expertApplication">
+<!-- Include Modal -->    	
     				<!-- Country -->
     					<jsp:include page="../fragements/modal/modal-country.jsp"></jsp:include>
     				<!-- Country -->
-    				<!-- Province Or City -->
+    				<%-- <!-- Province Or City -->
     					<jsp:include page="../fragements/modal/modal-province-or-city.jsp"></jsp:include>
-    				<!-- Province Or City -->
+    				<!-- Province Or City --> --%>
     				<!-- District -->
     					<jsp:include page="../fragements/modal/modal-district.jsp"></jsp:include>
     				<!-- District -->
@@ -29,11 +37,8 @@
     					<jsp:include page="../fragements/modal/modal-language.jsp"></jsp:include>
     				<!-- Language -->
 					<!-- Main Skill -->
-    					<jsp:include page="../fragements/modal/modal-main-skill.jsp"></jsp:include>
+    					<jsp:include page="../fragements/modal/modal-main-skill-and-subskill.jsp"></jsp:include>
     				<!-- Main Skill -->
-    				<!-- Skill -->
-    					<jsp:include page="../fragements/modal/modal-skill.jsp"></jsp:include>
-    				<!-- Skill -->    				
     				<!-- File Type -->
     					<jsp:include page="../fragements/modal/modal-file-type.jsp"></jsp:include>
     				<!-- File Type -->
@@ -201,3 +206,4 @@
     </section>
     <!-- /.sidebar -->
   </aside>
+  </div>

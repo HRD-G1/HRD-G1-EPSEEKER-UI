@@ -1,5 +1,5 @@
 
-<!-- line modal -->
+<!-- line modal city or province-->
 <div class="modal fade" id="addProvince" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
   <div class="modal-dialog">
 	<div class="modal-content">
@@ -41,3 +41,4 @@
 	</div>
   </div>
 </div>
+<!-- line modal city or province-->
