@@ -45,23 +45,20 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active">
-              <a href="/" class="waves-effect waves-light "><i class="fa fa-home " aria-hidden="true"></i> HOME</a>
+              <a href="/" class="waves-effect waves-light "><i class="fa fa-home "></i> HOME</a>
             </li>
             <li class="menu">
-              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone " aria-hidden="true"></i> CONTACT</a>
+              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone"></i> CONTACT</a>
             </li>
             <li class="menu">
-              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" aria-hidden="true"></i> ABOUT</a>
+              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret"></i> ABOUT</a>
             </li>
             <li class="menu">
-              <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in " aria-hidden="true"></i> LOGIN</a>
+              <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in"></i> LOGIN</a>
             </li>
             <li class="menu">
-              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus" aria-hidden="true"></i> SIGN UP</a>
+              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> SIGN UP</a>
             </li>
-           <!--  <li>
-              <a href="/search" class="waves-effect waves-light ">SEARCH</a>
-            </li> -->
           </ul>
         </div>
       </div>
