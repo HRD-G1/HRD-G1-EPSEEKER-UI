@@ -61,7 +61,7 @@
           </button>
          <!--  <a class="navbar-brand"><i class="-retro fa fa-crosshairs"></i></a> -->
          <a class="navbar-brand">
-          		<img alt="EPSEEKER" class="logo" src="${pageContext.request.contextPath}/resources/experts/img/logo.gif">
+          		<img alt="EPSEEKER" class="logo" src="${pageContext.request.contextPath}/resources/experts/img/logo11.png">
           	</a>
         </div>
         <div class="container-fluid">
