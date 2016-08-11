@@ -117,19 +117,19 @@
         </div>
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 809px; height: 150px; overflow: hidden;">
             <div style="display: none;">
-                <img data-u="image" src="${pageContext.request.contextPath}/resources/experts/random/img/005.jpg" />
+                <img data-u="image" src="${pageContext.request.contextPath}/resources/experts/img/sal.jpg" />
             </div>
             <div style="display: none;">
-                <img data-u="image" src="${pageContext.request.contextPath}/resources/experts/random/img/006.jpg" />
+                <img data-u="image" src="${pageContext.request.contextPath}/resources/experts/img/ly.jpg" />
             </div>
             <div style="display: none;">
-                <img data-u="image" src="${pageContext.request.contextPath}/resources/experts/random/img/011.jpg" />
+                <img data-u="image" src="${pageContext.request.contextPath}/resources/experts/img/tey.jpg" />
             </div>
             <div style="display: none;">
-                <img data-u="image" src="${pageContext.request.contextPath}/resources/experts/random/img/013.jpg" />
+                <img data-u="image" src="${pageContext.request.contextPath}/resources/experts/img/ra.jpg" />
             </div>
             <div style="display: none;">
-                <img data-u="image" src="${pageContext.request.contextPath}/resources/experts/random/img/014.jpg" />
+                <img data-u="image" src="${pageContext.request.contextPath}/resources/experts/img/nang.jpg" />
             </div>
             <div style="display: none;">
                 <img data-u="image" src="${pageContext.request.contextPath}/resources/experts/random/img/019.jpg" />
