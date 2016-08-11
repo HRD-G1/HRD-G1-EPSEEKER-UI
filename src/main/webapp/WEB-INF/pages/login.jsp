@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html ><!-- PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<<meta charset="utf-8">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -15,6 +15,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
     <!--cutom-->
     <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
+    
+    <!-- login js  -->
+    <script src="${pageContext.request.contextPath}/resources/experts/js/login.js" type="text/javascript" ></script>
     <script>
       $.noConflict();
       jQuery(document).ready(function($){
@@ -34,7 +37,7 @@
           </button>
           <!-- <a class="navbar-brand"><i class="-retro fa fa-crosshairs"></i></a> -->
           <a class="navbar-brand">
-          		<img alt="EPSEEKER" class="logo" src="${pageContext.request.contextPath}/resources/experts/img/logo.gif">
+          		<img alt="EPSEEKER" class="logo" src="${pageContext.request.contextPath}/resources/experts/img/logo11.png">
           	</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
@@ -79,7 +82,7 @@
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">email</i>
-                      <input id="icon_prefix" type="email" required="">
+                      <input id="icon_prefix" type="email" required>
                       <label for="icon_prefix">Email</label>
                     </div>
                   </div>

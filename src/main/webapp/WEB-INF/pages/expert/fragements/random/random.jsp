@@ -117,7 +117,9 @@
         </div>
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 809px; height: 150px; overflow: hidden;">
             <div style="display: none;">
-                <img data-u="image" src="${pageContext.request.contextPath}/resources/experts/img/sal.jpg" />
+            	<a href="/rest/expert/content">
+                	<img data-u="image" src="${pageContext.request.contextPath}/resources/experts/img/sal.jpg" />
+                </a>
             </div>
             <div style="display: none;">
                 <img data-u="image" src="${pageContext.request.contextPath}/resources/experts/img/ly.jpg" />

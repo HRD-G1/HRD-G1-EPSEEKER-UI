@@ -39,7 +39,7 @@
           </button>
           <!-- <a class="navbar-brand"><i class="-retro fa fa-crosshairs"></i></a> -->
           	<a class="navbar-brand">
-          		<img alt="EPSEEKER" class="img-responsive logo" src="${pageContext.request.contextPath}/resources/experts/img/logo.png">
+          		<img alt="EPSEEKER" class="img-responsive logo" src="${pageContext.request.contextPath}/resources/experts/img/logo11.png">
           	</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
@@ -67,10 +67,10 @@
     <!--start carousel-->
     <div class="slider">
       <ul class="slides">      
-         <li><br><br><br>
+         <li><br><br>
           <img src="${pageContext.request.contextPath}/resources/experts/img/3rd.jfif">
         </li>
-        <li><br><br><br>
+        <li><br><br>
           <img src="${pageContext.request.contextPath}/resources/experts/img/4th.jpg">
         </li>
       </ul>
@@ -84,12 +84,11 @@
           <div class="panel panel-primary text-justify">
           <div class="panel-heading  text-center">WELCOME TO EPSEEDER</div>
             <div class="panel-body">
-              <p class="introduction"><a href="/"><em>EPSEEKER</em></a> website help employers to find their workers by providing a lot of
+              <p class="introduction"><span class="fa fa-info-circle"></span> <a href="/"><em>EPSEEKER</em></a> is the best website that helps employers to find employees by providing a lot of
                 search functions. All candidates here are all Korea Software HRD Center
-                alumni in every generation. Before you can see all details of candiadates
-                like education degrees, majors, skills, certificates, thier location and
-                a lot more, please create and login to your
-                <a href="#">account</a>for free.</p>
+                alumni in every generation start from 1<sup>st</sup> generation. Before you can see all details of candidates
+                such as education degrees, majors, skills, certificates, their current address and
+                other more as employer need, please create and login to your <a href="/login">account </a> for free.</p>
             </div>   
             </div>
           </div>
@@ -198,12 +197,75 @@
     <div class="container">
       <div class="row">
       <!-- ly -->
-      <div class="panel panel-primary text-center">
-            <div class="panel-heading  text-center">POPULAR EXPERTS</div>
+      <div class="col-md-12">
+      <div class="panel panel-primary">
+            <div class="panel-heading text-center">POPULAR EXPERTS</div>
             <div class="panel-body">
-       				 <jsp:include page="expert/fragements/random/random.jsp"></jsp:include>
+       				 <%-- <jsp:include page="expert/fragements/random/random.jsp"></jsp:include> --%>
+       				 <!-- start popular expert  -->
+       				 <div class="row">
+       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+       				 	<a href="/rest/expert/content" class="expert-top">
+      						<div class="profile">
+      							<img class="img-thumbnail img-responsive" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
+      						</div>
+       				 		<div class="profile-description">
+      							<b>Name : Torn Sokly</n><br>
+      							<b>Skill: Spring Framework</b>
+      						</div>
+      						</a>
+       				 	</div>      
+       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+       				 	<a href="/rest/expert/content" class="expert-top">
+      						<div class="profile">
+      							<img class="img-thumbnail img-responsive" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
+      						</div>
+       				 		<div class="profile-description">
+      							<b>Name : Torn Sokly</n><br>
+      							<b>Skill: Spring Framework</b>
+      						</div>
+      						</a>
+       				 	</div>      
+       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+       				 	<a href="/rest/expert/content" class="expert-top">
+      						<div class="profile">
+      							<img class="img-thumbnail img-responsive" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
+      						</div>
+       				 		<div class="profile-description">
+      							<b>Name : Torn Sokly</n><br>
+      							<b>Skill: Spring Framework</b>
+      						</div>
+      						</a>
+       				 	</div>      
+       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+       				 	<a href="/rest/expert/content" class="expert-top">
+      						<div class="profile">
+      							<img class="img-thumbnail img-responsive" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
+      						</div>
+       				 		<div class="profile-description">
+      							<b>Name : Torn Sokly</n><br>
+      							<b>Skill: Spring Framework</b>
+      						</div>
+      						</a>
+       				 	</div> 
+       				 				 
+       				 </div>
+       				 <div class="row">
+       				 		<div class="col-lg-12 text center">
+       				 		<ul class="pagination">
+       				 		<li><a href="#"><< Pre</a></li>
+							  <li><a href="#">1</a></li>
+							  <li class="active"><a href="#">2</a></li>
+							  <li><a href="#">3</a></li>
+							  <li><a href="#">4</a></li>
+							 <li><a href="#">Next>></a></li>
+							 </div>
+						</ul>    
+       				 	</div> 	
+       				 <!-- end popular expert  -->
        		</div>
         	</div>
+        </div>
         </div>
       <!-- ly  -->
     </div>
@@ -216,7 +278,7 @@
          
               <!-- ly  -->
               
-              <div class="row">
+           <div class="row">
         	<div class="col-md-6 col-sm-6 col-lg-3">
         	<div class="profile-header-container">   
     		<div class="profile-header-img">
