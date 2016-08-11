@@ -41,6 +41,9 @@
             .asteriskField{
                 color: red;
             }
+            .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+ 			  width: 1094px;
+			}
         </style>
         
         <!-- footer -->
@@ -61,6 +64,7 @@
           		<img alt="EPSEEKER" class="logo" src="${pageContext.request.contextPath}/resources/experts/img/logo.gif">
           	</a>
         </div>
+        <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="menu">
@@ -83,6 +87,7 @@
               SEARCHF
             </li>
           </ul>
+        </div>
         </div>
       </div>
     </div>

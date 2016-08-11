@@ -39,7 +39,7 @@
           </button>
           <!-- <a class="navbar-brand"><i class="-retro fa fa-crosshairs"></i></a> -->
           	<a class="navbar-brand">
-          		<img alt="EPSEEKER" class="logo" src="${pageContext.request.contextPath}/resources/experts/img/logo2.png">
+          		<img alt="EPSEEKER" class="img-responsive logo" src="${pageContext.request.contextPath}/resources/experts/img/logo.png">
           	</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
@@ -70,10 +70,10 @@
     <!--start carousel-->
     <div class="slider">
       <ul class="slides">      
-         <li><br><br>
+         <li><br><br><br>
           <img src="${pageContext.request.contextPath}/resources/experts/img/3rd.jfif">
         </li>
-        <li><br><br>
+        <li><br><br><br>
           <img src="${pageContext.request.contextPath}/resources/experts/img/4th.jpg">
         </li>
       </ul>

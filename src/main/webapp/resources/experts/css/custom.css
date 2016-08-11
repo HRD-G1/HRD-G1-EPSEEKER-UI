@@ -182,3 +182,7 @@ body {
         padding-bottom: 28px;
     	padding-top: 28px;
 }
+
+.container-fluid {
+    background-color: #008080;
+}
