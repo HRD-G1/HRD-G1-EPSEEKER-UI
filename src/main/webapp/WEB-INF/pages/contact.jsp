@@ -17,7 +17,7 @@ pageEncoding="UTF-8"
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-    <!--cutom-->
+    <!--custom-->
     <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
     <script>
       $.noConflict();
@@ -27,6 +27,7 @@ pageEncoding="UTF-8"
                                          	
        });
     </script>
+     
   </head><body>
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -45,10 +46,10 @@ pageEncoding="UTF-8"
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
            <li class="menu">
-              <a href="/" class="waves-effect waves-light "><i class="fa fa-home "></i> ទំព័រដើម</a>
+              <a href="/" class="waves-effect waves-light " ><i class="fa fa-home " ></i> ទំព័រដើម</a>
             </li>
             <li class="active menu">
-              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone " ></i>ទំនាក់ទំនង</a>
+              <a href="/contact" class="waves-effect waves-light " "><i class="fa fa-phone " ></i>ទំនាក់ទំនង</a>
             </li>
             <li class=" menu">
               <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពី</a>
@@ -76,7 +77,7 @@ pageEncoding="UTF-8"
         <div class="col-md-6">
           <div class="panel panel-primary text-center">
             <div class="panel-heading ">ទីតាំង</div>
-            <div class="panel-body">
+            <div class="panel-body" >
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.6661823004565!2d104.88697831432277!3d11.575771247096458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109519cfc0bdfb1%3A0x2c2974b77cdaff4b!2sKorea+Software+HRD+Center!5e0!3m2!1sen!2skh!4v1470056846184" width="360" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
             </div>
           </div>

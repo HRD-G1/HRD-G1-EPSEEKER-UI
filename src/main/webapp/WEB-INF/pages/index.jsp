@@ -38,7 +38,7 @@ pageEncoding="UTF-8"
     <link href="${pageContext.request.contextPath}/resources/experts/css/statistic.css" rel="stylesheet" type="text/css">
     <!-- js index  -->
     <script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
-
+	
   </head>
   <body ng-controller="expertCategory">
   
