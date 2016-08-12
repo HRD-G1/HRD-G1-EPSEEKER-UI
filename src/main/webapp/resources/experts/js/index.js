@@ -1,46 +1,54 @@
 
 	var app = angular.module('indexapp', []);
 	
-	// subject category
-	
+	// get all subject name by category id //
 		app.controller('expertCategory', function($scope, $http){
-			// get subject category all 
-			$scope.getSubjectCategory= function(){
+			$scope.getSubjectCategory= function(category){
 			$http({
-				url:'http://localhost:3333/rest/subjectcategory',
+				url:'http://localhost:3333/rest/subject/bysubjectcategory/'+category.c.subjectCategory,
 				method:'GET'
 			}).then(function(response){
-				$scope.category =  response.data;
-				console.log($scope.category);
+				$scope.skills =  response.data;
+				console.log($scope.categoryid);
+				console.log($scope.skills);
 			}, function(response){
-				
 			});
 			}
-			$scope.test2;
-			$scope.test= function(cate){
-					$scope.test2=cate;
-					console.log($scope.test2);
-				}
-			$scope.getSubjectCategory();
-			});
-		
-	// subject 	
-	app.controller('subjectname', function($scope, $http){
-			// get subject all
-			$scope.getSubject= function(id){
+	// get all subject name by category id //
+			
+			
+			
+	// get all subject category name //
+			$scope.getSubjectAndSubjectCategory= function(){
 				$http({
-					url:'http://localhost:3333/rest/subject/bysubjectcategory/'+id,
+					url:'http://localhost:3333/rest/subjectcategory/',
 					method:'GET'
 				}).then(function(response){
-					$scope.subjects =  response.data;
-					console.log($scope.subjects);
+					
+					$scope.category =  response.data;
+					console.log($scope.category);
 				}, function(response){
 					
 				});
 				}
-			
-			
-			$scope.getSubject();
+				$scope.getSubjectAndSubjectCategory();
+	
+	// get all subject category name //
+	
+		$scope.getRandomExperts= function(){
+			$http({
+				url:'http://localhost:3333/rest/expert/',
+				method:'GET'
+			}).then(function(response){
+				$scope.experts =  response.data;
+				console.log($scope.experts);
+				
+			}, function(response){
+
 			});
-	
-	
+			}
+		$scope.getRandomExperts();
+		});		
+		
+		
+		
