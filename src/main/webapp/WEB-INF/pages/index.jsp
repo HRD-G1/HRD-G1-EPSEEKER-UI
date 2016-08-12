@@ -38,7 +38,13 @@ pageEncoding="UTF-8"
     <link href="${pageContext.request.contextPath}/resources/experts/css/statistic.css" rel="stylesheet" type="text/css">
     <!-- js index  -->
     <script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
+<<<<<<< HEAD
 	
+=======
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+>>>>>>> branch 'master' of https://github.com/HRD-G1/HRD-G1-EPSEEKER-UI.git
   </head>
   <body ng-controller="expertCategory">
   
@@ -131,19 +137,14 @@ pageEncoding="UTF-8"
 		    <li ng-repeat="c in category">
 		    
 		    	<a data-toggle="tab" id="{{c.subjectCategory}}" ng-click="getSubjectCategory(this)">{{c.subjectCategoryName}}</a>
-		    
+		    	   <div class="tab-content">
+			    <div id="my" class="tab-pane fade in active col-md-4" ng-repeat="s in category.subjects">
+		     		<a href="/search"> <p style="font-size: 15px;">{{s.subjectName}}</p></a>
+			    </div>
+			  </div>
 		    </li>
-		    
-		    <!--  <li ng-repeat="c in category">
-		    	<a data-toggle="tab" id="{{c.subjectCategory}}" ng-click="getSubjectCategory(this)">{{c.subjectCategoryName}}</a>
-		    </li> -->
+		 
 		  </ul>
-		
-		  <div class="tab-content">
-		    <div class="tab-pane fade in active col-md-4" ng-repeat="s in skills">
-		     	<a href="/search"> <p style="font-size: 15px;">{{s.subjectName}}</p></a>
-		    </div>
-		  </div>
 		</div>
 		</div>     
         </div> 
@@ -259,5 +260,5 @@ pageEncoding="UTF-8"
     </div>
     <br>
   <jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
-
+ 
 </body></html>
