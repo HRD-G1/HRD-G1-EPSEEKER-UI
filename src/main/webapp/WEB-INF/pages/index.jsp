@@ -2,10 +2,11 @@
     pageEncoding="ISO-8859-1"%>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html ng-app="indexapp"  >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
+	
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -13,7 +14,11 @@
     <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <!-- Angular -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+    
     <%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/experts/css/sui/ui.min.css"> --%>
     <!--custom-->
     <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
@@ -27,7 +32,14 @@
     </script>
     <!-- statistic css  -->
     <link href="${pageContext.request.contextPath}/resources/experts/css/statistic.css" rel="stylesheet" type="text/css">
-  </head><body>
+    <!-- js index  -->
+    <script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
+
+
+	
+	
+  </head>
+  <body ng-controller="expertCategory">
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header ">
@@ -99,93 +111,21 @@
         <div class="col-md-12">
           <div class="panel panel-default text-center">
             <div class="panel-heading white text-center">
+            
               <div class="row">
                 <div class="col-xs-12">
                   <ul class="tabs text-center">
-                    <li class="tab col-md-6">
-                      <a href="#developer">Developers</a>
-                    </li>
-                    <li class="tab col-md-6">
-                      <a class="active" href="#sysengineer">System Engineers</a>
-                    </li>
-                    <li class="tab col-md-6">
-                      <a href="#managers">IT Managers </a>
+                    <li class="tab col-md-6"  ng-repeat="c in category">
+                      <a href="">{{c.subjectCategoryName}}</a>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
             <div class="panel-body" >
-              <div id="developer" class="col-xs-12 text-left" >
-              	
+              <div id="Framework" class="col-xs-12 text-left" >
                 <div class="col-xs-6 col-md-4">
-                  <a href="/search"><h6>Android<span class="badge blue">256</span></h6></a>
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  <a href="/search"><h6>IOS<span class="badge blue">256</span></h6></a>
-                  
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  
-                  <a href="/search"><h6>Web Design<span class="badge blue">256</span></h6></a>
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  
-                  <a href="/search"><h6>Spring<span class="badge blue">256</span></h6></a>
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  <a href="/search"><h6>C#<span class="badge blue">256</span></h6></a>
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  <a href="/search"><h6>VB.NET<span class="badge blue">256</span></h6></a>
-                </div>
-              
-              </div>
-              
-              <div id="sysengineer" class="col-xs-12 text-left">
-                <div class="col-xs-6 col-md-4">
-                  <a href="/search"><h6>Network<span class="badge blue">256</span></h6></a>
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
-                  
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  
-                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  
-                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
-                </div>
-              </div>
-              <div id="managers" class="col-xs-12 text-left">
-                <div class="col-xs-6 col-md-4">
-                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
-                  
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  
-                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  
-                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
-                </div>
-                <div class="col-xs-6 col-md-4">
-                  <a href="/search"><h6>Any Skill<span class="badge blue">256</span></h6></a>
+                  <a href="/search"><h6>skill<span class="badge blue">256</span></h6></a>
                 </div>
               </div>
             </div>
