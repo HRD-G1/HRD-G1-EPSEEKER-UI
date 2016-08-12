@@ -116,16 +116,16 @@ pageEncoding="UTF-8"
       <div class="container">
       <div class="row">
         <div class="col-md-12">
-<<<<<<< HEAD
+
         
         
         
 		 <div class="panel panel-primary text-justify">
 		  <div class="panel-heading  text-center">បញ្ជីនៃមុខជំនាញ</div>       
-=======
+
 		 <div class="panel panel-primary text-justify" >
 		  <div class="panel-heading  text-center">LIST OF EXPERT SKILLS</div>       
->>>>>>> branch 'master' of https://github.com/HRD-G1/HRD-G1-EPSEEKER-UI.git
+
 			<div class="container-fluid">
 		  <ul class="nav nav-tabs"  >
 		    <!-- <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
