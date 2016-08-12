@@ -35,11 +35,9 @@
     <!-- js index  -->
     <script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
 
-
-	
-	
   </head>
-  <body ng-controller="expertCategory">
+  <body>
+  
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header ">
@@ -106,29 +104,74 @@
           </div>
         </div>
       </div>
-      <div class="container">
+      <div class="container" >
       <div class="row">
         <div class="col-md-12">
-          <div class="panel panel-default text-center">
+        
+        
+        
+		 <div class="panel panel-primary text-justify">
+		  <div class="panel-heading  text-center">LIST OF EXPERT SKILLS</div>       
+			<div class="container-fluid">
+		  <ul class="nav nav-tabs" ng-controller="expertCategory">
+		    <!-- <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+		    <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+		    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+		    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+		     -->
+		    <li ng-repeat="c in category" ><a data-toggle="tab" ng-click="test(c.subjectCategoryName)">{{c.subjectCategoryName}}</a>
+		    </li>
+		  </ul>
+		
+		  <div class="tab-content">
+		    <div id="home" class="tab-pane fade in active">
+		      <h3>HOME</h3>
+		      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		    </div>
+		    <div id="menu1" class="tab-pane fade">
+		      <h3>Menu 1</h3>
+		      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		    </div>
+		    <div id="menu2" class="tab-pane fade">
+		      <h3>Menu 2</h3>
+		      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+		    </div>
+		    <div id="menu3" class="tab-pane fade">
+		      <h3>Menu 3</h3>
+		      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+		    </div>
+		  </div>
+		</div>
+		</div>     
+        </div> 
+         <!--  <div class="panel panel-default text-center">
             <div class="panel-heading white text-center">
             
               <div class="row">
                 <div class="col-xs-12">
-                  <ul class="tabs text-center">
+                  <ul class="tabs text-center" ng-controller="expertCategory">
                     <li class="tab col-md-6"  ng-repeat="c in category">
-                      <a href="">{{c.subjectCategoryName}}</a>
+                      <a href="#detail-skill" ng-click="getSubject(c.subjectCategoryID)">{{c.subjectCategoryName}}</a>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-            <div class="panel-body" >
-              <div id="Framework" class="col-xs-12 text-left" >
-                <div class="col-xs-6 col-md-4">
-                  <a href="/search"><h6>skill<span class="badge blue">256</span></h6></a>
+            <div class="panel-body">
+            
+            	
+            
+              <div id="detail-skill" class="col-xs-12 text-left" >
+                <div ng-controller="subjectname" class="col-xs-6 col-md-4">
+                  <a href="/search" ng-repeat="s in subjects">
+                  	<h6>{{s.subjectName}}<span class="badge blue">256</span></h6>
+                  </a>
                 </div>
               </div>
-            </div>
+              
+              
+              
+            </div> -->
           </div>
         </div>
       </div>
