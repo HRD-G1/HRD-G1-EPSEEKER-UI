@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page
+language="java"
+contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"
+%>
+
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html ng-app="indexapp"  >
@@ -34,9 +38,15 @@
     <link href="${pageContext.request.contextPath}/resources/experts/css/statistic.css" rel="stylesheet" type="text/css">
     <!-- js index  -->
     <script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
+<<<<<<< HEAD
+	
+=======
 
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+>>>>>>> branch 'master' of https://github.com/HRD-G1/HRD-G1-EPSEEKER-UI.git
   </head>
-  <body>
+  <body ng-controller="expertCategory">
   
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -54,21 +64,24 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active">
-              <a href="/" class="waves-effect waves-light "><i class="fa fa-home"></i> HOME</a>
+           <li class=" active menu">
+              <a href="/" class="waves-effect waves-light "><i class="fa fa-home "></i> ទំព័រដើម</a>
             </li>
             <li class="menu">
-              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone"></i> CONTACT</a>
+              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone " ></i>ទំនាក់ទំនង</a>
+            </li>
+            <li class=" menu">
+              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពី</a>
             </li>
             <li class="menu">
-              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret"></i> ABOUT</a>
+              <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in " ></i> ចូល</a>
             </li>
             <li class="menu">
-              <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in"></i> LOGIN</a>
+              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i>ចុះឈ្មោះ</a>
             </li>
-            <li class="menu">
-              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> SIGN UP</a>
-            </li>
+            <!-- <li>
+              <a href="/search" class="waves-effect waves-light ">SEARCH</a>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -91,143 +104,74 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="panel panel-primary text-justify">
-          <div class="panel-heading  text-center">WELCOME TO EPSEEDER</div>
-            <div class="panel-body">
-              <p class="introduction"><span class="fa fa-info-circle"></span> <a href="/"><em>EPSEEKER</em></a> is the best website that helps employers to find employees by providing a lot of
-                search functions. All candidates here are all Korea Software HRD Center
-                alumni in every generation start from 1<sup>st</sup> generation. Before you can see all details of candidates
-                such as education degrees, majors, skills, certificates, their current address and
-                other more as employer need, please create and login to your <a href="/login">account </a> for free.</p>
+          <div class="panel panel-primary ">
+          <div class="panel-heading  text-center">សូមស្វាគមន៍</div>
+            <div class="panel-body ">
+              <p​ style="word-wrap: break-word;" class="text-justify;" >
+              	<span>នេះគឺជាគេហទំព័រមួយដែលជួយដល់និយោជកឬអ្នកដែលមានបំណងចង់ស្វែងរក​បុគ្គលិកសម្រាប់បម្រើការនៅក្រុមហ៊ុនរបស់ខ្លួនបានដោយ ផ្ដល់នូវមុខងារស្វែង​រកជាច្រើន។ បេក្ខភាពទាំងអស់​នៅគេហទំព័រនេះសុទ្ធ​តែជាអតីតនិស្សិតរបស់មជ្ឈមណ្ឌលកូរ៉េសហ្វវែរ អេច អ ឌី គ្រប់ជំនាន់ទាំងអស់។ មុននឹងអាចប្រើប្រាស់គ្រប់មុខងារ ជាពិសេស ការបង្ហាញផ្នែកលំអិតរប​ស់បេក្ខជនដែលអ្នកចាប់អារម្មណ៍ដូ​ចជាកម្រិតនៃការសិក្សា មុខជំនាញ ​សញ្ញាបត្រ អាសយដ្ឋាន និង ព័ត៌មានជាច្រើនទៀតសូមធ្វើការ<a href="#">ចុះឈ្មោះ</a> និង<a href="#">ចូលក្នុងគណនី</a>របស់អ្នក ដោយឥតគិតថ្លៃ។</span>
+              </p>
+
+
+              
+              
             </div>   
             </div>
           </div>
         </div>
       </div>
-      <div class="container" >
+      <div class="container">
       <div class="row">
         <div class="col-md-12">
-        
-        
-        
-		 <div class="panel panel-primary text-justify">
+
+		 <div class="panel panel-primary text-justify" >
 		  <div class="panel-heading  text-center">LIST OF EXPERT SKILLS</div>       
+
 			<div class="container-fluid">
-		  <ul class="nav nav-tabs" ng-controller="expertCategory">
+		  <ul class="nav nav-tabs"  >
 		    <!-- <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
 		    <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
 		    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
 		    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
 		     -->
-		    <li ng-repeat="c in category" ><a data-toggle="tab" ng-click="test(c.subjectCategoryName)">{{c.subjectCategoryName}}</a>
+		     
+		    <li ng-repeat="c in category">
+		    
+		    	<a data-toggle="tab" id="{{c.subjectCategory}}" ng-click="getSubjectCategory(this)">{{c.subjectCategoryName}}</a>
+		    	   <div class="tab-content">
+			    <div id="my" class="tab-pane fade in active col-md-4" ng-repeat="s in category.subjects">
+		     		<a href="/search"> <p style="font-size: 15px;">{{s.subjectName}}</p></a>
+			    </div>
+			  </div>
 		    </li>
+		 
 		  </ul>
-		
-		  <div class="tab-content">
-		    <div id="home" class="tab-pane fade in active">
-		      <h3>HOME</h3>
-		      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		    </div>
-		    <div id="menu1" class="tab-pane fade">
-		      <h3>Menu 1</h3>
-		      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		    </div>
-		    <div id="menu2" class="tab-pane fade">
-		      <h3>Menu 2</h3>
-		      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-		    </div>
-		    <div id="menu3" class="tab-pane fade">
-		      <h3>Menu 3</h3>
-		      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-		    </div>
-		  </div>
 		</div>
 		</div>     
         </div> 
-         <!--  <div class="panel panel-default text-center">
-            <div class="panel-heading white text-center">
-            
-              <div class="row">
-                <div class="col-xs-12">
-                  <ul class="tabs text-center" ng-controller="expertCategory">
-                    <li class="tab col-md-6"  ng-repeat="c in category">
-                      <a href="#detail-skill" ng-click="getSubject(c.subjectCategoryID)">{{c.subjectCategoryName}}</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="panel-body">
-            
-            	
-            
-              <div id="detail-skill" class="col-xs-12 text-left" >
-                <div ng-controller="subjectname" class="col-xs-6 col-md-4">
-                  <a href="/search" ng-repeat="s in subjects">
-                  	<h6>{{s.subjectName}}<span class="badge blue">256</span></h6>
-                  </a>
-                </div>
-              </div>
-              
-              
-              
-            </div> -->
-          </div>
         </div>
-      </div>
-        </div> 
+        </div>
     <!--end container developer-->
     <div class="container">
       <div class="row">
       <!-- ly -->
       <div class="col-md-12">
       <div class="panel panel-primary">
-            <div class="panel-heading text-center">POPULAR EXPERTS</div>
+            <div class="panel-heading text-center">អ្នកជំនាញល្បីៗ</div>
             <div class="panel-body">
        				 <%-- <jsp:include page="expert/fragements/random/random.jsp"></jsp:include> --%>
        				 <!-- start popular expert  -->
        				 <div class="row">
-       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+       				 	  
+       				 	 
+       				 	
+       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="e in experts">
        				 	<a href="/rest/expert/content" class="expert-top">
       						<div class="profile">
       							<img class="img-thumbnail img-responsive" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
       						</div>
        				 		<div class="profile-description">
-      							<b>Name : Torn Sokly</n><br>
-      							<b>Skill: Spring Framework</b>
-      						</div>
-      						</a>
-       				 	</div>      
-       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-       				 	<a href="/rest/expert/content" class="expert-top">
-      						<div class="profile">
-      							<img class="img-thumbnail img-responsive" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
-      						</div>
-       				 		<div class="profile-description">
-      							<b>Name : Torn Sokly</n><br>
-      							<b>Skill: Spring Framework</b>
-      						</div>
-      						</a>
-       				 	</div>      
-       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-       				 	<a href="/rest/expert/content" class="expert-top">
-      						<div class="profile">
-      							<img class="img-thumbnail img-responsive" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
-      						</div>
-       				 		<div class="profile-description">
-      							<b>Name : Torn Sokly</n><br>
-      							<b>Skill: Spring Framework</b>
-      						</div>
-      						</a>
-       				 	</div>      
-       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-       				 	<a href="/rest/expert/content" class="expert-top">
-      						<div class="profile">
-      							<img class="img-thumbnail img-responsive" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
-      						</div>
-       				 		<div class="profile-description">
-      							<b>Name : Torn Sokly</n><br>
-      							<b>Skill: Spring Framework</b>
+      							<b>Name:{{e.expertFirstName}}</n><br>
+    						  	<b>Skill: {{e.expertAdvanceCourse}}</b>
       						</div>
       						</a>
        				 	</div> 
@@ -236,12 +180,12 @@
        				 <div class="row">
        				 		<div class="col-lg-12 text center">
        				 		<ul class="pagination">
-       				 		<li><a href="#"><< Pre</a></li>
-							  <li><a href="#">1</a></li>
-							  <li class="active"><a href="#">2</a></li>
-							  <li><a href="#">3</a></li>
-							  <li><a href="#">4</a></li>
-							 <li><a href="#">Next>></a></li>
+       				 		<li><a href="#"><< ថយ</a></li>
+							  <li><a href="#">១</a></li>
+							  <li class="active"><a href="#">២</a></li>
+							  <li><a href="#">៣</a></li>
+							  <li><a href="#">៤</a></li>
+							 <li><a href="#">បន្ទាប់>></a></li>
 							 </div>
 						</ul>    
        				 	</div> 	
@@ -256,7 +200,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-primary text-center">
-            <div class="panel-heading  text-center">STATISTICS</div>
+            <div class="panel-heading  text-center">ស្ថិតិ</div>
             <div class="panel-body">
          
               <!-- ly  -->
@@ -316,5 +260,5 @@
     </div>
     <br>
   <jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
-
+ 
 </body></html>

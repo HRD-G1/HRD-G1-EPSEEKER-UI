@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page
+language="java"
+contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -40,19 +44,19 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
            <li class="menu">
-              <a href="/" class="waves-effect waves-light "><i class="fa fa-home "></i> HOME</a>
+              <a href="/" class="waves-effect waves-light "><i class="fa fa-home "></i> ទំព័រដើម</a>
             </li>
             <li class="menu">
-              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone " ></i> CONTACT</a>
+              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone " ></i>ទំនាក់ទំនង</a>
+            </li>
+            <li class=" menu">
+              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពី</a>
             </li>
             <li class="menu">
-              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> ABOUT</a>
+              <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in " ></i> ចូល</a>
             </li>
-            <li class="menu">
-              <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in " ></i> LOGIN</a>
-            </li>
-            <li class=" active menu">
-              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> SIGN UP</a>
+            <li class="active menu">
+              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i>ចុះឈ្មោះ</a>
             </li>
             <!-- <li>
               <a href="/search" class="waves-effect waves-light ">SEARCH</a>
@@ -70,7 +74,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-primary text-center">
-            <div class="panel-heading ">SIGN UP</div>
+            <div class="panel-heading ">ចុះឈ្មោះ</div>
             <div class="panel-body">
               <div class="row">
                 <form class="col s12 text-center">
@@ -78,43 +82,43 @@
                     <div class="input-field col s12">
                       <i class="material-icons prefix">email</i>
                       <input id="icon_prefix" type="email" class="validate" required>
-                      <label for="icon_prefix">Email</label>
+                      <label for="icon_prefix">អ៊ីម៉ែល</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">email</i>
                       <input id="icon_prefix" type="email" class="validate" required>
-                      <label for="icon_prefix">Re-Type Email</label>
+                      <label for="icon_prefix">បញ្ចូលអ៊ីម៉ែលម្ដងទៀត</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">perm_identity</i>
                       <input id="icon_prefix" type="text" required>
-                      <label for="icon_prefix">Username</label>
+                      <label for="icon_prefix">ឈ្មោះ</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">vpn_key</i>
                       <input id="icon_prefix" type="password" required>
-                      <label for="icon_prefix">Password</label>
+                      <label for="icon_prefix">ពាក្យសម្ងាត់</label>
                     </div>
                   </div>
                   <div class="row text-left">
                     <div class="input-field col s10 push-s1">
                       <select>
-                        <option value="" disabled="" selected="">Please select your gender</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
+                        <option value="" disabled="" selected="">ភេទ</option>
+                        <option value="1">ប្រុស</option>
+                        <option value="2">ស្រី</option>
                       </select>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s10 push-s1">
                       <select>
-                        <option value="" disabled="" selected="">Please choose your department</option>
+                        <option value="" disabled="" selected="">សូមជ្រើសរើសដេប៉ាតឺម៉ង់</option>
                         <option>Computer Science Department</option>
                         <option>Business And Economic Department</option>
                         <option>Law and Public Affairs Department</option>
@@ -128,10 +132,10 @@
                       </select>
                     </div>
                   </div>
-                  <button class="btn waves-effect waves-light" type="submit" name="action">sign up</button>
-                  <button class="btn waves-effect waves-light" type="reset" name="action">Reset</button>
+                  <button class="btn waves-effect waves-light" type="submit" name="action">ចុះឈ្មោះ</button>
+                  <button class="btn waves-effect waves-light" type="reset" name="action">សម្អាត</button>
                   <br><br>
-                  <a href="/login">Already have an account?</a>
+                  <a href="/login">មានគណនីហើយ?</a>
                 </form>
               </div>
             </div>
