@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page
+language="java"
+contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -45,21 +49,21 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
            <li class="menu">
-              <a href="/" class="waves-effect waves-light "><i class="fa fa-home " ></i> HOME</a>
+              <a href="/" class="waves-effect waves-light "><i class="fa fa-home "></i> ទំព័រដើម</a>
             </li>
             <li class="menu">
-              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone "></i> CONTACT</a>
+              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone " ></i>ទំនាក់ទំនង</a>
+            </li>
+            <li class=" menu">
+              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពី</a>
             </li>
             <li class="menu">
-              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret"></i> ABOUT</a>
+              <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in " ></i> ចូល</a>
             </li>
             <li class="menu">
-              <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i> LOGIN</a>
+              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i>ចុះឈ្មោះ</a>
             </li>
-            <li class="menu">
-              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> SIGN UP</a>
-            </li>
-            <!-- <li class="active">
+            <!-- <li>
               <a href="/search" class="waves-effect waves-light ">SEARCH</a>
             </li> -->
           </ul>
