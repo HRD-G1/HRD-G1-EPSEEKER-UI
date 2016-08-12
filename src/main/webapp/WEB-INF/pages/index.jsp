@@ -117,12 +117,6 @@ pageEncoding="UTF-8"
       <div class="row">
         <div class="col-md-12">
 
-        
-        
-        
-		 <div class="panel panel-primary text-justify">
-		  <div class="panel-heading  text-center">បញ្ជីនៃមុខជំនាញ</div>       
-
 		 <div class="panel panel-primary text-justify" >
 		  <div class="panel-heading  text-center">LIST OF EXPERT SKILLS</div>       
 
