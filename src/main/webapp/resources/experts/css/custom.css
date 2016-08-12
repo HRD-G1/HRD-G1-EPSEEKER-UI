@@ -159,7 +159,12 @@ body {
 		background-color: #B2DFDB;
 		border-bottom: 1px solid red;
 	}
-	
+ .nav li .fa:hover
+ {
+ 	color: #000;
+ }
+
+
 .navbar 
 {
 	box-shadow: 0px 4px 5px black;	
@@ -192,7 +197,7 @@ body {
 }
 .fa
 {
-	color: #008080;
+	color: #fff;
 }
 
 
