@@ -107,9 +107,6 @@
       <div class="container" ng-controller="expertCategory">
       <div class="row">
         <div class="col-md-12">
-        
-        
-        
 		 <div class="panel panel-primary text-justify" >
 		  <div class="panel-heading  text-center">LIST OF EXPERT SKILLS</div>       
 			<div class="container-fluid">
@@ -119,14 +116,19 @@
 		    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
 		    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
 		     -->
+		     
 		    <li ng-repeat="c in category">
-		    	<a data-toggle="tab" ng-click="getSubjectCategory(this)">{{c.subjectCategoryName}}</a>
+		    	<a data-toggle="tab" id="{{c.subjectCategory}}" ng-click="getSubjectCategory(this)">{{c.subjectCategoryName}}</a>
 		    </li>
+		    
+		    <!--  <li ng-repeat="c in category">
+		    	<a data-toggle="tab" id="{{c.subjectCategory}}" ng-click="getSubjectCategory(this)">{{c.subjectCategoryName}}</a>
+		    </li> -->
 		  </ul>
 		
 		  <div class="tab-content">
-		    <div id="home" class="tab-pane fade in active" ng-repeat="s in skills">
-		      <p>{{s.subjectName}}</p>
+		    <div class="tab-pane fade in active col-md-4" ng-repeat="s in skills">
+		      <p style="font-size: 15px;">{{s.subjectName}}</p>
 		    </div>
 		  <!--   <div id="menu1" class="tab-pane fade">
 		      <h3>Menu 1</h3>
