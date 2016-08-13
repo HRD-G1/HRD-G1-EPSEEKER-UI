@@ -193,7 +193,7 @@
                 <!--Start Educatioin-->
                 <div class="row row1">
                     <div class="profile-option">
-                        <center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> EDUCATION</h2></center>
+                        <center ><h2 style="font-family: 'Arial'" class="small-heading"> <span class="fa fa-arrow-circle-right"></span> EDUCATION</h2></center>
                     </div>
                     <table id="edu-container" class="education-container col-md-12 col-xs-12" style="margin-bottom: 0px">
                         <tr ng-repeat="ed in edu">

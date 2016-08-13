@@ -46,6 +46,7 @@ public class MainController {
 	}
 	
 	
+	//Admin
 	
 	
 	@RequestMapping(value="/rest/admin/dashboard")
@@ -65,4 +66,25 @@ public class MainController {
 	{
 		return "admin/expert/view/view-expert";
 	}
+	
+	@RequestMapping(value="/rest/admin/university/view")
+	public String viewUniversity(){
+		return "admin/university/view/view-university";
+	}
+	
+	@RequestMapping(value="/rest/admin/major/view")
+	public String viewMajor(){
+		return "admin/major/view/view-major";
+	}
+	
+	@RequestMapping(value="/rest/admin/mainskill/view")
+	public String viewMainSkill(){
+		return "admin/mainSkill/view/view-main-skill";
+	}
+	
+	@RequestMapping(value="/rest/admin/skill/view")
+	public String viewSkill(){
+		return "admin/skill/view/view-skill";
+	}
 }
+

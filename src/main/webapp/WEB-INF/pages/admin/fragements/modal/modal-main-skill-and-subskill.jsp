@@ -1,7 +1,4 @@
-
-	<div ng-controller="mainSkillAndSubSkillController">
-	
-		<!-- line modal of main skill -->
+	<!-- line modal of main skill -->
 		<div class="modal fade" id="addMainSkill" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 			<div class="modal-content">
@@ -15,7 +12,7 @@
 					<form>			  
 		              <div class="form-group">
 		                <label for="MainSkill">Add New Main Skill</label>
-		                <input type="text" class="form-control" id="mainSkill" placeholder="Add New Main Skill" ng-model="mainSkill">
+		                <input type="text" class="form-control" id="mainSkill" placeholder="Add New Main Skill" ng-model="mainSkillName">
 		              </div>              
 		            </form>
 		
@@ -25,8 +22,8 @@
 						<div class="btn-group" role="group">
 							<button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
 						</div>
-						<div class="btn-group btn-delete hidden" role="group">
-							<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
+						<div class="btn-group btn-delete" role="group">
+							<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button" ng-click="updateMainSkill()">Update</button>
 						</div>
 						<div class="btn-group" role="group">
 							<button type="button" id="insertDataOfMainSkill" class="btn btn-default btn-hover-green" data-action="save" role="button" ng-click="insertDataOfMainSkill()">Save</button>
@@ -53,7 +50,10 @@
 					<form>
 					  <div class="form-group">
 				      	<label for="mainSkill">Main Skill</label>
-				        <select class="form-control" id="mainSkill" ng-model="subjectCategory" ng-options="ms.subjectCategoryName for ms in mainSkillSet">
+				        <select class="form-control" id="mainSkill" 
+				        	ng-model="subjectCategory" 
+				        	data-ng-options="ms.subjectCategoryID as ms.subjectCategoryName for ms in mainSkillSet" >
+				        	<option value="">--Select--</option>
 				        </select>
 			          </div>	
 		              <div class="form-group">
@@ -68,8 +68,8 @@
 						<div class="btn-group" role="group">
 							<button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
 						</div>
-						<div class="btn-group btn-delete hidden" role="group">
-							<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
+						<div class="btn-group btn-delete" role="group">
+							<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button" ng-click="updateSkill()">Updated</button>
 						</div>
 						<div class="btn-group" role="group">
 							<button type="button" id="insertDataOfMainSkill" class="btn btn-default btn-hover-green" data-action="save" role="button" ng-click="insertDataOfSubSkill()">Save</button>
@@ -80,5 +80,3 @@
 		  </div>
 		</div>
 		<!-- line modal of Skill -->
-		
-	</div>

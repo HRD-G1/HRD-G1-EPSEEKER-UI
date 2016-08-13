@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html>
+<html ng-app="expertApplication">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,87 +28,55 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" ng-controller="mainSkillAndSubSkillController">
 <div class="wrapper">
 
   <!-- Include Main Header -->
   	<jsp:include page="../../fragements/main-header.jsp"></jsp:include>
   <!-- Include Main Header -->
   
-  <!-- Left side column. contains the logo and sidebar -->
+  <!-- <div ng-controller="fileTypeController">  
+  <div ng-controller="languageController">
+  <div ng-controller="mainSkillAndSubSkillController">    
+  <div ng-controller="locationController">  
+  <div ng-controller="universityController"> -->
   
   <!-- Include main Sidebar -->
   	<jsp:include page="../../fragements/main-sider.jsp"></jsp:include>
   <!-- Include main Sidebar -->
+  
+  <!-- </div> University
+  </div> Location  	  
+  </div> Skill
+  </div> Language
+  </div> File -->
+  
+  <!-- Left side column. contains the logo and sidebar -->
+  
+  
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>Add User<small>Expert DB User</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-            <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Name</th>
-                  <th>Gender</th>
-                  <th>POB</th>
-                  <th>Current Address</th>
-                  <th>Phone</th>
-                  <th>Email</th>
-                  <th>Generation</th>
-                  <th>Advance Course</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                                    
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>No.</th>
-                  <th>Name</th>
-                  <th>Gender</th>
-                  <th>POB</th>
-                  <th>Current Address</th>
-                  <th>Phone</th>
-                  <th>Email</th>
-                  <th>Generation</th>
-                  <th>Advance Course</th>
-                  <th>Action</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
+    
+    <table class="table table-striped table-bordered table-list">
+                  <thead>
+                    <tr>
+                        <th class="hidden-xs">No.</th>
+                        <th>Subject Category Name</th>
+                        <th><em class="fa fa-cog"></em> Action</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                          <tr ng-repeat="mks in mainSkillSet">
+                          	<td>{{$index+1}}</td>
+                          	<td>{{mks.subjectCategoryName}}</td>
+                            <td align="center">
+                              <a class="btn btn-default" ng-click="getUpdateMainSkill(this)" data-toggle="modal" data-target="#addMainSkill" ><em class="fa fa-pencil"></em></a>
+                              <a class="btn btn-danger" ng-click="removeMainSkill(mks.subjectCategoryID)"><em class="fa fa-trash"></em></a>
+                            </td>
+                          </tr>
+                        </tbody>
+                </table>
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -152,18 +119,5 @@
 <!-- AdminLTE for demo purposes -->
 <script src="${pageContext.request.contextPath}/resources/admin/dist/js/demo.js"></script>
 <!-- page script -->
-<script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
 </body>
 </html>

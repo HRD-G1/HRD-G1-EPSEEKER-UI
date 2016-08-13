@@ -7,7 +7,6 @@
 			$scope.getSubjectCategory= function(category){
 				console.log(category.c.subjects);
 				$scope.subjects = category.c.subjects;
-				console.log($scope.subjects.subjects);
 			}
 	// get all subject name by category id //
 			

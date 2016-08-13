@@ -1,5 +1,3 @@
-
-<div ng-controller="majorController">
 	<!-- line modal -->
 	<div class="modal fade" id="addMajor" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
@@ -14,7 +12,7 @@
 				<form>			  
 	              <div class="form-group">
 	                <label for="country">Add New Major</label>
-	                <input type="text" class="form-control" id="commune" placeholder="Add New Major" ng-model="majorName">
+	                <input type="text" class="form-control" id="major" placeholder="Add New Major" ng-model="majorName">
 	              </div>              
 	            </form>
 	
@@ -24,10 +22,10 @@
 					<div class="btn-group" role="group">
 						<button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
 					</div>
-					<div class="btn-group btn-delete hidden" role="group">
-						<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
+					<div class="btn-group btn-delete" role="group" ng-show="ifUpdate">
+						<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button" ng-click="updateMajor()">Update</button>
 					</div>
-					<div class="btn-group" role="group">
+					<div class="btn-group" role="group" ng-show="ifInsert">
 						<button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button" ng-click="insertMajor()">Save</button>
 					</div>
 				</div>
@@ -35,4 +33,3 @@
 		</div>
 	  </div>
 	</div>
-</div>

@@ -135,15 +135,14 @@ pageEncoding="UTF-8"
 		     -->
 		     
 		    <li ng-repeat="c in category">
-		    
 		    	<a data-toggle="tab" id="{{c.subjectCategory}}" ng-click="getSubjectCategory(this)">{{c.subjectCategoryName}}</a>
-		    	   <div class="tab-content">
-			    <div id="my" class="tab-pane fade in active col-md-4" ng-repeat="s in category.subjects">
-		     		<a href="/search"> <p style="font-size: 15px;">{{s.subjectName}}</p></a>
-			    </div>
-			  </div>
 		    </li>
-		 
+		    <div class="tab-content">
+			    <div id="my" class="tab-pane fade in active col-md-4" ng-repeat="s in subjects">
+			     		<a href="/search"> <p style="font-size: 15px;">{{s.subjectName}}</p></a>
+				</div>
+			</div>
+			
 		  </ul>
 		</div>
 		</div>     

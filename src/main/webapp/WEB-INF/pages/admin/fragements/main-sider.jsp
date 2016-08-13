@@ -1,25 +1,16 @@
-<!-- All Controll -->
-<script src="${pageContext.request.contextPath}/resources/admin/angularJS/angular.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/admin/angularJS/expertskill.js"></script>
 
-<!-- Sweet Alert -->
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/plugins/sweetalert/sweetalert.css">
-<script src="${pageContext.request.contextPath }/resources/admin/plugins/sweetalert/sweetalert-dev.js"></script>
+	<!-- All Controll -->
+	<script src="${pageContext.request.contextPath}/resources/admin/angularJS/angular.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/admin/angularJS/expertskill.js"></script>
+	
+	<!-- Sweet Alert -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/admin/plugins/sweetalert/sweetalert.css">
+	<script src="${pageContext.request.contextPath }/resources/admin/plugins/sweetalert/sweetalert-dev.js"></script>
 
-<div ng-app="expertApplication">
 <!-- Include Modal -->    	
     				<!-- Country -->
-    					<jsp:include page="../fragements/modal/modal-country.jsp"></jsp:include>
+    					<jsp:include page="../fragements/modal/modal-location.jsp"></jsp:include>
     				<!-- Country -->
-    				<%-- <!-- Province Or City -->
-    					<jsp:include page="../fragements/modal/modal-province-or-city.jsp"></jsp:include>
-    				<!-- Province Or City --> --%>
-    				<!-- District -->
-    					<jsp:include page="../fragements/modal/modal-district.jsp"></jsp:include>
-    				<!-- District -->
-    				<!-- Commune -->
-    					<jsp:include page="../fragements/modal/modal-commune.jsp"></jsp:include>
-    				<!-- Commune -->
     				
     				<!-- University -->
     					<jsp:include page="../fragements/modal/modal-university.jsp"></jsp:include>
@@ -77,7 +68,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a style="cursor:pointer" data-toggle="modal" data-target="#addMainSkill"><i class="fa fa-plus"></i> Add Main Skill</a></li>
-            <li><a href="pages/category/viewcategory.html"><i class="fa fa-eye"></i> View Main Skill</a></li>
+            <li><a href="../../../rest/admin/mainskill/view"><i class="fa fa-eye"></i> View Main Skill</a></li>
             <!-- Sub Skill -->
 	        <li class="treeview">
 	          <a href="#">
@@ -86,7 +77,7 @@
 	          </a>
 	          <ul class="treeview-menu">
 	            <li><a style="cursor:pointer" data-toggle="modal" data-target="#addSkill"><i class="fa fa-plus"></i> Add Sub Skill</a></li>
-	            <li><a href="pages/category/viewcategory.html"><i class="fa fa-eye"></i> View Sub Skill</a></li>
+	            <li><a href="../../../rest/admin/skill/view"><i class="fa fa-eye"></i> View Sub Skill</a></li>
 	          </ul>
 	        </li>
 	        <!-- Sub Skill -->
@@ -108,8 +99,8 @@
 	            <i class="fa fa-angle-left pull-right"></i>
 	          </a>
 	          <ul class="treeview-menu">
-	            <li><a style="cursor:pointer" data-toggle="modal" data-target="#addUniversity"><i class="fa fa-plus"></i> Add University</a></li>
-	            <li><a href="pages/subject/viewsubject.html"><i class="fa fa-eye"></i> View University</a></li>
+	            <li><a style="cursor:pointer" data-toggle="modal" data-target="#addUniversity" ng-click="whenInsert()"><i class="fa fa-plus"></i> Add University</a></li>
+	            <li><a href="../../../rest/admin/university/view"><i class="fa fa-eye"></i> View University</a></li>
 	          </ul>
 	        </li>
 	        <!-- University -->
@@ -120,8 +111,8 @@
 	            <i class="fa fa-angle-left pull-right"></i>
 	          </a>
 	          <ul class="treeview-menu">
-	            <li><a style="cursor:pointer" data-toggle="modal" data-target="#addMajor"><i class="fa fa-plus"></i> Add Major</a></li>
-	            <li><a href="pages/subject/viewsubject.html"><i class="fa fa-eye"></i> View Major</a></li>
+	            <li><a style="cursor:pointer" data-toggle="modal" data-target="#addMajor" ng-click="whenInsert()"><i class="fa fa-plus"></i> Add Major</a></li>
+	            <li><a href="../../../rest/admin/major/view"><i class="fa fa-eye"></i> View Major</a></li>
 	          </ul>
 	        </li>
 	        <!-- Major -->
@@ -206,4 +197,4 @@
     </section>
     <!-- /.sidebar -->
   </aside>
-  </div>
+ 

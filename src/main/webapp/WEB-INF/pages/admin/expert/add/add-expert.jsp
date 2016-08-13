@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="expertApplication">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,10 +25,10 @@
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
+  <!--[if lt IE 9]> -->
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+  <!-- <![endif] -->
   
   <style type="text/css">
   	.container{
@@ -59,7 +59,7 @@
   </style>
   
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" ng-controller="expertController">
 <div class="wrapper">
 
 	<!-- Include Main Header -->
@@ -98,17 +98,8 @@
     			<!-- Include Modal -->
     				
     				<!-- Country -->
-    					<jsp:include page="../../fragements/modal/modal-country.jsp"></jsp:include>
+    					<jsp:include page="../../fragements/modal/modal-location.jsp"></jsp:include>
     				<!-- Country -->
-    				<%-- <!-- Province Or City -->
-    					<jsp:include page="../../fragements/modal/modal-province-or-city.jsp"></jsp:include>
-    				<!-- Province Or City --> --%>
-    				<!-- District -->
-    					<jsp:include page="../../fragements/modal/modal-district.jsp"></jsp:include>
-    				<!-- District -->
-    				<!-- Commune -->
-    					<jsp:include page="../../fragements/modal/modal-commune.jsp"></jsp:include>
-    				<!-- Commune -->
     				
     				<!-- University -->
     					<jsp:include page="../../fragements/modal/modal-university.jsp"></jsp:include>
@@ -166,7 +157,7 @@
 	              	</div>
               	</div>
               	<div class="col-md-6 col-sm-6">
-              		<!-- image-preview-filename input [CUT FROM HERE]-->
+              	<!-- image-preview-filename input [CUT FROM HERE]-->
               		<label for="photo">Photo</label>
 		            <div class="input-group image-preview">
 		            		
@@ -180,10 +171,11 @@
 		                    <div class="btn btn-default image-preview-input">
 		                        <span class="glyphicon glyphicon-folder-open"></span>
 		                        <span class="image-preview-input-title">Browse</span>
-		                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+		                        <input id="image" type="file" accept="image/png, image/jpeg, image/gif" name="image" /> <!-- rename it -->
 		                    </div>
 		                </span>
-		            </div><!-- /input-group image-preview [TO HERE]--> 
+		            </div><!-- /input-group image-preview [TO HERE]-->
+              		 
               	</div>
               </div>
               <!-- Gender and Photo -->
@@ -206,27 +198,23 @@
              <!-- Phone -->
              
              <!-- Place of Birth -->
-             <div class="row">             	
+             <div class="row" ng-controller="locationController">             	
              	<div class="col-md-12">
 					<label for="gender">Place of Birth</label>					             			
              	</div>
              	<div class="col-md-3 col-sm-6">
              		<label for="gender">Country</label>
              		<div class="form-group input-group">
-						<select name="country" class="form-control">
-							<option value="">Cambodia</option>
-							<option value="">Korea</option>
-						</select>
-							<span class="input-group-btn"><button type="button" class="btn btn-default btn-add" data-toggle="modal" data-target="#addCountry">+
-							</button></span>
+						<select name="country" class="form-control" ng-model="objectCountry" ng-options="cn.countryName for cn in country"></select>
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default btn-add" data-toggle="modal" data-target="#addCountry">+</button>
+						</span>
 					</div>
              	</div>
              	<div class="col-md-3 col-sm-6">
              		<label for="gender">Province or City</label>
              		<div class="form-group input-group">
-						<select name="country" class="form-control">
-							<option value="">Cambodia</option>
-							<option value="">Korea</option>
+						<select name="country" class="form-control" ng-model="objectProvince" ng-options="pv.cityOrProvinceName for pv in provinceOrCity | filter: pv.countryID = objectCountry.countryID">
 						</select>
 							<span class="input-group-btn"><button type="button" class="btn btn-default btn-add" data-toggle="modal" data-target="#addProvince">+
 							</button></span>
@@ -235,20 +223,16 @@
              	<div class="col-md-3 col-sm-6">
              		<label for="gender">District</label>
              		<div class="form-group input-group">
-						<select name="country" class="form-control">
-							<option value="">Cambodia</option>
-							<option value="">Korea</option>
+						<select name="country" class="form-control" ng-model="objectDistrict" ng-options="ds.districtName for ds in district | filter: ds.cityOrProvinceID = objectProvince.cityOrProvinceID">
 						</select>
 							<span class="input-group-btn"><button type="button" class="btn btn-default btn-add" data-toggle="modal" data-target="#addDistrict">+
 							</button></span>
 					</div>
              	</div>
              	<div class="col-md-3 col-sm-6">
-             		<label for="gender">Communce</label>
+             		<label for="gender">Commune</label>
              		<div class="form-group input-group">
-						<select name="country" class="form-control">
-							<option value="">Cambodia</option>
-							<option value="">Korea</option>
+						<select name="country" class="form-control" ng-model="objectCommune" ng-options="cm.communeName for cm in commune | filter: cm.districtID = objectDistrict.districtID">
 						</select>
 							<span class="input-group-btn"><button type="button" class="btn btn-default btn-add" data-toggle="modal" data-target="#addCommune">+
 							</button></span>
@@ -258,27 +242,23 @@
              <!-- Place of Birth -->
 
 			 <!-- Current Address -->
-             <div class="row">             	
+             <div class="row" ng-controller="locationController">             	
              	<div class="col-md-12">
 					<label for="gender">Current Address</label>					             			
              	</div>
              	<div class="col-md-3 col-sm-6">
              		<label for="gender">Country</label>
              		<div class="form-group input-group">
-						<select name="country" class="form-control">
-							<option value="">Cambodia</option>
-							<option value="">Korea</option>
-						</select>
-							<span class="input-group-btn"><button type="button" class="btn btn-default btn-add" class="btn btn-default btn-add" data-toggle="modal" data-target="#addCountry">+
-							</button></span>
+						<select name="country" class="form-control" ng-model="objectCountry" ng-options="cn.countryName for cn in country"></select>
+						<span class="input-group-btn"><button type="button" class="btn btn-default btn-add" class="btn btn-default btn-add" data-toggle="modal" data-target="#addCountry">+
+							</button>
+							</span>
 					</div>
              	</div>
              	<div class="col-md-3 col-sm-6">
              		<label for="gender">Province or City</label>
              		<div class="form-group input-group">
-						<select name="country" class="form-control">
-							<option value="">Cambodia</option>
-							<option value="">Korea</option>
+						<select name="country" class="form-control" ng-model="objectProvince" ng-options="pv.cityOrProvinceName for pv in provinceOrCity | filter: pv.countryID = objectCountry.countryID">
 						</select>
 							<span class="input-group-btn"><button type="button" class="btn btn-default btn-add" data-toggle="modal" data-target="#addProvince">+
 							</button></span>
@@ -287,9 +267,7 @@
              	<div class="col-md-3 col-sm-6">
              		<label for="gender">District</label>
              		<div class="form-group input-group">
-						<select name="country" class="form-control">
-							<option value="">Cambodia</option>
-							<option value="">Korea</option>
+						<select name="country" class="form-control" ng-model="objectDistrict" ng-options="ds.districtName for ds in district | filter: ds.cityOrProvinceID = objectProvince.cityOrProvinceID">
 						</select>
 							<span class="input-group-btn"><button type="button" class="btn btn-default btn-add" data-toggle="modal" data-target="#addDistrict">+
 							</button></span>
@@ -298,10 +276,8 @@
              	<div class="col-md-3 col-sm-6">
              		<label for="gender">Communce</label>
              		<div class="form-group input-group">
-						<select name="country" class="form-control">
-							<option value="">Cambodia</option>
-							<option value="">Korea</option>
-						</select>
+						<select name="country" class="form-control" ng-model="objectCommune" ng-options="cm.communeName for cm in commune | filter: cm.districtID = objectDistrict.districtID">
+						</select>	
 							<span class="input-group-btn"><button type="button" class="btn btn-default btn-add" data-toggle="modal" data-target="#addCommune">+
 							</button></span>
 					</div>
@@ -749,9 +725,44 @@
 <script src="${pageContext.request.contextPath}/resources/admin/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="${pageContext.request.contextPath}/resources/admin/dist/js/demo.js"></script>
+
+
+<%-- <script src="${pageContext.request.contextPath}/resources/admin/plugins/jQuery-2.1.4.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/admin/plugins/jquery.form.min.js"></script> --%>
 <!-- page script -->
 <script>
 	$(document).ready(function(){
+		
+		$("#image").change(function(){
+				var formData = new FormData();
+				formData.append('image',  $("#image")[0].files[0]);
+				alert(formData);
+		     	$.ajax({
+		            url: "http://localhost:3333/rest/uploadphoto",
+		            type:"POST",
+		         	enctype : 'multipart/form-data',
+					data : formData ,
+					cache: false,
+					crossDomain: true,
+					processData : false, // tell jQuery not to process the data
+					contentType : false, // tell jQuery not to set contentType
+		  	        beforeSend: function(xhr) {
+						xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+						xhr.setRequestHeader('Authorization', 'Basic ZWxpYnJhcnlBRE1JTjplbGlicmFyeVBAU1NXT1JE');
+		  	        },
+		            success: function(data) {
+		            	console.log(data);
+		            	$("#resultImage").attr("src", data.ORIGINAL_IMAGE);
+		            	$("#resultImageThumbnail").attr("src", data.THUMBNAIL_IMAGE);
+		            	$("#resultImage").show();
+		            	$("#resultImageThumbnail").show();
+		            },
+		         	error: function(data){
+		         		console.log(data);
+					}
+		        });
+			});
+		
 		$(function () {
 		    $("#example1").DataTable();
 		    $('#example2').DataTable({
@@ -824,106 +835,7 @@
 			});
 			
 
-			var countNum = 1;
-			$("#moreEducation").click(function(){
-				
-				countNum++;
-				
-				var text = "<div class=\"education\"> \
-	             	<div class=\"col-md-12\"> \
-             		<h3>Education " + countNum + "\</h3> \
-             	</div> \
-             	<div class=\"col-md-6\"> \
-             		<label for=\"gender\">University</label> \
-             		<div class=\"form-group input-group\"> \
-						<select name=\"University\" class=\"form-control\"> \
-							<option value=\"\">SETEC Institute</option> \
-							<option value=\"\">NORTON University</option> \
-							<option value=\"\">RUPP University</option> \
-						</select> \
-							<span class=\"input-group-btn\"><button type=\"button\" class=\"btn btn-default btn-add\">+ \
-							</button></span> \
-					</div> \
-             	</div> \
-             	<div class=\"col-md-6\"> \
-             		<label for=\"gender\">Major</label> \
-             		<div class=\"form-group input-group\"> \
-						<select name=\"Major\" class=\"form-control\"> \
-							<option value=\"\">MIS</option> \
-							<option value=\"\">Computer Science</option> \
-							<option value=\"\">Software Engineer</option> \
-						</select> \
-							<span class=\"input-group-btn\"><button type=\"button\" class=\"btn btn-default btn-add\">+ \
-							</button></span> \
-					</div> \
-	             	</div> \
-	             	<div class=\"col-md-6\"> \
-	             		<div class=\"form-group\"> \
-			                <label for=\"dob\">Start Date</label> \
-			                <input type=\"date\" class=\"form-control\" id=\"dob\" placeholder=\"Start Date\"> \
-			            </div> \
-	             	</div> \
-	             	<div class=\"col-md-6\"> \
-		             	<div class=\"form-group\"> \
-				        	<label for=\"dob\">End Date</label> \
-				            <input type=\"date\" class=\"form-control\" id=\"dob\" placeholder=\"End Date\"> \
-				        </div> \
-	             	</div> \
-	             	<div class=\"col-md-12\"> \
-	             		<div class=\"form-group\"> \
-						  <label for=\"comment\">Description:</label> \
-						  <textarea class=\"form-control\" rows=\"5\" id=\"comment\"></textarea> \
-						</div> \
-	             	</div> \
-	             </div>";
-				$("#placeToAddEducationPattern").before(text);
-			});
 			
-			var countExperienceNum = 1;
-			$("#moreExperience").click(function(){
-				
-				countExperienceNum++;
-				
-				var text = "<div class=\"experience\"> \
-				             	<div class=\"col-md-12\"> \
-				             		<h3>Experience "+ countExperienceNum +"</h3> \
-				             	</div> \
-				             	<div class=\"col-md-6\"> \
-				             		<label for=\"gender\">Institution</label> \
-				             		<div class=\"form-group input-group\"> \
-										<select name=\"Institution\" class=\"form-control\"> \
-											<option value=\"\">ANZ Bank</option> \
-											<option value=\"\">Blue Technology</option> \
-											<option value=\"\">World Bank</option> \
-										</select> \
-											<span class=\"input-group-btn\"><button type=\"button\" class=\"btn btn-default btn-add\">+ \
-											</button></span> \
-									</div> \
-				             	</div> \
-				             	<div class=\"col-md-6\"> \
-				             		<label for=\"gender\">Major</label> \
-				             		<div class=\"form-group input-group\"> \
-										<select name=\"Major\" class=\"form-control\"> \
-											<option value=\"\">MIS</option> \
-											<option value=\"\">Computer Science</option> \
-											<option value=\"\">Software Engineer</option> \
-										</select> \
-											<span class=\"input-group-btn\"><button type=\"button\" class=\"btn btn-default btn-add\">+ \
-											</button></span> \
-									</div> \
-					             	</div> \
-					             	<div class=\"col-md-6\"> \
-					             		<div class=\"form-group\"> \
-							                <label for=\"dob\">Start Date</label> \
-							                <input type=\"date\" class=\"form-control\" id=\"dob\" placeholder=\"Start Date\"> \
-							            </div> \
-					             	</div> \
-					             	<div class=\"col-md-6\"> \
-						             	<div class=\"form-group\"> \
-								        	<label for=\"dob\">End Date</label> \
-								            <input type=\"date\" class=\"form-control\" id=\"dob\" placeholder=\"End Date\"> </div> </div> </div>";
-				$("#placeToAddExperiencePattern").before(text);
-			});	
 			
 	});
 </script>
