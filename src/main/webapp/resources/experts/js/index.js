@@ -1,9 +1,8 @@
 
 	var app = angular.module('indexapp', []);
 	
-	// subject category
+	// get all subject name by category id //
 		app.controller('expertCategory', function($scope, $http){
-//			 get subject category all 
 			$scope.getSubjectCategory= function(category){
 			$http({
 				url:'http://localhost:3333/rest/subject/bysubjectcategory/'+category.c.subjectCategory,
@@ -15,7 +14,11 @@
 			}, function(response){
 			});
 			}
-				/*$scope.autoClick();*/
+	// get all subject name by category id //
+			
+			
+			
+	// get all subject category name //
 			$scope.getSubjectAndSubjectCategory= function(){
 				$http({
 					url:'http://localhost:3333/rest/subjectcategory/',
@@ -29,6 +32,23 @@
 				});
 				}
 				$scope.getSubjectAndSubjectCategory();
-		});
-
 	
+	// get all subject category name //
+	
+		$scope.getRandomExperts= function(){
+			$http({
+				url:'http://localhost:3333/rest/expert/',
+				method:'GET'
+			}).then(function(response){
+				$scope.experts =  response.data;
+				console.log($scope.experts);
+			}, function(response){
+
+			});
+			}
+		$scope.getRandomExperts();
+		
+		});		
+		
+		
+		
