@@ -36,7 +36,7 @@
     <script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
 
   </head>
-  <body>
+  <body ng-controller="expertCategory">
   
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -104,7 +104,7 @@
           </div>
         </div>
       </div>
-      <div class="container" ng-controller="expertCategory">
+      <div class="container">
       <div class="row">
         <div class="col-md-12">
 		 <div class="panel panel-primary text-justify" >
@@ -118,7 +118,9 @@
 		     -->
 		     
 		    <li ng-repeat="c in category">
+		    
 		    	<a data-toggle="tab" id="{{c.subjectCategory}}" ng-click="getSubjectCategory(this)">{{c.subjectCategoryName}}</a>
+		    
 		    </li>
 		    
 		    <!--  <li ng-repeat="c in category">
@@ -128,7 +130,7 @@
 		
 		  <div class="tab-content">
 		    <div class="tab-pane fade in active col-md-4" ng-repeat="s in skills">
-		      <p style="font-size: 15px;">{{s.subjectName}}</p>
+		     	<a href="/search"> <p style="font-size: 15px;">{{s.subjectName}}</p></a>
 		    </div>
 		  </div>
 		</div>
@@ -147,47 +149,17 @@
        				 <%-- <jsp:include page="expert/fragements/random/random.jsp"></jsp:include> --%>
        				 <!-- start popular expert  -->
        				 <div class="row">
-       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+       				 	  
+       				 	 
+       				 	
+       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="e in experts">
        				 	<a href="/rest/expert/content" class="expert-top">
       						<div class="profile">
       							<img class="img-thumbnail img-responsive" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
       						</div>
        				 		<div class="profile-description">
-      							<b>Name : Torn Sokly</n><br>
-      							<b>Skill: Spring Framework</b>
-      						</div>
-      						</a>
-       				 	</div>      
-       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-       				 	<a href="/rest/expert/content" class="expert-top">
-      						<div class="profile">
-      							<img class="img-thumbnail img-responsive" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
-      						</div>
-       				 		<div class="profile-description">
-      							<b>Name : Torn Sokly</n><br>
-      							<b>Skill: Spring Framework</b>
-      						</div>
-      						</a>
-       				 	</div>      
-       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-       				 	<a href="/rest/expert/content" class="expert-top">
-      						<div class="profile">
-      							<img class="img-thumbnail img-responsive" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
-      						</div>
-       				 		<div class="profile-description">
-      							<b>Name : Torn Sokly</n><br>
-      							<b>Skill: Spring Framework</b>
-      						</div>
-      						</a>
-       				 	</div>      
-       				 	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-       				 	<a href="/rest/expert/content" class="expert-top">
-      						<div class="profile">
-      							<img class="img-thumbnail img-responsive" src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg" rel="stylesheet" type="text/css">
-      						</div>
-       				 		<div class="profile-description">
-      							<b>Name : Torn Sokly</n><br>
-      							<b>Skill: Spring Framework</b>
+      							<b>Name:{{e.expertFirstName}}</n><br>
+    						  	<b>Skill: {{e.expertAdvanceCourse}}</b>
       						</div>
       						</a>
        				 	</div> 

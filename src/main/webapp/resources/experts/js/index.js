@@ -28,7 +28,7 @@
 					$scope.category =  response.data;
 					console.log($scope.category);
 				}, function(response){
-
+					
 				});
 				}
 				$scope.getSubjectAndSubjectCategory();
@@ -42,12 +42,12 @@
 			}).then(function(response){
 				$scope.experts =  response.data;
 				console.log($scope.experts);
+				
 			}, function(response){
 
 			});
 			}
 		$scope.getRandomExperts();
-		
 		});		
 		
 		
