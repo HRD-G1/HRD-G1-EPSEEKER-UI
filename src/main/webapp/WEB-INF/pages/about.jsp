@@ -77,17 +77,10 @@ pageEncoding="UTF-8"
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-primary text-center">
-                        <div class="panel-heading  text-center">Missions</div>
+                        <div class="panel-heading  text-center">អ្វីដែលយើងកំពុងធ្វី</div>
                         <div class="panel-body text-justify">
-                           <p>
-                           		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dignissimos eaque placeat voluptatum blanditiis inventore esse amet eum. Obcaecati pariatur, possimus odit, dolorum quasi cum asperiores repellat quis fugit repudiandae!
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut nisi qui eius hic, animi minima, nulla facere deleniti praesentium quas inventore fugiat doloribus porro nam unde voluptate blanditiis fuga dignissimos!
+                           <p style="word-wrap: break-word;">
+                           		នេះគឺជាគេហទំព័រមួយដែលជួយដល់និយោជកឬអ្នកដែលមាន​បំណងចង់ស្វែងរក​បុគ្គលិកសម្រាប់បម្រើការនៅក្រុមហ៊ុនរបស់ ខ្លួនបានដោយផ្ដល់នូវមុខងារស្វែង​រកជាច្រើន។បេក្ខភាពទាំង អស់​នៅគេហទំព័រនេះសុទ្ធ​តែជាអតីតនិស្សិតរបស់មជ្ឈមណ្ឌល កូរ៉េសហ្វវែរអេច អ ឌី គ្រប់ជំនាន់ទាំងអស់។ មុននឹងអាចប្រើ ប្រាស់គ្រប់មុខងារជាពិសេសការបង្ហាញផ្នែកលំអិតរប​ស់បេក្ខជន ដែលអ្នកចាប់អារម្មណ៍ដូ​ចជាកម្រិតនៃការសិក្សាមុខជំនាញ ​ សញ្ញាបត្រ អាសយដ្ឋាន និង ព័ត៌មានជាច្រើនទៀតសូម ធ្វើការចុះឈ្មោះ និងចូលក្នុងគណនីរបស់អ្នក ដោយឥតគិតថ្លៃ។ 
                            		
                            </p>
                         </div>
@@ -97,17 +90,12 @@ pageEncoding="UTF-8"
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-primary text-center">
-                        <div class="panel-heading  text-center">Visions</div>
+                        <div class="panel-heading  text-center">អ្វីដែលយើងនឹងធ្វី</div>
                         <div class="panel-body text-justify">
-                           <p>
-                           	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque dignissimos eaque placeat voluptatum blanditiis inventore esse amet eum. Obcaecati pariatur, possimus odit, dolorum quasi cum asperiores repellat quis fugit repudiandae!
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut nisi qui eius hic, animi minima, nulla facere deleniti praesentium quas inventore fugiat doloribus porro nam unde voluptate blanditiis fuga dignissimos!
+                           <p style="word-wrap: break-word;">
+                           		បច្ចុប្បន្នគេហទំព័រនេះបានត្រឹមតែអនុញ្ញាតឲ្យអតីតនិស្សិតរបស់មជ្ឈមណ្ឌល កូរ៉េសហ្វវែរអេច អ ឌី គ្រប់ជំនាន់ទាំងអស់
+                           		អាចបង្ហាញព័ត៌មានរបស់ខ្លួទាក់ទងនឹងមុខជំនាញព័ត៌មានវិទ្យាប៉ុណ្ណោះ។ នៅពេលខាងមុខគេហទំព័រនេះអាចនឹងត្រូវបាន
+                           		ធ្វើឲ្យប្រើសើរជាងនេះ គឺអនុញ្ញាតឲ្យជនទូទៅអាចបង្ហាញព័ត៌មានរបស់ខ្លួនបានផងដែរ។
                            </p>
                         </div>
                     </div>
