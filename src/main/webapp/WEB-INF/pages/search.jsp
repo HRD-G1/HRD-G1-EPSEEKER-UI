@@ -7,8 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- font for navbar -->
+ 	<link href='https://fonts.googleapis.com/css?family=Angkor' rel='stylesheet' type='text/css'> 
+ 	<!-- font for body -->
+ 	<link href='https://fonts.googleapis.com/css?family=Odor+Mean+Chey' rel='stylesheet' type='text/css'>
 <script type="text/javascript"
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
 <script type="text/javascript"
 	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <link
@@ -32,7 +37,9 @@
 <!-- font-awesome-4.6.3 -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/expert/font-awesome-4.6.3/css/font-awesome.min.css">
+
 <script>
+	
 	$.noConflict();
 	jQuery(document).ready(function($) {
 		$('select').material_select();
@@ -42,6 +49,7 @@
 		$('.tooltipped').tooltip({
 			delay : 50
 		});
+		
 	});
 </script>
 </head>
@@ -96,26 +104,18 @@
 					<div class="panel-body">
 						<div style="word-wrap: break-word;" class="text-left;">
 							<p​​ >ទំព័រនេះជួយអ្នកក្នុងការស្វែងរកអ្នកជំនាញIT​ទៅតាមអ្វីដែលអ្នកចង់បាន។​ផ្នែកទាំងពីរខាងក្រោមពិតជាសំខាន់សម្រាប់អ្នក។​អ្នកគ្រាន់តែដឹង
-								ពីររបៀបប្រើប្រាស់វាគឺគ្រប់គ្រាន់។ផ្នែកខាងឆ្វេងជាកន្លែងសម្រាប់កំណត់តម្រូវការរបស់អ្នក បន្ទាប់មកចុចលើប៊ូតុងស្វែងរក។​ ផ្នែកខាងស្ដាំជា 
+								ពីររបៀបប្រើប្រាស់វាគឺគ្រប់គ្រាន់។ផ្នែកខាងឆ្វេងជាកន្លែងសម្រាប់កំណត់តម្រូវការរបស់អ្នក
+								បន្ទាប់មកចុចលើប៊ូតុងស្វែងរក។​ ផ្នែកខាងស្ដាំជា
 								កន្លែងសម្រាប់បង្ហាញលទ្ធផល។</p>
 						</div>
-							
+
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-8 col-xs-8">
-				<form action="#">
-
-
-					<input class="file-path validate" type="text">
-			</div>
-			<div class="col-md-2  col-xs-2">
-
-				<button class="btn waves-effect waves-light" type="submit">ស្វែងរក</button>
-
-				</form>
+			<div class="col-md-12">
+				
 			</div>
 		</div>
 		<div class="row">
@@ -132,7 +132,7 @@
 										<option value="2">បរិញ្ញាបត្រ</option>
 										<option value="3">អនុបណ្ឌិត</option>
 										<option value="4">បណ្ឌិត</option>
-									</select> <label>Education</label>
+									</select> <label>កំរិតអប់រំ</label>
 								</div>
 								<div class="input-field col s6">
 									<select multiple="">
@@ -140,14 +140,14 @@
 										<option value="2">IT</option>
 										<option value="3">English</option>
 										<option value="4">Korean</option>
-									</select> <label>Major</label>
+									</select> <label>ផ្នែក</label>
 								</div>
 								<div class="input-field col s6">
 									<select>
 										<option value="Both">ទាំងពីរភេទ</option>
 										<option value="Male">ប្រុស</option>
 										<option value="Female">ស្រី</option>
-									</select> <label>Gender</label>
+									</select> <label>ភេទ</label>
 								</div>
 								<div class="input-field col s6">
 									<select>
@@ -257,7 +257,7 @@
 									<th>ឈ្មោះ</th>
 									<th>ជំនាញ</th>
 									<th>ប្រាក់ខែ</th>
-									
+
 								</tr>
 							</thead>
 							<tbody>
@@ -368,6 +368,9 @@
 			<!--end panel result-->
 		</div>
 	</div>
+	
 	<jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
+	
+
 </body>
 </html>

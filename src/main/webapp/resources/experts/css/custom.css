@@ -5,6 +5,9 @@
 
 .navbar-default .navbar-nav > li > a {
     color: #FFF;
+    font-family: 'Angkor', cursive;
+    font-size: 14;
+    
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
@@ -210,5 +213,11 @@ body {
 }
 
 /* facebook */
+
+/*font for p*/
+body{
+	font-family: 'Odor Mean Chey', cursive;
+	
+}
 
 
