@@ -40,7 +40,7 @@ public class MainController {
 	}
 	
 	
-	@RequestMapping(value="/rest/expert/content")
+	@RequestMapping(value="/detail")
 	public String expertContent(){
 		return "expert/detail";
 	}

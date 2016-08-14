@@ -12,9 +12,7 @@
 <!-- font for navbar -->
 <link href='https://fonts.googleapis.com/css?family=Angkor'
 	rel='stylesheet' type='text/css'>
-<!-- font for body -->
-<link href='https://fonts.googleapis.com/css?family=Odor+Mean+Chey'
-	rel='stylesheet' type='text/css'>
+
 <script type="text/javascript"
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script type="text/javascript"
@@ -58,13 +56,12 @@
 <!-- js index  -->
 <script
 	src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
-<<<<<<< HEAD =======
+
 
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
->>>>>>> branch 'master' of
-https://github.com/HRD-G1/HRD-G1-EPSEEKER-UI.git
+
 </head>
 <body ng-controller="expertCategory">
 
@@ -85,7 +82,7 @@ https://github.com/HRD-G1/HRD-G1-EPSEEKER-UI.git
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li class=" active menu"><a href="/"
+					<li class=" menu"><a href="/"
 						class="waves-effect waves-light "><i class="fa fa-home "></i>
 							ទំព័រដើម</a></li>
 					<li class="menu"><a href="/contact"
@@ -111,7 +108,7 @@ https://github.com/HRD-G1/HRD-G1-EPSEEKER-UI.git
 	<!--start carousel-->
 	<div class="slider">
 		<ul class="slides">
-			<li><br> <br> <img
+			<li><img
 				src="${pageContext.request.contextPath}/resources/experts/img/3rd.jfif">
 			</li>
 			<li><br> <br> <img
@@ -245,7 +242,7 @@ https://github.com/HRD-G1/HRD-G1-EPSEEKER-UI.git
 									<div class="profile-header-img">
 										<img class="img-circle"
 											src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg"
-											rel="stylesheet" type="text/css">
+											>
 										<!-- badge -->
 										<div class="rank-label-container">
 											<span class="label label-default rank-label"
@@ -259,7 +256,7 @@ https://github.com/HRD-G1/HRD-G1-EPSEEKER-UI.git
 									<div class="profile-header-img">
 										<img class="img-circle"
 											src="${pageContext.request.contextPath}/resources/experts/img/engineer.jpg"
-											rel="stylesheet" type="text/css">
+											>
 										<!-- badge -->
 										<div class="rank-label-container">
 											<span class="label label-default rank-label"
@@ -274,7 +271,7 @@ https://github.com/HRD-G1/HRD-G1-EPSEEKER-UI.git
 									<div class="profile-header-img">
 										<img class="img-circle"
 											src="${pageContext.request.contextPath}/resources/experts/img/manager.jpg"
-											rel="stylesheet" type="text/css">
+											>
 										<!-- badge -->
 										<div class="rank-label-container">
 											<span class="label label-default rank-label"
@@ -289,7 +286,7 @@ https://github.com/HRD-G1/HRD-G1-EPSEEKER-UI.git
 									<div class="profile-header-img">
 										<img class="img-circle"
 											src="${pageContext.request.contextPath}/resources/experts/img/manager.jpg"
-											rel="stylesheet" type="text/css">
+											>
 										<!-- badge -->
 										<div class="rank-label-container">
 											<span class="label label-default rank-label"

@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head >
@@ -51,47 +52,46 @@
 </head>
 <body>
 	<div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header ">
-          <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#navbar-ex-collapse">
-            <span class="sr-only ">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-         <!--  <a class="navbar-brand"><i class="-retro fa fa-crosshairs"></i></a> -->
-         <a class="navbar-brand">
-          		<img alt="EPSEEKER" class="logo" src="${pageContext.request.contextPath}/resources/experts/img/logo11.png">
-          	</a>
-        </div>
-        <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="menu">
-              <a href="/" class="waves-effect waves-light "><i class="fa fa-home "></i> HOME</a>
-            </li>
-            <li class="menu">
-              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone " ></i> CONTACT</a>
-            </li>
-            <li class="menu">
-              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> ABOUT</a>
-            </li>
-            <li class="menu">
-              <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in " ></i> LOGIN</a>
-            </li>
-            <li class="menu">
-              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> SIGN UP</a>
-            </li>
-            <li  style="opacity: 0">
-              <!-- <a href="/search" class="waves-effect waves-light">SEARCH</a> -->
-              SEARCHF
-            </li>
-          </ul>
-        </div>
-        </div>
-      </div>
-    </div>
-    <!--end bavbar-->
+		<div class="container">
+			<div class="navbar-header ">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#navbar-ex-collapse">
+					<span class="sr-only ">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<!-- <a class="navbar-brand"><i class="-retro fa fa-crosshairs"></i></a> -->
+				<a class="navbar-brand"> <img alt="EPSEEKER"
+					class="img-responsive logo"
+					src="${pageContext.request.contextPath}/resources/experts/img/logo11.png">
+				</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class=" active menu"><a href="/"
+						class="waves-effect waves-light "><i class="fa fa-home "></i>
+							ទំព័រដើម</a></li>
+					<li class="menu"><a href="/contact"
+						class="waves-effect waves-light "><i class="fa fa-phone "></i>ទំនាក់ទំនង</a>
+					</li>
+					<li class=" menu"><a href="/about"
+						class="waves-effect waves-light"><i class="fa fa-user-secret"></i>
+							អំពី</a></li>
+					<li class="menu"><a href="/login"
+						class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
+							ចូល</a></li>
+					<li class="menu"><a href="/signup"
+						class="waves-effect waves-light "> <i class="fa fa-user-plus"></i>ចុះឈ្មោះ
+					</a></li>
+					<!-- <li>
+              <a href="/search" class="waves-effect waves-light ">SEARCH</a>
+            </li> -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--end bavbar-->
+	
 	<br><br><br><br>
 	<%-- <jsp:include page="fragements/nav/header-navigation.jsp"></jsp:include> --%>
 	

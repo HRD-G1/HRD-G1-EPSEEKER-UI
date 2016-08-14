@@ -9,8 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- font for navbar -->
  	<link href='https://fonts.googleapis.com/css?family=Angkor' rel='stylesheet' type='text/css'> 
- 	<!-- font for body -->
- 	<link href='https://fonts.googleapis.com/css?family=Odor+Mean+Chey' rel='stylesheet' type='text/css'>
+ 	
 <script type="text/javascript"
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
