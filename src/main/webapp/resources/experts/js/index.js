@@ -8,6 +8,7 @@
 			$scope.getAllSubjectByCategoryID= function(catID){
 				$http({
 					url:'http://localhost:3333/rest/subject/bysubjectcategory/'+catID,
+					/*url: 'http://localhost:7777/rest/subject/bysubjectcategory/'+catID,*/
 					method:'GET'
 				}).then(function(response){
 					console.log(response.data);	
@@ -17,6 +18,20 @@
 				});
 				}
 			$scope.getAllSubjectByCategoryID(1);
+			
+/*			$scope.findAllBySubjectCategoryAndCount= function(catID){
+				$http({
+					url:'http://localhost:3333/rest/subject/bysubjectcategory/'+catID,
+					url: 'http://localhost:7777/rest/subject/bysubjectcategory/'+catID,
+					method:'GET'
+				}).then(function(response){
+					console.log(response.data);	
+					$scope.categories =  response.data;
+				}, function(response){
+
+				});
+				}
+			$scope.findAllBySubjectCategoryAndCount(1);*/
 		});	
 		
 		
