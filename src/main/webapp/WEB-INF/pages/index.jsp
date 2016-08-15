@@ -82,7 +82,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li class=" menu"><a href="/"
+					<li class="menu"><a href="/"
 						class="waves-effect waves-light "><i class="fa fa-home "></i>
 							ទំព័រដើម</a></li>
 					<li class="menu"><a href="/contact"
@@ -153,28 +153,64 @@
 				<div class="panel panel-primary text-justify">
 					<div class="panel-heading  text-center">LIST OF EXPERT SKILLS</div>
 
-					<div class="container-fluid">
-						<ul class="nav nav-tabs">
-							<!-- <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-		    <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-		    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-		    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
-		     -->
-
-							<li ng-repeat="c in category"><a data-toggle="tab"
-								id="{{c.subjectCategory}}" ng-click="getSubjectCategory(this)">{{c.subjectCategoryName}}</a>
-							</li>
-							<div class="tab-content">
-								<div id="my" class="tab-pane fade in active col-md-4"
-									ng-repeat="s in subjects">
-									<a href="/search">
-										<p style="font-size: 15px;">{{s.subjectName}}</p>
-									</a>
-								</div>
-							</div>
-
-						</ul>
-					</div>
+					<div class="container-fluid"><!-- start skill tab list -->
+						  <ul class="nav nav-tabs">
+						    <li class="active subject_category" ng-click="getAllSubjectByCategoryID(1)"><a data-toggle="tab" href="#home">Web Development</a></li>
+						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(2)"><a data-toggle="tab" href="#menu2">Front-End</a></li>
+						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(4)"><a data-toggle="tab" href="#menu2">Back-End</a></li>
+						   	<li class="subject_category" ng-click="getAllSubjectByCategoryID(1)"><a data-toggle="tab" href="#menu2">Framework</a></li>
+						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(5)"><a data-toggle="tab" href="#menu2">Database</a></li>
+						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(6)"><a data-toggle="tab" href="#menu2">Network</a></li>
+						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(4)"><a data-toggle="tab" href="#menu2">Mobile Development</a></li>
+						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(7)"><a data-toggle="tab" href="#menu2">Server Operating System</a></li>
+						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(8)"><a data-toggle="tab" href="#menu2">Graphic Design</a></li>
+						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(9)"><a data-toggle="tab" href="#menu2">Microsoft Office</a></li>
+						  </ul>
+						
+						  <div class="tab-content" >
+						    <div id="home" class="tab-pane fade in active">
+						      	<div class="row">
+						      		<div class="col-md-4 col-sm-6 col-xs-6 text-left skill-list" ng-repeat="category in categories">
+						      			<a href="/search/{{category.SUBJECT_CATEGORY_ID}}" >  
+						      				<!-- we need inner join exp_expert_subject_detail and get count_EXP -->
+						      				{{category.SUBJECT_NAME}} (count_EXP)
+						      			</a>
+						      		</div>
+						      	</div>
+						    </div>
+						    <div id="menu1" class="tab-pane fade">
+						    	<div class="row">
+						      		<div class="col-md-4 col-sm-6 col-xs-6 text-left skill-list" ng-repeat="category in categories">
+						      			<a href="/search/{{category.SUBJECT_CATEGORY_ID}}">
+						      				<!-- we need inner join exp_expert_subject_detail and get count_EXP -->
+						      				{{category.SUBJECT_NAME}}(count_EXP)
+						      			</a>
+						      		</div>
+						      	</div>
+						     </div>
+						    <div id="menu2" class="tab-pane fade">
+						      <div class="row">
+						      		<div class="col-md-4 col-sm-6 col-xs-6 text-left skill-list" ng-repeat="category in categories">
+						      			<a href="/search/{{category.SUBJECT_CATEGORY_ID}}">
+						      			<!-- we need inner join exp_expert_subject_detail and get count_EXP -->
+						      				{{category.SUBJECT_NAME}}(count_EXP)
+						      			</a>
+						      		</div>
+						      	</div>
+						    </div>
+						    <div id="menu3" class="tab-pane fade">
+						      <div class="row">
+						      		<div class="col-md-4 col-sm-6 col-xs-6 text-left skill-list" ng-repeat="category in categories">
+						      			<a href="/search/{{category.SUBJECT_CATEGORY_ID}}">
+						      			<!-- we need inner join exp_expert_subject_detail and get count_EXP -->
+						      				{{category.SUBJECT_NAME}}(count_EXP)
+						      			</a>
+						      		</div>
+						      	</div>
+						    </div>
+						  </div>
+						</div><!-- end skill tab list -->
+						
 				</div>
 			</div>
 		</div>

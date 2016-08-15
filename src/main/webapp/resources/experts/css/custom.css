@@ -157,7 +157,8 @@ body {
 	text-indent: 40px;
 	line-height: 30px;
 }
- .nav li:hover
+/* hover url */
+.collapse .nav li:hover
 	{
 		background-color: #B2DFDB;
 		border-bottom: 1px solid red;
@@ -215,5 +216,20 @@ body {
 /* facebook */
 
 
-
-
+/* tab-pane skill */
+.tab-pane
+{
+	padding: 10px;
+} 
+div.skill-list
+{
+	padding: 5px;
+}
+.tab-content
+{
+	padding-left: 50px;
+}
+.subject_category
+{
+	font-size: 16px;
+}
