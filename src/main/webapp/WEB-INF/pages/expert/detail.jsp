@@ -68,7 +68,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li class=" active menu"><a href="/"
+					<li class="  menu"><a href="/"
 						class="waves-effect waves-light "><i class="fa fa-home "></i>
 							ទំព័រដើម</a></li>
 					<li class="menu"><a href="/contact"

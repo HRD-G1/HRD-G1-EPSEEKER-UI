@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!--[*my CSS*] for general uses for only detail page-->
  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/expert/css/detail.css"/> 
 
@@ -55,7 +57,7 @@
                 <!--Personal Information-->
                 <div class="row row1">
                     <div class="profile-option">
-                        <center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> PERSONAL DATA</h2></center>
+                        <center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> ព័ត៌មានផ្ទាល់ខ្លួន</h2></center>
                     </div>                    
                     <div class="col-md-4 col-xs-12">
 						<!--<label class="tag label label-primary">Photo Profile</label>-->
@@ -72,7 +74,7 @@
                             <div style="border: 1px solid lightgray; padding: 10px; box-shadow: -5px 5px 10px grey; background-color: #ecf0f1;">
                                 <table class="table">
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="width: 130px; border: none">Gender</th>
+                                    <th style="width: 130px; border: none">ភេទ</th>
                                     <th style="width: 10px; border: none">:</th>
                                     <td style="border: none">
                                         {{pGender}}
@@ -80,7 +82,7 @@
                                 </tr>
 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">Marital Status</th>
+                                    <th style="border: none">ស្ថានភាពគ្រួសារ</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none">
                                         {{pMS}}
@@ -88,7 +90,7 @@
                                 </tr>
 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">Nationality</th>
+                                    <th style="border: none">សញ្ជាតិ</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none">
                                         {{pNationality}}
@@ -96,7 +98,7 @@
                                 </tr>
 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">Date of Birth</th>
+                                    <th style="border: none">ថ្ងៃខែឆ្នាំកំណើត</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none">
                                         {{pDoB}}
@@ -104,7 +106,7 @@
                                 </tr>
 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">Place of Birth</th>
+                                    <th style="border: none">ទីកន្លែងកំណើត</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none"> 
                                         {{pPoB}}
@@ -112,7 +114,7 @@
                                 </tr>
 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">Current Address</th>
+                                    <th style="border: none">អាសយដ្ឋានបច្ចុប្បន្ន</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none">
                                         {{pCPoB}}
@@ -120,7 +122,7 @@
                                 </tr>   
                                 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">Email</th>
+                                    <th style="border: none">អ៊ីម៉ែល</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none">
                                         {{pEmail}}
@@ -128,7 +130,7 @@
                                 </tr>
                                 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">Phone</th>
+                                    <th style="border: none">លេខទូរស័ព្ទ</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none">
                                         {{pPhone}}
@@ -193,7 +195,7 @@
                 <!--Start Educatioin-->
                 <div class="row row1">
                     <div class="profile-option">
-                        <center ><h2 style="font-family: 'Arial'" class="small-heading"> <span class="fa fa-arrow-circle-right"></span> EDUCATION</h2></center>
+                        <center ><h2 style="font-family: 'Arial'" class="small-heading"> <span class="fa fa-arrow-circle-right"></span> ការអប់រំ</h2></center>
                     </div>
                     <table id="edu-container" class="education-container col-md-12 col-xs-12" style="margin-bottom: 0px">
                         <tr ng-repeat="ed in edu">
@@ -227,7 +229,7 @@
                     <div class="col-md-6 col-xs-12">
                     	<table id="edu-container" class="education-container col-md-12 col-xs-12" style="margin-bottom: 0px">
 	                    <div class="profile-option">
-	                        <center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> Current Job</h2></center>
+	                        <center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> មុខរបរបច្ចុប្បន្ន</h2></center>
 	                    </div>
 	                        <tr ng-repeat="cj in curJob">
 	                            <td>
@@ -255,7 +257,7 @@
 					<div class="col-md-6 col-xs-12">
 						<table id="edu-container" class="education-container col-md-12 col-xs-12" style="margin-bottom: 0px">
 	                    <div class="profile-option">
-	                        <center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> Job Experience</h2></center>
+	                        <center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> បទពិសោធន៍ការងារ</h2></center>
 	                    </div>
 	                        <tr ng-repeat="ex in exp">
 	                            <td>
@@ -309,7 +311,7 @@
                                             ng-model="MSID" 
                                             ng-change="changeMainSkill()">
                                     </select> <br> 
-                                    <label>Skill</label>
+                                    <label>SKILL</label>
                                     <select id="chooseSkill" 
                                             class="form-control" 
                                             style="border: none" 
@@ -341,7 +343,7 @@
 
                     <table id="skill-block" class="col-md-12 col-xs-12"> 
                         <div class="profile-option">
-                        	<center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> SKILL</h2></center>
+                        	<center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> ជំនាញ</h2></center>
                     	</div>
                         <tr ng-repeat="eSkill in expertSkill">
                             <td id="{{eSkill.id}}">
@@ -442,7 +444,7 @@
                 
 					<table class="col-md-12 col-xs-12">
 						<div class="profile-option">
-                        	<center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> LANGUAGE</h2></center>
+                        	<center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> ភាសា</h2></center>
                     	</div>        
 						<tr ng-repeat="eLang in expertLanguage">
                             <td id="{{eLang.id}}">
@@ -470,7 +472,7 @@
                 </div>
                 <div class="b-border col-md-4 col-xs-12" ng-controller="jobExpectaion">
                 	<div class="profile-option">
-                        	<center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> Job Expectation</h2></center>
+                        	<center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> ការងាររំពឹង</h2></center>
                     </div>
                     <table>
 						<tr ng-repeat="jp in jobExpectation">
