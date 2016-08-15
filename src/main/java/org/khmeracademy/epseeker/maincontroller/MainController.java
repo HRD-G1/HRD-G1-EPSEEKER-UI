@@ -91,5 +91,6 @@ public class MainController {
 	public String viewExpertDetail(){
 		return "expert/detail";
 	}
+	
 }
 

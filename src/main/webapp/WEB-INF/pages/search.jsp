@@ -7,9 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <!-- font for navbar -->
- 	<link href='https://fonts.googleapis.com/css?family=Angkor' rel='stylesheet' type='text/css'> 
- 	
+<link href='https://fonts.googleapis.com/css?family=Angkor'
+	rel='stylesheet' type='text/css'>
+
 <script type="text/javascript"
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
@@ -33,12 +35,12 @@
 <link
 	href="${pageContext.request.contextPath}/resources/experts/css/custom.css"
 	rel="stylesheet" type="text/css">
+	
 <!-- font-awesome-4.6.3 -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/expert/font-awesome-4.6.3/css/font-awesome.min.css">
 
 <script>
-	
 	$.noConflict();
 	jQuery(document).ready(function($) {
 		$('select').material_select();
@@ -48,7 +50,7 @@
 		$('.tooltipped').tooltip({
 			delay : 50
 		});
-		
+
 	});
 </script>
 </head>
@@ -113,9 +115,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12">
-				
-			</div>
+			<div class="col-md-12"></div>
 		</div>
 		<div class="row">
 			<div class="col-md-5">
@@ -260,93 +260,26 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td style="width: 120px; text-align: center;">
+								<tr ng-repeat="ers in expertResultSearch">
+									<%-- <td style="width: 120px; text-align: center;">
 										<div>
 											<img
 												src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG"
 												width="100px" height="100px" alt="" class="circle">
 										</div>
 									</td>
-									<td><br> <br>Srun Vannary</td>
+									<td><br> <br>{{ers.EXPERT_FIRST_NAME}} {{ers.EXPERT_LAST_NAME}}</td>
 									<td><em><i><br> <br>Java Developer</i></em></td>
-									<td><br> <br>$250-$400</td>
+									<td><br> <br>{{ers.EXPERT_JOB_EXPECTATIONS.MIN_SALARY | currency}} - {{ers.EXPERT_JOB_EXPECTATIONS.MAX_SALARY | currency}}</td>
 									<td style="float: left;"><br> <br> <a
-										href="/rest/expert/content"
 										class="secondary-content  tooltipped" data-position="bottom"
 										data-delay="50" data-tooltip="មើលលំអិតបន្ថែម"><i
-											class="material-icons">visibility</i></a></td>
+											class="material-icons">visibility</i></a></td> --%>
+											<button ng-click="test()">a</button>
 								</tr>
 
 
-								<tr>
-									<td style="width: 120px; text-align: center;">
-										<div>
-											<img
-												src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG"
-												width="100px" height="100px" alt="" class="circle">
-										</div>
-									</td>
-									<td><br> <br>Srun Vannary</td>
-									<td><em><i><br> <br>Java Developer</i></em></td>
-									<td><br> <br>$250-$400</td>
-									<td style="float: left;"><br> <br> <a
-										href="/rest/expert/content"
-										class="secondary-content  tooltipped" data-position="bottom"
-										data-delay="50" data-tooltip="View More Details"><i
-											class="material-icons">visibility</i></a></td>
-								</tr>
-								<tr>
-									<td style="width: 120px; text-align: center;">
-										<div>
-											<img
-												src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG"
-												width="100px" height="100px" alt="" class="circle">
-										</div>
-									</td>
-									<td><br> <br>Srun Vannary</td>
-									<td><em><i><br> <br>Java Developer</i></em></td>
-									<td><br> <br>$250-$400</td>
-									<td style="float: left;"><br> <br> <a
-										href="/rest/expert/content"
-										class="secondary-content  tooltipped" data-position="bottom"
-										data-delay="50" data-tooltip="View More Details"><i
-											class="material-icons">visibility</i></a></td>
-								</tr>
-								<tr>
-									<td style="width: 120px; text-align: center;">
-										<div>
-											<img
-												src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG"
-												width="100px" height="100px" alt="" class="circle">
-										</div>
-									</td>
-									<td><br> <br>Srun Vannary</td>
-									<td><em><i><br> <br>Java Developer</i></em></td>
-									<td><br> <br>$250-$400</td>
-									<td style="float: left;"><br> <br> <a
-										href="/rest/expert/content"
-										class="secondary-content  tooltipped" data-position="bottom"
-										data-delay="50" data-tooltip="View More Details"><i
-											class="material-icons">visibility</i></a></td>
-								</tr>
-								<tr>
-									<td style="width: 120px; text-align: center;">
-										<div>
-											<img
-												src="${pageContext.request.contextPath}/resources/experts/img/vannara.JPG"
-												width="100px" height="100px" alt="" class="circle">
-										</div>
-									</td>
-									<td><br> <br>Srun Vannary</td>
-									<td><em><i><br> <br>Java Developer</i></em></td>
-									<td><br> <br>$250-$400</td>
-									<td style="float: left;"><br> <br> <a
-										href="/rest/expert/content"
-										class="secondary-content  tooltipped" data-position="bottom"
-										data-delay="50" data-tooltip="View More Details"><i
-											class="material-icons">visibility</i></a></td>
-								</tr>
+									
 
 
 							</tbody>
@@ -367,9 +300,9 @@
 			<!--end panel result-->
 		</div>
 	</div>
-	
+
 	<jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
-	
+
 
 </body>
 </html>

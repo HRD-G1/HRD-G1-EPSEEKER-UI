@@ -3,7 +3,7 @@
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html ng-app="indexapp">
+<html ng-app="expertFrontEndApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
@@ -71,14 +71,11 @@
 <!-- js index  -->
 <script
 	src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
-
-
-
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 </head>
-<body ng-controller="expertCategory">
+<body ng-controller="expertController">
 
 	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
@@ -164,7 +161,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-
+				
 				<div class="panel panel-primary text-justify">
 					<div class="panel-heading  text-center">LIST OF EXPERT SKILLS</div>
 
@@ -205,7 +202,7 @@
 								<div class="row">
 									<div class="col-md-4 col-sm-6 col-xs-6 text-left skill-list"
 										ng-repeat="category in categories">
-										<a href="/search/{{category.SUBJECT_ID}}"> <!-- we need inner join exp_expert_subject_detail and get count_EXP -->
+										<a ng-click="goToSearchBySubjectID(category.SUBJECT_ID)"> <!-- we need inner join exp_expert_subject_detail and get count_EXP -->
 											{{category.SUBJECT_NAME}}<span class="badge">{{category.NUMBER_OF_EXPERT_EACH_SKILL}}</span>
 										</a>
 									</div>
@@ -302,7 +299,7 @@
 						<!-- ly  -->
 
 						<div class="row">
-							<div​ ng-repeat="ss in numOfSkills">
+							<div ​ ng-repeat="ss in numOfSkills">
 								<div class="col-md-6 col-sm-6 col-lg-3">
 									<div class="profile-header-container">
 										<div class="profile-header-img">
