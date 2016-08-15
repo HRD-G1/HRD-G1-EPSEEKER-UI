@@ -39,6 +39,21 @@
 <link
 	href="${pageContext.request.contextPath}/resources/experts/css/custom.css"
 	rel="stylesheet" type="text/css">
+
+<!-- Exucuse Me can i put my cdn here? - Recommend Expert -->
+
+<style>
+.paging-nav a {
+	background-color: teal;
+	padding: 5px;
+	margin: 2px;
+	color: #FFF;
+	border-radius: 3px;
+}
+</style>
+
+<!-- Exucuse Me can i put my cdn here? - Recommend Expert -->
+
 <script>
 	$.noConflict();
 	jQuery(document).ready(function($) {
@@ -153,33 +168,53 @@
 				<div class="panel panel-primary text-justify">
 					<div class="panel-heading  text-center">LIST OF EXPERT SKILLS</div>
 
-					<div class="container-fluid"><!-- start skill tab list -->
-						  <ul class="nav nav-tabs">
-						    <li class="active subject_category" ng-click="getAllSubjectByCategoryID(1)"><a data-toggle="tab" href="#skills">Framework</a></li>
-						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(2)"><a data-toggle="tab" href="#skills">Front-End</a></li>
-						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(3)"><a data-toggle="tab" href="#skills">Back-End</a></li>
-						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(4)"><a data-toggle="tab" href="#skills">Mobile Development</a></li>
-						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(5)"><a data-toggle="tab" href="#skills">Database</a></li>
-						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(6)"><a data-toggle="tab" href="#skills">Network</a></li>
-						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(7)"><a data-toggle="tab" href="#skills">Server Operating System</a></li>
-						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(8)"><a data-toggle="tab" href="#skills">Graphic Design</a></li>
-						    <li class="subject_category" ng-click="getAllSubjectByCategoryID(9)"><a data-toggle="tab" href="#skills">Microsoft Office</a></li>
-						  </ul>
-						
-						  <div class="tab-content" >
-						    <div id="skills" class="tab-pane fade in active">
-						      	<div class="row">
-						      		<div class="col-md-4 col-sm-6 col-xs-6 text-left skill-list" ng-repeat="category in categories">
-						      			<a href="/search/{{category.SUBJECT_ID}}" >  
-						      				<!-- we need inner join exp_expert_subject_detail and get count_EXP -->
-						      				{{category.SUBJECT_NAME}}<span class="badge">{{category.NUMBER_OF_EXPERT_EACH_SKIL}}</span>
-						      			</a>
-						      		</div>
-						      	</div>
-						    </div>
-						  </div>
-						</div><!-- end skill tab list -->
-						
+					<div class="container-fluid">
+						<!-- start skill tab list -->
+						<ul class="nav nav-tabs">
+							<li class="active subject_category"
+								ng-click="getAllSubjectByCategoryID(1)"><a
+								data-toggle="tab" href="#skills">Framework</a></li>
+							<li class="subject_category"
+								ng-click="getAllSubjectByCategoryID(2)"><a
+								data-toggle="tab" href="#skills">Front-End</a></li>
+							<li class="subject_category"
+								ng-click="getAllSubjectByCategoryID(3)"><a
+								data-toggle="tab" href="#skills">Back-End</a></li>
+							<li class="subject_category"
+								ng-click="getAllSubjectByCategoryID(4)"><a
+								data-toggle="tab" href="#skills">Mobile Development</a></li>
+							<li class="subject_category"
+								ng-click="getAllSubjectByCategoryID(5)"><a
+								data-toggle="tab" href="#skills">Database</a></li>
+							<li class="subject_category"
+								ng-click="getAllSubjectByCategoryID(6)"><a
+								data-toggle="tab" href="#skills">Network</a></li>
+							<li class="subject_category"
+								ng-click="getAllSubjectByCategoryID(7)"><a
+								data-toggle="tab" href="#skills">Server Operating System</a></li>
+							<li class="subject_category"
+								ng-click="getAllSubjectByCategoryID(8)"><a
+								data-toggle="tab" href="#skills">Graphic Design</a></li>
+							<li class="subject_category"
+								ng-click="getAllSubjectByCategoryID(9)"><a
+								data-toggle="tab" href="#skills">Microsoft Office</a></li>
+						</ul>
+
+						<div class="tab-content">
+							<div id="skills" class="tab-pane fade in active">
+								<div class="row">
+									<div class="col-md-4 col-sm-6 col-xs-6 text-left skill-list"
+										ng-repeat="category in categories">
+										<a href="/search/{{category.SUBJECT_ID}}"> <!-- we need inner join exp_expert_subject_detail and get count_EXP -->
+											{{category.SUBJECT_NAME}}<span class="badge">{{category.NUMBER_OF_EXPERT_EACH_SKILL}}</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end skill tab list -->
+
 				</div>
 			</div>
 		</div>
@@ -193,7 +228,7 @@
 					<div class="panel-heading text-center">អ្នកជំនាញល្បីៗ</div>
 					<div class="panel-body">
 						<!-- start popular expert  -->
-						<div class="row">
+						<%-- <div class="row">
 							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="e in experts">
 								<a href="/rest/expert/content" class="expert-top">
 									<div class="profile">
@@ -220,7 +255,36 @@
 									<li><a href="#">Last</a></li>
 								</ul>
 							</div>
-						</div>
+						</div> --%>
+
+						<table id="tableData" class="table">
+							<thead>
+								<tr>
+									<th style="font-family: 'Khmer OS Siemreap'">រូបភាព</th>
+									<th style="font-family: 'Khmer OS Siemreap'">ឈ្មោះ</th>
+									<th style="font-family: 'Khmer OS Siemreap'">ជំនាញ</th>
+									<th style="font-family: 'Khmer OS Siemreap'">អស័យដ្ដាន</th>
+									<th style="font-family: 'Khmer OS Siemreap'"><i
+										class="fa fa-search" style="color: teal"></i> ចូលមើល</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="ep in experts">
+									<td><img alt=""
+										src="${pageContext.request.contextPath}/resources/experts/img/tempPic.png"
+										style="width: 50px; height: 50px"></td>
+									<td style="max-width: 100px; vertical-align: initial;">{{ep.EXPERT_LAST_NAME}}
+										{{ep.EXPERT_FIRST_NAME}}</td>
+									<td style="max-width: 150px;">{{ep.EXPERT_ADVANCE_COURSE}}</td>
+									<td style="max-width: 100px;">{{ep.EXPERT_CURRENT_ADDRESS.CITY_OR_PROVINCE_NAME}}</td>
+									<td style="max-width: 30px;"><a href="#">View</a></td>
+								</tr>
+							</tbody>
+						</table>
+
+						<button class="fa fa-refresh btn btn-primary"
+							ng-click="getExpertsByRandom()">More</button>
+
 						<!-- end popular expert  -->
 					</div>
 				</div>
@@ -238,26 +302,26 @@
 						<!-- ly  -->
 
 						<div class="row">
-							<div class="col-md-6 col-sm-6 col-lg-3">
-								<div class="profile-header-container">
-									<div class="profile-header-img">
-										<img class="img-circle"
-											src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg"
-											>
-										<!-- badge -->
-										<div class="rank-label-container">
-											<span class="label label-default rank-label"
-												style="font-size: 15px"><em>Developer(100)</em></span>
+							<div​ ng-repeat="ss in numOfSkills">
+								<div class="col-md-6 col-sm-6 col-lg-3">
+									<div class="profile-header-container">
+										<div class="profile-header-img">
+											<img class="img-circle"
+												src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg">
+											<!-- badge -->
+											<div class="rank-label-container">
+												<span class="label label-default rank-label"
+													style="font-size: 15px"><em>{{ss.SUBJECT_CATEGORY_NAME}}({{ss.NUM_OF_SKILLS}})</em></span>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6 col-sm-6 col-lg-3">
+							<%-- <div class="col-md-6 col-sm-6 col-lg-3">
 								<div class="profile-header-container">
 									<div class="profile-header-img">
 										<img class="img-circle"
-											src="${pageContext.request.contextPath}/resources/experts/img/engineer.jpg"
-											>
+											src="${pageContext.request.contextPath}/resources/experts/img/engineer.jpg">
 										<!-- badge -->
 										<div class="rank-label-container">
 											<span class="label label-default rank-label"
@@ -271,8 +335,7 @@
 								<div class="profile-header-container">
 									<div class="profile-header-img">
 										<img class="img-circle"
-											src="${pageContext.request.contextPath}/resources/experts/img/manager.jpg"
-											>
+											src="${pageContext.request.contextPath}/resources/experts/img/manager.jpg">
 										<!-- badge -->
 										<div class="rank-label-container">
 											<span class="label label-default rank-label"
@@ -286,8 +349,7 @@
 								<div class="profile-header-container">
 									<div class="profile-header-img">
 										<img class="img-circle"
-											src="${pageContext.request.contextPath}/resources/experts/img/manager.jpg"
-											>
+											src="${pageContext.request.contextPath}/resources/experts/img/manager.jpg">
 										<!-- badge -->
 										<div class="rank-label-container">
 											<span class="label label-default rank-label"
@@ -295,7 +357,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --%>
 						</div>
 						<!-- ly -->
 					</div>
@@ -307,4 +369,5 @@
 	<jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
 
 </body>
+
 </html>

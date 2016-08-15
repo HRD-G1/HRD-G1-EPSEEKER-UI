@@ -86,5 +86,10 @@ public class MainController {
 	public String viewSkill(){
 		return "admin/skill/view/view-skill";
 	}
+	
+	@RequestMapping(value="rest/expert/content")
+	public String viewExpertDetail(){
+		return "expert/detail";
+	}
 }
 
