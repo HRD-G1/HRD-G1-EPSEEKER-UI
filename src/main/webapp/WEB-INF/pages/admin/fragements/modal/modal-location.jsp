@@ -50,7 +50,7 @@
 			<form>
 			  <div class="form-group">
 		      	<label for="gender">Country</label>
-		        <select class="form-control" id="gedner" ng-model="objectCountry" ng-options="cn.countryName for cn in country"></select>
+		        <select class="form-control" id="gedner" ng-model="objectCountry" ng-options="cn.COUNTRY_NAME for cn in country"></select>
 	          </div>	
               <div class="form-group">
                 <label for="country">Add New Province or City</label>
@@ -92,12 +92,12 @@
 			<form>
 			  <div class="form-group">
 		      	<label for="gender">Country</label>
-		        <select class="form-control" id="gedner" ng-model="objectCountry" ng-options="cn.countryName for cn in country">
+		        <select class="form-control" id="gedner" ng-model="objectCountry" ng-options="cn.COUNTRY_ID for cn in country">
 		      	</select>
 	          </div>	
 	          <div class="form-group">
 		      	<label for="gender">Province Or City</label>
-		        <select class="form-control" id="gedner" ng-model="objectProvince" ng-options="pv.cityOrProvinceName for pv in provinceOrCity | filter: pv.countryID = objectCountry.countryID">
+		        <select class="form-control" id="gedner" ng-model="objectProvince" ng-options="pv.CITY_OR_PROVINCE_NAME for pv in provinceOrCity | filter: pv.COUNTRY_ID = objectCountry.COUNTRY_ID">
 		      	</select>
 	          </div>
               <div class="form-group">
@@ -145,12 +145,12 @@
 	          </div>	
 	          <div class="form-group">
 		      	<label for="gender">Province Or City</label>
-		        <select class="form-control" id="gedner" ng-model="objectProvince" ng-options="pv.cityOrProvinceName for pv in provinceOrCity | filter: pv.countryID = objectCountry.countryID">
+		        <select class="form-control" id="gedner" ng-model="objectProvince" ng-options="pv.CITY_OR_PROVINCE_NAME for pv in provinceOrCity | filter: pv.COUNTRY_ID = objectCountry.COUNTRY_ID">
 		      	</select>
 	          </div>
 	          <div class="form-group">
 		      	<label for="gender">District</label>
-		        <select class="form-control" id="gedner" ng-model="objectDistrict" ng-options="ds.districtName for ds in district | filter: ds.cityOrProvinceID = objectProvince.cityOrProvinceID">
+		        <select class="form-control" id="gedner" ng-model="objectDistrict" ng-options="ds.DISTRICT_NAME for ds in district | filter: ds.CITY_OR_PROVINCE_ID = objectProvince.CITY_OR_PROVINCE_ID">
 		      	</select>
 	          </div>
               <div class="form-group">

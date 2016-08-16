@@ -64,7 +64,7 @@ app
 					$scope.getSubjectID = function(id) {
 						window.location = "http://localhost:2244/search?id="
 								+ id; // then go to this link searc page , get
-										// it?
+						// it?
 
 					}
 
@@ -75,7 +75,7 @@ app
 											+ subjectID,
 									method : 'GET'
 								}).then(function(response) {
-							console.log(response);
+							/*console.log(response);*/
 							$scope.resultExpert = response.data;
 						}, function(response) {
 
@@ -87,6 +87,22 @@ app
 					}
 
 					
+
+					$scope.getMajor = function() {
+						$http(
+								{
+									url : 'http://localhost:3333/rest/major',
+									method : 'GET'
+								}).then(function(response) {
+							console.log(response.data);
+							$scope.majorDatas = response.data;
+						}, function(response) {
+
+						});
+					}
+					
+					$scope.getMajor();
+
 					// Searching Block
 
 				});
