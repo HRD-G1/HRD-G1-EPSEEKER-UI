@@ -76,7 +76,7 @@
 
 </head>
 <body ng-controller="expertController">
-
+	
 	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header ">
@@ -202,7 +202,7 @@
 								<div class="row">
 									<div class="col-md-4 col-sm-6 col-xs-6 text-left skill-list"
 										ng-repeat="category in categories">
-										<a ng-click="goToSearchBySubjectID(category.SUBJECT_ID)"> <!-- we need inner join exp_expert_subject_detail and get count_EXP -->
+									<a style="cursor: pointer;" ng-click="getSubjectID(category.SUBJECT_ID)"> <!-- we need inner join exp_expert_subject_detail and get count_EXP -->
 											{{category.SUBJECT_NAME}}<span class="badge">{{category.NUMBER_OF_EXPERT_EACH_SKILL}}</span>
 										</a>
 									</div>

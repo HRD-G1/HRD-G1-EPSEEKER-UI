@@ -17,7 +17,7 @@ app
 									 */
 									method : 'GET'
 								}).then(function(response) {
-							console.log(response.data);
+							/* console.log(response.data); */
 							$scope.categories = response.data;
 						}, function(response) {
 
@@ -61,23 +61,32 @@ app
 
 					// Searching Block
 
+					$scope.getSubjectID = function(id) {
+						window.location = "http://localhost:2244/search?id="
+								+ id; // then go to this link searc page , get
+										// it?
+
+					}
+
 					$scope.goToSearchBySubjectID = function(subjectID) {
-						$http({
-							url : 'http://localhost:3333/rest/findExpertsBySubjectID/' + subjectID,
-							method : 'GET'
-						}).then(function(response) {
-							console.log(response.data);
-							$scope.expertResultSearch = response.data;
-							window.location = "http://localhost:2244/search";
+						$http(
+								{
+									url : 'http://localhost:3333/rest/findExpertsBySubjectID/'
+											+ subjectID,
+									method : 'GET'
+								}).then(function(response) {
+							console.log(response);
+							$scope.resultExpert = response.data;
 						}, function(response) {
 
 						});
 					}
-					
+
 					$scope.test = function() {
 						alert(1);
 					}
 
+					
 					// Searching Block
 
 				});
