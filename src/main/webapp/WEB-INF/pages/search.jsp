@@ -8,7 +8,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+<!-- My APP -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
+<!-- My APP -->
 
 <!-- font for navbar -->
 <link href='https://fonts.googleapis.com/css?family=Angkor'
@@ -25,21 +30,12 @@
 <link
 	href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
 	rel="stylesheet" type="text/css">
-
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-
-<!-- My APP -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
-<!-- My APP -->
-
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/experts/ui/ui.min.css">
 <!--custom-->
@@ -52,17 +48,27 @@
 	href="${pageContext.request.contextPath}/resources/expert/font-awesome-4.6.3/css/font-awesome.min.css">
 
 <script>
-	var SUB_ID = '<%=request.getParameter("id")%>
-	';
-
-	function pageLoad() {
+	var SUB_ID = '<%=request.getParameter("id")%>';
+	
+	function pageLoad(){
 		goToSearchBySubjectID(SUB_ID);
 	}
+	
+	$.noConflict();
+	jQuery(document).ready(function($) {
+		$('select').material_select();
+		$('.slider').slider({
+			full_width : true
+		});
+		$('.tooltipped').tooltip({
+			delay : 50
+		});
+
+	});
 </script>
 </head>
-<div>
-	<body ng-controller="expertController"
-		ng-init="goToSearchBySubjectID(<%=request.getParameter("id")%>)">
+<div >
+	<body ng-controller="expertController" ng-init="goToSearchBySubjectID(<%=request.getParameter("id")%>)">
 		<!-- start navbar -->
 		<div class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
@@ -144,7 +150,10 @@
 									</div>
 									<div class="input-field col s6">
 										<select multiple="">
-											<option ng-repeat="m in majorDatas">{{m.MAJOR_NAME}}</option>
+
+											<option value="2">IT</option>
+											<option value="3">English</option>
+											<option value="4">Korean</option>
 										</select> <label>ផ្នែក</label>
 									</div>
 									<div class="input-field col s6">
@@ -262,7 +271,7 @@
 										<th>ឈ្មោះ</th>
 										<th>ជំនាញ</th>
 										<th>ប្រាក់ខែ</th>
-
+										<th>មើល</th>	
 									</tr>
 								</thead>
 								<tbody>
@@ -271,16 +280,15 @@
 											<div>
 												<img
 													src="${pageContext.request.contextPath}/resources/experts/img/tempPic.png"
-													width="90px" height="90px" alt="" class="circle">
+													width="85px" height="85px" alt="" class="circle">
 											</div>
 										</td>
 										<td><br> <br>{{ers.EXPERT_FIRST_NAME}}
 											{{ers.EXPERT_LAST_NAME}}</td>
 										<td><em><i><br> <br>{{ers.EXPERT_ADVANCE_COURSE}}</i></em></td>
-										<td><br> <br>{{ers.EXPERT_JOB_EXPECTATIONS[0].MIN_SALARY
-											| currency}} {{ers.EXPERT_JOB_EXPECTATIONS[0].MAX_SALARY |
-											currency}}</td>
+										<td><br> <br>{{ers.EXPERT_JOB_EXPECTATIONS[0].MIN_SALARY | currency}}  {{ers.EXPERT_JOB_EXPECTATIONS[0].MAX_SALARY | currency}}</td>
 										<td style="float: left;"><br> <br> <a
+											style="cursor: pointer;"
 											class="secondary-content  tooltipped" data-position="bottom"
 											data-delay="50" data-tooltip="មើលលំអិតបន្ថែម"><i
 												class="material-icons">visibility</i></a></td>
@@ -304,18 +312,6 @@
 		</div>
 
 	</body>
-
-	<script>
-		$.noConflict();
-		jQuery(document).ready(function($) {
-			$('select').material_select();
-			$('.tooltipped').tooltip({
-				delay : 50
-			});
-
-		});
-	</script>
-
 </div>
 <jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
 </html>

@@ -6,53 +6,8 @@
 <div ng-app="exApp">
         <!--start row personal data by visal-->
         <div class="container">
-            <div ng-controller="personalController">
-                <!-- start Modal
-                <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-                        <!-- Modal content
-                        <div class="modal-content">
-                            <div class="modal-header profile-option">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title" style="color: #f0f0f0">Update Profile Information</h4>
-                            </div>
-                            <div class="modal-body">
-                                First Name: <input type="text" id="exFName" name="exFName" placeholder="First Name" class="form-control" ng-model="pFName">
-                                Last Name: <input type="text" id="exLName" name="exLName" placeholder="Last Name" class="form-control" ng-model="pLName">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    Gender: <select id="exGender" name="exGender" class="form-control" ng-model="pGender">
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    Marital Status: <select id="exMS" name="exMS" class="form-control" ng-model="pMS">
-                                        <option>Single</option>
-                                        <option>Married</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    Nationality:<input type="text" id="exNationality" name="exNationality" placeholder="Nationality" class="form-control" ng-model="pNationality">
-                                </div>                                
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    Date of Birth:<input class="form-control" id="exDoB" name="date" placeholder="MM/DD/YYYY" type="text" ng-model="pDoB"/>    
-                                </div>                                
-                                Place of Birth: <input type="text" id="exPoB" name="exPoB" placeholder="Privince | City, Cambodia" class="form-control" ng-model="pPoB">
-                                Current Address: <input type="text" id="exCPoB" name="exCPoB" placeholder="Privince | City, Cambodia" class="form-control"ng-model="pCPoB">
-                                Email: <input type="text" id="exEmail" name="exEmail" placeholder="Privince | City, Cambodia" class="form-control"ng-model="pEmail">
-                                Phone: <input type="text" id="exPhone" name="exPhone" placeholder="Privince | City, Cambodia" class="form-control"ng-model="pPhone">
-                            </div>
-                            <div class="modal-footer">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-sm" ng-click="updateInfo()" data-dismiss="modal"><span class="fa fa-save"></span> Save Update</button>
-                                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal"><span class="fa fa-close"></span> Close</button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                end Modal -->
+            <div ng-controller="expertDetailInfoController" ng-init="getDataDetail(<%=request.getParameter("id")%>)">
+                
 
                 <!--Personal Information-->
                 <div class="row row1">
@@ -64,7 +19,7 @@
 						<div id="border-profile" style="top:">
 							<center>
 								<img style="margin-top: 10px" id="profile" src="${pageContext.request.contextPath }/resources/expert/img/occupation-32-512.png" class="img-responsive img-circle">
-								<p style="margin-top: 30px; font-family: 'Arial'; font-size: 22px; font-weight: 500; text-shadow: -1px 1px 1px #999">{{pFName + " " + pLName}}</p>
+								<p style="margin-top: 30px; font-family: 'Arial'; font-size: 22px; font-weight: 500; text-shadow: -1px 1px 1px #999">{{expert.EXPERT_FIRST_NAME + " " + expert.EXPERT_LAST_NAME}}</p>
 							</center>
 						</div>
                     </div>
@@ -74,23 +29,23 @@
                             <div style="border: 1px solid lightgray; padding: 10px; box-shadow: -5px 5px 10px grey; background-color: #ecf0f1;">
                                 <table class="table">
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="width: 130px; border: none">ភេទ</th>
+                                    <th style="width: 130px; border: none; font-family: 'Khmer OS'">ភេទ</th>
                                     <th style="width: 10px; border: none">:</th>
                                     <td style="border: none">
-                                        {{pGender}}
+                                        {{expert.EXPERT_GENDER}}
                                     </td>
                                 </tr>
 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">ស្ថានភាពគ្រួសារ</th>
+                                    <th style="border: none; font-family: 'Khmer OS'">ស្ថានភាពគ្រួសារ</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none">
-                                        {{pMS}}
+                                        {{expert.}}
                                     </td>
                                 </tr>
 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">សញ្ជាតិ</th>
+                                    <th style="border: none; font-family: 'Khmer OS'">សញ្ជាតិ</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none">
                                         {{pNationality}}
@@ -98,7 +53,7 @@
                                 </tr>
 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">ថ្ងៃខែឆ្នាំកំណើត</th>
+                                    <th style="border: none; font-family: 'Khmer OS'">ថ្ងៃខែឆ្នាំកំណើត</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none">
                                         {{pDoB}}
@@ -106,7 +61,7 @@
                                 </tr>
 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">ទីកន្លែងកំណើត</th>
+                                    <th style="border: none; font-family: 'Khmer OS'">ទីកន្លែងកំណើត</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none"> 
                                         {{pPoB}}
@@ -114,7 +69,7 @@
                                 </tr>
 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">អាសយដ្ឋានបច្ចុប្បន្ន</th>
+                                    <th style="border: none; font-family: 'Khmer OS'">អាសយដ្ឋានបច្ចុប្បន្ន</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none">
                                         {{pCPoB}}
@@ -122,7 +77,7 @@
                                 </tr>   
                                 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">អ៊ីម៉ែល</th>
+                                    <th style="border: none; font-family: 'Khmer OS'">អ៊ីម៉ែល</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none">
                                         {{pEmail}}
@@ -130,7 +85,23 @@
                                 </tr>
                                 
                                 <tr style="border: none; border-bottom: 1px solid lightgray">
-                                    <th style="border: none">លេខទូរស័ព្ទ</th>
+                                    <th style="border: none; font-family: 'Khmer OS'">លេខទូរស័ព្ទ</th>
+                                    <th style="border: none">:</th>
+                                    <td style="border: none">
+                                        {{pPhone}}
+                                    </td>
+                                </tr>
+                                
+                                <tr style="border: none; border-bottom: 1px solid lightgray">
+                                    <th style="border: none; font-family: 'Khmer OS'">វគ្គ Advance</th>
+                                    <th style="border: none">:</th>
+                                    <td style="border: none">
+                                        {{pPhone}}
+                                    </td>
+                                </tr>
+                                
+                                <tr style="border: none; border-bottom: 1px solid lightgray">
+                                    <th style="border: none; font-family: 'Khmer OS'">ជំនាន់ទី</th>
                                     <th style="border: none">:</th>
                                     <td style="border: none">
                                         {{pPhone}}
@@ -157,8 +128,7 @@
             <hr>
 
             <!-- start education and experience scope -->
-            <div  ng-controller="EduAndExpController">
-
+            
                 <!-- start Modal 
                 <div class="modal fade" id="education" role="dialog">
                     <div class="modal-dialog">
@@ -284,14 +254,13 @@
                     <!-- <div class="text-right" style="margin: 0px 20px 10px 30px">
                         <button id="exp-add" class="pf-opt btn btn-sm btn-skin data-toggle="modal" data-target="#education" ng-click="insertMode('exp')"><span class="fa fa-plus"></span> Add New</button>
                     </div> -->
-                </div>
-            </div>
+                </div>           
             <!-- end education and experience scope -->
             <hr>       
             <!--Start SKILL Language Contact-->
             <div class="row row1" style="padding-bottom: 20px;">
             	<!-- Start Skill -->
-                <div class="b-border col-md-4 col-xs-12" ng-controller="SkillController">
+                <div class="b-border col-md-4 col-xs-12">
                  
                     <!-- start Modal For Skill
                     <div class="modal fade" id="skill" role="dialog">
@@ -372,7 +341,7 @@
                 <!-- End Skill -->
 
 				<!-- Start Languange -->                
-                <div class="b-border col-md-4 col-xs-12" style="padding-bottom: 10px;" ng-controller="languageController">
+                <div class="b-border col-md-4 col-xs-12" style="padding-bottom: 10px;">
                 
                 <!-- start Language Modal 
                 <div class="modal fade" id="language" role="dialog">
@@ -470,7 +439,7 @@
                     </center>
                     button add-->
                 </div>
-                <div class="b-border col-md-4 col-xs-12" ng-controller="jobExpectaion">
+                <div class="b-border col-md-4 col-xs-12">
                 	<div class="profile-option">
                         	<center><h2 class="small-heading"> <span class="fa fa-arrow-circle-right"></span> ការងាររំពឹង</h2></center>
                     </div>
@@ -497,13 +466,5 @@
             </div>
             <!--End SKILL Language Contact-->
                         
-            <!-- Start Document                For document don't new show to login user
-            <div ng-controller="documentController">
-                <div class="row">
-                    <h2 class="small-heading">DOCUMENT</h2>
-               	</div>
-            	
-            </div>
-			 End Document -->
         </div>	
 </div>

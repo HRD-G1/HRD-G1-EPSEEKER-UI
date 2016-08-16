@@ -96,6 +96,8 @@ app
 								}).then(function(response) {
 							console.log(response.data);
 							$scope.majorDatas = response.data;
+							
+							
 						}, function(response) {
 
 						});
