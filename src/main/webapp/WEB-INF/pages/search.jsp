@@ -133,19 +133,13 @@
 								  <div>
 								  <h4 class="well-sm">CHOOSE EXPERT SKILL</h4>
 								  	<h5>MAIN SKILL</h5>
-									  		<select class="form-control">
-									  			<option>Framework</option>
+									  		<select class="form-control" ng-model="objSkill" ng-options="sk.SUBJECT_CATEGORY_NAME for sk in skills" >
+									  			<option style="display: none" value="">--Select--</option>
 									  		</select>
 									<h5>SUB SKILLS</h5>
-									  		<div class="row">
-									  			<div class="col-md-6 col-sm-6">
-										  			<input type="checkbox" checked="checked" class="col-md-6"/>JQuery
-										  		</div>
-												<div class="col-md-6 col-sm-6" >
-										  			<input type="checkbox" checked="checked" class="col-md-6"/>JQuery
-										  		</div>
-										  		<div class="col-md-6 col-sm-6">
-										  			<input type="checkbox" checked="checked" class="col-md-6"/>JQuery
+									  		<div class="row" ng-repeat="subskill in objSkill.SUBJECT">
+									  			<div class="col-md-10 col-sm-10" >
+										  			<input type="checkbox"  class="col-md-6" value="{{subskill}}" name="subjectValues"/>{{subskill.SUBJECT_NAME}}
 										  		</div>
 											</div>
 											
@@ -154,28 +148,20 @@
 											<br>
 											<h4 class="well-sm">WORK EXPERIENCE</h4>
 											<h5>POSITION EXPERIENCE</h5>
-											  		<select class="form-control">
-											  			<option>IT Manager</option>
+											  		<select class="form-control" ng-model="objPosition" ng-options="pos.POSITION_NAME for pos in positions">
+											  			<option style="display: none" value="">--Select--</option>
 											  		</select>
 											  		<h4>YEAR OF EXPERIENCE</h4>
-											  		<select class="form-control">
-											  			<option>0-1 Year</option>
-											  			<option>0-2 Years</option>
-											  			<option>0-3 Years</option>
+											  		<select class="form-control" ng-model="expPeroid" ng-options="ev.EXP_SHOW for ev in experienceValues" >
+											  			<option style="display: none" value="">--Select--</option>
 											  		</select>
 											<!--  -->
 											
 											<h4 class="well-sm">PERSONAL INFORMATION</h4>
 											 <h5>LANGUAGE</h5>
 											  		<div class="row">
-											  			<div class="col-md-6 col-sm-6">
-												  			<input type="checkbox" checked="checked" class="col-md-6"/>English
-												  		</div>
-														<div class="col-md-6 col-sm-6" >
-												  			<input type="checkbox" checked="checked" class="col-md-6"/>Korea
-												  		</div>
-												  		<div class="col-md-6 col-sm-6">
-												  			<input type="checkbox" checked="checked" class="col-md-6"/>Khmer
+											  			<div class="col-md-6 col-sm-6" ng-repeat="lang in languages">
+												  			<input type="checkbox" class="col-md-6" name="languagesValues" value="{{lang}}"/>{{lang.LANGUAGE_NAME}}
 												  		</div>
 													</div><br>
 												<h5>GENDER</h5>
@@ -185,16 +171,12 @@
 											  			<option>Female</option>
 											  		</select>
 											  	<h5>AGE</h5>
-											  		<select class="form-control">
-											  			<option>18-25</option>
-											  			<option>25-30</option>
-											  			<option>30+</option>
+											  		<select class="form-control" ng-model="objAge" ng-options="age.AGE_INFO for age in ages">
+											  			<option style="display: none" value="">--Select--</option>
 											  		</select>
 											  <h5>LOCATION</h5>
-											  		<select class="form-control">
-											  			<option>Phnom Penh</option>
-											  			<option>kandal</option>
-											  			<option>Kampot</option>
+											  		<select class="form-control" ng-model="objLocation" ng-options="loc.CITY_OR_PROVINCE_NAME for loc in locations">
+											  			<option style="display: none" value="">--Select--</option>
 											  		</select>
 											<!--  -->
 											
@@ -202,11 +184,8 @@
 								 <h4 class="well-sm">JOB EXPECTATION</h4>
 								  <div>
 								  	<h5>EXPECTED SALARY</h5>
-								  		<select class="form-control">
-								  			<option>$250-$300</option>
-								  			<option>$300-$500</option>
-								  			<option>$500-$1000</option>
-								  			<option>$500-$1000</option>
+								  		<select class="form-control" ng-model="objSalary" ng-options="sa.SALARY_INFO for sa in expectedSalarys">
+								  			<option style="display: none" value="">--Select--</option>
 								  		</select>
 								  </div>
 								  </div>
