@@ -239,3 +239,12 @@ div.skill-list
 	padding: 10px;
 }
 
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	background-color:#009688;
+	color : #fff;
+	}
+span.badge
+{
+	color:#fff;
+	background-color: #009688;
+}

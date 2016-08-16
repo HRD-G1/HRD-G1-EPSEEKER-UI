@@ -229,7 +229,7 @@
 									<th style="font-family: 'Khmer OS Siemreap'">រូបភាព</th>
 									<th style="font-family: 'Khmer OS Siemreap'">ឈ្មោះ</th>
 									<th style="font-family: 'Khmer OS Siemreap'">ជំនាញ</th>
-									<th style="font-family: 'Khmer OS Siemreap'">អស័យដ្ដាន</th>
+									<th style="font-family: 'Khmer OS Siemreap'">អាស័យដ្ដាន</th>
 									<th style="font-family: 'Khmer OS Siemreap'"><i
 										class="fa fa-search" style="color: teal"></i> ចូលមើល</th>
 								</tr>
@@ -239,11 +239,11 @@
 									<td><img alt=""
 										src="${pageContext.request.contextPath}/resources/experts/img/tempPic.png"
 										style="width: 50px; height: 50px"></td>
-									<td style="max-width: 100px; vertical-align: initial;">{{ep.EXPERT_LAST_NAME}}
+									<td style="max-width: 100px; vertical-align: initial;"><br>{{ep.EXPERT_LAST_NAME}}
 										{{ep.EXPERT_FIRST_NAME}}</td>
-									<td style="max-width: 150px;">{{ep.EXPERT_ADVANCE_COURSE}}</td>
-									<td style="max-width: 100px;">{{ep.EXPERT_CURRENT_ADDRESS.CITY_OR_PROVINCE_NAME}}</td>
-									<td style="max-width: 30px;"><a href="#">View</a></td>
+									<td style="max-width: 150px;"><br>{{ep.EXPERT_ADVANCE_COURSE}}</td>
+									<td style="max-width: 100px;"><br>{{ep.EXPERT_CURRENT_ADDRESS.CITY_OR_PROVINCE_NAME}}</td>
+									<td style="max-width: 30px;"><br><a href="{{ep.EXPERT_ID}}" class="btn btn-primary"><i class="fa fa-eye"></i> View</a></td>
 								</tr>
 							</tbody>
 						</table>
