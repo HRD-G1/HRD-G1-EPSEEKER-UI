@@ -152,10 +152,6 @@
 								ដោយឥតគិតថ្លៃ។
 							</span>
 						</p>
-
-
-
-
 					</div>
 				</div>
 			</div>
@@ -214,7 +210,6 @@
 						</div>
 					</div>
 					<!-- end skill tab list -->
-
 				</div>
 			</div>
 		</div>
@@ -228,36 +223,7 @@
 					<div class="panel-heading text-center">អ្នកជំនាញល្បីៗ</div>
 					<div class="panel-body">
 						<!-- start popular expert  -->
-						<%-- <div class="row">
-							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="e in experts">
-								<a href="/rest/expert/content" class="expert-top">
-									<div class="profile">
-										<img class="img-thumbnail img-responsive"
-											src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg"
-											rel="stylesheet" type="text/css">
-									</div>
-									<div class="profile-description">
-										<b>Name:{{e.expertFirstName}}</n><br> <b>Skill:
-												{{e.expertAdvanceCourse}}</b>
-									</div>
-								</a>
-							</div>
-
-						</div>
-						<div class="row">
-							<div class="col-lg-12 text center">
-								<ul class="pagination pagination-sm ">
-									<li><a href="#">Previous</a></li>
-									<li class="active disabled"><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">Next</a></li>
-									<li><a href="#">Last</a></li>
-								</ul>
-							</div>
-						</div> --%>
-
-						<table id="tableData" class="table">
+						<table id="tableData" class="table table-responsive">
 							<thead>
 								<tr>
 									<th style="font-family: 'Khmer OS Siemreap'">រូបភាព</th>
@@ -281,10 +247,8 @@
 								</tr>
 							</tbody>
 						</table>
-
 						<button class="fa fa-refresh btn btn-primary"
 							ng-click="getExpertsByRandom()">More</button>
-
 						<!-- end popular expert  -->
 					</div>
 				</div>
@@ -298,14 +262,11 @@
 				<div class="panel panel-primary text-center">
 					<div class="panel-heading  text-center">ស្ថិតិ</div>
 					<div class="panel-body">
-
-						<!-- ly  -->
-
 						<div class="row">
 							<div​ ng-repeat="ss in numOfSkills">
-								<div class="col-md-6 col-sm-6 col-lg-3">
+								<div class="col-md-6 col-sm-6 col-xs-6 col-lg-3">
 									<div class="profile-header-container">
-										<div class="profile-header-img">
+										<div class="profile-header-img" style="padding: 10px;">
 											<img class="img-circle"
 												src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg">
 											<!-- badge -->
@@ -317,49 +278,7 @@
 									</div>
 								</div>
 							</div>
-							<%-- <div class="col-md-6 col-sm-6 col-lg-3">
-								<div class="profile-header-container">
-									<div class="profile-header-img">
-										<img class="img-circle"
-											src="${pageContext.request.contextPath}/resources/experts/img/engineer.jpg">
-										<!-- badge -->
-										<div class="rank-label-container">
-											<span class="label label-default rank-label"
-												style="font-size: 15px"><em>System Engineer
-													(100)</em></span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 col-sm-6 col-lg-3">
-								<div class="profile-header-container">
-									<div class="profile-header-img">
-										<img class="img-circle"
-											src="${pageContext.request.contextPath}/resources/experts/img/manager.jpg">
-										<!-- badge -->
-										<div class="rank-label-container">
-											<span class="label label-default rank-label"
-												style="font-size: 15px"><em>IT Manager(100)</em></span>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-6 col-sm-6 col-lg-3">
-								<div class="profile-header-container">
-									<div class="profile-header-img">
-										<img class="img-circle"
-											src="${pageContext.request.contextPath}/resources/experts/img/manager.jpg">
-										<!-- badge -->
-										<div class="rank-label-container">
-											<span class="label label-default rank-label"
-												style="font-size: 15px"><em>Skill Set(100)</em></span>
-										</div>
-									</div>
-								</div>
-							</div> --%>
 						</div>
-						<!-- ly -->
 					</div>
 				</div>
 			</div>
