@@ -186,11 +186,12 @@
 								ng-click="getAllSubjectByCategoryID(6)"><a
 								data-toggle="tab" href="#skills">Network</a></li>
 							<li class="subject_category"
-								ng-click="getAllSubjectByCategoryID(7)"><a
-								data-toggle="tab" href="#skills">Server Operating System</a></li>
-							<li class="subject_category"
 								ng-click="getAllSubjectByCategoryID(8)"><a
 								data-toggle="tab" href="#skills">Graphic Design</a></li>
+							<li class="subject_category"
+								ng-click="getAllSubjectByCategoryID(7)"><a
+								data-toggle="tab" href="#skills">Server Operating System</a></li>
+							
 							<li class="subject_category"
 								ng-click="getAllSubjectByCategoryID(9)"><a
 								data-toggle="tab" href="#skills">Microsoft Office</a></li>
