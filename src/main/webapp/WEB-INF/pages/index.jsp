@@ -170,10 +170,9 @@
 						    <div id="skills" class="tab-pane fade in active">
 						      	<div class="row">
 						      		<div class="col-md-4 col-sm-6 col-xs-6 text-left skill-list" ng-repeat="category in categories">
-						      			<a href="/search/{{category.SUBJECT_CATEGORY_ID}}" >  
+						      			<a href="/search/{{category.SUBJECT_ID}}" >  
 						      				<!-- we need inner join exp_expert_subject_detail and get count_EXP -->
-						      				{{category.SUBJECT_NAME}} (count_EXP)
-						      			<!-- 	{{category.subjectName}}(count_EXP) -->
+						      				{{category.SUBJECT_NAME}}<span class="badge">{{category.NUMBER_OF_EXPERT_EACH_SKIL}}</span>
 						      			</a>
 						      		</div>
 						      	</div>
@@ -193,14 +192,9 @@
 				<div class="panel panel-primary">
 					<div class="panel-heading text-center">អ្នកជំនាញល្បីៗ</div>
 					<div class="panel-body">
-						<%-- <jsp:include page="expert/fragements/random/random.jsp"></jsp:include> --%>
 						<!-- start popular expert  -->
 						<div class="row">
-
-
-
-							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"
-								ng-repeat="e in experts">
+							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="e in experts">
 								<a href="/rest/expert/content" class="expert-top">
 									<div class="profile">
 										<img class="img-thumbnail img-responsive"
@@ -218,11 +212,12 @@
 						<div class="row">
 							<div class="col-lg-12 text center">
 								<ul class="pagination pagination-sm ">
-									<li><a href="#">ថយ</a></li>
-									<li class="active disabled"><a href="#">១</a></li>
-									<li><a href="#">២</a></li>
-									<li><a href="#">៣</a></li>
-									<li><a href="#">ទៅមុខ</a></li>
+									<li><a href="#">Previous</a></li>
+									<li class="active disabled"><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">Next</a></li>
+									<li><a href="#">Last</a></li>
 								</ul>
 							</div>
 						</div>
