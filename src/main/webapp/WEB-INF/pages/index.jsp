@@ -41,6 +41,7 @@
 	rel="stylesheet" type="text/css">
 
 <!-- Exucuse Me can i put my cdn here? - Recommend Expert -->
+<script src="${pageContext.request.contextPath}/resources/experts/js/jquery.bootpage.min.js"></script>
 
 <style>
 .paging-nav a {
@@ -57,10 +58,15 @@
 <script>
 	$.noConflict();
 	jQuery(document).ready(function($) {
-		$('select').material_select();
+		
 		$('.slider').slider({
 			full_width : true
 		});
+		
+		 
+	$('#page-selection').bootpag({
+				total: 10,
+		   });
 
 	});
 </script>
@@ -293,9 +299,22 @@
 					<div class="panel-heading  text-center">ស្ថិតិ</div>
 					<div class="panel-body">
 
+
 						<!-- ly  -->
 
-						<div class="row">
+<div class="row">
+		<section class="section_0" ng-repeat="ss in numOfSkills">
+      <div class="col-sm-3 col-md-4">
+        <div class="circle circle1">
+          <a href="#section_1"><h4 style="color: #000">{{ss.NUM_OF_SKILLS}}</h4><h5 style="color: #000">{{ss.SUBJECT_CATEGORY_NAME}}</p></h5></a>
+        </div>
+      </div>
+    </section>
+	</div>
+	
+	<div id="PAGINATION_STATISTIC"></div>
+
+						<%-- <div class="row">
 							<div ​ ng-repeat="ss in numOfSkills">
 								<div class="col-md-6 col-sm-6 col-lg-3">
 									<div class="profile-header-container">
@@ -311,7 +330,7 @@
 									</div>
 								</div>
 							</div>
-							<%-- <div class="col-md-6 col-sm-6 col-lg-3">
+							<div class="col-md-6 col-sm-6 col-lg-3">
 								<div class="profile-header-container">
 									<div class="profile-header-img">
 										<img class="img-circle"
@@ -351,8 +370,8 @@
 										</div>
 									</div>
 								</div>
-							</div> --%>
-						</div>
+							</div>
+						</div> --%>
 						<!-- ly -->
 					</div>
 				</div>
@@ -360,8 +379,15 @@
 		</div>
 	</div>
 	<br>
+	
+	 
+    <div id="page-selection"></div>
+    
+    
+ 
 	<jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
 
+	
 </body>
 
 </html>

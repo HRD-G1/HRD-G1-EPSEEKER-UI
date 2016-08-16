@@ -46,6 +46,8 @@
 <!-- font-awesome-4.6.3 -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/expert/font-awesome-4.6.3/css/font-awesome.min.css">
+	
+<script src="${pageContext.request.contextPath}/resources/experts/js/jquery.bootpage.min.js"></script>
 
 <script>
 	var SUB_ID = '<%=request.getParameter("id")%>';
@@ -235,7 +237,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="ers in resultExpert | limitTo:5">
+									<tr ng-repeat="ers in resultExpert">
 										<td style="width: 120px; text-align: center;">
 											<div>
 												<img
@@ -257,20 +259,16 @@
 
 							</table>
 							<!-- ly -->
-							<ul class="pagination pagination-sm ">
-								<li><a href="#">ថយ</a></li>
-								<li class="active disabled"><a href="#">១</a></li>
-								<li><a href="#">២</a></li>
-								<li><a href="#">៣</a></li>
-								<li><a href="#">ទៅមុខ</a></li>
-							</ul>
+							<div id="PAGINATION"></div>
 						</div>
 					</div>
 				</div>
 				<!--end panel result-->
 			</div>
 		</div>
-
+		<script type="text/javascript">
+			var searchID = '<%=request.getParameter("id")%>';
+		</script>
 	</body>
 </div>
 <jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
