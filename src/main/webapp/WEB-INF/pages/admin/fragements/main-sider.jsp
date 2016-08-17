@@ -67,7 +67,7 @@
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a style="cursor:pointer" data-toggle="modal" data-target="#addMainSkill"><i class="fa fa-plus"></i> Add Main Skill</a></li>
+            <li><a style="cursor:pointer" data-toggle="modal" data-target="#addMainSkill"><i class="fa fa-plus" ></i> Add Main Skill</a></li>
             <li><a href="../../../rest/admin/mainskill/view"><i class="fa fa-eye"></i> View Main Skill</a></li>
             <!-- Sub Skill -->
 	        <li class="treeview">
@@ -99,7 +99,7 @@
 	            <i class="fa fa-angle-left pull-right"></i>
 	          </a>
 	          <ul class="treeview-menu">
-	            <li><a style="cursor:pointer" data-toggle="modal" data-target="#addUniversity" ng-click="whenInsert()"><i class="fa fa-plus"></i> Add University</a></li>
+	            <li><a style="cursor:pointer" data-toggle="modal" data-target="#addUniversity"><i class="fa fa-plus"></i> Add University</a></li>
 	            <li><a href="../../../rest/admin/university/view"><i class="fa fa-eye"></i> View University</a></li>
 	          </ul>
 	        </li>

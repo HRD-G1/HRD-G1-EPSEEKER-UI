@@ -1,4 +1,98 @@
 var app = angular.module('expertApplication', []);
+
+/*Start of Language Block*/
+app.controller('languageController', function($scope, $http) {
+	
+	$scope.getDataOfLanguage = function () {
+        $http({
+            url: 'http://localhost:3333/rest/language',
+            method: 'GET'
+        }).then(function (respone) {
+        	$scope.languageObject = respone.data; //array        	
+        }, function (respone) {
+        	
+        });
+    };
+    $scope.getDataOfLanguage();
+	
+  /*  $scope.whenInsert = function() {
+    	$scope.ifUpdate = true;
+    	$scope.ifInsert = false;
+    	
+    	$scope.universityName="";
+    	
+	}*/
+    
+	$scope.insertLanguage = function () {
+    	$http({
+            url: 'http://localhost:3333/rest/language', 
+            method: "POST",
+            data: {
+            	  "languageDescription": "",
+            	  "languageID": 0,
+            	  "languageName": $scope.languageName
+            	}
+        }).then(function (respone) {        	
+        	$scope.languageName = "";
+        	$scope.getDataOfLanguage();
+        	swal({title: "Inserted", text: "Inserted Successfully", timer: 500, showConfirmButton: false})
+        }, function (respone) {
+        	swal({title: "Failed To Insert", text: "Inserted Unsuccessfully", timer: 500, showConfirmButton: false});
+        });
+    };
+    
+    $scope.getUpdateLanguage = function(lan) {
+    	
+    	$scope.ifUpdate = false;
+    	$scope.ifInsert = true;
+    	
+    	
+    	$scope.languageID = lan.lan.LANGUAGE_ID;
+    	$scope.languageName = lan.lan.LANGUAGE_NAME;
+    }
+    
+    $scope.updateLanguage = function() {
+    	$http({
+            url: 'http://localhost:3333/rest/language', 
+            method: "PUT",
+            data: {
+            	  "languageDescription": "",
+            	  "languageID": $scope.languageID,
+            	  "languageName": $scope.languageName
+            	}
+        }).then(function (respone) {        	
+        	$scope.languageName = "";
+        	$scope.getDataOfLanguage();
+        	swal({title: "Updated", text: "Updated Successfully", timer: 500, showConfirmButton: false})
+        }, function (respone) {
+        	swal({title: "Failed To Updated", text: "Updated Unsuccessfully", timer: 500, showConfirmButton: false});
+        });
+	}
+    
+    
+    $scope.removeLanguage = function(id) {
+    	swal({   title: "Are you sure?",   text: "You will not be able to recover this imaginary file!",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, delete it!",   cancelButtonText: "No, cancel plx!",   closeOnConfirm: false,   closeOnCancel: false }, function(isConfirm){   
+    		if (isConfirm) {     
+	    			$http({
+	    	            url: 'http://localhost:3333/rest/language/' + id, 
+	    	            method: "DELETE"
+	    	        }).then(function (respone) {        	
+	    	        	$scope.getDataOfLanguage();
+	    	        	swal({title: "Deleted", text: "Deleted Successfully", timer: 500, showConfirmButton: false})
+	    	        }, function (respone) {
+	    	        	swal({title: "Failed To Deleted", text: "Deleted Unsuccessfully", timer: 500, showConfirmButton: false});
+	    	        });
+    			} else {     
+    				swal("Cancelled", "Your imaginary file is safe :)", "error");   
+    				} });
+    	
+	}
+    
+
+});
+/*End of Language Block*/
+
+
 app.controller('mainSkillAndSubSkillController', function($scope, $http) {
 	
 	$scope.insertDataOfMainSkill = function () {
@@ -20,11 +114,10 @@ app.controller('mainSkillAndSubSkillController', function($scope, $http) {
     
     $scope.getUpdateMainSkill = function(mainSkill) {
     	
-    	$scope.ifUpdate = true;
-    	$scope.ifInsert = false;
-    	
-    	$scope.mainSkillID = mainSkill.mks.subjectCategoryID;
-    	$scope.mainSkillName = mainSkill.mks.subjectCategoryName; 
+    	$scope.ifUpdate = false;
+    	$scope.ifInsert = true;
+    	$scope.mainSkillID = mainSkill.mks.SUBJECT_CATEGORY_ID;
+    	$scope.mainSkillName = mainSkill.mks.SUBJECT_CATEGORY_NAME; 
 		
 	}
     
@@ -115,10 +208,9 @@ app.controller('mainSkillAndSubSkillController', function($scope, $http) {
     	$scope.ifUpdate = true;
     	$scope.ifInsert = false;
     	
-    	$scope.subjectID = subject.sub.subjectID;
-    	$scope.subjectName = subject.sub.subjectName;
-    	$scope.subjectCategory = subject.sub.subjectCategoryID;
-    	console.log(subject);
+    	$scope.subjectID = subject.sub.SUBJECT_ID;
+    	$scope.subjectName = subject.sub.SUBJECT_NAME;
+    	$scope.subjectCategory = subject.sub.SUBJECT_CATEGORY_ID;
 	}
     
     $scope.updateSkill = function() {
@@ -158,10 +250,13 @@ app.controller('universityController', function($scope, $http) {
     };
     $scope.getDataOfUniversity();
 	
-    $scope.whenInsert = function() {
+  /*  $scope.whenInsert = function() {
     	$scope.ifUpdate = true;
     	$scope.ifInsert = false;
-	}
+    	
+    	$scope.universityName="";
+    	
+	}*/
     
 	$scope.insertUniverty = function () {
     	$http({
@@ -188,8 +283,8 @@ app.controller('universityController', function($scope, $http) {
     	$scope.ifInsert = true;
     	
     	
-    	$scope.universityID = uni.uni.universityID;
-    	$scope.universityName = uni.uni.universityName;
+    	$scope.universityID = uni.uni.UNIVERSITY_ID;
+    	$scope.universityName = uni.uni.UNIVERSITY_NAME;
     }
     
     $scope.updateUniversity = function() {
@@ -251,18 +346,18 @@ app.controller('majorController', function($scope, $http) {
         });
     };
     
-    $scope.whenInsert = function(){
+    /*$scope.whenInsert = function(){
     	$scope.ifUpdate = false;
     	$scope.ifInsert = true;
-    }
+    }*/
     
     $scope.getUpdateMajor = function(major) {
     	
     	$scope.ifUpdate = true;
     	$scope.ifInsert = false;
     	
-		$scope.majorID = major.maj.majorID;
-		$scope.majorName = major.maj.majorName;
+		$scope.majorID = major.maj.MAJOR_ID;
+		$scope.majorName = major.maj.MAJOR_NAME;
 	}
     
     $scope.updateMajor = function(){

@@ -86,6 +86,11 @@ public class MainController {
 	public String viewSkill(){
 		return "admin/skill/view/view-skill";
 	}
+
+	@RequestMapping(value="/rest/admin/language/view")
+	public String viewLanguage(){
+		return "admin/language/view-language";
+	}
 	
 	@RequestMapping(value="rest/expert/content")
 	public String viewExpertDetail(){

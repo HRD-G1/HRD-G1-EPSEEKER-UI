@@ -55,10 +55,10 @@
                   <tbody>
                           <tr ng-repeat="uni in universityObject">
                           	<td>{{$index+1}}</td>
-                          	<td>{{uni.universityName}}</td>
+                          	<td>{{uni.UNIVERSITY_NAME}}</td>
                             <td align="center">
                               <a class="btn btn-default" ng-click="getUpdateUniversity(this)" data-toggle="modal" data-target="#addUniversity" ><em class="fa fa-pencil"></em></a>
-                              <a class="btn btn-danger" ng-click="removeUniversity(uni.universityID)"><em class="fa fa-trash"></em></a>
+                              <a class="btn btn-danger" ng-click="removeUniversity(uni.UNIVERSITY_ID)"><em class="fa fa-trash"></em></a>
                             </td>
                           </tr>
                         </tbody>
