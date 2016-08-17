@@ -327,8 +327,10 @@ app
 									url : 'http://localhost:3333/rest/expert/advance',
 									method : 'POST',
 									data : {
-										"MAX_AGE": 0,
-										"MIN_AGE": 0,
+										"MAX_AGE": $scope.objAge.MAX_AGE,
+										"MIN_AGE": $scope.objAge.MIN_AGE,
+										"MAX_SALARY": $scope.objSalary.MAX_SALARY,
+										"MIN_SALARY": $scope.objSalary.MIN_SALARY,
 										"DOB" : "string",
 										"EDUCATIONS" : [ {
 											"EDUCATION_END_YEAR" : "",
@@ -341,7 +343,7 @@ app
 										} ],
 										"EXPERT_ADVANCE_COURSE" : "",
 										"EXPERT_CURRENT_ADDRESS" : {
-											"CITY_OR_PROVINCE_ID" : 0,
+											"CITY_OR_PROVINCE_ID" : $scope.objLocation.CITY_OR_PROVINCE_ID,
 											"CITY_OR_PROVINCE_NAME" : "",
 											"COMMUNE_ID" : 0,
 											"COMMUNE_NAME" : "",
@@ -378,13 +380,13 @@ app
 											"INSTITUTION_ADDRESS" : "",
 											"INSTITUTION_ID" : 0,
 											"INSTITUTION_NAME" : "",
-											"PERIOD" : $scope.expPeroid.PEROID,
+											"PERIOD" : $scope.expPeroid.EXP_VALUE,
 											"POSITION_ID" : $scope.objPosition.POSITION_ID,
 											"POSITION_NAME" : "",
 											"PROJECT_EXPERIENCE" : ""
 										} ],
 										"EXPERT_FIRST_NAME" : "",
-										"EXPERT_GENDER" : "",
+										"EXPERT_GENDER" : $("#gender").val(),
 										"EXPERT_GENDERATION" : 0,
 										"EXPERT_ID" : 0,
 										"EXPERT_JOB_EXPECTATIONS" : [ {
@@ -401,11 +403,8 @@ app
 										"EXPERT_PHOTO" : "",
 										"EXPERT_STATUS" : "",
 										"KA_ID" : 0,
-										"LANGUAGES" : [ {
-											"LANGUAGE_DESCRIPTION" : "",
-											"LANGUAGE_ID" : 0,
-											"LANGUAGE_NAME" : ""
-										} ],
+										"LANGUAGES" : 
+											$scope.myDataOfLanguages ,
 										"PLACE_OF_BIRTH" : {
 											"CITY_OR_PROVINCE_ID" : 0,
 											"CITY_OR_PROVINCE_NAME" : "",
@@ -422,14 +421,10 @@ app
 									}
 								}).then(function(response) {
 							console.log(response.data);
-							$scope.locations = response.data;
+							$scope.resultExpert = response.data;
 						}, function(response) {
 
 						});
-
-						console.log("After: ");
-
-						console.log($scope.subjectString);
 					}
 
 					// Searching Block

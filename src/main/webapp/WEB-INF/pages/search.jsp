@@ -166,10 +166,10 @@
 												  		</div>
 													</div><br>
 												<h5>GENDER</h5>
-											  		<select class="form-control">
-											  			<option>Both</option>
-											  			<option>Male</option>
-											  			<option>Female</option>
+											  		<select class="form-control" id="gender">
+											  			<option value="0">Both</option>
+											  			<option value="1">Male</option>
+											  			<option value="2">Female</option>
 											  		</select>
 											  	<h5>AGE</h5>
 											  		<select class="form-control" ng-model="objAge" ng-options="age.AGE_INFO for age in ages">
@@ -193,7 +193,7 @@
 								</div><br>
 								<div class="row">
 									<div class="col-md-offset-4">
-										<button class="btn btn-primary">Search</button>
+										<button class="btn btn-primary" ng-click="searchAdvance()">Search</button>
 									</div>
 								</div>
 						</div>
@@ -230,6 +230,7 @@
 										<td><em><i><br> <br>{{ers.EXPERT_ADVANCE_COURSE}}</i></em></td>
 										<td><br> <br>{{ers.EXPERT_JOB_EXPECTATIONS[0].MIN_SALARY | currency}}  {{ers.EXPERT_JOB_EXPECTATIONS[0].MAX_SALARY | currency}}</td>
 										<td style="float: left;"><br> <br> <a
+											href="/rest/expert/content/?id={{ers.EXPERT_ID}}"
 											style="cursor: pointer;"
 											class="secondary-content  tooltipped" data-position="bottom"
 											data-delay="50" data-tooltip="មើលលំអិតបន្ថែម"><i
