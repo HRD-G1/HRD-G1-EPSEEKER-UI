@@ -41,7 +41,12 @@
 	rel="stylesheet" type="text/css">
 
 <!-- Exucuse Me can i put my cdn here? - Recommend Expert -->
-<script src="${pageContext.request.contextPath}/resources/experts/js/jquery.bootpage.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/experts/js/jquery.bootpage.min.js"></script>
+
+<!-- OWL -->
+<script src="${pageContext.request.contextPath}/resources/experts/owl-carousel/owl.carousel.min.js">
+</script>
 
 <style>
 .paging-nav a {
@@ -58,16 +63,15 @@
 <script>
 	$.noConflict();
 	jQuery(document).ready(function($) {
-		
+
 		$('.slider').slider({
 			full_width : true
 		});
-		
-		 
-	/* $('#page-selection').bootpag({
-				total: 10,
-		   });
- */
+
+		/* $('#page-selection').bootpag({
+					total: 10,
+			   });
+		 */
 	});
 </script>
 <!-- statistic css  -->
@@ -82,7 +86,7 @@
 
 </head>
 <body ng-controller="expertController">
-	
+
 	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header ">
@@ -164,7 +168,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				
+
 				<div class="panel panel-primary text-justify">
 					<div class="panel-heading  text-center">LIST OF EXPERT SKILLS</div>
 
@@ -205,7 +209,8 @@
 								<div class="row">
 									<div class="col-md-4 col-sm-6 col-xs-6 text-left skill-list"
 										ng-repeat="category in categories">
-									<a style="cursor: pointer;" ng-click="getSubjectID(category.SUBJECT_ID)"> <!-- we need inner join exp_expert_subject_detail and get count_EXP -->
+										<a style="cursor: pointer;"
+											ng-click="getSubjectID(category.SUBJECT_ID)"> <!-- we need inner join exp_expert_subject_detail and get count_EXP -->
 											{{category.SUBJECT_NAME}}<span class="badge">{{category.NUMBER_OF_EXPERT_EACH_SKILL}}</span>
 										</a>
 									</div>
@@ -302,19 +307,23 @@
 
 						<!-- ly  -->
 
-<div class="row">
-		<section class="section_0" ng-repeat="ss in numOfSkills">
-      <div class="col-sm-6 col-xs-6 col-md-4">
-        <div class="circle circle1">
-          <a href="#section_1"><h4 style="color: #000">{{ss.NUM_OF_SKILLS}}</h4><h5 style="color: #000">{{ss.SUBJECT_CATEGORY_NAME}}</p></h5></a>
-        </div>
-      </div>
-    </section>
-	</div>
-	
-	<!-- <div id="PAGINATION_STATISTIC"></div> -->
+						<div class="row">
+							<section class="section_0" ng-repeat="ss in numOfSkills">
+							<div class="col-sm-6 col-xs-12 col-md-4">
+								<div class="circle circle1">
+									<a href="#section_1"><h4 style="color: #000">{{ss.NUM_OF_SKILLS}}</h4>
+										<h6 style="color: #000; font-weight: 600">
+											{{ss.SUBJECT_CATEGORY_NAME}}
+											</p>
+										</h6></a>
+								</div>
+							</div>
+							</section>
+						</div>
 
-					
+						<!-- <div id="PAGINATION_STATISTIC"></div> -->
+
+
 						<!-- ly -->
 					</div>
 				</div>
@@ -322,15 +331,15 @@
 		</div>
 	</div>
 	<br>
-	
-	 
-    <div id="page-selection"></div>
-    
-    
- 
+
+
+	<div id="page-selection"></div>
+
+
+
 	<jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
 
-	
+
 </body>
 
 </html>
