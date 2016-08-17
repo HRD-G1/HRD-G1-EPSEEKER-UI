@@ -248,3 +248,8 @@ span.badge
 	color:#fff;
 	background-color: #009688;
 }
+.ui-accordion .ui-accordion-header,.well-sm
+{
+	background-color: #008080;
+	color: #fff;
+}

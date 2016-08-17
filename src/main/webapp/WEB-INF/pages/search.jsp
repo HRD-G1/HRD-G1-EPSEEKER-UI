@@ -32,10 +32,10 @@
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+<!-- <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css"><!--
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/experts/ui/ui.min.css">
 <!--custom-->
@@ -53,18 +53,6 @@
 	function pageLoad(){
 		goToSearchBySubjectID(SUB_ID);
 	}
-	
-	$.noConflict();
-	jQuery(document).ready(function($) {
-		$('select').material_select();
-		$('.slider').slider({
-			full_width : true
-		});
-		$('.tooltipped').tooltip({
-			delay : 50
-		});
-
-	});
 </script>
 </head>
 <div >
@@ -138,119 +126,94 @@
 						<div class="panel-heading ">ឧបករណ៍ស្វែងរក</div>
 						<div class="panel-body">
 							<!--start panel search body-->
-							<form>
-								<div>
-									<div class="input-field col s6">
-										<select>
-											<option value="1">ផ្សេងៗ</option>
-											<option value="2">បរិញ្ញាបត្រ</option>
-											<option value="3">អនុបណ្ឌិត</option>
-											<option value="4">បណ្ឌិត</option>
-										</select> <label>កំរិតអប់រំ</label>
-									</div>
-									<div class="input-field col s6">
-										<select multiple="">
-
-											<option value="2">IT</option>
-											<option value="3">English</option>
-											<option value="4">Korean</option>
-										</select> <label>ផ្នែក</label>
-									</div>
-									<div class="input-field col s6">
-										<select>
-											<option value="Both">ទាំងពីរភេទ</option>
-											<option value="Male">ប្រុស</option>
-											<option value="Female">ស្រី</option>
-										</select> <label>ភេទ</label>
-									</div>
-									<div class="input-field col s6">
-										<select>
-											<option value="1">ផ្សេងៗ</option>
-											<option value="2">18-25</option>
-											<option value="3">25-30</option>
-											<option value="4">30-35</option>
-											<option value="5">35-40</option>
-											<option value="6">40+</option>
-										</select> <label>អាយុ</label>
-									</div>
-								</div>
-								<div>
-									<div class="input-field col s6">
-										<select>
-											<option value="1">ជំនាញផ្សេងៗ</option>
-											<option value="2">Graphic Design</option>
-											<option value="3">Mobile</option>
-											<option value="4">Database</option>
-										</select> <label>ជំនាញ</label>
-									</div>
-									<div class="input-field col s6">
-										<select multiple="">
-											<option value="1">Android</option>
-											<option value="2">IOS</option>
-										</select> <label>ជំនាញរង</label>
-									</div>
-								</div>
-								<div>
-									<div class="input-field col s6">
-										<select>
-											<option value="1">មុខតំណែងផ្សេងៗ</option>
-											<option value="2">Project Manager</option>
-											<option value="3">HR</option>
-											<option value="4">Admin</option>
-										</select> <label>បទពិសោធន៍ជំនាញ</label>
-									</div>
-									<div class="input-field col s6">
-										<select>
-											<option value="1">មិនទាមទារ</option>
-											<option value="2">1-2</option>
-											<option value="3">2-3</option>
-											<option value="4">3-4</option>
-											<option value="5">4-5</option>
-											<option value="6">More Than 5</option>
-										</select> <label>បទពិសោធន៍</label>
-									</div>
-								</div>
-								<div>
-									<div class="input-field col s12">
-										<select>
-											<option value="1">ប្រាក់ខែមិនបានកំណត់</option>
-											<option value="2">$100-$200</option>
-											<option value="3">$200-$300</option>
-											<option value="4">$300-$400</option>
-											<option value="5">$400-$400</option>
-											<option value="6">$500-$600</option>
-											<option value="7">More Than $600</option>
-										</select> <label>ប្រាក់ខែរំពឹង</label>
-									</div>
-								</div>
-								<div>
-									<div class="input-field col s12">
-										<select multiple="">
-											<option value="1">Khmer</option>
-											<option value="2">Korean</option>
-											<option value="3">Loa</option>
-											<option value="4">English</option>
-											<option value="5">Thai</option>
-										</select> <label>ភាសា</label>
+							<div id="accordion">
+								<!--   <h3>MAIN SKILL &amp; SUB SKILLS</h3> -->
+								  <div>
+								  <h4 class="well-sm">CHOOSE EXPERT SKILL</h4>
+								  	<h5>MAIN SKILL</h5>
+									  		<select class="form-control">
+									  			<option>Framework</option>
+									  		</select>
+									<h5>SUB SKILLS</h5>
+									  		<div class="row">
+									  			<div class="col-md-6 col-sm-6">
+										  			<input type="checkbox" checked="checked" class="col-md-6"/>JQuery
+										  		</div>
+												<div class="col-md-6 col-sm-6" >
+										  			<input type="checkbox" checked="checked" class="col-md-6"/>JQuery
+										  		</div>
+										  		<div class="col-md-6 col-sm-6">
+										  			<input type="checkbox" checked="checked" class="col-md-6"/>JQuery
+										  		</div>
+											</div>
+											
+											
+											<!--  -->
+											<br>
+											<h4 class="well-sm">WORK EXPERIENCE</h4>
+											<h5>POSITION EXPERIENCE</h5>
+											  		<select class="form-control">
+											  			<option>IT Manager</option>
+											  		</select>
+											  		<h4>YEAR OF EXPERIENCE</h4>
+											  		<select class="form-control">
+											  			<option>0-1 Year</option>
+											  			<option>0-2 Years</option>
+											  			<option>0-3 Years</option>
+											  		</select>
+											<!--  -->
+											
+											<h4 class="well-sm">PERSONAL INFORMATION</h4>
+											 <h5>LANGUAGE</h5>
+											  		<div class="row">
+											  			<div class="col-md-6 col-sm-6">
+												  			<input type="checkbox" checked="checked" class="col-md-6"/>English
+												  		</div>
+														<div class="col-md-6 col-sm-6" >
+												  			<input type="checkbox" checked="checked" class="col-md-6"/>Korea
+												  		</div>
+												  		<div class="col-md-6 col-sm-6">
+												  			<input type="checkbox" checked="checked" class="col-md-6"/>Khmer
+												  		</div>
+													</div><br>
+												<h5>GENDER</h5>
+											  		<select class="form-control">
+											  			<option>Both</option>
+											  			<option>Male</option>
+											  			<option>Female</option>
+											  		</select>
+											  	<h5>AGE</h5>
+											  		<select class="form-control">
+											  			<option>18-25</option>
+											  			<option>25-30</option>
+											  			<option>30+</option>
+											  		</select>
+											  <h5>LOCATION</h5>
+											  		<select class="form-control">
+											  			<option>Phnom Penh</option>
+											  			<option>kandal</option>
+											  			<option>Kampot</option>
+											  		</select>
+											<!--  -->
+											
+											<!--  -->
+								 <h4 class="well-sm">JOB EXPECTATION</h4>
+								  <div>
+								  	<h5>EXPECTED SALARY</h5>
+								  		<select class="form-control">
+								  			<option>$250-$300</option>
+								  			<option>$300-$500</option>
+								  			<option>$500-$1000</option>
+								  			<option>$500-$1000</option>
+								  		</select>
+								  </div>
+								  </div>
+								</div><br>
+								<div class="row">
+									<div class="col-md-offset-4">
+										<button class="btn btn-primary">Search</button>
 									</div>
 								</div>
-								<div>
-									<div class="input-field col s12">
-										<select>
-											<option value="">ទីតាំងផ្សេងៗ</option>
-											<option value="1">Prey Veng</option>
-											<option value="2">Kampong Cham</option>
-											<option value="3">Siem Reap</option>
-											<option value="4">Kandal</option>
-											<option value="5">Phnom Penh</option>
-										</select> <label>ទីតាំង</label>
-									</div>
-								</div>
-								<button class="btn waves-effect waves-light" type="submit"
-									name="action">ស្វែងរក</button>
-								<button class="btn waves-effect waves-light" type="reset"
-									name="action">កំណត់ឡើងវិញ</button>
-							</form>
 						</div>
 						<!--end panel search body-->
 					</div>
@@ -260,11 +223,8 @@
 					<div class="panel panel-primary text-left">
 						<div class="panel-heading ">លទ្ធផលស្វែងរក</div>
 						<div class="panel-body">
-
 							<!-- ly  -->
-
-							<table
-								class="table table-striped table-hover table-condensed table-responsive">
+							<table	class="table table-striped table-hover table-condensed table-responsive">
 								<thead>
 									<tr>
 										<th>រូបថត</th>
@@ -275,7 +235,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="ers in resultExpert">
+									<tr ng-repeat="ers in resultExpert | limitTo:5">
 										<td style="width: 120px; text-align: center;">
 											<div>
 												<img
