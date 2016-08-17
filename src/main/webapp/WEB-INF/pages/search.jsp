@@ -162,7 +162,7 @@
 											 <h5>LANGUAGE</h5>
 											  		<div class="row">
 											  			<div class="col-md-6 col-sm-6" ng-repeat="lang in languages">
-												  			<input type="checkbox" class="col-md-6" name="languagesValues" value="{{lang}}"/>{{lang.LANGUAGE_NAME}}
+												  			<input type="checkbox" class="col-md-6" name="languagesValues" value="{{lang.LANGUAGE_ID}}"/>{{lang.LANGUAGE_NAME}}
 												  		</div>
 													</div><br>
 												<h5>GENDER</h5>

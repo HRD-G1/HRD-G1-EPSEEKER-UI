@@ -4,20 +4,18 @@ app
 		.controller(
 				'expertController',
 				function($scope, $http) {
-					
-					//expert detail
+
+					// expert detail
 					$scope.getDataDetail = function(ID) {
-						$http(
-								{
-									url : 'http://localhost:3333/rest/expert/' 
-											+ ID,
-									/*
-									 * url:
-									 * 'http://localhost:7777/rest/subject/bysubjectcategory/'+catID,
-									 */
-									method : 'GET'
-								}).then(function(response) {
-							
+						$http({
+							url : 'http://localhost:3333/rest/expert/' + ID,
+							/*
+							 * url:
+							 * 'http://localhost:7777/rest/subject/bysubjectcategory/'+catID,
+							 */
+							method : 'GET'
+						}).then(function(response) {
+
 							$scope.expertDetail = response.data;
 							console.log("This is expert detail");
 							console.log($scope.expertDetail);
@@ -25,7 +23,7 @@ app
 
 						});
 					}
-					//expert detail
+					// expert detail
 
 					/* get all subject name by category id */
 					$scope.getAllSubjectByCategoryID = function(catID) {
@@ -156,17 +154,16 @@ app
 
 					var sujectSkills = {};
 					$scope.getSubjectResults = function() {
-						sujectSkills = $(
-								'input[name=subjectValues]:checked').map(
-								function() {
+						sujectSkills = $('input[name=subjectValues]:checked')
+								.map(function() {
 									return this.value;
 								}).get();
-						
+
 					}
-					
-					$scope.test = function(){
+
+					$scope.test = function() {
 						$scope.getSubjectResults();
-						
+
 						console.log(subjectString);
 					}
 
@@ -227,8 +224,9 @@ app
 
 					$scope.getLanguages();
 
+					var languagesResults;
 					$scope.getLanguageResults = function() {
-						var languagesResults = $(
+						languagesResults = $(
 								'input[name=languagesValues]:checked').map(
 								function() {
 									return this.value;
@@ -288,135 +286,151 @@ app
 						MAX_SALARY : 5000,
 						SALARY_INFO : "$ 1000.00 - $ 5000.00"
 					} ];
-					
+
 					$scope.searchAdvance = function() {
-						
-						
-						//subject				
+						$scope.myDataOfSubjects = [];
+						// subject array
 						$scope.getSubjectResults();
-						var subjectString = "[";
-						for(var i = 0; i < sujectSkills.length; i++){
-							if(i != 0){
-								subjectString += ", ";
-							}
-							subjectString += "{ \
-						        \"NUMBER_OF_EXPERT_EACH_SKILL\" : 0, \
-						        \"NUM_OF_SKILLS\" : 0, \
-						        \"SUBJECT_CATEGORY_ID\" : 0, \
-						        \"SUBJECT_CATEGORY_NAME\" : \"\", \
-						        \"SUBJECT_ID\" : " + sujectSkills[i] + ", \
-						        \"SUBJECT_NAME\" : \"\" } "; 
+						console.log("sub" + sujectSkills.length);
+						for (var i = 0; i < sujectSkills.length; i++) {
+							$scope.myDataOfSubjects.push({
+								NUMBER_OF_EXPERT_EACH_SKILL : 0,
+								NUM_OF_SKILLS : 10,
+								SUBJECT_CATEGORY_ID : 0,
+								SUBJECT_CATEGORY_NAME : '',
+								SUBJECT_ID : sujectSkills[i],
+								SUBJECT_NAME : ''
+							});
 						}
-						subjectString += "]";
-						console.log("Subject: ");
+						//console.log($scope.myDataOfSubjects);
+
+						// subject array
+
+						// languages array
+						$scope.getLanguageResults();
+						languagesResults;
+						$scope.myDataOfLanguages = [];
+						for (var i = 0; i < languagesResults.length; i++) {
+							$scope.myDataOfLanguages.push({
+								LANGUAGE_DESCRIPTION : "",
+								LANGUAGE_ID : languagesResults[i],
+								LANGUAGE_NAME : ""
+							})
+						}
 						
-						console.log(subjectString);
-						//subject array
-						
-						$http({
-							url : 'http://localhost:3333/rest/expert/advance',
-							method : 'POST',
-							data : {
-								"DOB" : "string",
-								"EDUCATIONS" : [ {
-									"EDUCATION_END_YEAR" : "",
-									"EDUCATION_START_YEAR" : "",
-									"EXPERT_ID" : 0,
-									"MAJOR_ID" : 0,
-									"MAJOR_NAME" : "",
-									"UNIVERSITY_ID" : 0,
-									"UNIVERSITY_NAME" : ""
-								} ],
-								"EXPERT_ADVANCE_COURSE" : "",
-								"EXPERT_CURRENT_ADDRESS" : {
-									"CITY_OR_PROVINCE_ID" : 0,
-									"CITY_OR_PROVINCE_NAME" : "",
-									"COMMUNE_ID" : 0,
-									"COMMUNE_NAME" : "",
-									"COUNTRY_ID" : 0,
-									"COUNTRY_NAME" : "",
-									"DISTRICT_ID" : 0,
-									"DISTRICT_NAME" : "",
-									"EXPERT_ID" : 0
-								},
-								"EXPERT_CURRENT_JOBS" : [ {
-									"EXPERT_ID" : 0,
-									"INSTITUTIOIN_NAME" : "",
-									"INSTITUTION_ADDRESS" : "",
-									"INSTITUTION_EMAIL" : "",
-									"INSTITUTION_ID" : 0,
-									"INSTITUTION_PHONE" : "",
-									"POSITION_ID" : 0,
-									"POSITION_NAME" : "",
-									"SALARY" : 0,
-									"intitutionAddress" : ""
-								} ],
-								"EXPERT_DOCUMENTS" : [ {
-									"DESCRIPTION" : "",
-									"EXPERT_ID" : 0,
-									"FILE_DOCUMENT_ID" : 0,
-									"FILE_NAME" : "",
-									"FILE_PATH" : ""
-								} ],
-								"EXPERT_EMAIL" : "",
-								"EXPERT_EXPERIENCES" : [ {
-									"EXPERIENCE_END_YEAR" : "",
-									"EXPERIENCE_START_YEAR" : "",
-									"EXPERT_ID" : 0,
-									"INSTITUTION_ADDRESS" : "",
-									"INSTITUTION_ID" : 0,
-									"INSTITUTION_NAME" : "",
-									"PERIOD" : "",
-									"POSITION_ID" : "",
-									"POSITION_NAME" : "",
-									"PROJECT_EXPERIENCE" : ""
-								} ],
-								"EXPERT_FIRST_NAME" : "",
-								"EXPERT_GENDER" : "",
-								"EXPERT_GENDERATION" : 0,
-								"EXPERT_ID" : 0,
-								"EXPERT_JOB_EXPECTATIONS" : [ {
-									"EXPERT_ID" : 0,
-									"LOCATION" : "",
-									"MAX_SALARY" : 0,
-									"MIN_SALARY" : 0,
-									"POSITION_ID" : 0,
-									"POSITION_NAME" : ""
-								} ],
-								"EXPERT_LAST_NAME" : "",
-								"EXPERT_PHONE1" : "",
-								"EXPERT_PHONE2" : "",
-								"EXPERT_PHOTO" : "",
-								"EXPERT_STATUS" : "",
-								"KA_ID" : 0,
-								"LANGUAGES" : [ {
-									"LANGUAGE_DESCRIPTION" : "",
-									"LANGUAGE_ID" : 0,
-									"LANGUAGE_NAME" : ""
-								} ],
-								"PLACE_OF_BIRTH" : {
-									"CITY_OR_PROVINCE_ID" : 0,
-									"CITY_OR_PROVINCE_NAME" : "",
-									"COMMUNE_ID" : 0,
-									"COMMUNE_NAME" : "",
-									"COUNTRY_ID" : 0,
-									"COUNTRY_NAME" : "",
-									"DISTRICT_ID" : 0,
-									"DISTRICT_NAME" : "",
-									"EXPERT_ID" : 0
-								},
-								"PROJECT_LINK_DEMO" : "",
-								"SUBJECTS" :  subjectString
-							}
-						}).then(function(response) {
+						console.log($scope.expPeroid);
+
+						// languages array
+
+						$http(
+								{
+									url : 'http://localhost:3333/rest/expert/advance',
+									method : 'POST',
+									data : {
+										"MAX_AGE": 0,
+										"MIN_AGE": 0,
+										"DOB" : "string",
+										"EDUCATIONS" : [ {
+											"EDUCATION_END_YEAR" : "",
+											"EDUCATION_START_YEAR" : "",
+											"EXPERT_ID" : 0,
+											"MAJOR_ID" : 0,
+											"MAJOR_NAME" : "",
+											"UNIVERSITY_ID" : 0,
+											"UNIVERSITY_NAME" : ""
+										} ],
+										"EXPERT_ADVANCE_COURSE" : "",
+										"EXPERT_CURRENT_ADDRESS" : {
+											"CITY_OR_PROVINCE_ID" : 0,
+											"CITY_OR_PROVINCE_NAME" : "",
+											"COMMUNE_ID" : 0,
+											"COMMUNE_NAME" : "",
+											"COUNTRY_ID" : 0,
+											"COUNTRY_NAME" : "",
+											"DISTRICT_ID" : 0,
+											"DISTRICT_NAME" : "",
+											"EXPERT_ID" : 0
+										},
+										"EXPERT_CURRENT_JOBS" : [ {
+											"EXPERT_ID" : 0,
+											"INSTITUTIOIN_NAME" : "",
+											"INSTITUTION_ADDRESS" : "",
+											"INSTITUTION_EMAIL" : "",
+											"INSTITUTION_ID" : 0,
+											"INSTITUTION_PHONE" : "",
+											"POSITION_ID" : 0,
+											"POSITION_NAME" : "",
+											"SALARY" : 0,
+											"intitutionAddress" : ""
+										} ],
+										"EXPERT_DOCUMENTS" : [ {
+											"DESCRIPTION" : "",
+											"EXPERT_ID" : 0,
+											"FILE_DOCUMENT_ID" : 0,
+											"FILE_NAME" : "",
+											"FILE_PATH" : ""
+										} ],
+										"EXPERT_EMAIL" : "",
+										"EXPERT_EXPERIENCES" : [ {
+											"EXPERIENCE_END_YEAR" : "",
+											"EXPERIENCE_START_YEAR" : "",
+											"EXPERT_ID" : 0,
+											"INSTITUTION_ADDRESS" : "",
+											"INSTITUTION_ID" : 0,
+											"INSTITUTION_NAME" : "",
+											"PERIOD" : $scope.expPeroid.PEROID,
+											"POSITION_ID" : $scope.objPosition.POSITION_ID,
+											"POSITION_NAME" : "",
+											"PROJECT_EXPERIENCE" : ""
+										} ],
+										"EXPERT_FIRST_NAME" : "",
+										"EXPERT_GENDER" : "",
+										"EXPERT_GENDERATION" : 0,
+										"EXPERT_ID" : 0,
+										"EXPERT_JOB_EXPECTATIONS" : [ {
+											"EXPERT_ID" : 0,
+											"LOCATION" : "",
+											"MAX_SALARY" : 0,
+											"MIN_SALARY" : 0,
+											"POSITION_ID" : 0,
+											"POSITION_NAME" : ""
+										} ],
+										"EXPERT_LAST_NAME" : "",
+										"EXPERT_PHONE1" : "",
+										"EXPERT_PHONE2" : "",
+										"EXPERT_PHOTO" : "",
+										"EXPERT_STATUS" : "",
+										"KA_ID" : 0,
+										"LANGUAGES" : [ {
+											"LANGUAGE_DESCRIPTION" : "",
+											"LANGUAGE_ID" : 0,
+											"LANGUAGE_NAME" : ""
+										} ],
+										"PLACE_OF_BIRTH" : {
+											"CITY_OR_PROVINCE_ID" : 0,
+											"CITY_OR_PROVINCE_NAME" : "",
+											"COMMUNE_ID" : 0,
+											"COMMUNE_NAME" : "",
+											"COUNTRY_ID" : 0,
+											"COUNTRY_NAME" : "",
+											"DISTRICT_ID" : 0,
+											"DISTRICT_NAME" : "",
+											"EXPERT_ID" : 0
+										},
+										"PROJECT_LINK_DEMO" : "",
+										"SUBJECTS" : $scope.myDataOfSubjects
+									}
+								}).then(function(response) {
 							console.log(response.data);
 							$scope.locations = response.data;
 						}, function(response) {
 
 						});
+
+						console.log("After: ");
+
+						console.log($scope.subjectString);
 					}
-					
-					$scope.num = 50;
 
 					// Searching Block
 
