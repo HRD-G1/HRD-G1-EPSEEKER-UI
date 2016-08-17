@@ -138,11 +138,12 @@
 									  		</select>
 									<h5>SUB SKILLS</h5>
 									  		<div class="row" ng-repeat="subskill in objSkill.SUBJECT">
-									  			<div class="col-md-10 col-sm-10" >
-										  			<input type="checkbox"  class="col-md-6" value="{{subskill}}" name="subjectValues"/>{{subskill.SUBJECT_NAME}}
+									  			<div class="col-md-12 col-sm-12" >
+										  			<input type="checkbox"  class="col-md-6" value="{{subskill.SUBJECT_ID}}" name="subjectValues"/>{{subskill.SUBJECT_NAME}}
 										  		</div>
 											</div>
 											
+											<button ng-click="searchAdvance()">Test</button>
 											
 											<!--  -->
 											<br>
@@ -252,3 +253,4 @@
 </div>
 <jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
 </html>
+
