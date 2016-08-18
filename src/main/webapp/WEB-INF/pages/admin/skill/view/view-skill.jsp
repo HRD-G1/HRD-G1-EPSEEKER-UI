@@ -70,11 +70,11 @@
                   <tbody>
                           <tr ng-repeat="sub in skillSet">
                           	<td>{{$index+1}}</td>
-                          	<td>{{sub.subjectName}}</td>
-                          	<td>{{sub.subjectCategoryName}}</td>
+                          	<td>{{sub.SUBJECT_NAME}}</td>
+                          	<td>{{sub.SUBJECT_CATEGORY_NAME}}</td>
                             <td align="center">
                               <a class="btn btn-default" ng-click="getUpdateSkill(this)" data-toggle="modal" data-target="#addSkill" ><em class="fa fa-pencil"></em></a>
-                              <a class="btn btn-danger" ng-click="removeSkill(sub.subjectID)"><em class="fa fa-trash"></em></a>
+                              <a class="btn btn-danger" ng-click="removeSkill(sub.SUBJECT_ID)"><em class="fa fa-trash"></em></a>
                             </td>
                           </tr>
                         </tbody>

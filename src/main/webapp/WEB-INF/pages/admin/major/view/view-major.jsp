@@ -62,17 +62,17 @@
                   <thead>
                     <tr>
                         <th class="hidden-xs">No.</th>
-                        <th>University Name</th>
+                        <th>Major Name</th>
                         <th><em class="fa fa-cog"></em> Action</th>
                     </tr> 
                   </thead>
                   <tbody>
                           <tr ng-repeat="maj in majors">
                           	<td>{{$index+1}}</td>
-                          	<td>{{maj.majorName}}</td>
+                          	<td>{{maj.MAJOR_NAME}}</td>
                             <td align="center">
                               <a class="btn btn-default" ng-click="getUpdateMajor(this)" data-toggle="modal" data-target="#addMajor" ><em class="fa fa-pencil"></em></a>
-                              <a class="btn btn-danger" ng-click="removeMajor(maj.majorID)"><em class="fa fa-trash"></em></a>
+                              <a class="btn btn-danger" ng-click="removeMajor(maj.MAJOR_ID)"><em class="fa fa-trash"></em></a>
                             </td>
                           </tr>
                         </tbody>

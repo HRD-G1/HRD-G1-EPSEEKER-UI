@@ -4,7 +4,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-					<h3 class="modal-title" id="lineModalLabel">My Modal</h3>
+					<h3 class="modal-title" id="lineModalLabel">Main Skill</h3>
 				</div>
 				<div class="modal-body">
 					
@@ -42,14 +42,14 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-					<h3 class="modal-title" id="lineModalLabel">My Modal</h3>
+					<h3 class="modal-title" id="lineModalLabel">Sub Skill</h3>
 				</div>
 				<div class="modal-body">
 					
 		            <!-- content goes here -->
 					<form>
 					  <div class="form-group">
-				      	<label for="mainSkill">Main Skill</label>
+				      	<label for="mainSkill">Sub Skill</label>
 				        <select class="form-control" id="mainSkill" 
 				        	ng-model="subjectCategory" 
 				        	data-ng-options="ms.subjectCategoryID as ms.subjectCategoryName for ms in mainSkillSet" >
@@ -57,7 +57,7 @@
 				        </select>
 			          </div>	
 		              <div class="form-group">
-		                <label for="country">Add New Skill</label>
+		                <label for="country">Add New Sub Skill</label>
 		                <input type="text" class="form-control" id="country" placeholder="Add New Skill" ng-model="subjectName">
 		              </div>              
 		            </form>
@@ -68,10 +68,10 @@
 						<div class="btn-group" role="group">
 							<button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
 						</div>
-						<div class="btn-group btn-delete" role="group">
-							<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button" ng-click="updateSkill()">Updated</button>
+						<div class="btn-group btn-delete" role="group" >
+							<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button" ng-click="updateSkill()">Update</button>
 						</div>
-						<div class="btn-group" role="group">
+						<div class="btn-group" role="group" >
 							<button type="button" id="insertDataOfMainSkill" class="btn btn-default btn-hover-green" data-action="save" role="button" ng-click="insertDataOfSubSkill()">Save</button>
 						</div>
 					</div>
