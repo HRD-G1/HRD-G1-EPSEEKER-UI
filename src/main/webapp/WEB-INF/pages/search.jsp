@@ -173,7 +173,7 @@
 											  		</select>
 											  	<h5>AGE</h5>
 											  		<select class="form-control" ng-model="objAge" ng-options="age.AGE_INFO for age in ages">
-											  			<option style="display: none" value="">--Select--</option>
+											  			<option style="display: none" value="1">--Select--</option>
 											  		</select>
 											  <h5>LOCATION</h5>
 											  		<select class="form-control" ng-model="objLocation" ng-options="loc.CITY_OR_PROVINCE_NAME for loc in locations">
