@@ -71,8 +71,8 @@
 								src="${pageContext.request.contextPath }/resources/expert/img/occupation-32-512.png"
 								class="img-responsive img-circle">
 							<p
-								style="margin-top: 30px; font-family: 'Arial'; font-size: 22px; font-weight: 500; text-shadow: -1px 1px 1px #999">{{pFName
-								+ " " + pLName}}</p>
+								style="margin-top: 30px; font-family: 'Arial'; font-size: 22px; font-weight: 500; text-shadow: -1px 1px 1px #999">
+								{{expertDetail.EXPERT_FIRST_NAME + " " + expertDetail.EXPERT_LAST_NAME}}</p>
 						</center>
 					</div>
 				</div>
@@ -85,49 +85,50 @@
 								<tr style="border: none; border-bottom: 1px solid lightgray">
 									<th style="width: 130px; border: none">Gender</th>
 									<th style="width: 10px; border: none">:</th>
-									<td style="border: none">{{pGender}}</td>
+									<td style="border: none">{{expertDetail.EXPERT_GENDER}}</td>
 								</tr>
-
-								<tr style="border: none; border-bottom: 1px solid lightgray">
+							<!-- Marital status -->
+								<!-- <tr style="border: none; border-bottom: 1px solid lightgray">
 									<th style="border: none">Marital Status</th>
 									<th style="border: none">:</th>
-									<td style="border: none">{{pMS}}</td>
+									<td style="border: none">{{expertDetail.EXPERT_STATUS}}</td>
 								</tr>
-
-								<tr style="border: none; border-bottom: 1px solid lightgray">
+ -->						<!-- Nationality  -->
+<!-- 								<tr style="border: none; border-bottom: 1px solid lightgray">
 									<th style="border: none">Nationality</th>
 									<th style="border: none">:</th>
 									<td style="border: none">{{pNationality}}</td>
 								</tr>
-
+ -->
 								<tr style="border: none; border-bottom: 1px solid lightgray">
 									<th style="border: none">Date of Birth</th>
 									<th style="border: none">:</th>
-									<td style="border: none">{{pDoB}}</td>
+									<td style="border: none">{{expertDetail.DOB}}</td>
 								</tr>
 
 								<tr style="border: none; border-bottom: 1px solid lightgray">
 									<th style="border: none">Place of Birth</th>
 									<th style="border: none">:</th>
-									<td style="border: none">{{pPoB}}</td>
+									<td style="border: none">{{expertDetail.PLACE_OF_BIRTH
+									.CITY_OR_PROVINCE_NAME}}</td>
 								</tr>
 
 								<tr style="border: none; border-bottom: 1px solid lightgray">
 									<th style="border: none">Current Address</th>
 									<th style="border: none">:</th>
-									<td style="border: none">{{pCPoB}}</td>
+									<td style="border: none">{{expertDetail.EXPERT_CURRENT_ADDRESS.CITY_OR_PROVINCE_NAME}}</td>
 								</tr>
 
 								<tr style="border: none; border-bottom: 1px solid lightgray">
 									<th style="border: none">Email</th>
 									<th style="border: none">:</th>
-									<td style="border: none">{{pEmail}}</td>
+									<td style="border: none">{{expertDetail.EXPERT_EMAIL}}</td>
 								</tr>
 
 								<tr style="border: none; border-bottom: 1px solid lightgray">
 									<th style="border: none">Phone</th>
 									<th style="border: none">:</th>
-									<td style="border: none">{{pPhone}}</td>
+									<td style="border: none">{{expertDetail.EXPERT_PHONE1}}</td>
 								</tr>
 							</table>
 						</div>
@@ -200,17 +201,16 @@
 				<table id="edu-container"
 					class="education-container col-md-12 col-xs-12"
 					style="margin-bottom: 0px">
-					<tr ng-repeat="ed in edu">
+					<tr ng-repeat="ed in expertDetail.EDUCATIONS">
 						<td>
 							<div id="{{ed.id}}"
 								style="padding: 0; margin: 10px; border-radius: 0px;">
 								<form class="fm">
 									<fieldset class="fs">
-										<legend class="lg">{{ed.university}}</legend>
+										<legend class="lg">{{ed.UNIVERSITY_NAME}}</legend>
 										<p style="font-size: 18px; font-family: 'Calibri'">
-											<i>Period</i>: {{ed.sYear}} To {{ed.eYear}} <br> <i>Major</i>:
-											{{ed.major}} <br> <br> <i>Description</i>:
-											{{ed.des}}
+											<i>Period</i>: {{ed.EDUCATION_START_YEAR}} To {{ed.EDUCATION_END_YEAR}} <br> <i>Major</i>:
+											{{ed.MAJOR_NAME}} 
 										</p>
 									</fieldset>
 								</form>
@@ -243,16 +243,16 @@
 								</h2>
 							</center>
 						</div>
-						<tr ng-repeat="cj in curJob">
+						<tr ng-repeat="cj in expertDetail.EXPERT_CURRENT_JOBS">
 							<td>
 								<div id="{{cj.id}}">
 									<form class="fm">
 										<fieldset class="fs">
-											<legend class="lg">{{cj.institution}}</legend>
+											<legend class="lg">{{cj.INSTITUTIOIN_NAME}}</legend>
 											<p style="font-size: 18px; font-family: 'Calibri'">
-												<i>Institution Phone</i>: {{cj.contactPhone}} <br> <i>Institution
-													Email</i>: {{cj.email}} <br> <br> <i>Position</i>:
-												{{cj.position}} <br> <i>Salary</i>: {{cj.salary |
+												<i>Institution Phone</i>: {{cj.INSTITUTION_PHONE}} <br> <i>Institution
+													Email</i>: {{cj.INSTITUTION_EMAIL}} <br> <br> <i>Position</i>:
+												{{cj.POSITION_NAME}} <br> <i>Salary</i>: {{cj.SALARY |
 												currency }}
 											</p>
 										</fieldset>
@@ -276,17 +276,17 @@
 								</h2>
 							</center>
 						</div>
-						<tr ng-repeat="ex in exp">
+						<tr ng-repeat="ex in expertDetail.EXPERT_EXPERIENCES">
 							<td>
-								<div id="{{ex.id}}">
+								<div id="{{ex.EXPERT_ID}}">
 									<form class="fm">
 										<fieldset class="fs">
-											<legend class="lg">{{ex.institution}}</legend>
-											<p style="font-size: 18px; font-family: 'Calibri'">
-												Institution Phone: {{ex.contactPhone}} <br> Institution
-												Email: {{ex.email}} <br> <br> Period:
-												{{ex.startDate}} To {{ex.endDate}} <br> Used To Be:
-												{{ex.position}}
+											<legend class="lg">{{ex.INSTITUTION_NAME}}</legend>
+	<!-- Not Yet  -->						<p style="font-size: 18px; font-family: 'Calibri'">
+<!-- 												Institution Phone: {{ex.contactPhone}} <br> Institution
+												Email: {{ex.email}} <br> <br>
+ -->												 Period: {{ex.PERIOD}} Year <br> Used To Be:
+												{{ex.POSITION_NAME}}
 											</p>
 										</fieldset>
 									</form>
@@ -365,10 +365,10 @@
 							</h2>
 						</center>
 					</div>
-					<tr ng-repeat="eSkill in expertSkill">
-						<td id="{{eSkill.id}}"><span class="alignleft"
-							style="font-family: 'Arial'; font-weight: 600">{{eSkill.mainSkill}}:
-								{{eSkill.exSkill}}</span> <!-- <span class="alignright">
+					<tr ng-repeat="eSkill in expertDetail.SUBJECTS">
+						<td id="{{eSkill.SUBJECT_ID}}"><span class="alignleft"
+							style="font-family: 'Arial'; font-weight: 600">{{eSkill.SUBJECT_CATEGORY_NAME}} : {{eSkill.SUBJECT_NAME}}
+								</span> <!-- <span class="alignright">
                                     <span style="color: #3dc9b3" class="btn btn-xs fa fa-minus-circle" ng-click="delete(eSkill.id)"></span>
                                     <span style="color: #3dc9b3" class="btn btn-xs fa fa-pencil" ng-click="getUpdate(this)" data-toggle="modal" data-target="#skill"></span>
                                 </span> -->
@@ -376,7 +376,7 @@
 							<div style="clear: both;"></div>
 							<div class="progress">
 								<div class="progress-bar progress-bar-info" role="progressbar"
-									style="width: 25%">{{eSkill.mention}}</div>
+									style="width: 25%">{{eSkill.EXPERT_SUBJECT_DETAIL_LEVEL}}</div>
 								<div class="progress-bar progress-bar-danger" role="progressbar"
 									style="width: {{eSkill.level"></div>
 							</div></td>
@@ -473,9 +473,9 @@
 							</h2>
 						</center>
 					</div>
-					<tr ng-repeat="eLang in expertLanguage">
-						<td id="{{eLang.id}}"><span class="alignleft"
-							style="font-family: 'Arial'; font-weight: 600">{{eLang.exLang}}</span>
+					<tr ng-repeat="eLang in expertDetail.LANGUAGES">
+						<td id="{{eLang.LANGUAGE_ID}}"><span class="alignleft"
+							style="font-family: 'Arial'; font-weight: 600">{{eLang.LANGUAGE_NAME}}</span>
 
 							<!-- <span class="alignright">
                                     <span style="color: #3dc9b3" class="btn btn-xs fa fa-minus-circle" ng-click="delete(eSkill.id)"></span>
@@ -485,7 +485,7 @@
 							<div style="clear: both;"></div>
 							<div class="progress">
 								<div class="progress-bar progress-bar-info" role="progressbar"
-									style="width: 25%">{{eLang.mention}}</div>
+									style="width: 25%">{{eLang.MENTION}}</div>
 								<div class="progress-bar progress-bar-danger" role="progressbar"
 									style="width: {{eLang.level"></div>
 							</div></td>
@@ -506,12 +506,12 @@
 					</center>
 				</div>
 				<table>
-					<tr ng-repeat="jp in jobExpectation">
+					<tr ng-repeat="jp in expertDetail.EXPERT_JOB_EXPECTATIONS">
 						<td style="border-bottom: 1px solid #999; padding: 10px">
 							<p style="font-size: 18px; font-family: 'Calibri'">
-								Option {{$index+1}} <br> Position: {{jp.postion}} <br>
-								Salary Range: {{jp.minSalary | currency}} - {{jp.maxSalary |
-								currency}} <br> Location: {{jp.location}}
+								Option {{$index+1}} <br> Position: {{jp.POSITION_NAME}} <br>
+								Salary Range: {{jp.MIN_SALARY | currency}} - {{jp.MAX_SALARY |
+								currency}} <br> Location: {{jp.LOCATION}}
 							</p>
 						</td>
 					</tr>
