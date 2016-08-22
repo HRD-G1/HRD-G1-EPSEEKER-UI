@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="expertApplication">
+<html ng-app="expertApplication" ng-controller="expertController">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,29 +28,17 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini" ng-controller="majorController">
+<body class="hold-transition skin-blue sidebar-mini" >
 <div class="wrapper">
 
   <!-- Include Main Header -->
   	<jsp:include page="../../fragements/main-header.jsp"></jsp:include>
   <!-- Include Main Header -->
   
-  <!-- <div ng-controller="fileTypeController">  
-  <div ng-controller="languageController">
-  <div ng-controller="mainSkillAndSubSkillController">    
-  <div ng-controller="locationController">  
-  <div ng-controller="universityController"> -->
-  
   <!-- Include main Sidebar -->
   	<jsp:include page="../../fragements/main-sider.jsp"></jsp:include>
   <!-- Include main Sidebar -->
-  
-  <!-- </div> University
-  </div> Location  	  
-  </div> Skill
-  </div> Language
-  </div> File -->
-  
+    
   <!-- Left side column. contains the logo and sidebar -->
   
   

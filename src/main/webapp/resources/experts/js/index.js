@@ -16,7 +16,7 @@ app
 							method : 'GET'
 						}).then(function(response) {
 
-							$scope.expertDetail = response.data;
+							$scope.expertDetail = response.data.DATA;
 							console.log("This is expert detail");
 							console.log($scope.expertDetail);
 						}, function(response) {
@@ -38,7 +38,7 @@ app
 									method : 'GET'
 								}).then(function(response) {
 							/* console.log(response.data); */
-							$scope.categories = response.data;
+							$scope.categories = response.data.DATA;
 						}, function(response) {
 
 						});
@@ -51,11 +51,11 @@ app
 							url : 'http://localhost:3333/rest/expertbyrandom',
 							method : 'GET'
 						}).then(function(response) {
-							/*
-							 * console.log("Expert");
-							 * console.log(response.data);
-							 */
-							$scope.experts = response.data;
+
+							console.log("Expert");
+							console.log(response.data);
+
+							$scope.experts = response.data.DATA;
 						}, function(response) {
 
 						});
@@ -71,16 +71,16 @@ app
 							/*
 							 * console.log("NUM"); console.log(response.data);
 							 */
-							$scope.numOfSkills = response.data;
+							$scope.numOfSkills = response.data.DATA;
 						}, function(response) {
 
 						});
 					}
 
 					$scope.getStatistic();
-					
+
 					$scope.goToSearchBySubject = function(id) {
-							
+
 					}
 
 					// Searching Block
@@ -95,13 +95,16 @@ app
 					}
 
 					$scope.checkPagination = true;
+
+					var SUB_ID;
 					$scope.goToSearchBySubjectID = function(subjectID) {
+						SUB_ID = subjectID;
 						$http(
 								{
 									url : 'http://localhost:3333/rest/findExpertsBySubjectID/'
 											+ subjectID,
 									method : 'GET',
-									params : {
+										params : {
 										page : $scope.filter.page,
 										limit : 10
 									}
@@ -132,11 +135,15 @@ app
 
 										});
 					}
-
+					
+					var pagOption = false;
 					$('#PAGINATION').on("page", function(event, currentPage) {
 						$scope.filter.page = currentPage;
-						$scope.goToSearchBySubjectID(searchID);
-
+						if (pagOption) {
+							$scope.searchAdvance();
+						} else {
+							$scope.goToSearchBySubjectID(SUB_ID);
+						}
 					});
 
 					// subjectSkill
@@ -148,7 +155,7 @@ app
 						}).then(function(response) {
 							console.log("Skill")
 							console.log(response.data);
-							$scope.skills = response.data;
+							$scope.skills = response.data.DATA;
 						}, function(response) {
 
 						});
@@ -181,7 +188,7 @@ app
 							method : 'GET'
 						}).then(function(response) {
 							console.log(response.data);
-							$scope.positions = response.data;
+							$scope.positions = response.data.DATA;
 							$scope.positions[$scope.positions.length] = {
 								POSITION_ID : 0,
 								POSITION_NAME : "--Other--"
@@ -220,7 +227,7 @@ app
 							method : 'GET'
 						}).then(function(response) {
 							console.log(response.data);
-							$scope.languages = response.data;
+							$scope.languages = response.data.DATA;
 						}, function(response) {
 
 						});
@@ -263,7 +270,7 @@ app
 							method : 'GET'
 						}).then(function(response) {
 							console.log(response.data);
-							$scope.locations = response.data;
+							$scope.locations = response.data.DATA;
 						}, function(response) {
 
 						});
@@ -292,7 +299,7 @@ app
 					} ];
 
 					$scope.objLocation = null;
-					
+
 					$scope.searchAdvance = function() {
 						$scope.myDataOfSubjects = [];
 						// subject array
@@ -308,7 +315,7 @@ app
 								SUBJECT_NAME : ''
 							});
 						}
-						//console.log($scope.myDataOfSubjects);
+						// console.log($scope.myDataOfSubjects);
 
 						// subject array
 
@@ -323,156 +330,175 @@ app
 								LANGUAGE_NAME : ""
 							})
 						}
-						
 
 						// languages array
-						
-						//age
+
+						// age
 						var minAge = 0;
 						var maxAge = 0;
-						if($scope.objAge != null){
+						if ($scope.objAge != null) {
 							minAge = $scope.objAge.MIN_AGE;
 							maxAge = $scope.objAge.MAX_AGE;
 						}
-						//age
-						
-						//salary
+						// age
+
+						// salary
 						var maxSalary = 0;
 						var minSalary = 0;
-						if($scope.objSalary != null){
+						if ($scope.objSalary != null) {
 							maxSalary = $scope.objSalary.MIN_SALARY;
 							minSalary = $scope.objSalary.MAX_SALARY;
 						}
-						//salary
-						
-						//city or province id
+						// salary
+
+						// city or province id
 						var cityOrProvinceID = 0;
-						if($scope.objLocation != null){
+						if ($scope.objLocation != null) {
 							cityOrProvinceID = $scope.objLocation.CITY_OR_PROVINCE_ID;
 						}
-						//city or province id
-						
-						//period
+						// city or province id
+
+						// period
 						var peroid = "NO";
-						if($scope.expPeroid!=null){
+						if ($scope.expPeroid != null) {
 							peroid = $scope.expPeroid.EXP_VALUE;
 						}
-						
-						//period
-						
-						//position
+
+						// period
+
+						// position
 						var positionID = 0;
-						if($scope.objPosition!=null){
+						if ($scope.objPosition != null) {
 							positionID = $scope.objPosition.POSITION_ID;
 						}
-						//position
+						// position
 
-						$http(
-								{
-									url : 'http://localhost:3333/rest/expert/advance',
-									method : 'POST',
-									data : {
-										"MAX_AGE": maxAge,
-										"MIN_AGE": minAge,
-										"MAX_SALARY": minSalary,
-										"MIN_SALARY": maxSalary,
-										"DOB" : "string",
-										"EDUCATIONS" : [ {
-											"EDUCATION_END_YEAR" : "",
-											"EDUCATION_START_YEAR" : "",
-											"EXPERT_ID" : 0,
-											"MAJOR_ID" : 0,
-											"MAJOR_NAME" : "",
-											"UNIVERSITY_ID" : 0,
-											"UNIVERSITY_NAME" : ""
-										} ],
-										"EXPERT_ADVANCE_COURSE" : "",
-										"EXPERT_CURRENT_ADDRESS" : {
-											"CITY_OR_PROVINCE_ID" : cityOrProvinceID,
-											"CITY_OR_PROVINCE_NAME" : "",
-											"COMMUNE_ID" : 0,
-											"COMMUNE_NAME" : "",
-											"COUNTRY_ID" : 0,
-											"COUNTRY_NAME" : "",
-											"DISTRICT_ID" : 0,
-											"DISTRICT_NAME" : "",
-											"EXPERT_ID" : 0
-										},
-										"EXPERT_CURRENT_JOBS" : [ {
-											"EXPERT_ID" : 0,
-											"INSTITUTIOIN_NAME" : "",
-											"INSTITUTION_ADDRESS" : "",
-											"INSTITUTION_EMAIL" : "",
-											"INSTITUTION_ID" : 0,
-											"INSTITUTION_PHONE" : "",
-											"POSITION_ID" : 0,
-											"POSITION_NAME" : "",
-											"SALARY" : 0,
-											"intitutionAddress" : ""
-										} ],
-										"EXPERT_DOCUMENTS" : [ {
-											"DESCRIPTION" : "",
-											"EXPERT_ID" : 0,
-											"FILE_DOCUMENT_ID" : 0,
-											"FILE_NAME" : "",
-											"FILE_PATH" : ""
-										} ],
-										"EXPERT_EMAIL" : "",
-										"EXPERT_EXPERIENCES" : [ {
-											"EXPERIENCE_END_YEAR" : "",
-											"EXPERIENCE_START_YEAR" : "",
-											"EXPERT_ID" : 0,
-											"INSTITUTION_ADDRESS" : "",
-											"INSTITUTION_ID" : 0,
-											"INSTITUTION_NAME" : "",
-											"PERIOD" : peroid,
-											"POSITION_ID" : positionID,
-											"POSITION_NAME" : "",
-											"PROJECT_EXPERIENCE" : ""
-										} ],
-										"EXPERT_FIRST_NAME" : "",
-										"EXPERT_GENDER" : $("#gender").val(),
-										"EXPERT_GENDERATION" : 0,
-										"EXPERT_ID" : 0,
-										"EXPERT_JOB_EXPECTATIONS" : [ {
-											"EXPERT_ID" : 0,
-											"LOCATION" : "",
-											"MAX_SALARY" : 0,
-											"MIN_SALARY" : 0,
-											"POSITION_ID" : 0,
-											"POSITION_NAME" : ""
-										} ],
-										"EXPERT_LAST_NAME" : "",
-										"EXPERT_PHONE1" : "",
-										"EXPERT_PHONE2" : "",
-										"EXPERT_PHOTO" : "",
-										"EXPERT_STATUS" : "",
-										"KA_ID" : 0,
-										"LANGUAGES" : 
-											$scope.myDataOfLanguages ,
-										"PLACE_OF_BIRTH" : {
-											"CITY_OR_PROVINCE_ID" : 0,
-											"CITY_OR_PROVINCE_NAME" : "",
-											"COMMUNE_ID" : 0,
-											"COMMUNE_NAME" : "",
-											"COUNTRY_ID" : 0,
-											"COUNTRY_NAME" : "",
-											"DISTRICT_ID" : 0,
-											"DISTRICT_NAME" : "",
-											"EXPERT_ID" : 0
-										},
-										"PROJECT_LINK_DEMO" : "",
-										"SUBJECTS" : $scope.myDataOfSubjects
-									}
-																
-								}).then(function(response) {
+						$http({
+							
+							params : {
+								page : $scope.filter.page,
+								limit : 10
+							},
+							url : 'http://localhost:3333/rest/expert/advance',
+							method : 'POST',
+							data : {
+								"MAX_AGE" : maxAge,
+								"MIN_AGE" : minAge,
+								"MAX_SALARY" : minSalary,
+								"MIN_SALARY" : maxSalary,
+								"DOB" : "string",
+								"EDUCATIONS" : [ {
+									"EDUCATION_END_YEAR" : "",
+									"EDUCATION_START_YEAR" : "",
+									"EXPERT_ID" : 0,
+									"MAJOR_ID" : 0,
+									"MAJOR_NAME" : "",
+									"UNIVERSITY_ID" : 0,
+									"UNIVERSITY_NAME" : ""
+								} ],
+								"EXPERT_ADVANCE_COURSE" : "",
+								"EXPERT_CURRENT_ADDRESS" : {
+									"CITY_OR_PROVINCE_ID" : cityOrProvinceID,
+									"CITY_OR_PROVINCE_NAME" : "",
+									"COMMUNE_ID" : 0,
+									"COMMUNE_NAME" : "",
+									"COUNTRY_ID" : 0,
+									"COUNTRY_NAME" : "",
+									"DISTRICT_ID" : 0,
+									"DISTRICT_NAME" : "",
+									"EXPERT_ID" : 0
+								},
+								"EXPERT_CURRENT_JOBS" : [ {
+									"EXPERT_ID" : 0,
+									"INSTITUTIOIN_NAME" : "",
+									"INSTITUTION_ADDRESS" : "",
+									"INSTITUTION_EMAIL" : "",
+									"INSTITUTION_ID" : 0,
+									"INSTITUTION_PHONE" : "",
+									"POSITION_ID" : 0,
+									"POSITION_NAME" : "",
+									"SALARY" : 0,
+									"intitutionAddress" : ""
+								} ],
+								"EXPERT_DOCUMENTS" : [ {
+									"DESCRIPTION" : "",
+									"EXPERT_ID" : 0,
+									"FILE_DOCUMENT_ID" : 0,
+									"FILE_NAME" : "",
+									"FILE_PATH" : ""
+								} ],
+								"EXPERT_EMAIL" : "",
+								"EXPERT_EXPERIENCES" : [ {
+									"EXPERIENCE_END_YEAR" : "",
+									"EXPERIENCE_START_YEAR" : "",
+									"EXPERT_ID" : 0,
+									"INSTITUTION_ADDRESS" : "",
+									"INSTITUTION_ID" : 0,
+									"INSTITUTION_NAME" : "",
+									"PERIOD" : peroid,
+									"POSITION_ID" : positionID,
+									"POSITION_NAME" : "",
+									"PROJECT_EXPERIENCE" : ""
+								} ],
+								"EXPERT_FIRST_NAME" : "",
+								"EXPERT_GENDER" : $("#gender").val(),
+								"EXPERT_GENDERATION" : 0,
+								"EXPERT_ID" : 0,
+								"EXPERT_JOB_EXPECTATIONS" : [ {
+									"EXPERT_ID" : 0,
+									"LOCATION" : "",
+									"MAX_SALARY" : 0,
+									"MIN_SALARY" : 0,
+									"POSITION_ID" : 0,
+									"POSITION_NAME" : ""
+								} ],
+								"EXPERT_LAST_NAME" : "",
+								"EXPERT_PHONE1" : "",
+								"EXPERT_PHONE2" : "",
+								"EXPERT_PHOTO" : "",
+								"EXPERT_STATUS" : "",
+								"KA_ID" : 0,
+								"LANGUAGES" : $scope.myDataOfLanguages,
+								"PLACE_OF_BIRTH" : {
+									"CITY_OR_PROVINCE_ID" : 0,
+									"CITY_OR_PROVINCE_NAME" : "",
+									"COMMUNE_ID" : 0,
+									"COMMUNE_NAME" : "",
+									"COUNTRY_ID" : 0,
+									"COUNTRY_NAME" : "",
+									"DISTRICT_ID" : 0,
+									"DISTRICT_NAME" : "",
+									"EXPERT_ID" : 0
+								},
+								"PROJECT_LINK_DEMO" : "",
+								"SUBJECTS" : $scope.myDataOfSubjects
+							}
+						
+
+						}).then(function(response) {
 							console.log(response);
 							$scope.resultExpert = response.data.DATA;
+
+							// CHANGE pagination to advance search
+							pagOption = true;
+							alert(($scope.filter.page));
+							$('#PAGINATION').bootpag({
+								total : response.data.PAGINATION.TOTAL_PAGES,
+								page : $scope.filter.page, // CURRENT
+								// PAGE
+								leaps : true,
+								firstLastUse : true,
+								first : '←',
+								last : '→',
+								next : 'Next',
+								prev : 'Prev',
+								maxVisible : 10
+							});
+
 						}, function(response) {
 
 						});
 					}
-					
 
 					// Searching Block
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="expertApplication">
+<html ng-app="expertApplication" ng-controller="expertController">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,23 +46,11 @@
   
   <!-- Left side column. contains the logo and sidebar -->
   
-  <div ng-controller="fileTypeController">  
-  <div ng-controller="languageController">
-  <div ng-controller="mainSkillAndSubSkillController">  
-  <div ng-controller="majorController">
-  <div ng-controller="locationController">  
-  <div ng-controller="universityController">
-  
+
   <!-- Include Main Side Here -->
   <jsp:include page="fragements/main-sider.jsp"></jsp:include>
   <!-- Include Main Side Here -->
-  
-  </div> <!-- University -->
-  </div> <!-- Location -->
-  </div> <!-- Major -->	  
-  </div> <!-- Skill -->
-  </div> <!-- Language -->
-  </div> <!-- File -->
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

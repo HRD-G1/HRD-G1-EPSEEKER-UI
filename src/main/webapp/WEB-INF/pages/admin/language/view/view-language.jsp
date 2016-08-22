@@ -28,7 +28,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini" ng-controller="languageController">
+<body class="hold-transition skin-blue sidebar-mini" ng-controller="expertController">
 <div class="wrapper">
 
   <!-- Include Main Header -->

@@ -45,9 +45,17 @@
 	src="${pageContext.request.contextPath}/resources/experts/js/jquery.bootpage.min.js"></script>
 
 <!-- OWL -->
-<script src="${pageContext.request.contextPath}/resources/experts/owl-carousel/owl.carousel.min.js">
-</script>
-
+<%-- 
+<!-- Important Owl stylesheet -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/experts/owl-carousel/owl.carousel.css">
+ 
+<!-- Default Theme -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/experts/owl-carousel/owl.theme.css">
+ 
+ 
+<!-- Include js plugin -->
+<script src="${pageContext.request.contextPath}/resources/experts/owl-carousel/owl.carousel.js"></script>
+ --%>
 <style>
 .paging-nav a {
 	background-color: teal;
@@ -145,9 +153,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-primary ">
-					<div class="panel-heading  text-center">សូមស្វាគមន៍</div>
+					<div class="panel-heading  text-center"​​ style="font-family: 'Khmer OS Battambang'">សូមស្វាគមន៍</div>
 					<div class="panel-body ">
-						<p ​ style="word-wrap: break-word;" class="text-justify;">
+						<p ​ style="word-wrap: break-word; font-family: 'Khmer OS Battambang'" class="text-justify;">
 							<span>នេះគឺជាគេហទំព័រមួយដែលជួយដល់និយោជកឬអ្នកដែលមានបំណងចង់ស្វែងរក​បុគ្គលិកសម្រាប់បម្រើការនៅក្រុមហ៊ុនរបស់ខ្លួនបានដោយ
 								ផ្ដល់នូវមុខងារស្វែង​រកជាច្រើន។
 								បេក្ខភាពទាំងអស់​នៅគេហទំព័រនេះសុទ្ធ​តែជាអតីតនិស្សិតរបស់មជ្ឈមណ្ឌលកូរ៉េសហ្វវែរ
@@ -155,7 +163,7 @@
 								ជាពិសេស
 								ការបង្ហាញផ្នែកលំអិតរប​ស់បេក្ខជនដែលអ្នកចាប់អារម្មណ៍ដូ​ចជាកម្រិតនៃការសិក្សា
 								មុខជំនាញ ​សញ្ញាបត្រ អាសយដ្ឋាន និង ព័ត៌មានជាច្រើនទៀតសូមធ្វើការ<a
-								href="#">ចុះឈ្មោះ</a> និង<a href="#">ចូលក្នុងគណនី</a>របស់អ្នក
+								href="#"><b> ចុះឈ្មោះ </b></a> និង<a href="#"><b> ចុះឈ្មោះ </b></a>របស់អ្នក
 								ដោយឥតគិតថ្លៃ។
 							</span>
 						</p>
@@ -230,7 +238,8 @@
 			<!-- ly -->
 			<div class="col-md-12">
 				<div class="panel panel-primary">
-					<div class="panel-heading text-center">អ្នកជំនាញល្បីៗ</div>
+					<div class="panel-heading text-center"
+						style="font-family: 'Khmer OS Battambang'">អ្នកជំនាញដែលអ្នកអាចនឹងត្រូវការ</div>
 					<div class="panel-body">
 						<!-- start popular expert  -->
 						<%-- <div class="row">
@@ -269,20 +278,23 @@
 									<th style="font-family: 'Khmer OS Siemreap'">ឈ្មោះ</th>
 									<th style="font-family: 'Khmer OS Siemreap'">ជំនាញ</th>
 									<th style="font-family: 'Khmer OS Siemreap'">អស័យដ្ដាន</th>
-									<th style="font-family: 'Khmer OS Siemreap'"><i
-										class="fa fa-search" style="color: teal"></i> ចូលមើល</th>
+									<th style="font-family: 'Khmer OS Siemreap'"><i></i>
+										បទពិសោធន៏</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr ng-repeat="ep in experts">
-									<td><img alt=""
-										src="${pageContext.request.contextPath}/resources/experts/img/tempPic.png"
-										style="width: 50px; height: 50px"></td>
-									<td style="max-width: 100px; vertical-align: initial;">{{ep.EXPERT_LAST_NAME}}
-										{{ep.EXPERT_FIRST_NAME}}</td>
-									<td style="max-width: 150px;">{{ep.EXPERT_ADVANCE_COURSE}}</td>
-									<td style="max-width: 100px;">{{ep.EXPERT_CURRENT_ADDRESS.CITY_OR_PROVINCE_NAME}}</td>
-									<td style="max-width: 30px;"><a href="#">View</a></td>
+									
+										<td>
+										<a href="/rest/expert/content/?id={{ers.EXPERT_ID}}" target="_blank"><img alt=""
+											src="${pageContext.request.contextPath}/resources/experts/img/tempPic.png"
+											style="width: 50px; height: 50px"></a>
+											</td>
+										<td style="max-width: 100px; vertical-align: initial; padding-top: 23px">{{ep.EXPERT_LAST_NAME}}
+											{{ep.EXPERT_FIRST_NAME}}</td>
+										<td style="max-width: 150px;padding-top: 23px">{{ep.EXPERT_ADVANCE_COURSE}}</td>
+										<td style="max-width: 100px; padding-top: 23px">{{ep.EXPERT_CURRENT_ADDRESS.CITY_OR_PROVINCE_NAME}}</td>
+										<td style="max-width: 30px; padding-top: 23px">{{ep.EXPERT_EXPERIENCES[0].PERIOD}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -301,7 +313,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-primary text-center">
-					<div class="panel-heading  text-center">ស្ថិតិ</div>
+					<div class="panel-heading  text-center"​​ style="font-family: 'Khmer OS Battambang'">ស្ថិតិសរុបនៃជំនាញ</div>
 					<div class="panel-body">
 
 
@@ -311,7 +323,7 @@
 							<section class="section_0" ng-repeat="ss in numOfSkills">
 							<div class="col-sm-6 col-xs-12 col-md-4">
 								<div class="circle circle1">
-									<a href="#section_1"><h4 style="color: #000">{{ss.NUM_OF_SKILLS}}</h4>
+									<a id=""><h5 style="color: #000">{{ss.NUM_OF_SKILLS}}<small style="font-family: 'Khmer OS Battambang'; font-size: 12px; font-weight: 600; color: black"> ជំនាញរង នៃ ជំនាញ</small></h5>	
 										<h6 style="color: #000; font-weight: 600">
 											{{ss.SUBJECT_CATEGORY_NAME}}
 											</p>

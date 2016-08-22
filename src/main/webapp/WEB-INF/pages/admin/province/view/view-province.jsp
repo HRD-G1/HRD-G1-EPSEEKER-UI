@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="expertApplication"  ng-controller="expertController">
+<html ng-app="expertApplication">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,20 +28,18 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" ng-controller="expertController">
 <div class="wrapper">
 
   <!-- Include Main Header -->
   	<jsp:include page="../../fragements/main-header.jsp"></jsp:include>
   <!-- Include Main Header -->
   
+  <!-- Left side column. contains the logo and sidebar -->
+  
   <!-- Include main Sidebar -->
   	<jsp:include page="../../fragements/main-sider.jsp"></jsp:include>
   <!-- Include main Sidebar -->
-  
-  <!-- Left side column. contains the logo and sidebar -->
-  
-  
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -50,19 +48,19 @@
                   <thead>
                     <tr>
                         <th class="hidden-xs">No.</th>
-                        <th>Subject Name</th>
-                        <th>Subject Category Name</th>
+                        <th>Language Name</th>
+                        <th>Country Name</th>
                         <th><em class="fa fa-cog"></em> Action</th>
                     </tr> 
                   </thead>
                   <tbody>
-                          <tr ng-repeat="sub in skillSet">
+                          <tr ng-repeat="pro in provinceOrCity">
                           	<td>{{$index+1}}</td>
-                          	<td>{{sub.SUBJECT_NAME}}</td>
-                          	<td>{{sub.SUBJECT_CATEGORY_NAME}}</td>
+                          	<td>{{pro.CITY_OR_PROVINCE_NAME}}</td>
+                          	<td>{{pro.COUNTRY_NAME}}</td>
                             <td align="center">
-                              <a class="btn btn-default" ng-click="getUpdateSkill(this)" data-toggle="modal" data-target="#addSkill" ><em class="fa fa-pencil"></em></a>
-                              <a class="btn btn-danger" ng-click="removeSkill(sub.SUBJECT_ID)"><em class="fa fa-trash"></em></a>
+                              <a class="btn btn-default" ng-click="getUpdateCityOrProvince(this)" data-toggle="modal" data-target="#addProvince" ><em class="fa fa-pencil"></em></a>
+                              <a class="btn btn-danger" ng-click="removeCityOrProvince(pro.CITY_OR_PROVINCE_ID)"><em class="fa fa-trash"></em></a>
                             </td>
                           </tr>
                         </tbody>
