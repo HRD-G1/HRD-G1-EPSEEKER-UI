@@ -22,27 +22,9 @@ pageEncoding="UTF-8"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
     <!--cutom-->
     <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
-    
-    <!-- login js  -->
-	   
-  	<script>
-			  window.fbAsyncInit = function() {
-			    FB.init({
-			      appId      : '1086449548091842',
-			      xfbml      : true,
-			      version    : 'v2.7'
-			    });
-			  };
-			
-			  (function(d, s, id){
-			     var js, fjs = d.getElementsByTagName(s)[0];
-			     if (d.getElementById(id)) {return;}
-			     js = d.createElement(s); js.id = id;
-			     js.src = "//connect.facebook.net/en_US/sdk.js";
-			     fjs.parentNode.insertBefore(js, fjs);
-			   }(document, 'script', 'facebook-jssdk'));
-	</script>
-  	<!-- ended login via Facebook -->
+    <!-- Angular -->
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/experts/js/login.js"></script>
   	</head>
   <body>
     <div class="navbar navbar-default navbar-fixed-top">
@@ -97,27 +79,22 @@ pageEncoding="UTF-8"
             <div class="panel-heading ">ចូល</div>
             <div class="panel-body">
               <div class="row">
-                <form class="col s12 text-center" action="" method="POST">
+                <form class="col s12 text-center"  method="POST">
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">email</i>
-                      <input id="icon_prefix" type="email" required>
+                      <input id="icon_prefix" type="email" name="email" required>
                       <label for="icon_prefix">អ៊ីម៉ែល</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">vpn_key</i>
-                      <input id="icon_prefix" type="password">
+                      <input id="icon_prefix" type="password" name="password"  required>
                       <label for="icon_prefix">ពាក្យសម្ងាត់</label>
                     </div>
                   </div>
-                  <button class="btn waves-effect waves-light" type="submit" name="action">ចូល</button>
-                  <!-- <button class="btn waves-effect waves-light" type="submit" name="action">Login Via Facebook!</button> -->
-					<!-- facebook -->
-					<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-					</fb:login-button>
-					<!-- /facebook -->
+                  <button class="btn waves-effect waves-light" type="submit">ចូល</button>
                   <br><br>
                   <a href="/signup">អត់ទាន់មានគណនី?</a>
                 </form>

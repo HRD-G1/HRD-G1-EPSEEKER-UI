@@ -109,7 +109,7 @@ pageEncoding="UTF-8"
                       <label for="icon_prefix">ពាក្យសម្ងាត់</label>
                     </div>
                   </div>
-                  <div class="row text-left">
+                  <!-- <div class="row text-left">
                     <div class="input-field col s10 push-s1">
                       <select>
                         <option value="" disabled="" selected="">ភេទ</option>
@@ -117,9 +117,9 @@ pageEncoding="UTF-8"
                         <option value="2">ស្រី</option>
                       </select>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="row">
-                    <div class="input-field col s10 push-s1">
+                   <!--  <div class="input-field col s10 push-s1">
                       <select>
                         <option value="" disabled="" selected="">សូមជ្រើសរើសដេប៉ាតឺម៉ង់</option>
                         <option>Computer Science Department</option>
@@ -133,7 +133,7 @@ pageEncoding="UTF-8"
                         <option>Department of Science</option>
                         <option>Other</option>
                       </select>
-                    </div>
+                    </div> -->
                   </div>
                   <button class="btn waves-effect waves-light" type="submit" name="action">ចុះឈ្មោះ</button>
                   <button class="btn waves-effect waves-light" type="reset" name="action">សម្អាត</button>
