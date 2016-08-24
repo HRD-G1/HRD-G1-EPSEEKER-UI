@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,55 +8,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- font for navbar -->
-<link href='https://fonts.googleapis.com/css?family=Angkor'
-	rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Angkor'	rel='stylesheet' type='text/css'>
 
-<script type="text/javascript"
-	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script type="text/javascript"
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<link
-	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<link
-	href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
-	rel="stylesheet" type="text/css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+<script type="text/javascript"	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript"	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"	rel="stylesheet" type="text/css">
+<link rel="stylesheet"	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
 
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 <!-- Angular -->
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
-
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/experts/css/sui/ui.min.css"> --%>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
 <!--custom-->
-<link
-	href="${pageContext.request.contextPath}/resources/experts/css/custom.css"
-	rel="stylesheet" type="text/css">
+<link	href="${pageContext.request.contextPath}/resources/experts/css/custom.css"	rel="stylesheet" type="text/css">
 
 <!-- Exucuse Me can i put my cdn here? - Recommend Expert -->
-<script
-	src="${pageContext.request.contextPath}/resources/experts/js/jquery.bootpage.min.js"></script>
-
-<!-- OWL -->
-<%-- 
-<!-- Important Owl stylesheet -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/experts/owl-carousel/owl.carousel.css">
- 
-<!-- Default Theme -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/experts/owl-carousel/owl.theme.css">
- 
- 
-<!-- Include js plugin -->
-<script src="${pageContext.request.contextPath}/resources/experts/owl-carousel/owl.carousel.js"></script>
- --%>
+<script	src="${pageContext.request.contextPath}/resources/experts/js/jquery.bootpage.min.js"></script>
 <style>
 .paging-nav a {
 	background-color: teal;
@@ -76,10 +47,6 @@
 			full_width : true
 		});
 
-		/* $('#page-selection').bootpag({
-					total: 10,
-			   });
-		 */
 	});
 </script>
 <!-- statistic css  -->
@@ -87,14 +54,17 @@
 	href="${pageContext.request.contextPath}/resources/experts/css/statistic.css"
 	rel="stylesheet" type="text/css">
 <!-- js index  -->
-<script
-	src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
 
 </head>
 <body ng-controller="expertController">
-
+<!-- get user login by id  -->
+ <security:authorize access="isAuthenticated()">
+    <span ng-init="getUserById(<security:authentication property="principal.id" />)"></span>
+</security:authorize> 
+ 
 	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header ">
@@ -119,17 +89,24 @@
 						class="waves-effect waves-light "><i class="fa fa-phone "></i>ទំនាក់ទំនង</a>
 					</li>
 					<li class=" menu"><a href="/about"
-						class="waves-effect waves-light"><i class="fa fa-user-secret"></i>
-							អំពី</a></li>
-					<li class="menu"><a href="/login"
-						class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
-							ចូល</a></li>
+						class="waves-effect waves-light"><i class="fa fa-user-secret"></i>អំពី</a></li>
+					<li class="menu">
+					<security:authorize access="isAuthenticated()">
+						<a href="/logout" class="waves-effect waves-light "><i class="fa fa-sign-out "></i>
+							    <!-- {{userlogined.username}} 	 -->ចាកចេញ
+						</a>
+						</security:authorize> 
+						<security:authorize access="isAnonymous()">
+							   <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
+							   	 ចូល	
+								</a>
+
+							</security:authorize> 	
+							
+						</li>
 					<li class="menu"><a href="/signup"
 						class="waves-effect waves-light "> <i class="fa fa-user-plus"></i>ចុះឈ្មោះ
 					</a></li>
-					<!-- <li>
-              <a href="/search" class="waves-effect waves-light ">SEARCH</a>
-            </li> -->
 				</ul>
 			</div>
 		</div>
@@ -242,35 +219,6 @@
 						style="font-family: 'Khmer OS Battambang'">អ្នកជំនាញដែលអ្នកអាចនឹងត្រូវការ</div>
 					<div class="panel-body">
 						<!-- start popular expert  -->
-						<%-- <div class="row">
-							<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="e in experts">
-								<a href="/rest/expert/content" class="expert-top">
-									<div class="profile">
-										<img class="img-thumbnail img-responsive"
-											src="${pageContext.request.contextPath}/resources/experts/img/progammer.jpg"
-											rel="stylesheet" type="text/css">
-									</div>
-									<div class="profile-description">
-										<b>Name:{{e.expertFirstName}}</n><br> <b>Skill:
-												{{e.expertAdvanceCourse}}</b>
-									</div>
-								</a>
-							</div>
-
-						</div>
-						<div class="row">
-							<div class="col-lg-12 text center">
-								<ul class="pagination pagination-sm ">
-									<li><a href="#">Previous</a></li>
-									<li class="active disabled"><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">Next</a></li>
-									<li><a href="#">Last</a></li>
-								</ul>
-							</div>
-						</div> --%>
-
 						<table id="tableData" class="table">
 							<thead>
 								<tr>
@@ -286,7 +234,7 @@
 								<tr ng-repeat="ep in experts">
 									
 										<td>
-										<a href="/rest/expert/content/?id={{ers.EXPERT_ID}}" target="_blank"><img alt=""
+										<a href="/rest/expert/content/?id={{ep.EXPERT_ID}}" target="_blank"><img alt=""
 											src="${pageContext.request.contextPath}/resources/experts/img/tempPic.png"
 											style="width: 50px; height: 50px"></a>
 											</td>
@@ -315,10 +263,6 @@
 				<div class="panel panel-primary text-center">
 					<div class="panel-heading  text-center"​​ style="font-family: 'Khmer OS Battambang'">ស្ថិតិសរុបនៃជំនាញ</div>
 					<div class="panel-body">
-
-
-						<!-- ly  -->
-
 						<div class="row">
 							<section class="section_0" ng-repeat="ss in numOfSkills">
 							<div class="col-sm-6 col-xs-12 col-md-4">
@@ -332,26 +276,14 @@
 							</div>
 							</section>
 						</div>
-
 						<!-- <div id="PAGINATION_STATISTIC"></div> -->
-
-
-						<!-- ly -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<br>
-
-
 	<div id="page-selection"></div>
-
-
-
 	<jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
-
-
 </body>
-
 </html>

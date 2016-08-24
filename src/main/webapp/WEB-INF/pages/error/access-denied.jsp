@@ -76,36 +76,22 @@ pageEncoding="UTF-8"
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-primary text-center">
-            <div class="panel-heading ">ចូល</div>
+            <div class="panel-heading ">អ្នកមិនមានសិទ្ទប្រើប្រាស់ ទំព័រ​ នេះ​ទេ​ !<br>​សូមចូលជា Admin</div>
             <div class="panel-body">
               <div class="row">
-                <form class="col s12 text-center"  method="POST">
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <i class="material-icons prefix">email</i>
-                      <input id="icon_prefix" type="email" name="email" required>
-                      <label for="icon_prefix">អ៊ីម៉ែល</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <i class="material-icons prefix">vpn_key</i>
-                      <input id="icon_prefix" type="password" name="password"  required>
-                      <label for="icon_prefix">ពាក្យសម្ងាត់</label>
-                    </div>
-                  </div>
-                  <button class="btn waves-effect waves-light" type="submit">ចូល</button>
-                  <br><br>
-                  <a href="/signup">អត់ទាន់មានគណនី?</a>
-                </form>
+               
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+     <br>
     <br>
     <br>
-   <jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>  
+    <br>
+    <br>
+    <br>
+   <jsp:include page="../expert/fragements/footer/footer.jsp"></jsp:include>  
 
 </body></html>

@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html ng-app="expertFrontEndApp">
 <head>
@@ -16,32 +15,17 @@
 <!-- My APP -->
 
 <!-- font for navbar -->
-<link href='https://fonts.googleapis.com/css?family=Angkor'
-	rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Angkor'	rel='stylesheet' type='text/css'>
 
-<script type="text/javascript"
-	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript"	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-<script type="text/javascript"
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<link
-	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<link
-	href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
-	rel="stylesheet" type="text/css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<!-- <link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css"><!--
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/experts/ui/ui.min.css">
+<script type="text/javascript"	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
+<link	href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"	rel="stylesheet" type="text/css">
+<link rel="stylesheet"	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/resources/experts/ui/ui.min.css">
 <!--custom-->
-<link
-	href="${pageContext.request.contextPath}/resources/experts/css/custom.css"
-	rel="stylesheet" type="text/css">
+<link	href="${pageContext.request.contextPath}/resources/experts/css/custom.css"	rel="stylesheet" type="text/css">
 
 <!-- font-awesome-4.6.3 -->
 <link rel="stylesheet"
@@ -55,14 +39,9 @@
 $(document).ready(function() {
 	
 	var SUB_ID= '<%=request.getParameter("id")%>';
-	
-
-	
 	  $('a').tooltip({placement: 'top'});
-
 	  $( "#toggle1" ).click(function() {
 	      $("#widget-body1").slideToggle( "slow" );
-	      
 		  $('#toggle1').toggleClass(function() {
 		  if ($(this).is('.fa fa-chevron-down')) {
 			return '.fa fa-chevron-up';
@@ -478,9 +457,13 @@ a:hover, a:focus {
 </style>
 
 </head>
-<div>
-	<body ng-controller="expertController"
-		ng-init="goToSearchBySubjectID(<%=request.getParameter("id")%>)">
+	<body ng-controller="expertController"	ng-init="goToSearchBySubjectID(<%=request.getParameter("id")%>)">
+	
+	<!-- get user login by id  -->
+ 	<security:authorize access="isAuthenticated()">
+   	 <span ng-init="getUserById(<security:authentication property="principal.id" />)"></span>
+	</security:authorize> 
+
 		<!-- start navbar -->
 		<div class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
@@ -507,9 +490,20 @@ a:hover, a:focus {
 						<li class=" menu"><a href="/about"
 							class="waves-effect waves-light"><i class="fa fa-user-secret"></i>
 								អំពី</a></li>
-						<li class="menu"><a href="/login"
-							class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
-								ចូល</a></li>
+						<li class="menu">
+					<security:authorize access="isAuthenticated()">
+						<a href="/logout" class="waves-effect waves-light "><i class="fa fa-sign-out "></i>
+							  <!--   {{userlogined.username}} -->ចាកចេញ 	
+						</a>
+						</security:authorize> 
+						<security:authorize access="isAnonymous()">
+							   <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
+							   	 ចូល	
+								</a>
+
+							</security:authorize> 	
+							
+						</li>
 						<li class="menu"><a href="/signup"
 							class="waves-effect waves-light "> <i class="fa fa-user-plus"></i>ចុះឈ្មោះ
 						</a></li>
@@ -759,11 +753,9 @@ a:hover, a:focus {
 			</div>
 		</div>
 		<script type="text/javascript">
-			var searchID = '<%=request.getParameter("id")%>
-			';
+			var searchID = '<%=request.getParameter("id")%>';
 		</script>
+		<jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
 	</body>
-</div>
-<jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
 </html>
 

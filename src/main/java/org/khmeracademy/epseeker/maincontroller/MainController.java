@@ -40,6 +40,13 @@ public class MainController {
 	public String expertContent() {
 		return "expert/detail";
 	}
+	
+	//login
+	@RequestMapping(value="/error/access-denied")
+	public String accessDeniedPage(){
+		return "error/access-denied";
+	}
+	//login
 
 	// Admin
 
