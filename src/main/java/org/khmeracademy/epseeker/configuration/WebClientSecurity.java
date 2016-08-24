@@ -11,6 +11,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @Configuration
 @EnableWebSecurity
 public class WebClientSecurity extends WebSecurityConfigurerAdapter{
+	/*
+	@Autowired	
+	private CustomSuccessHandler successHandler;*/
 	
 	@Autowired
 	@Qualifier("myUserDetailImpl")
@@ -29,11 +32,13 @@ public class WebClientSecurity extends WebSecurityConfigurerAdapter{
 				.loginPage("/login")
 				.usernameParameter("email")
 				.passwordParameter("password")
+				.defaultSuccessUrl("/")
+				/*.successHandler(successHandler)*/
 				.permitAll();
 			
 			http.authorizeRequests()
 				.antMatchers("/rest/admin/**").hasRole("ADMIN")
 				.antMatchers("/rest/expert/**").hasAnyRole("ADMIN","USER");
-		
+			http.exceptionHandling().accessDeniedPage("/error/access-denied");
 		}
 }

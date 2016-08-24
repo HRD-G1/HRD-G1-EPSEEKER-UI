@@ -100,5 +100,10 @@ public class MainController {
 		return "expert/detail";
 	}
 	
+	@RequestMapping(value="/error/access-denied")
+	public String accessDeniedPage(){
+		return "error/access-denied";
+	}
+	
 }
 

@@ -1,11 +1,8 @@
-<%@ page
-language="java"
-contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html ng-app="expertFrontEndApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
@@ -20,16 +17,22 @@ pageEncoding="UTF-8"
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    
+    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
+	<!-- Angular -->
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
     <!--custom-->
     <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
     <script>
       $.noConflict();
-        jQuery(document).ready(function($){
-        $('select').material_select();
-        $('.slider').slider({full_width: true});
-        });
     </script>
-  </head><body>
+  </head>
+  <body  ng-controller="expertController">
+	  <security:authorize access="isAuthenticated()">
+	    <span ng-init="getUserById(<security:authentication property="principal.id" />)"></span>
+	</security:authorize>
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header ">
@@ -56,8 +59,19 @@ pageEncoding="UTF-8"
               <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពី</a>
             </li>
             <li class="menu">
-              <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in " ></i> ចូល</a>
-            </li>
+					<security:authorize access="isAuthenticated()">
+						<a href="/logout" class="waves-effect waves-light "><i class="fa fa-sign-out "></i>
+							  <!--   {{userlogined.username}} -->ចាកចេញ 	
+						</a>
+						</security:authorize> 
+						<security:authorize access="isAnonymous()">
+							   <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
+							   	 ចូល	
+								</a>
+
+							</security:authorize> 	
+							
+						</li>
             <li class="active menu">
               <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i>ចុះឈ្មោះ</a>
             </li>

@@ -1,10 +1,5 @@
 var app = angular.module('expertFrontEndApp', []);
-
-app
-		.controller(
-				'expertController',
-				function($scope, $http) {
-
+app.controller('expertController',function($scope, $http) {
 					// expert detail
 					$scope.getDataDetail = function(ID) {
 						$http({
@@ -502,4 +497,27 @@ app
 
 					// Searching Block
 
+					// getUserById
+					$scope.getUserById = function(userId) {
+						
+						$scope.username="ចូល";
+						
+						$scope.id = userId;
+						$http({
+							url : 'http://localhost:3333/rest/getuserbyid/%7BuserId%7D?userId=' + $scope.id,
+							/*strenght url*/
+							/*
+							 * url:
+							 * 'http://localhost:7777/rest/subject/bysubjectcategory/'+catID,
+							 */
+							method : 'GET'
+						}).then(function(response) {
+							$scope.userlogined = response.data;
+							console.log("This is user have logined");
+							console.log($scope.userlogined);
+						}, function(response) {
+
+						});
+					}
+					// getUserById
 				});
