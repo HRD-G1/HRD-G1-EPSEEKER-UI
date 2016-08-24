@@ -39,7 +39,7 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <!-- [endif]-->
 
-
+<!-- Bootpage -->
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -107,10 +107,6 @@
 	</div>
 	<!-- ./wrapper -->
 
-	<!-- Bootpage -->
-	<script
-		src="${pageContext.request.contextPath}/resources/admin/angularJS/jquery.bootpage.min.js"></script>
-
 	<!-- jQuery 2.2.0 -->
 	<script
 		src="${pageContext.request.contextPath}/resources/admin/plugins/jQuery/jQuery-2.2.0.min.js"></script>
@@ -135,5 +131,6 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/admin/dist/js/demo.js"></script>
 	<!-- page script -->
+	<script src="${pageContext.request.contextPath}/resources/admin/angularJS/jquery.bootpage.min.js"></script>
 </body>
 </html>

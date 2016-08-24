@@ -28,15 +28,15 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/admin/dist/css/skins/_all-skins.min.css">
 
-<!-- File Chooser -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/admin/plugins/filechooser/bootstrap-filestyle.min.js"></script>
-
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]> -->
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/admin/datepicker/datepicker3.css">
 <!-- <![endif] -->
 
 <style type="text/css">
@@ -103,362 +103,373 @@
 
 				<div class="row">
 					<div class="col-xs-12">
-						<div class="box">
-							<div class="box-header">
-								<!-- add User -->
-								<form role="form">
-
-
-
-									<!-- First Name and Last Name -->
-									<div class="row">
-										<div class="col-sm-6 col-md-6">
-											<div class="form-group">
-												<label for="FirstName">First Name</label> <input type="text"
-													class="form-control" id="FirstName" placeholder="FirstName"
-													ng-model="firstName">
-											</div>
-										</div>
-										<div class="col-sm-6 col-md-6">
-											<div class="form-group">
-												<label for="LastName">Last Name</label> <input type="text"
-													class="form-control" id="LastName" placeholder="LastName"
-													ng-model="lastName">
-											</div>
-										</div>
-									</div>
-									<!-- First Name and Last Name -->
-
-									<!-- Gender and Photo -->
-									<div class="row">
-										<div class="col-md-6 col-sm-6">
-											<div class="form-group">
-												<label for="gender">Gender</label> <select ng-model="gender"
-													class="form-control" id="gedner">
-													<option value="Male">Male</option>
-													<option value="Female">Female</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-6">
-											<!-- image-preview-filename input [CUT FROM HERE]-->
-											<label for="photo">Photo</label>
-											<div class="input-group image-preview">
-
-												<input type="text"
-													class="form-control image-preview-filename"
-													disabled="disabled">
-												<!-- don't give a name === doesn't send on POST/GET -->
-												<span class="input-group-btn"> <!-- image-preview-clear button -->
-													<button type="button"
-														class="btn btn-default image-preview-clear"
-														style="display: none;">
-														<span class="glyphicon glyphicon-remove"></span> Clear
-													</button> <!-- image-preview-input -->
-													<div class="btn btn-default image-preview-input">
-														<span class="glyphicon glyphicon-folder-open"></span> <span
-															class="image-preview-input-title">Browse</span> <input
-															id="image" type="file"
-															accept="image/png, image/jpeg, image/gif" name="image" />
-														<!-- rename it -->
-													</div>
-												</span>
-											</div>
-											<!-- /input-group image-preview [TO HERE]-->
-
-										</div>
-									</div>
-									<!-- Gender and Photo -->
-
-									<!-- Phone -->
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="gender">Phone Line 1</label> <input
-													ng-model="phone1" type="number" class="form-control"
-													id="phone1" placeholder="phone1">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="gender">Phone Line 2 <small>Optional</small></label>
-												<input type="number" class="form-control" id="phone2"
-													ng-mode="phone2" placeholder="phone2">
-											</div>
-										</div>
-									</div>
-									<!-- Phone -->
-
-									<!-- Place of Birth -->
-									<div class="col-md-12">
-										<label for="gender">Place of Birth</label>
-									</div>
-									<div class="col-md-3 col-sm-6">
-										<label for="gender">Country</label>
-										<div class="form-group input-group">
-											<select class="form-control" id="gedner" ng-model="countryID"
-												ng-change="getDataOfProvinceOrCityByCountryID(countryID)"
-												ng-options="cn.COUNTRY_ID as cn.COUNTRY_NAME for cn in countryObject">
-											</select> <span class="input-group-btn">
-												<button type="button" class="btn btn-default btn-add"
-													data-toggle="modal" data-target="#addCountry">+</button>
-											</span>
-										</div>
-									</div>
-									<div class="col-md-3 col-sm-6">
-										<label for="gender">Province or City</label>
-										<div class="form-group input-group">
-											<select class="form-control" id="gedner"
-												ng-model="cityOrProvinceID"
-												ng-change="getDataOfDistrictByProvinceID(cityOrProvinceID)"
-												ng-options="pv.CITY_OR_PROVINCE_ID as pv.CITY_OR_PROVINCE_NAME for pv in provinceOrCityByCountryID">
-											</select> <span class="input-group-btn"><button type="button"
-													class="btn btn-default btn-add" data-toggle="modal"
-													data-target="#addProvince">+</button></span>
-										</div>
-									</div>
-									<div class="col-md-3 col-sm-6">
-										<label for="gender">District</label>
-										<div class="form-group input-group">
-											<select class="form-control" id="gedner"
-												ng-model="districtID"
-												ng-change="getDataOfCommuneByDistrictID(districtID)"
-												ng-options="ds.DISTRICT_ID as ds.DISTRICT_NAME for ds in provinceByCountryID">
-											</select> <span class="input-group-btn"><button type="button"
-													class="btn btn-default btn-add" data-toggle="modal"
-													data-target="#addDistrict">+</button></span>
-										</div>
-									</div>
-									<div class="col-md-3 col-sm-6">
-										<label for="gender">Commune</label>
-										<div class="form-group input-group">
-											<select name="country" class="form-control"
-												ng-model="objectCommuneOfPlaceOfBirth"
-												ng-options="cm.COMMUNE_NAME for cm in communeObjectByDistrictID">
-											</select> <span class="input-group-btn"><button type="button"
-													class="btn btn-default btn-add" data-toggle="modal"
-													data-target="#addCommune">+</button></span>
-										</div>
-									</div>
-									<!-- Place of Birth -->
-
-									<!-- Current Address -->
-									<div class="col-md-12">
-										<label for="gender">Current Address</label>
-									</div>
-									<div class="col-md-3 col-sm-6">
-										<label for="gender">Country</label>
-										<div class="form-group input-group">
-											<select class="form-control" id="gedner"
-												ng-model="countryIDOfCurrentAddress"
-												ng-change="getDataOfProvinceOrCityByCountryIDOfCurrentAddress(countryIDOfCurrentAddress)"
-												ng-options="cn.COUNTRY_ID as cn.COUNTRY_NAME for cn in countryObject">
-											</select> <span class="input-group-btn"><button type="button"
-													class="btn btn-default btn-add"
-													class="btn btn-default btn-add" data-toggle="modal"
-													data-target="#addCountry">+</button> </span>
-										</div>
-									</div>
-									<div class="col-md-3 col-sm-6">
-										<label for="gender">Province or City</label>
-										<div class="form-group input-group">
-											<select class="form-control" id="gedner"
-												ng-model="cityOrProvinceIDOfCurrentAddress"
-												ng-change="getDataOfDistrictByProvinceIDOfCurrentAddress(cityOrProvinceIDOfCurrentAddress)"
-												ng-options="pv.CITY_OR_PROVINCE_ID as pv.CITY_OR_PROVINCE_NAME for pv in provinceOrCityByCountryIDOfCurrentAddress">
-											</select> <span class="input-group-btn"><button type="button"
-													class="btn btn-default btn-add" data-toggle="modal"
-													data-target="#addProvince">+</button></span>
-										</div>
-									</div>
-									<div class="col-md-3 col-sm-6">
-										<label for="gender">District</label>
-										<div class="form-group input-group">
-											<select class="form-control" id="gedner"
-												ng-model="districtIDOfCurrentAddress"
-												ng-change="getDataOfCommuneByDistrictIDOfCurrentAddress(districtIDOfCurrentAddress)"
-												ng-options="ds.DISTRICT_ID as ds.DISTRICT_NAME for ds in provinceByCountryIDOfCurrentAddress">
-											</select> <span class="input-group-btn"><button type="button"
-													class="btn btn-default btn-add" data-toggle="modal"
-													data-target="#addDistrict">+</button></span>
-										</div>
-									</div>
-									<div class="col-md-3 col-sm-6">
-										<label for="gender">Communce</label>
-										<div class="form-group input-group">
-											<select name="country" class="form-control"
-												ng-model="objectCommuneOfCurrentAddress"
-												ng-options="cm.COMMUNE_NAME for cm in communeObjectByDistrictIDOfCurrentAddress">
-											</select> <span class="input-group-btn"><button type="button"
-													class="btn btn-default btn-add" data-toggle="modal"
-													data-target="#addCommune">+</button></span>
-										</div>
-									</div>
-									<!-- Current Address -->
-
-									<!-- Email -->
-									<div class="form-group">
-										<label for="address">Email</label> <input type="email"
-											ng-model="email" class="form-control" id="Email"
-											placeholder="Email">
-									</div>
-									<!-- Email -->
-
-									<!-- Generation and Advance Course -->
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="address">Generation</label> <input type=number
-													ng-model="generation" class="form-control" id="Generation"
-													placeholder="Generation">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="address">Advance Course</label> <input
-													type="text" class="form-control" id="AdvanceCourse"
-													ng-model="advanceCourse" placeholder="Advance Course">
-											</div>
-										</div>
-									</div>
-									<!-- Generation and Advance Course -->
-
-									<hr>
-
-									<!-- Education -->
-									<div class="row">
-										<div ng-repeat="edu in eduOfExpert">
-											<div class="education">
-												<div class="col-md-12">
-													<h3>
-														<span style="color: #e74c3c; cursor: pointer;"
-															id="removeLanguage" class="fa fa-trash-o"></span>
-														Education
-													</h3>
-												</div>
-												<div class="col-md-6">
-													<label for="gender">University</label>
-													<div class="form-group input-group">
-														<select name="University" class="form-control"
-															ng-model="eduOfExpert[$index].UNIVERSITY_ID"
-															ng-options="un.UNIVERSITY_ID as un.UNIVERSITY_NAME for un in universityObject">
-
-														</select> <span class="input-group-btn"><button
-																type="button" class="btn btn-default btn-add"
-																data-toggle="modal" data-target="#addUniversity">+</button></span>
-													</div>
-												</div>
-												<div class="col-md-6">
-													<label for="gender">Major</label>
-													<div class="form-group input-group">
-														<select name="Major" class="form-control"
-															ng-model="eduOfExpert[$index].MAJOR_ID"
-															ng-options="ma.MAJOR_ID as ma.MAJOR_NAME for ma in majorObject">
-														</select> <span class="input-group-btn"><button
-																type="button" class="btn btn-default btn-add"
-																data-toggle="modal" data-target="#addMajor">+</button></span>
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label for="dob">Start Date</label> <input type="date"
-															ng-model="eduOfExpert[$index].EDUCATION_START_YEAR"
-															class="form-control" id="dob" placeholder="Start Date">
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label for="dob">End Date</label> <input type="date"
-															ng-model="eduOfExpert[$index].EDUCATION_EDN_YEAR"
-															class="form-control" id="dob" placeholder="End Date">
-													</div>
-
-												</div>
-												<div class="col-md-6">Your Option {{$index+1}}</div>
-											</div>
-										</div>
-										<div id="placeToAddEducationPattern"
-											class="col-md-12 text-right">
-											<div class="btn-group">
-												<button type="button" id="moreEducation"
-													class="btn btn-primary fa fa-plus-circle"
-													ng-click="addTempEduOfExpert()">More Education</button>
-											</div>
-										</div>
-									</div>
+						<!-- add User -->
+						<!-- First Name and Last Name -->
+						<div class="row">
+							<div class="col-sm-6 col-md-6">
+								<div class="form-group">
+									<label for="FirstName">First Name</label> <input type="text"
+										class="form-control" id="FirstName" placeholder="FirstName"
+										ng-model="firstName">
+								</div>
 							</div>
-							<!-- Education -->
+							<div class="col-sm-6 col-md-6">
+								<div class="form-group">
+									<label for="LastName">Last Name</label> <input type="text"
+										class="form-control" id="LastName" placeholder="lastName"
+										ng-model="lastName">
+								</div>
+							</div>
+						</div>
+						<!-- First Name and Last Name -->
 
-							<hr>
+						<!-- Gender and Photo -->
+						<div class="row">
+							<div class="col-md-6 col-sm-6">
+								<div class="form-group">
+									<label for="gender">Gender</label> <select ng-model="gender"
+										class="form-control" id="gedner">
+										<option value="Male">Male</option>
+										<option value="Female">Female</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<!-- image-preview-filename input [CUT FROM HERE]-->
+								<label for="photo">Photo</label>
+								<div class="input-group image-preview">
 
-							<!-- Experience  -->
-							<div class="row">
-								<div ng-repeat="exp in expOfExpert">
-									<div class="experience">
-										<div class="col-md-12">
-											<h3>
-												<span style="color: #e74c3c; cursor: pointer;"
-													id="removeLanguage" class="fa fa-trash-o"></span>
-												Experience
-											</h3>
+									<input type="text" class="form-control image-preview-filename"  
+										disabled="disabled">
+									<!-- don't give a name === doesn't send on POST/GET -->
+									<span class="input-group-btn"> <!-- image-preview-clear button -->
+										<button type="button"
+											class="btn btn-default image-preview-clear"
+											style="display: none;">
+											<span class="glyphicon glyphicon-remove"></span> Clear
+										</button> <!-- image-preview-input -->
+										<div class="btn btn-default image-preview-input">
+											<span class="glyphicon glyphicon-folder-open"></span> <span
+												class="image-preview-input-title">Browse</span> <input
+												id="image" type="file"  file-model="photoUpload"
+												accept="image/png, image/jpeg, image/gif" name="image" />
+											<!-- rename it -->
 										</div>
-										<div class="col-md-6">
-											<label for="gender">Institution</label>
-											<div class="form-group input-group">
-												<select name="Institution" class="form-control"
-													ng-model="expOfExpert[$index].INSTITUTION_ID"
-													ng-options="ins.INSTITUTION_ID as ins.INSTITUTION_NAME for ins in institutionObject">
-												</select> <span class="input-group-btn"><button type="button"
-														class="btn btn-default btn-add" data-toggle="modal"
-														data-target="#addInstitution">+</button></span>
-											</div>
+									</span>
+								</div>
+								<!-- /input-group image-preview [TO HERE]-->
+
+							</div>
+						</div>
+						<!-- Gender and Photo -->
+
+						<!-- Phone -->
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="gender">Phone Line 1</label> <input
+										ng-model="phone1" type="text" class="form-control" id="phone1"
+										placeholder="phone1">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="gender">Phone Line 2 <small>Optional</small></label>
+									<input type="text" class="form-control" id="phone2"
+										ng-model="phone2" placeholder="phone2">
+								</div>
+							</div>
+						</div>
+						<!-- Phone -->
+
+						<!-- Place of Birth -->
+						<div class="col-md-12">
+							<label for="gender">Place of Birth</label>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<label for="gender">Country</label>
+							<div class="form-group input-group">
+								<select class="form-control" id="gedner" ng-model="countryID"
+									ng-change="getDataOfProvinceOrCityByCountryID(countryID)"
+									ng-options="cn.COUNTRY_ID as cn.COUNTRY_NAME for cn in countryObject">
+								</select> <span class="input-group-btn">
+									<button type="button" class="btn btn-default btn-add"
+										data-toggle="modal" data-target="#addCountry">+</button>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<label for="gender">Province or City</label>
+							<div class="form-group input-group">
+								<select class="form-control" id="gedner"
+									ng-model="cityOrProvinceID"
+									ng-change="getDataOfDistrictByProvinceID(cityOrProvinceID)"
+									ng-options="pv.CITY_OR_PROVINCE_ID as pv.CITY_OR_PROVINCE_NAME for pv in provinceOrCityByCountryID">
+								</select> <span class="input-group-btn"><button type="button"
+										class="btn btn-default btn-add" data-toggle="modal"
+										data-target="#addProvince">+</button></span>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<label for="gender">District</label>
+							<div class="form-group input-group">
+								<select class="form-control" id="gedner" ng-model="districtID"
+									ng-change="getDataOfCommuneByDistrictID(districtID)"
+									ng-options="ds.DISTRICT_ID as ds.DISTRICT_NAME for ds in provinceByCountryID">
+								</select> <span class="input-group-btn"><button type="button"
+										class="btn btn-default btn-add" data-toggle="modal"
+										data-target="#addDistrict">+</button></span>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<label for="gender">Commune</label>
+							<div class="form-group input-group">
+								<select name="country" class="form-control"
+									ng-model="objectCommuneOfPlaceOfBirth"
+									ng-options="cm.COMMUNE_NAME for cm in communeObjectByDistrictID">
+								</select> <span class="input-group-btn"><button type="button"
+										class="btn btn-default btn-add" data-toggle="modal"
+										data-target="#addCommune">+</button></span>
+							</div>
+						</div>
+						
+						<!-- Place of Birth -->
+
+						<!-- Current Address -->
+						<div class="col-md-12">
+							<label for="gender">Current Address</label>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<label for="gender">Country</label>
+							<div class="form-group input-group">
+								<select class="form-control" id="gedner"
+									ng-model="countryIDOfCurrentAddress"
+									ng-change="getDataOfProvinceOrCityByCountryIDOfCurrentAddress(countryIDOfCurrentAddress)"
+									ng-options="cn.COUNTRY_ID as cn.COUNTRY_NAME for cn in countryObject">
+								</select> <span class="input-group-btn"><button type="button"
+										class="btn btn-default btn-add"
+										class="btn btn-default btn-add" data-toggle="modal"
+										data-target="#addCountry">+</button> </span>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<label for="gender">Province or City</label>
+							<div class="form-group input-group">
+								<select class="form-control" id="gedner"
+									ng-model="cityOrProvinceIDOfCurrentAddress"
+									ng-change="getDataOfDistrictByProvinceIDOfCurrentAddress(cityOrProvinceIDOfCurrentAddress)"
+									ng-options="pv.CITY_OR_PROVINCE_ID as pv.CITY_OR_PROVINCE_NAME for pv in provinceOrCityByCountryIDOfCurrentAddress">
+								</select> <span class="input-group-btn"><button type="button"
+										class="btn btn-default btn-add" data-toggle="modal"
+										data-target="#addProvince">+</button></span>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<label for="gender">District</label>
+							<div class="form-group input-group">
+								<select class="form-control" id="gedner"
+									ng-model="districtIDOfCurrentAddress"
+									ng-change="getDataOfCommuneByDistrictIDOfCurrentAddress(districtIDOfCurrentAddress)"
+									ng-options="ds.DISTRICT_ID as ds.DISTRICT_NAME for ds in provinceByCountryIDOfCurrentAddress">
+								</select> <span class="input-group-btn"><button type="button"
+										class="btn btn-default btn-add" data-toggle="modal"
+										data-target="#addDistrict">+</button></span>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<label for="gender">Communce</label>
+							<div class="form-group input-group">
+								<select name="country" class="form-control"
+									ng-model="objectCommuneOfCurrentAddress"
+									ng-options="cm.COMMUNE_NAME for cm in communeObjectByDistrictIDOfCurrentAddress">
+								</select> <span class="input-group-btn"><button type="button"
+										class="btn btn-default btn-add" data-toggle="modal"
+										data-target="#addCommune">+</button></span>
+							</div>
+						</div>
+						<!-- Current Address -->
+
+						<!-- Email -->
+						<div class="form-group">
+							<label for="address">Email</label> <input type="email"
+								ng-model="email" class="form-control" id="Email"
+								placeholder="Email">
+						</div>
+						<!-- Email -->
+
+						<!-- Generation and Advance Course -->
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="address">Generation</label> <input type=number
+										ng-model="generation" class="form-control" id="Generation"
+										placeholder="Generation">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="address">Advance Course</label> <input type="text"
+										class="form-control" id="AdvanceCourse"
+										ng-model="advanceCourse" placeholder="Advance Course">
+								</div>
+							</div>
+						</div>
+						<!-- Generation and Advance Course -->
+						<!-- Project Link Demo and Date of birth -->
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="address">Project Link Demo</label> <input type=text
+										ng-model="projectLinkDemo" class="form-control"
+										id="projectLinkDemo" placeholder="URL of Your Project">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="address">Date Of Birth</label> <input
+										id="dateOfBirth" type="text" class="form-control"
+										id="dateOfBirth" ng-model="dateOfBirth"
+										placeholder="1999-02-28">
+								</div>
+							</div>
+						</div>
+						<!-- Project Link Demo and Date of birth -->
+
+						<hr>
+
+						<!-- Education -->
+						<div class="row"
+							style="background-color: #FFF; padding: 10px; margin: 10px">
+							<div ng-repeat="edu in eduOfExpert">
+								<div class="education">
+									<div class="col-md-12">
+										<h3>
+											<span style="color: #e74c3c; cursor: pointer;"
+												id="removeLanguage" class="fa fa-trash-o"></span> Education
+										</h3>
+									</div>
+									<div class="col-md-6">
+										<label for="gender">University</label>
+										<div class="form-group input-group">
+											<select name="University" class="form-control"
+												ng-model="eduOfExpert[$index].UNIVERSITY_ID"
+												ng-options="un.UNIVERSITY_ID as un.UNIVERSITY_NAME for un in universityObject">
+
+											</select> <span class="input-group-btn"><button type="button"
+													class="btn btn-default btn-add" data-toggle="modal"
+													data-target="#addUniversity">+</button></span>
 										</div>
-										<div class="col-md-6">
-											<label for="gender">Major</label>
-											<div class="form-group input-group">
-												<select name="Major" class="form-control"
-													ng-model="expOfExpert[$index].MAJOR_ID"
-													ng-options="ma.MAJOR_ID as ma.MAJOR_NAME for ma in majorObject">
-												</select> <span class="input-group-btn"><button type="button"
-														class="btn btn-default btn-add" data-toggle="modal"
-														data-target="#addMajor">+</button></span>
-											</div>
+									</div>
+									<div class="col-md-6">
+										<label for="gender">Major</label>
+										<div class="form-group input-group">
+											<select name="Major" class="form-control"
+												ng-model="eduOfExpert[$index].MAJOR_ID"
+												ng-options="ma.MAJOR_ID as ma.MAJOR_NAME for ma in majorObject">
+											</select> <span class="input-group-btn"><button type="button"
+													class="btn btn-default btn-add" data-toggle="modal"
+													data-target="#addMajor">+</button></span>
 										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="period">Period</label> <input type="text"
-													ng-model="expOfExpert[$index].PERIOD" class="form-control"
-													id="period" placeholder="Example: 2 Years">
-											</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="dob">Start Date</label> <input id="eduStartDate"
+												type="text"
+												ng-model="eduOfExpert[$index].EDUCATION_START_YEAR"
+												class="form-control" placeholder="Start Date">
 										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="projectExp">Project Experience</label> <input
-													type="text" class="form-control" id="projectExp"
-													ng-model="expOfExpert[$index].PROJECT_EXPERIENCE"
-													placeholder="Name project that you used to do">
-											</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="dob">End Date</label> <input type="text"
+												ng-model="eduOfExpert[$index].EDUCATION_END_YEAR"
+												class="form-control" placeholder="End Date">
+										</div>
+
+									</div>
+									<div class="col-md-6">Your Option {{$index+1}}</div>
+								</div>
+							</div>
+							<div id="placeToAddEducationPattern" class="col-md-12 text-right">
+								<div class="btn-group">
+									<button type="button" id="moreEducation"
+										class="btn btn-primary fa fa-plus-circle"
+										ng-click="addTempEduOfExpert()">More Education</button>
+								</div>
+							</div>
+						</div>
+						<!-- Education -->
+
+						<hr>
+
+						<!-- Experience  -->
+						<div class="row"
+							style="background-color: #FFF; padding: 10px; margin: 10px">
+							<div ng-repeat="exp in expOfExpert">
+								<div class="experience">
+									<div class="col-md-12">
+										<h3>
+											<span style="color: #e74c3c; cursor: pointer;"
+												id="removeLanguage" class="fa fa-trash-o"></span> Experience
+										</h3>
+									</div>
+									<div class="col-md-6">
+										<label for="gender">Institution</label>
+										<div class="form-group input-group">
+											<select name="Institution" class="form-control"
+												ng-model="expOfExpert[$index].INSTITUTION_ID"
+												ng-options="ins.INSTITUTION_ID as ins.INSTITUTION_NAME for ins in institutionObject">
+											</select> <span class="input-group-btn"><button type="button"
+													class="btn btn-default btn-add" data-toggle="modal"
+													data-target="#addInstitution">+</button></span>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<label for="gender">Position</label>
+										<div class="form-group input-group">
+											<select name="Major" class="form-control"
+												ng-model="expOfExpert[$index].POSITION_ID"
+												ng-options="pos.POSITION_ID as pos.POSITION_NAME for pos in positionObject">
+											</select> <span class="input-group-btn"><button type="button"
+													class="btn btn-default btn-add" data-toggle="modal"
+													data-target="#addMajor">+</button></span>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="period">Period</label> <input type="text"
+												ng-model="expOfExpert[$index].PERIOD" class="form-control"
+												id="period" placeholder="Example: 2 Years">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="projectExp">Project Experience</label> <input
+												type="text" class="form-control" id="projectExp"
+												ng-model="expOfExpert[$index].PROJECT_EXPERIENCE"
+												placeholder="Name project that you used to do">
 										</div>
 									</div>
 								</div>
-								<div id="placeToAddExperiencePattern"
-									class="col-md-12 text-right">
-									<div class="btn-group">
-										<button type="button" id="moreExperience"
-											class="btn btn-primary fa fa-plus-circle"
-											ng-click="addTempExpOfExpert()">More Experience</button>
-									</div>
-
-								</div>
-								<div class="col-md-12">Your Option {{$index+1}}</div>
 							</div>
+							<div id="placeToAddExperiencePattern"
+								class="col-md-12 text-right">
+								<div class="btn-group">
+									<button type="button" id="moreExperience"
+										class="btn btn-primary fa fa-plus-circle"
+										ng-click="addTempExpOfExpert()">More Experience</button>
+								</div>
+
+							</div>
+							<div class="col-md-12">Your Option {{$index+1}}</div>
 						</div>
 						<!-- Experience -->
 
 						<hr>
 
 						<!-- Current Job  -->
-						<div class="row">
+						<div class="row"
+							style="background-color: #FFF; padding: 10px; margin: 10px">
 							<div ng-repeat="cur in currentJobOfExpert">
 								<div class="currentJob">
 									<div class="col-md-12">
@@ -541,7 +552,8 @@
 						<hr>
 
 						<!-- Language -->
-						<div class="row">
+						<div class="row"
+							style="background-color: #FFF; padding: 10px; margin: 10px">
 							<div ng-repeat="lang in langOfExpert">
 								<div class="language">
 									<div class="col-md-12 col-sm-6">
@@ -553,7 +565,9 @@
 									<div class="col-md-6">
 										<label for="gender">Language</label>
 										<div class="form-group input-group">
-											<select name="Institution" class="form-control" ng-model="langOfExpert[$index].LANGUAGE_ID" ng-options="lang.LANGUAGE_ID as lang.LANGUAGE_NAME for lang in languageObject">
+											<select name="Institution" class="form-control"
+												ng-model="langOfExpert[$index].LANGUAGE_ID"
+												ng-options="lang.LANGUAGE_ID as lang.LANGUAGE_NAME for lang in languageObject">
 											</select> <span class="input-group-btn"><button type="button"
 													class="btn btn-default btn-add" data-toggle="modal"
 													data-target="#addLanguage">+</button></span>
@@ -561,18 +575,17 @@
 									</div>
 									<div class="col-md-6 col-sm-6">
 										<div class="form-group">
-											<label for="level">Mention of This Langauage</label> <select class="form-control"
-												id="level" ng-model="langOfExpert[$index].MENTION">
+											<label for="level">Mention of This Langauage</label> <select
+												class="form-control" id="level"
+												ng-model="langOfExpert[$index].MENTION">
 												<option value="Low">Low</option>
 												<option value="Medium">Medium</option>
 												<option value="High">High</option>
 											</select>
 										</div>
 									</div>
-								
-									<div class="col-md-12">
-									Language {{$index+1}}
-									</div>
+
+									<div class="col-md-12">Language {{$index+1}}</div>
 								</div>
 							</div>
 							<div id="placeToAddExperiencePattern"
@@ -580,7 +593,7 @@
 								<div class="btn-group">
 									<button type="button" id="moreLanguage"
 										class="btn btn-primary fa fa-plus-circle"
-										ng-click="addTempLanguageOfExpert()"> More Language</button>
+										ng-click="addTempLanguageOfExpert()">More Language</button>
 								</div>
 							</div>
 						</div>
@@ -589,56 +602,67 @@
 						<hr>
 
 						<!-- Job Expectation -->
-						<div class="row">
+						<div class="row"
+							style="background-color: #FFF; padding: 10px; margin: 10px">
 							<div ng-repeat="joe in jobExpectationOfExpert">
 								<div class="JobExpectation">
-								<div class="col-md-12 col-sm-6">
-									<h3>
-										<span style="color: #e74c3c; cursor: pointer;"
-											id="removeLanguage" class="fa fa-trash-o"></span> Job
-										Expectation
-									</h3>
-								</div>
-								<div class="col-md-6">
-									<label for="jobExpectation">Position</label>
-									<div class="form-group input-group">
-										<select name="Institution" class="form-control">
-										</select> <span class="input-group-btn"><button type="button"
-												class="btn btn-default btn-add" data-toggle="modal"
-												data-target="#addLanguage">+</button></span>
+									<div class="col-md-12 col-sm-6">
+										<h3>
+											<span style="color: #e74c3c; cursor: pointer;"
+												id="removeLanguage" class="fa fa-trash-o"></span> Job
+											Expectation
+										</h3>
 									</div>
-								</div>
-								<div class="col-md-6 col-sm-6">
-									<div class="form-group">
-										<label for="address">Location</label> <input type=number
-											class="form-control" id="Location"
-											placeholder="A Place You Wish to Work...">
+									<div class="col-md-6">
+										<label for="jobExpectation">Position</label>
+										<div class="form-group input-group">
+											<select name="Institution" class="form-control"
+												ng-model="jobExpectationOfExpert[$index].POSITION_ID"
+												ng-options="pos.POSITION_ID as pos.POSITION_NAME for pos in positionObject">
+											</select> <span class="input-group-btn"><button type="button"
+													class="btn btn-default btn-add" data-toggle="modal"
+													data-target="#addLanguage">+</button></span>
+										</div>
 									</div>
-								</div>
-								<div class="col-md-6 col-sm-6">
-									<div class="form-group">
-										<label for="address">Minimum Salary</label> <input type=number
-											class="form-control" id="position"
-											placeholder="Minimun Salary">
+
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group">
+											<label for="address">Minimum Salary</label> <input
+												type=number
+												ng-model="jobExpectationOfExpert[$index].MIN_SALARY"
+												class="form-control" id="position"
+												placeholder="Minimun Salary">
+										</div>
 									</div>
-								</div>
-								<div class="col-md-6 col-sm-6">
-									<div class="form-group">
-										<label for="address">Maximum Salary</label> <input type=number
-											class="form-control" id="position"
-											placeholder="Maximun Salary">
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group">
+											<label for="address">Location</label> <input type=text
+												"
+											ng-model="jobExpectationOfExpert[$index].LOCATION"
+												class="form-control" id="Location"
+												placeholder="A Place You Wish to Work...">
+										</div>
 									</div>
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group">
+											<label for="address">Maximum Salary</label> <input
+												type=number
+												ng-model="jobExpectationOfExpert[$index].MAX_SALARY"
+												class="form-control" id="position"
+												placeholder="Maximun Salary">
+										</div>
+									</div>
+									<div class="col-md-12">Job Expectation {{$index+1}}</div>
 								</div>
-								<div class="col-md-12">Job Expectation {{$index+1}}</div>
-							</div>
-								
+
 							</div>
 							<div id="placeToAddExperiencePattern"
 								class="col-md-12 text-right">
 								<div class="btn-group">
 									<button type="button" id="moreLanguage"
-										class="btn btn-primary fa fa-plus-circle" ng-click="addTempjobExpectationOfExpert()">More
-										Language</button>
+										class="btn btn-primary fa fa-plus-circle"
+										ng-click="addTempjobExpectationOfExpert()">More Job
+										Expectation</button>
 								</div>
 							</div>
 						</div>
@@ -647,55 +671,59 @@
 						<hr>
 
 						<!-- Skill -->
-						<div class="row">
-							<div class="Skill">
-								<div class="col-md-12 col-sm-6">
-									<h3>
-										<span style="color: #e74c3c; cursor: pointer;"
-											id="removeLanguage" class="fa fa-trash-o"></span> Skill 1
-									</h3>
-								</div>
-								<div class="col-md-4 com-sm-6">
-									<label for="gender">Main Skill</label>
-									<div class="form-group input-group">
-										<select name="Institution" class="form-control">
-											<option value="">Framework</option>
-											<option value="">Programming</option>
-											<option value="">Web Front End</option>
-											<option value="">Web Back End</option>
-										</select> <span class="input-group-btn"><button type="button"
-												class="btn btn-default btn-add" data-toggle="modal"
-												data-target="#addMainSkill">+</button></span>
+						<div class="row"
+							style="background-color: #FFF; padding: 10px; margin: 10px">
+							<div ng-repeat="se in subjectOfExpert">
+								<div class="Skill">
+									<div class="col-md-12 col-sm-6">
+										<h3>
+											<span style="color: #e74c3c; cursor: pointer;"
+												id="removeLanguage" class="fa fa-trash-o"></span> Skill
+										</h3>
 									</div>
-								</div>
-								<div class="col-md-4 col-sm-6">
-									<label for="gender">Skill</label>
-									<div class="form-group input-group">
-										<select name="level" class="form-control">
-											<option value="">Java</option>
-											<option value="">C#</option>
-											<option value="">ASP.Net</option>
-										</select> <span class="input-group-btn"><button type="button"
-												class="btn btn-default btn-add" data-toggle="modal"
-												data-target="#addSkill">+</button></span>
+									<div class="col-md-4 com-sm-6">
+										<label for="gender">Main Skill</label>
+										<div class="form-group input-group">
+											<select name="Institution" class="form-control"
+												ng-change="whenMainSkillchange(mainSkillID)"
+												ng-model="mainSkillID"
+												ng-options="ms.SUBJECT_CATEOGRY_ID as ms.SUBJECT_CATEGORY_NAME for ms in mainSkillSet">
+											</select> <span class="input-group-btn"><button type="button"
+													class="btn btn-default btn-add" data-toggle="modal"
+													data-target="#addMainSkill">+</button></span>
+										</div>
 									</div>
-								</div>
-								<div class="col-md-4 col-sm-6">
-									<div class="form-group">
-										<label for="level">Level</label> <select class="form-control"
-											id="level">
-											<option>Low</option>
-											<option>Medium</option>
-											<option>High</option>
-										</select>
+									<div class="col-md-4 col-sm-6">
+										<label for="gender">Skill</label>
+										<div class="form-group input-group">
+											<select name="level" class="form-control"
+												ng-model="subjectOfExpert[$index].SUBJECT_ID"
+												ng-options="ss.SUBJECT_ID as ss.SUBJECT_NAME for ss in subSkillObject">
+											</select> <span class="input-group-btn"><button type="button"
+													class="btn btn-default btn-add" data-toggle="modal"
+													data-target="#addSkill">+</button></span>
+										</div>
 									</div>
+									<div class="col-md-4 col-sm-6">
+										<div class="form-group">
+											<label for="level">Level</label> <select class="form-control"
+												ng-model="subjectOfExpert[$index].EXPERT_SUBJECT_DETAIL_LEVEL"
+												id="level">
+												<option value="Low">Low</option>
+												<option value="Medium">Medium</option>
+												<option value="High">High</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-12">Subject Of Expert {{$index+1}}</div>
 								</div>
 							</div>
-
 							<div class="col-md-12 text-right">
 								<div class="btn-group">
 									<button type="button" id="moreSkill"
-										class="btn btn-primary fa fa-plus-circle">More Skill</button>
+										class="btn btn-primary fa fa-plus-circle"
+										ng-click="addTempsubjectOfExpertOfExpert()">More
+										Skill</button>
 								</div>
 							</div>
 						</div>
@@ -704,56 +732,50 @@
 						<hr>
 
 						<!-- Document -->
-						<div class="row">
-							<div class="Document">
-								<div class="col-md-12 col-sm-6">
-									<h3>
-										<span style="color: #e74c3c; cursor: pointer;"
-											id="removeLanguage" class="fa fa-trash-o"></span> Document 1
-									</h3>
-								</div>
-								<div class="col-md-6 com-sm-6">
-									<label for="gender">File Type</label>
-									<div class="form-group input-group">
-										<select name="fileType" class="form-control">
-											<option value="">Certificate</option>
-											<option value="">Transcript</option>
-											<option value="">Identity Card</option>
-										</select> <span class="input-group-btn"><button type="button"
-												class="btn btn-default btn-add" data-toggle="modal"
-												data-target="#addFileType">+</button></span>
+						<div class="row"
+							style="background-color: #FFF; padding: 10px; margin: 10px">
+							<div ng-repeat="fd in fileDocOfExpert">
+								<div class="Document">
+									<div class="col-md-12 col-sm-6">
+										<h3>
+											<span style="color: #e74c3c; cursor: pointer;"
+												id="removeLanguage" class="fa fa-trash-o"></span> Document
+										</h3>
 									</div>
-								</div>
-								<div class="col-md-6 col-sm-6">
-									<!-- image-preview-filename input [CUT FROM HERE]-->
-									<label for="photo">Document</label>
-									<div class="input-group image-preview">
-
-										<input type="text" class="form-control image-preview-filename"
-											disabled="disabled">
-										<!-- don't give a name === doesn't send on POST/GET -->
-										<span class="input-group-btn"> <!-- image-preview-clear button -->
-											<button type="button"
-												class="btn btn-default image-preview-clear"
-												style="display: none;">
-												<span class="glyphicon glyphicon-remove"></span> Clear
-											</button> <!-- image-preview-input -->
-											<div class="btn btn-default image-preview-input">
-												<span class="glyphicon glyphicon-folder-open"></span> <span
-													class="image-preview-input-title">Browse</span> <input
-													type="file" name="input-file-preview" />
-												<!-- rename it -->
-											</div>
-										</span>
+									<div class="col-md-6 com-sm-6">
+										<label for="gender">File Type</label>
+										<div class="form-group input-group">
+											<select name="fileType" class="form-control"
+												ng-model="fileDocOfExpert[$index].FILE_DOCUMENT_ID"
+												ng-options="fl.FILE_ID as fl.FILE_NAME for fl in fileType">
+											</select> <span class="input-group-btn"><button type="button"
+													class="btn btn-default btn-add" data-toggle="modal"
+													data-target="#addFileType">+</button></span>
+										</div>
 									</div>
-									<!-- /input-group image-preview [TO HERE]-->
+									<div class="col-md-6 col-sm-6">
+										<label for="gender">Upload File Here</label>
+										<div class="input-group">
+											<span class="input-group-btn">
+												<button id="fake-file-button-browse" type="button"
+													class="btn btn-default">
+													<span class="glyphicon glyphicon-file"></span>
+												</button>
+											</span> <input type="file" id="files-input-upload"
+												style="display: none"> <input type="text"
+												id="fake-file-input-name" disabled="disabled"
+												placeholder="File not selected" class="form-control">
+										</div>
+									</div>
+									<div class="col-md-12">Document of Expert {{$index+1}}</div>
 								</div>
 							</div>
 
 							<div class="col-md-12 text-right">
 								<div class="btn-group">
 									<button type="button" id="moreSkill"
-										class="btn btn-primary fa fa-plus-circle">More Skill</button>
+										class="btn btn-primary fa fa-plus-circle"
+										ng-click="addfileDocOfExpertOfExpert()">More Skill</button>
 								</div>
 							</div>
 						</div>
@@ -762,8 +784,8 @@
 						<hr>
 
 						<button type="submit" class="btn btn-primary"
-							ng-click="showEduTest()">Add New User to Be Expert</button>
-						</form>
+							ng-click="insertExpertAllTheTime()">Add New User to Be
+							Expert</button>
 						<!-- End Add User -->
 					</div>
 					<!-- /.col -->
@@ -825,81 +847,30 @@
 	<%-- <script src="${pageContext.request.contextPath}/resources/admin/plugins/jQuery-2.1.4.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/admin/plugins/jquery.form.min.js"></script> --%>
 	<!-- page script -->
+
+	<script
+		src="${pageContext.request.contextPath}/resources/admin/datepicker/bootstrap-datepicker.js"></script>
+
+
 	<script>
 		$(document)
 				.ready(
 						function() {
-
-							$("#image")
+							$("#dateOfBirth").datepicker({
+								format : "yyyy-mm-dd", // Notice the Extra space at the beginning
+							});
+							$("#dateOfBirth")
 									.change(
 											function() {
-												var formData = new FormData();
-												formData
-														.append(
-																'image',
-																$("#image")[0].files[0]);
-												alert(formData);
-												$
-														.ajax({
-															url : "http://localhost:3333/rest/uploadphoto",
-															type : "POST",
-															enctype : 'multipart/form-data',
-															data : formData,
-															cache : false,
-															crossDomain : true,
-															processData : false, // tell jQuery not to process the data
-															contentType : false, // tell jQuery not to set contentType
-															beforeSend : function(
-																	xhr) {
-																xhr
-																		.setRequestHeader(
-																				'Access-Control-Allow-Origin',
-																				'*');
-																xhr
-																		.setRequestHeader(
-																				'Authorization',
-																				'Basic ZWxpYnJhcnlBRE1JTjplbGlicmFyeVBAU1NXT1JE');
-															},
-															success : function(
-																	data) {
-																console
-																		.log(data);
-																$(
-																		"#resultImage")
-																		.attr(
-																				"src",
-																				data.ORIGINAL_IMAGE);
-																$(
-																		"#resultImageThumbnail")
-																		.attr(
-																				"src",
-																				data.THUMBNAIL_IMAGE);
-																$(
-																		"#resultImage")
-																		.show();
-																$(
-																		"#resultImageThumbnail")
-																		.show();
-															},
-															error : function(
-																	data) {
-																console
-																		.log(data);
-															}
-														});
-											});
+												angular
+														.element(
+																document
+																		.querySelector('[ng-controller="expertController"]'))
+														.scope().dateOfBirth = $(
+														this).val();
+											})
 
-							$(function() {
-								$("#example1").DataTable();
-								$('#example2').DataTable({
-									"paging" : true,
-									"lengthChange" : false,
-									"searching" : false,
-									"ordering" : true,
-									"info" : true,
-									"autoWidth" : false
-								});
-							});
+							
 
 							$(document).on(
 									'click',

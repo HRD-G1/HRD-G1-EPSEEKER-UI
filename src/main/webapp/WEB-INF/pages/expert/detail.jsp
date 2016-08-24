@@ -16,6 +16,9 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/resources/expert/font-awesome-4.6.3/css/font-awesome.min.css" />
 
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath }/resources/experts/css" />
+
 <!--bootstrap modal-->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">

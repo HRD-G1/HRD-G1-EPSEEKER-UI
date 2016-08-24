@@ -36,7 +36,7 @@ public class MainController {
 		return "search";
 	}
 
-	@RequestMapping(value = "/detail")
+	@RequestMapping(value = "rest/expert/content")
 	public String expertContent() {
 		return "expert/detail";
 	}

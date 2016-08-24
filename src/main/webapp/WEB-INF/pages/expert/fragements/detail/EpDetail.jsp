@@ -3,9 +3,10 @@
 	href="${pageContext.request.contextPath }/resources/expert/css/detail.css" />
 <script
 	src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
-<div​​​​ ng-app="expertFrontEndApp">
+<div ​​​​ ng-app="expertFrontEndApp">
 	<!--start row personal data by visal-->
-	<div class="container" ng-controller="expertController" ng-init="getDataDetail(<%=request.getParameter("id")%>)">
+	<div class="container" ng-controller="expertController"
+		ng-init="getDataDetail(<%=request.getParameter("id")%>)">
 		<div>
 			<!-- start Modal
                 <div class="modal fade" id="myModal" role="dialog">
@@ -72,7 +73,8 @@
 								class="img-responsive img-circle">
 							<p
 								style="margin-top: 30px; font-family: 'Arial'; font-size: 22px; font-weight: 500; text-shadow: -1px 1px 1px #999">
-								{{expertDetail.EXPERT_FIRST_NAME + " " + expertDetail.EXPERT_LAST_NAME}}</p>
+								{{expertDetail.EXPERT_FIRST_NAME + " " +
+								expertDetail.EXPERT_LAST_NAME}}</p>
 						</center>
 					</div>
 				</div>
@@ -87,14 +89,15 @@
 									<th style="width: 10px; border: none">:</th>
 									<td style="border: none">{{expertDetail.EXPERT_GENDER}}</td>
 								</tr>
-							<!-- Marital status -->
+								<!-- Marital status -->
 								<!-- <tr style="border: none; border-bottom: 1px solid lightgray">
 									<th style="border: none">Marital Status</th>
 									<th style="border: none">:</th>
 									<td style="border: none">{{expertDetail.EXPERT_STATUS}}</td>
 								</tr>
- -->						<!-- Nationality  -->
-<!-- 								<tr style="border: none; border-bottom: 1px solid lightgray">
+ -->
+								<!-- Nationality  -->
+								<!-- 								<tr style="border: none; border-bottom: 1px solid lightgray">
 									<th style="border: none">Nationality</th>
 									<th style="border: none">:</th>
 									<td style="border: none">{{pNationality}}</td>
@@ -109,14 +112,19 @@
 								<tr style="border: none; border-bottom: 1px solid lightgray">
 									<th style="border: none">Place of Birth</th>
 									<th style="border: none">:</th>
-									<td style="border: none">{{expertDetail.PLACE_OF_BIRTH
-									.CITY_OR_PROVINCE_NAME}}</td>
+									<td style="border: none">{{expertDetail.PLACE_OF_BIRTH.COMMUNE_NAME}},
+										{{expertDetail.PLACE_OF_BIRTH.DISTRICT_NAME}},
+										{{expertDetail.PLACE_OF_BIRTH .CITY_OR_PROVINCE_NAME}},
+										{{expertDetail.PLACE_OF_BIRTH.COUNTRY_NAME}}</td>
 								</tr>
 
 								<tr style="border: none; border-bottom: 1px solid lightgray">
 									<th style="border: none">Current Address</th>
 									<th style="border: none">:</th>
-									<td style="border: none">{{expertDetail.EXPERT_CURRENT_ADDRESS.CITY_OR_PROVINCE_NAME}}</td>
+									<td style="border: none">{{expertDetail.EXPERT_CURRENT_ADDRESS.COMMUNE_NAME}},
+										{{expertDetail.EXPERT_CURRENT_ADDRESS.DISTRICT_NAME}},
+										{{expertDetail.EXPERT_CURRENT_ADDRESS.CITY_OR_PROVINCE_NAME}},
+										{{expertDetail.EXPERT_CURRENT_ADDRESS.COUNTRY_NAME}}</td>
 								</tr>
 
 								<tr style="border: none; border-bottom: 1px solid lightgray">
@@ -129,6 +137,18 @@
 									<th style="border: none">Phone</th>
 									<th style="border: none">:</th>
 									<td style="border: none">{{expertDetail.EXPERT_PHONE1}}</td>
+								</tr>
+
+								<tr style="border: none; border-bottom: 1px solid lightgray">
+									<th style="border: none">Generation</th>
+									<th style="border: none">:</th>
+									<td style="border: none">{{expertDetail.EXPERT_GENDERATION}}</td>
+								</tr>
+
+								<tr style="border: none; border-bottom: 1px solid lightgray">
+									<th style="border: none">Advance Subject</th>
+									<th style="border: none">:</th>
+									<td style="border: none">{{expertDetail.EXPERT_ADVANCE_COURSE}}</td>
 								</tr>
 							</table>
 						</div>
@@ -189,6 +209,34 @@
                 </div>
                 end Modal -->
 
+			<!-- Panel -->
+			<div class="panel with-nav-tabs panel-default">
+				<div class="panel-heading">
+					<ul class="nav nav-tabs">
+						<li style="font-family: 'Arial'" class="active"><a href="#tab1default" data-toggle="tab">Education</a></li>
+						<li><a href="#tab3default" data-toggle="tab">Experience</a></li>
+						<li><a href="#tab4default" data-toggle="tab">Current Job</a></li>
+						<li><a href="#tab5default" data-toggle="tab">Skill(s)</a></li>
+						<li><a href="#tab5default" data-toggle="tab">Language(es)</a></li>
+						<li><a href="#tab5default" data-toggle="tab">Job Expectation</a></li>
+						<li><a href="#tab5default" data-toggle="tab">Project Demo</a></li>
+					</ul>
+				</div>
+				<div class="panel-body">
+					<div class="tab-content">
+						<div class="tab-pane fade in active" id="tab1default">Default
+							1</div>
+						<div class="tab-pane fade" id="tab2default">Default 2</div>
+						<div class="tab-pane fade" id="tab3default">Default 3</div>
+						<div class="tab-pane fade" id="tab4default">Default 4</div>
+						<div class="tab-pane fade" id="tab5default">Default 5</div>
+					</div>
+				</div>
+			</div>
+			<!-- Panel -->
+
+
+
 			<!--Start Educatioin-->
 			<div class="row row1">
 				<div class="profile-option">
@@ -209,8 +257,9 @@
 									<fieldset class="fs">
 										<legend class="lg">{{ed.UNIVERSITY_NAME}}</legend>
 										<p style="font-size: 18px; font-family: 'Calibri'">
-											<i>Period</i>: {{ed.EDUCATION_START_YEAR}} To {{ed.EDUCATION_END_YEAR}} <br> <i>Major</i>:
-											{{ed.MAJOR_NAME}} 
+											<i>Period</i>: {{ed.EDUCATION_START_YEAR}} To
+											{{ed.EDUCATION_END_YEAR}} <br> <i>Major</i>:
+											{{ed.MAJOR_NAME}}
 										</p>
 									</fieldset>
 								</form>
@@ -250,10 +299,10 @@
 										<fieldset class="fs">
 											<legend class="lg">{{cj.INSTITUTIOIN_NAME}}</legend>
 											<p style="font-size: 18px; font-family: 'Calibri'">
-												<i>Institution Phone</i>: {{cj.INSTITUTION_PHONE}} <br> <i>Institution
-													Email</i>: {{cj.INSTITUTION_EMAIL}} <br> <br> <i>Position</i>:
-												{{cj.POSITION_NAME}} <br> <i>Salary</i>: {{cj.SALARY |
-												currency }}
+												<i>Institution Phone</i>: {{cj.INSTITUTION_PHONE}} <br>
+												<i>Institution Email</i>: {{cj.INSTITUTION_EMAIL}} <br>
+												<br> <i>Position</i>: {{cj.POSITION_NAME}} <br> <i>Salary</i>:
+												{{cj.SALARY | currency }}
 											</p>
 										</fieldset>
 									</form>
@@ -282,10 +331,12 @@
 									<form class="fm">
 										<fieldset class="fs">
 											<legend class="lg">{{ex.INSTITUTION_NAME}}</legend>
-	<!-- Not Yet  -->						<p style="font-size: 18px; font-family: 'Calibri'">
-<!-- 												Institution Phone: {{ex.contactPhone}} <br> Institution
+											<!-- Not Yet  -->
+											<p style="font-size: 18px; font-family: 'Calibri'">
+												<!-- 												Institution Phone: {{ex.contactPhone}} <br> Institution
 												Email: {{ex.email}} <br> <br>
- -->												 Period: {{ex.PERIOD}} Year <br> Used To Be:
+ -->
+												Period: {{ex.PERIOD}} Year <br> Used To Be:
 												{{ex.POSITION_NAME}}
 											</p>
 										</fieldset>
@@ -367,8 +418,8 @@
 					</div>
 					<tr ng-repeat="eSkill in expertDetail.SUBJECTS">
 						<td id="{{eSkill.SUBJECT_ID}}"><span class="alignleft"
-							style="font-family: 'Arial'; font-weight: 600">{{eSkill.SUBJECT_CATEGORY_NAME}} : {{eSkill.SUBJECT_NAME}}
-								</span> <!-- <span class="alignright">
+							style="font-family: 'Arial'; font-weight: 600">{{eSkill.SUBJECT_CATEGORY_NAME}}
+								: {{eSkill.SUBJECT_NAME}} </span> <!-- <span class="alignright">
                                     <span style="color: #3dc9b3" class="btn btn-xs fa fa-minus-circle" ng-click="delete(eSkill.id)"></span>
                                     <span style="color: #3dc9b3" class="btn btn-xs fa fa-pencil" ng-click="getUpdate(this)" data-toggle="modal" data-target="#skill"></span>
                                 </span> -->
