@@ -36,9 +36,11 @@
   <body ng-controller="expertController">
   <div class="container-fluid">
   <!-- get user login by id  -->
- <security:authorize access="isAuthenticated()">
-    <span ng-init="getUserById(<security:authentication property="principal.id" />)"></span>
-</security:authorize> 
+  
+	 <security:authorize access="isAuthenticated()">
+	    <span ng-init="getUserById(<security:authentication property="principal.id" />)"></span>
+	</security:authorize>
+	 
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header ">
@@ -59,15 +61,15 @@
               <a href="/" class="waves-effect waves-light " ><i class="fa fa-home " ></i> ទំព័រដើម</a>
             </li>
             <li class=" menu">
-              <a href="/contact" class="waves-effect waves-light " "><i class="fa fa-phone " ></i>ទំនាក់ទំនង</a>
+              <a href="/contact" class="waves-effect waves-light " "><i class="fa fa-phone " ></i> ទំនាក់ទំនង</a>
             </li>
             <li class="active menu">
-              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពី</a>
+              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពីយើង</a>
             </li>
            <li class="menu">
 					<security:authorize access="isAuthenticated()">
 						<a href="/logout" class="waves-effect waves-light "><i class="fa fa-sign-out "></i>
-							    <!-- {{userlogined.username}}  -->	ចាកចេញ
+							    <!--  {{userlogined.username }} -->	ចាកចេញ
 						</a>
 						</security:authorize> 
 						<security:authorize access="isAnonymous()">
@@ -97,9 +99,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-primary text-center">
-					<div class="panel-heading  text-center">អ្វីដែលយើងកំពុងធ្វី</div>
+					<div class="panel-heading  text-center home-header">អ្វីដែលយើងកំពុងធ្វី</div>
 					<div class="panel-body text-justify">
-						<p style="word-wrap: break-word;">
+						<p style="word-wrap: break-word;" class="welcome">
 							នេះគឺជាគេហទំព័រមួយដែលជួយដល់និយោជកឬអ្នកដែលមាន​បំណងចង់ស្វែងរក​បុគ្គលិកសម្រាប់បម្រើការនៅក្រុមហ៊ុនរបស់
 							ខ្លួនបានដោយផ្ដល់នូវមុខងារស្វែង​រកជាច្រើន។បេក្ខភាពទាំង
 							អស់​នៅគេហទំព័រនេះសុទ្ធ​តែជាអតីតនិស្សិតរបស់មជ្ឈមណ្ឌល
@@ -114,20 +116,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<div class="panel panel-primary text-center">
-					<div class="panel-heading  text-center">អ្វីដែលយើងនឹងធ្វី</div>
-					<div class="panel-body text-justify">
-						<p style="word-wrap: break-word;">
-							នេះគឺជាគេហទំព័រមួយដែលជួយដល់និយោជកឬអ្នកដែលមាន​បំណងចង់ស្វែងរក​បុគ្គលិកសម្រាប់បម្រើការនៅក្រុមហ៊ុនរបស់
-							ខ្លួនបានដោយផ្ដល់នូវមុខងារស្វែង​រកជាច្រើន។បេក្ខភាពទាំង
-							អស់​នៅគេហទំព័រនេះសុទ្ធ​តែជាអតីតនិស្សិតរបស់មជ្ឈមណ្ឌល
-							កូរ៉េសហ្វវែរអេច អ ឌី គ្រប់ជំនាន់ទាំងអស់។ មុននឹងអាចប្រើ
-							ប្រាស់គ្រប់មុខងារជាពិសេសការបង្ហាញផ្នែកលំអិតរប​ស់បេក្ខជន
-							ដែលអ្នកចាប់អារម្មណ៍ដូ​ចជាកម្រិតនៃការសិក្សាមុខជំនាញ ​ សញ្ញាបត្រ
-							អាសយដ្ឋាន និង ព័ត៌មានជាច្រើនទៀតសូម ធ្វើការចុះឈ្មោះ
-							និងចូលក្នុងគណនីរបស់អ្នក ដោយឥតគិតថ្លៃ។</p>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>

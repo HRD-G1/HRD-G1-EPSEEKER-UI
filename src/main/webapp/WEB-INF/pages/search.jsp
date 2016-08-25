@@ -489,7 +489,7 @@ a:hover, a:focus {
 						</li>
 						<li class=" menu"><a href="/about"
 							class="waves-effect waves-light"><i class="fa fa-user-secret"></i>
-								អំពី</a></li>
+								អំពីយើង</a></li>
 						<li class="menu">
 					<security:authorize access="isAuthenticated()">
 						<a href="/logout" class="waves-effect waves-light "><i class="fa fa-sign-out "></i>
@@ -522,10 +522,11 @@ a:hover, a:focus {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="panel panel-default text-justify">
+					<div class="panel panel-primary text-justify">
+					<div class="panel-heading  text-center home-header">ការណែនាំនៃការប្រើប្រាស់ របស់<b><i> EPSEEKER</i></b><br>Introduction To EPSEEKER</div>
 						<div class="panel-body">
 							<div style="word-wrap: break-word;" class="text-left;">
-								<p ​​ style="font-family: 'Khmer OS Battambang'">ទំព័រនេះជួយអ្នកក្នុងការស្វែងរកអ្នកជំនាញIT​ទៅតាមអ្វីដែលអ្នកចង់បាន។​ផ្នែកទាំងពីរខាងក្រោមពិតជាសំខាន់សម្រាប់អ្នក។​អ្នកគ្រាន់តែដឹង
+								<p ​​ class="welcome"​>ទំព័រនេះជួយអ្នកក្នុងការស្វែងរកអ្នកជំនាញIT​ទៅតាមអ្វីដែលអ្នកចង់បាន។​ផ្នែកទាំងពីរខាងក្រោមពិតជាសំខាន់សម្រាប់អ្នក។​អ្នកគ្រាន់តែដឹង
 									ពីររបៀបប្រើប្រាស់វាគឺគ្រប់គ្រាន់។ផ្នែកខាងឆ្វេងជាកន្លែងសម្រាប់កំណត់តម្រូវការរបស់អ្នក
 									បន្ទាប់មកចុចលើប៊ូតុងស្វែងរក។​ ផ្នែកខាងស្ដាំជា
 									កន្លែងសម្រាប់បង្ហាញលទ្ធផល។</p>
@@ -564,8 +565,7 @@ a:hover, a:focus {
 										<h5>SUB SKILLS</h5>
 										<div class="row" ng-repeat="subskill in objSkill.SUBJECT">
 											<div class="col-md-12 col-sm-12">
-												<input type="checkbox" class="col-md-6"
-													value="{{subskill.SUBJECT_ID}}" name="subjectValues" />{{subskill.SUBJECT_NAME}}
+												<input type="checkbox" class="col-md-6"	value="{{subskill.SUBJECT_ID}}" name="subjectValues" />{{subskill.SUBJECT_NAME}}
 											</div>
 										</div>
 

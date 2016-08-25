@@ -506,10 +506,6 @@ app.controller('expertController',function($scope, $http) {
 						$http({
 							url : 'http://localhost:3333/rest/getuserbyid/%7BuserId%7D?userId=' + $scope.id,
 							/*strenght url*/
-							/*
-							 * url:
-							 * 'http://localhost:7777/rest/subject/bysubjectcategory/'+catID,
-							 */
 							method : 'GET'
 						}).then(function(response) {
 							$scope.userlogined = response.data;
@@ -520,4 +516,56 @@ app.controller('expertController',function($scope, $http) {
 						});
 					}
 					// getUserById
+					
+					
+					$scope.addUserAndRole = function() {	
+						/*when our data are array should be create new scope array*/
+						var i = {
+								"email" : $scope.email,
+								"password" : $scope.password,
+								"username" : $scope.usernames,
+								"roles": [{id:$scope.selectedroleid,roleName:""}],
+								"status" : true
+							};
+						console.log(i);
+						$http({
+							url : 'http://localhost:3333/rest/adduser',
+							method : 'POST',
+							data : i
+						}).then(function(response) {
+							$scope.email="",
+							$scope.password="",
+							$scope.usernames="",
+							console.log(response);
+						}, function(response) {
+
+						});
+					}
+				/*	$scope.addUserAndRole();*/
+					
+					
+					/*getRole*/
+					$scope.getRole = function() {			
+						$http({
+							url : 'http://localhost:3333/rest/role',
+							method : 'GET',
+							
+						}).then(function(response) {
+							$scope.roles=response.data.DATA;
+							console.log(response.data.DATA);
+						}, function(response) {
+
+						});
+					
+					}
+					/*getRole*//*$scope.getRole();*/
+//					array of roles
+					$scope.roles = [ /*{
+						id : 1,
+						rolename : "Admin"
+					},*/ {
+						id : 2,
+						rolename : "អ្នកប្រើប្រាស់ធម្មតា (User)"
+					}
+					];
 				});

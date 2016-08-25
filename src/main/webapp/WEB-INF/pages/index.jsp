@@ -22,8 +22,7 @@
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 <!-- Angular -->
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
-<!--custom-->
-<link	href="${pageContext.request.contextPath}/resources/experts/css/custom.css"	rel="stylesheet" type="text/css">
+
 
 <!-- Exucuse Me can i put my cdn here? - Recommend Expert -->
 <script	src="${pageContext.request.contextPath}/resources/experts/js/jquery.bootpage.min.js"></script>
@@ -38,7 +37,6 @@
 </style>
 
 <!-- Exucuse Me can i put my cdn here? - Recommend Expert -->
-
 <script>
 	$.noConflict();
 	jQuery(document).ready(function($) {
@@ -57,7 +55,16 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
+<!--custom-->
+<link	href="${pageContext.request.contextPath}/resources/experts/css/custom.css"	rel="stylesheet" type="text/css">
 
+
+<style type="text/css">
+	.hide-logout
+	{
+		style="display: none;
+	}
+</style>
 </head>
 <body ng-controller="expertController">
 <!-- get user login by id  -->
@@ -82,31 +89,44 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li class=" active menu"><a href="/"
-						class="waves-effect waves-light "><i class="fa fa-home "></i>
-							ទំព័រដើម</a></li>
-					<li class="menu"><a href="/contact"
-						class="waves-effect waves-light "><i class="fa fa-phone "></i>ទំនាក់ទំនង</a>
-					</li>
-					<li class=" menu"><a href="/about"
-						class="waves-effect waves-light"><i class="fa fa-user-secret"></i>អំពី</a></li>
-					<li class="menu">
+					<li class=" active menu"><a href="/" class="waves-effect waves-light "><i class="fa fa-home "></i> ទំព័រដើម</a></li>
+					<li class="menu"><a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone "></i> ទំនាក់ទំនង</a></li>
+					<li class=" menu"><a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret"></i> អំពីយើង</a></li>
+					<li class="menu"><a href="/signup"
+						class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ
+					</a></li>
+					<%-- <li class="menu">
 					<security:authorize access="isAuthenticated()">
 						<a href="/logout" class="waves-effect waves-light "><i class="fa fa-sign-out "></i>
-							    <!-- {{userlogined.username}} 	 -->ចាកចេញ
+							សួស្ដី {{userlogined.username}} 	<!-- ចាកចេញ  -->
 						</a>
 						</security:authorize> 
 						<security:authorize access="isAnonymous()">
-							   <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
-							   	 ចូល	
-								</a>
+						  <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
+						   	 ចូល	
+						 </a>
+						</security:authorize> 	
+					</li> --%>
 
-							</security:authorize> 	
-							
-						</li>
-					<li class="menu"><a href="/signup"
-						class="waves-effect waves-light "> <i class="fa fa-user-plus"></i>ចុះឈ្មោះ
-					</a></li>
+				<security:authorize access="isAuthenticated()">
+					<li role="presentation" class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						សួស្ដី {{userlogined.username}} <span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" style="margin: 0px; padding: 0px;">
+							<li style="background-color: #008080;">
+							<a href="/logout" class="waves-effect waves-light" style="font-family: 'Khmer OS Battambang';color: #fff;">	
+							<i class="fa fa-sign-out "></i>ចាកចេញ</a>
+						</ul>
+					</li>
+				</security:authorize>
+				
+					<%-- <li class="hide-logout">
+						<security:authorize access="isAuthenticated()">
+							<a href="/logout" class="waves-effect waves-light">	ចាកចេញ</a>
+						</security:authorize>
+					</li> --%> 
+					
 				</ul>
 			</div>
 		</div>
@@ -130,9 +150,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-primary ">
-					<div class="panel-heading  text-center"​​ style="font-family: 'Khmer OS Battambang'">សូមស្វាគមន៍</div>
+					<div class="panel-heading  text-center home-header"​​>សូមស្វាគមន៍មកកាន់ <b><i> EPSEEKER</i></b><br>Welcome To EPSEEKER</div>
 					<div class="panel-body ">
-						<p ​ style="word-wrap: break-word; font-family: 'Khmer OS Battambang'" class="text-justify;">
+						<p  class="welcome"​>
 							<span>នេះគឺជាគេហទំព័រមួយដែលជួយដល់និយោជកឬអ្នកដែលមានបំណងចង់ស្វែងរក​បុគ្គលិកសម្រាប់បម្រើការនៅក្រុមហ៊ុនរបស់ខ្លួនបានដោយ
 								ផ្ដល់នូវមុខងារស្វែង​រកជាច្រើន។
 								បេក្ខភាពទាំងអស់​នៅគេហទំព័រនេះសុទ្ធ​តែជាអតីតនិស្សិតរបស់មជ្ឈមណ្ឌលកូរ៉េសហ្វវែរ
@@ -140,8 +160,7 @@
 								ជាពិសេស
 								ការបង្ហាញផ្នែកលំអិតរប​ស់បេក្ខជនដែលអ្នកចាប់អារម្មណ៍ដូ​ចជាកម្រិតនៃការសិក្សា
 								មុខជំនាញ ​សញ្ញាបត្រ អាសយដ្ឋាន និង ព័ត៌មានជាច្រើនទៀតសូមធ្វើការ<a
-								href="#"><b> ចុះឈ្មោះ </b></a> និង<a href="#"><b> ចុះឈ្មោះ </b></a>របស់អ្នក
-								ដោយឥតគិតថ្លៃ។
+								href="/signup"><b> ចុះឈ្មោះ </b></a> របស់អ្នក ដោយឥតគិតថ្លៃ។
 							</span>
 						</p>
 
@@ -155,7 +174,7 @@
 			<div class="col-md-12">
 
 				<div class="panel panel-primary text-justify">
-					<div class="panel-heading  text-center">LIST OF EXPERT SKILLS</div>
+					<div class="panel-heading  text-center home-header">ជំនាញ និង ចំនួនអ្នកជំនាញនៅក្នុងផ្នែករងនីមួយៗ</div>
 
 					<div class="container-fluid">
 						<!-- start skill tab list -->

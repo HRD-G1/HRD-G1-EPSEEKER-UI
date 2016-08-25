@@ -55,35 +55,25 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
+           <li class="menu"><a href="/" class="waves-effect waves-light " ><i class="fa fa-home " ></i> ទំព័រដើម</a></li>
+           <li class="active menu"><a href="/contact" class="waves-effect waves-light " "><i class="fa fa-phone " ></i> ទំនាក់ទំនង</a></li>
+            <li class=" menu"><a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពីយើង</a></li>
            <li class="menu">
-              <a href="/" class="waves-effect waves-light " ><i class="fa fa-home " ></i> ទំព័រដើម</a>
-            </li>
-            <li class="active menu">
-              <a href="/contact" class="waves-effect waves-light " "><i class="fa fa-phone " ></i>ទំនាក់ទំនង</a>
-            </li>
-            <li class=" menu">
-              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពី</a>
-            </li>
-           <li class="menu">
-					<security:authorize access="isAuthenticated()">
-						<a href="/logout" class="waves-effect waves-light "><i class="fa fa-sign-out "></i>
-							    <!-- {{userlogined.username}}  -->	ចាកចេញ
+           <!-- if login success -->
+				<security:authorize access="isAuthenticated()">
+					<a href="/logout" class="waves-effect waves-light "><i class="fa fa-sign-out "></i>
+				   		<!-- {{userlogined.username}}  -->
+				   		ចាកចេញ
+					</a>
+		    <!-- if login not success -->
+				</security:authorize> 
+				<security:authorize access="isAnonymous()">
+				   <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
+					  	 ចូល	
 						</a>
-						</security:authorize> 
-						<security:authorize access="isAnonymous()">
-							   <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
-							   	 ចូល	
-								</a>
-
-							</security:authorize> 	
-							
-						</li>
-            <li class="menu">
-              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i>ចុះឈ្មោះ</a>
-            </li>
-            <!-- <li>
-              <a href="/search" class="waves-effect waves-light ">SEARCH</a>
-            </li> -->
+				</security:authorize> 	
+			</li>
+            <li class="menu"><a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ</a></li>
           </ul>
         </div>
       </div>
@@ -97,7 +87,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="panel panel-primary text-center">
-            <div class="panel-heading ">ទីតាំង</div>
+            <div class="panel-heading location-header">ទីតាំង (Location)</div>
             <div class="panel-body" >
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.6661823004565!2d104.88697831432277!3d11.575771247096458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109519cfc0bdfb1%3A0x2c2974b77cdaff4b!2sKorea+Software+HRD+Center!5e0!3m2!1sen!2skh!4v1470056846184" width="360" height="300" frameborder="0" style="border:0" allowfullscreen=""></iframe>
             </div>
@@ -105,17 +95,17 @@
         </div>
         <div class="col-md-6">
           <div class="panel panel-primary text-center">
-            <div class="panel-heading ">ទំនាក់ទំនង</div>
+            <div class="panel-heading cotact-header">ទំនាក់ទំនង (Contact Information)</div>
             <div class="panel-body">
               <div class="text-left">
 						<ul>
-							<li>អាសយដ្ឋាន: #12, ផ្លូវ 323, សង្កាត់បឹងកក់ II, ខណ្ឌទួលគោក
+							<li class="contact-info">អាសយដ្ឋាន: #12, ផ្លូវ 323, សង្កាត់បឹងកក់ II, ខណ្ឌទួលគោក
 								, ភ្នំពេញ, កម្ពុជា.</li>
-							<li>ទូរស័ព្ទ:&nbsp;&nbsp; (855)23 99 13 14</li>
-							<li>&nbsp; &nbsp; &nbsp;(855)77 77 12 36 (ខ្មែរ, English)</li>
-							<li>&nbsp; &nbsp; &nbsp;(855)15 4 5555 2 (ខ្មែរ, English)</li>
-							<li>&nbsp; &nbsp; &nbsp;(855)17 52 81 69(Korean, English)</li>
-							<li>អ៊ីម៉ែល: <a href="mailto:info.kshrd@gmail.com">info.kshrd@gmail.com</a>
+							<li class="contact-info">ទូរស័ព្ទ:&nbsp;&nbsp; (855)23 99 13 14</li>
+							<li class="contact-info">&nbsp; &nbsp; &nbsp;(855)77 77 12 36 (ខ្មែរ, English)</li>
+							<li class="contact-info">&nbsp; &nbsp; &nbsp;(855)15 4 5555 2 (ខ្មែរ, English)</li>
+							<li class="contact-info">&nbsp; &nbsp; &nbsp;(855)17 52 81 69(Korean, English)</li>
+							<li class="contact-info">អ៊ីម៉ែល: <a href="mailto:info.kshrd@gmail.com">info.kshrd@gmail.com</a>
 								<a href="mailto:phirum.gm@gmail.com">phirum.gm@gmail.com</a></li>
 						</ul>
 
@@ -127,7 +117,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-primary text-center">
-            <div class="panel-heading ">ផ្ញើសារ</div>
+            <div class="panel-heading cotact-header">ផ្ញើសារ</div>
             <div class="panel-body">
               <div class="row">
                 <form class="col s12 text-center">
@@ -135,32 +125,32 @@
                     <div class="input-field col s12">
                       <i class="material-icons prefix">person_pin</i>
                       <input id="icon_prefix" type="text" required="សកក">
-                      <label for="icon_prefix">ឈ្មោះ</label>
+                      <label for="icon_prefix" class="contact-info">ឈ្មោះ</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">phone</i>
                       <input id="icon_prefix" type="text" required>
-                      <label for="icon_prefix">ទូរស័ព្ទ</label>
+                      <label for="icon_prefix" class="contact-info">ទូរស័ព្ទ</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">email</i>
                       <input id="icon_prefix" type="email" required="">
-                      <label for="icon_prefix">អ៊ីម៉ែល</label>
+                      <label for="icon_prefix" class="contact-info">អ៊ីម៉ែល</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="control-group form-group">
                       <div class="controls">
-                        <label>សារ</label>
+                        <label class="cotact-header">សាររបស់អ្នក</label>
                         <textarea rows="10" cols="100" class="form-control" id="message" required="" data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
                       </div>
                     </div>
                   </div>
-                  <button class="btn waves-effect waves-light" type="submit" name="action">ផ្ញើ</button>
+                  <button class="btn waves-effect waves-light cotact-header" type="submit" name="action">ផ្ញើ</button>
                 </form>
               </div>
             </div>

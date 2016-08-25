@@ -237,6 +237,7 @@ div.skill-list
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
 	background-color:#009688;
+	
 	color : #fff;
 	}
 span.badge
@@ -248,4 +249,47 @@ span.badge
 {
 	background-color: #008080;
 	color: #fff;
+}
+/* signup page  */
+ .signup-email,.signup-username,signup-usertype,signup-password,option
+ {
+  font-size:20px;
+  padding-top:5px;
+  padding-bottom: 5px;"
+  font-family: 'Khmer OS Battambang';
+  font-size: 15px;
+ }
+
+.signup-label,.btn-signup,.note,.cotact-header,.location-header,.home-header,.login-header
+{
+  font-family: 'Khmer OS Battambang';
+  font-size: 18px;
+  font-weight: 500;
+}
+.btn-signup
+{
+	background-color: #008080;
+	padding: 5px 10px 5px 10px;
+	color : #fff;
+}
+.btn-signup:hover
+{
+	background-color: #26A69A;
+}
+.contact-info,.contact-info a, .login-label
+{
+	 font-family: 'Khmer OS Battambang';
+ 	 font-size: 15px;
+  	 font-weight: 500;
+}
+/* home page */
+
+.welcome
+{
+	word-wrap: break-word;
+	text-indent: 30px;
+	 font-size:16px;
+	 line-height:30px;
+	 word-spacing:5px; 
+	 font-family: 'Khmer OS Battambang';
 }

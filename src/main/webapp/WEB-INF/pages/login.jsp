@@ -47,20 +47,17 @@ pageEncoding="UTF-8"
               <a href="/" class="waves-effect waves-light "><i class="fa fa-home "></i> ទំព័រដើម</a>
             </li>
             <li class="menu">
-              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone " ></i>ទំនាក់ទំនង</a>
+              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone " ></i> ទំនាក់ទំនង</a>
             </li>
             <li class=" menu">
-              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពី</a>
+              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពីយើង</a>
             </li>
             <li class=" active menu">
               <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in " ></i> ចូល</a>
             </li>
             <li class="menu">
-              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i>ចុះឈ្មោះ</a>
+              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ</a>
             </li>
-            <!-- <li>
-              <a href="/search" class="waves-effect waves-light ">SEARCH</a>
-            </li> -->
           </ul>
         </div>
       </div>
@@ -76,7 +73,7 @@ pageEncoding="UTF-8"
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-primary text-center">
-            <div class="panel-heading ">ចូល</div>
+            <div class="panel-heading login-header">ចូលប្រើប្រាស់</div>
             <div class="panel-body">
               <div class="row">
                 <form class="col s12 text-center"  method="POST">
@@ -84,19 +81,23 @@ pageEncoding="UTF-8"
                     <div class="input-field col s12">
                       <i class="material-icons prefix">email</i>
                       <input id="icon_prefix" type="email" name="email" required>
-                      <label for="icon_prefix">អ៊ីម៉ែល</label>
+                      <label for="icon_prefix" class="login-label">អ៊ីម៉ែល</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">vpn_key</i>
                       <input id="icon_prefix" type="password" name="password"  required>
-                      <label for="icon_prefix">ពាក្យសម្ងាត់</label>
+                      <label for="icon_prefix"  class="login-label">ពាក្យសម្ងាត់</label>
                     </div>
                   </div>
-                  <button class="btn waves-effect waves-light" type="submit">ចូល</button>
+                  <button class="btn waves-effect waves-light login-header" type="submit">ចូលប្រើ</button>
                   <br><br>
-                  <a href="/signup">អត់ទាន់មានគណនី?</a>
+                  		<p></p>
+                  		<div class="col-md-12"><br>
+			    		<p class="well text-center note">បើមិនទាន់មានគណនី សូម <a href="/signup">បង្កើតនៅ ទីនេះ</a>
+			    		<br>If you Don't have account yet <a href="/signup">create here!</a></p>
+			    	</div><br>
                 </form>
               </div>
             </div>

@@ -11,23 +11,22 @@
  	<link href='https://fonts.googleapis.com/css?family=Angkor' rel='stylesheet' type='text/css'> 
  	
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-    
-    
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css"> 
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
 	<!-- Angular -->
 	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
     <!--custom-->
     <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
-    <script>
-      $.noConflict();
-    </script>
+    <style>
+    
+.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
+    padding-right: 115px;
+}
+    </style>
   </head>
   <body  ng-controller="expertController">
 	  <security:authorize access="isAuthenticated()">
@@ -42,22 +41,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <!-- <a class="navbar-brand"><i class="-retro fa fa-crosshairs"></i></a> -->
           <a class="navbar-brand">
           		<img alt="EPSEEKER" class="logo" src="${pageContext.request.contextPath}/resources/experts/img/logo11.png">
           	</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
-           <li class="menu">
-              <a href="/" class="waves-effect waves-light "><i class="fa fa-home "></i> ទំព័រដើម</a>
-            </li>
-            <li class="menu">
-              <a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone " ></i>ទំនាក់ទំនង</a>
-            </li>
-            <li class=" menu">
-              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពី</a>
-            </li>
+           <li class="menu"><a href="/" class="waves-effect waves-light "><i class="fa fa-home "></i> ទំព័រដើម</a></li>
+            <li class="menu"><a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone " ></i> ទំនាក់ទំនង</a></li>
+            <li class=" menu"><a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពីយើង</a></li>
             <li class="menu">
 					<security:authorize access="isAuthenticated()">
 						<a href="/logout" class="waves-effect waves-light "><i class="fa fa-sign-out "></i>
@@ -65,19 +57,10 @@
 						</a>
 						</security:authorize> 
 						<security:authorize access="isAnonymous()">
-							   <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
-							   	 ចូល	
-								</a>
-
-							</security:authorize> 	
-							
+							   <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i> ចូល</a>
+						</security:authorize> 		
 						</li>
-            <li class="active menu">
-              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i>ចុះឈ្មោះ</a>
-            </li>
-            <!-- <li>
-              <a href="/search" class="waves-effect waves-light ">SEARCH</a>
-            </li> -->
+            <li class="active menu"><a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ</a></li>
           </ul>
         </div>
       </div>
@@ -86,78 +69,45 @@
     <br>
     <br>
     <br>
-    <br>
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <div class="panel panel-primary text-center">
-            <div class="panel-heading ">ចុះឈ្មោះ</div>
-            <div class="panel-body">
-              <div class="row">
-                <form class="col s12 text-center">
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <i class="material-icons prefix">email</i>
-                      <input id="icon_prefix" type="email" class="validate" required>
-                      <label for="icon_prefix">អ៊ីម៉ែល</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <i class="material-icons prefix">email</i>
-                      <input id="icon_prefix" type="email" class="validate" required>
-                      <label for="icon_prefix">បញ្ចូលអ៊ីម៉ែលម្ដងទៀត</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <i class="material-icons prefix">perm_identity</i>
-                      <input id="icon_prefix" type="text" required>
-                      <label for="icon_prefix">ឈ្មោះ</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <i class="material-icons prefix">vpn_key</i>
-                      <input id="icon_prefix" type="password" required>
-                      <label for="icon_prefix">ពាក្យសម្ងាត់</label>
-                    </div>
-                  </div>
-                  <!-- <div class="row text-left">
-                    <div class="input-field col s10 push-s1">
-                      <select>
-                        <option value="" disabled="" selected="">ភេទ</option>
-                        <option value="1">ប្រុស</option>
-                        <option value="2">ស្រី</option>
-                      </select>
-                    </div>
-                  </div> -->
-                  <div class="row">
-                   <!--  <div class="input-field col s10 push-s1">
-                      <select>
-                        <option value="" disabled="" selected="">សូមជ្រើសរើសដេប៉ាតឺម៉ង់</option>
-                        <option>Computer Science Department</option>
-                        <option>Business And Economic Department</option>
-                        <option>Law and Public Affairs Department</option>
-                        <option>Art, Letter and Humanities Department</option>
-                        <option>Communication and Media Art Department</option>
-                        <option>Architecture and Design Department</option>
-                        <option>Management and Economic Department</option>
-                        <option>Social Sciences and International Relations Department</option>
-                        <option>Department of Science</option>
-                        <option>Other</option>
-                      </select>
-                    </div> -->
-                  </div>
-                  <button class="btn waves-effect waves-light" type="submit" name="action">ចុះឈ្មោះ</button>
-                  <button class="btn waves-effect waves-light" type="reset" name="action">សម្អាត</button>
-                  <br><br>
-                  <a href="/login">មានគណនីហើយ?</a>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+  		<div class="col-md-offset-1 col-md-10">
+			  <div class="panel panel-primary text-center">
+			    <div class="panel-heading" style="  font-family: 'Khmer OS Battambang';font-size: 17px;">បង្កើតគណនីថ្មី</div>
+			    <!-- start content body -->
+			    <div class="panel-body text-left">
+			    	<form name="mysignup">
+			    	<div class="col-md-offset-2 col-md-8">
+			    	<label for="email" class="signup-label">អ៊ីម៉ែល ( Email )</label>
+			    		<input name="myemail"  class="form-control signup-email" id="email" type="email" ng-model="email" placeholder="sample@gmail.com"  required ><br>
+			    	<label for="username" class="signup-label">ឈ្មោះ​ ( Username )</label>
+			    		<input type="text" class="form-control signup-username" id="username" ng-model="usernames" placeholder="Jonh Doe" min="8" required ><br>
+			    	<label for="password" class="signup-label">លេខសំងាត់ (Password)</label>
+			    		<input  type="password"  id="password" class="form-control signup-password" ng-model="password" required ><br>
+			    	<label for="password" class="signup-label">លេខសំងាត់ ម្ដងទៀត (Retype-Password)</label>
+			    		<input  type="password" value="{{password}}" ng-model="password" id="password" class="form-control signup-password" ><br>
+			    	<label class="signup-label">ប្រភេទអ្នកប្រើប្រាស់ (User Type)</label>
+			    		<!-- get it from angularjs request -->
+			    		<!-- <select class="form-control" ng-model="selectedroleid" ng-options="role.id as role.roleName for role in roles" > -->
+			    		<select  class="form-control signup-usertype" ng-model="selectedroleid" ng-options="role.id as role.rolename for role in roles" required>
+			    			<option style="display: none" value="">--^ សូមជ្រើសរើស ^--</option>
+			    		</select>
+			    		<br>
+			    	<div class="col-md-offset-4 col-sm-offset-4 col-xs-offset-4">	
+			    		<button ng-disabled=" !email || !usernames || !password || mysignup.$invalid " class="btn btn-signup" 
+			    		ng-click="addUserAndRole()"><i class="fa fa-user-plus"></i> បង្កើតគណនី</button>
+			    		<button class="btn btn-signup" type="reset"> <i class="fa fa-eraser"></i> សម្អាត</button>
+			    	</div>
+			    	<div class="col-md-12"><br>
+			    		<p class="well text-center note">ប្រសិនបើអ្នកមានគណនីរូចហើយ សូម​  <a href="/login">ចូលប្រើប្រាស់ទីនេះ</a>
+			    		<br>If you have account already <a href="/login">Login here!</a></p>
+			    	</div><br>
+			    	</div>
+			    	</form>
+			    </div>
+			    <!-- end content body -->
+			  </div>
+  		</div>
       </div>
     </div>
     <br>
