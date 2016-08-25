@@ -55,7 +55,7 @@
                     </tr> 
                   </thead>
                   <tbody>
-                          <tr ng-repeat="maj in majors">
+                          <tr ng-repeat="maj in majorObject">
                           	<td>{{$index+1}}</td>
                           	<td>{{maj.MAJOR_NAME}}</td>
                             <td align="center">
@@ -65,6 +65,7 @@
                           </tr>
                         </tbody>
                 </table>
+                <div id="MAJOR_PAGIN"></div>
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -107,5 +108,8 @@
 <!-- AdminLTE for demo purposes -->
 <script src="${pageContext.request.contextPath}/resources/admin/dist/js/demo.js"></script>
 <!-- page script -->
+<script
+		src="${pageContext.request.contextPath}/resources/admin/angularJS/jquery.bootpage.min.js"></script>
+
 </body>
 </html>

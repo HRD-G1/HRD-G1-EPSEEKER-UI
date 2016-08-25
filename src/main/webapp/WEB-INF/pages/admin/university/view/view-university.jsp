@@ -79,7 +79,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<div id="PAGINATION_UNIVERSITY"></div>
+			<div id="UNIVERSITY_PAGIN"></div>
 		</div>
 		<!-- /.content-wrapper -->
 		<footer class="main-footer">
@@ -131,6 +131,9 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/admin/dist/js/demo.js"></script>
 	<!-- page script -->
-	<script src="${pageContext.request.contextPath}/resources/admin/angularJS/jquery.bootpage.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/admin/angularJS/jquery.bootpage.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/admin/angularJS/jquery.bootpage.min.js"></script>
 </body>
 </html>

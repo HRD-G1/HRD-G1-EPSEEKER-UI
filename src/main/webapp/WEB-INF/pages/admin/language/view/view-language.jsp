@@ -63,7 +63,9 @@
                           </tr>
                         </tbody>
                 </table>
+                <div id="LANGUAGE_PAGIN"></div>
   </div>
+  
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -105,5 +107,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="${pageContext.request.contextPath}/resources/admin/dist/js/demo.js"></script>
 <!-- page script -->
+<script
+		src="${pageContext.request.contextPath}/resources/admin/angularJS/jquery.bootpage.min.js"></script>
 </body>
 </html>

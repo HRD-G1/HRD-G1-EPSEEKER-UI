@@ -1,5 +1,8 @@
 var app = angular.module('expertFrontEndApp', []);
-app.controller('expertController',function($scope, $http) {
+app
+		.controller(
+				'expertController',
+				function($scope, $http) {
 					// expert detail
 					$scope.getDataDetail = function(ID) {
 						$http({
@@ -99,14 +102,16 @@ app.controller('expertController',function($scope, $http) {
 									url : 'http://localhost:3333/rest/findExpertsBySubjectID/'
 											+ subjectID,
 									method : 'GET',
-										params : {
+									params : {
 										page : $scope.filter.page,
 										limit : 10
 									}
 								})
 								.then(
 										function(response) {
-											console.log("This is Result Subject: ", response);
+											console.log(
+													"This is Result Subject: ",
+													response);
 											$scope.resultExpert = response.data.DATA;
 
 											if ($scope.checkPagination) {
@@ -131,7 +136,7 @@ app.controller('expertController',function($scope, $http) {
 
 										});
 					}
-					
+
 					var pagOption = false;
 					$('#PAGINATION').on("page", function(event, currentPage) {
 						$scope.filter.page = currentPage;
@@ -370,7 +375,7 @@ app.controller('expertController',function($scope, $http) {
 						// position
 
 						$http({
-							
+
 							params : {
 								page : $scope.filter.page,
 								limit : 10
@@ -469,7 +474,6 @@ app.controller('expertController',function($scope, $http) {
 								"PROJECT_LINK_DEMO" : "",
 								"SUBJECTS" : $scope.myDataOfSubjects
 							}
-						
 
 						}).then(function(response) {
 							console.log(response);
@@ -501,13 +505,15 @@ app.controller('expertController',function($scope, $http) {
 					// getUserById
 					$scope.getUserById = function(userId) {
 						$scope.id = userId;
-						$http({
-							url : 'http://localhost:3333/rest/getuserbyid/%7BuserId%7D?userId=' + $scope.id,
-							/*strenght url*/
-							method : 'GET'
-						}).then(function(response) {
+						$http(
+								{
+									url : 'http://localhost:3333/rest/getuserbyid/%7BuserId%7D?userId='
+											+ $scope.id,
+									/* strenght url */
+									method : 'GET'
+								}).then(function(response) {
 							$scope.userlogined = response.data;
-							$scope.email= response.data.email;
+							$scope.email = response.data.email;
 							$scope.username = response.data.username;
 							$scope.password = response.data.password;
 							console.log("This is user have logined");
@@ -517,105 +523,100 @@ app.controller('expertController',function($scope, $http) {
 						});
 					}
 					// getUserById
-					
-					
-					$scope.addUserAndRole = function() {	
-						/*when our data are array should be create new scope array*/
+
+					$scope.addUserAndRole = function() {
+						/*
+						 * when our data are array should be create new scope
+						 * array
+						 */
 						var i = {
-								"email" : $scope.emails,
-								"password" : $scope.passwords,
-								"username" : $scope.usernamess,
-								"roles": [{id:$scope.selectedroleid,roleName:""}],
-								"status" : true
-							};
+							"email" : $scope.emails,
+							"password" : $scope.passwords,
+							"username" : $scope.usernamess,
+							"roles" : [ {
+								id : $scope.selectedroleid,
+								roleName : ""
+							} ],
+							"status" : true
+						};
 						console.log(i);
 						$http({
 							url : 'http://localhost:3333/rest/adduser',
 							method : 'POST',
 							data : i
-						}).then(function(response) {
-							$scope.email="",
-							$scope.password="",
-							$scope.usernames="",
-							console.log(response);
-						}, function(response) {
+						}).then(
+								function(response) {
+									$scope.email = "", $scope.password = "",
+											$scope.usernames = "", console
+													.log(response);
+								}, function(response) {
 
-						});
+								});
 					}
-				/*	$scope.addUserAndRole();*/
-					
-					
-					$scope.pstatus= false;
-					
-					$scope.validateOldPassword = function(){
-						if($scope.password == $scope.opwd){
-							$scope.pstatus= true;
-						}else
-							{
-							$scope.pstatus= false;
-							}
+					/* $scope.addUserAndRole(); */
+
+					$scope.pstatus = false;
+
+					$scope.validateOldPassword = function() {
+						if ($scope.password == $scope.opwd) {
+							$scope.pstatus = true;
+						} else {
+							$scope.pstatus = false;
+						}
 					}
-					
-					/*getRole*/
-					$scope.getRole = function() {			
+
+					/* getRole */
+					$scope.getRole = function() {
 						$http({
 							url : 'http://localhost:3333/rest/role',
 							method : 'GET',
-							
+
 						}).then(function(response) {
-							$scope.roles=response.data.DATA;
+							$scope.roles = response.data.DATA;
 							console.log(response.data.DATA);
 						}, function(response) {
 
 						});
-					
+
 					}
-					/*upate user*/
-					$scope.updateUser=function (user){
-							$http({
-								url:'http://localhost:3333/rest/user/',
-								method:'PUT',
-								data:{
-									'email' : $scope.email,
-									'id' : $scope.id,
-									'username' : $scope.username,
-									'password' : $scope.npwd
-								}
-							}).then(function(response){
-								$scope.email="",
-								$scope.username="",
-								$scope.npwd="",
-								$scope.opwd=""
-							},function(response)
-							{
-							});
+					/* upate user */
+					$scope.updateUser = function(user) {
+						$http({
+							url : 'http://localhost:3333/rest/user/',
+							method : 'PUT',
+							data : {
+								'email' : $scope.email,
+								'id' : $scope.id,
+								'username' : $scope.username,
+								'password' : $scope.npwd
+							}
+						}).then(
+								function(response) {
+									$scope.email = "", $scope.username = "",
+											$scope.npwd = "", $scope.opwd = ""
+								}, function(response) {
+								});
+					}
+					/* upate user */
+
+					/* confirm password */
+					$scope.confirmStatus = false;
+					$scope.confirmPassword = function() {
+						if ($scope.passwords == $scope.cpwd) {
+							$scope.confirmStatus = true;
+						} else {
+							$scope.confirmStatus = false;
 						}
-					/*upate user*/
-					
-					/*confirm password*/
-					$scope.confirmStatus=false;
-					$scope.confirmPassword = function()
-					{
-						if($scope.passwords == $scope.cpwd)
-							{
-								$scope.confirmStatus=true;
-							}
-						else
-							{
-							$scope.confirmStatus=false;
-							}
-						
+
 					}
-					/*confirm password*/
-					
-					/*getRole*//*$scope.getRole();*/
-//					array of roles
-					$scope.roles = [ /*{
-						id : 1,
-						rolename : "Admin"
-					},*/ {
+					/* confirm password */
+
+					/* getRole *//* $scope.getRole(); */
+					// array of roles
+					$scope.roles = [ /*
+										 * { id : 1, rolename : "Admin" },
+										 */{
 						id : 2,
 						rolename : "អ្នកប្រើប្រាស់ធម្មតា (User)"
-					}
-					];
+					} ];
 				});

@@ -48,14 +48,45 @@ app
 		.controller(
 				'expertController',
 				function($scope, $http, uploadFile) {
+					
+					//Expert
+					$scope.getDataOfExperts = function() {
+						$http({
+							url : 'http://localhost:3333/rest/expert',
+							method : 'GET'
+//							params : {
+//								page : $scope.filter.page,
+//								limit : 10
+//							}
+						}).then(function(response) {
+							console.log("Data of Expert");
+							console.log(response)
+							$scope.expertObject = response.data.DATA; // array
+//							$("#EXPERT_PAGIN").bootpag({
+//								total : response.data.PAGINATION.TOTAL_PAGES,
+//								page : $scope.filter.page, // CURRENT
+//								// PAGE
+//								leaps : true,
+//								firstLastUse : true,
+//								first : '←',
+//								last : '→',
+//								next : 'Next',
+//								prev : 'Prev',
+//								maxVisible : 10
+//							});
+						}, function(response) {
 
-					$scope.whenInsert = function() {
-						alert(2);
-						$scope.insertBOOL = true;
-					}
+						});
+					};
+					//Expert
 
 					$scope.filter = {
 						page : 1
+					}
+
+					$scope.whenInsert = function() {
+
+						$scope.insertBOOL = true;
 					}
 
 					// Start of Sub Skill block
@@ -197,14 +228,35 @@ app
 
 					$scope.getDataOfMainSkill();
 
+					$('#SKILL_PAGIN').on("page", function(event, currentPage) {
+						$scope.filter.page = currentPage;
+						$scope.getDataOfSkill();
+					});
+
 					$scope.getDataOfSkill = function() {
 						$http({
 							url : 'http://localhost:3333/rest/subject',
-							method : 'GET'
+							method : 'GET',
+							params : {
+								page : $scope.filter.page,
+								limit : 10
+							}
 						}).then(function(response) {
 							console.log("Main SKill DATA");
 							console.log(response)
 							$scope.skillSet = response.data.DATA; // array
+							$("#SKILL_PAGIN").bootpag({
+								total : response.data.PAGINATION.TOTAL_PAGES,
+								page : $scope.filter.page, // CURRENT
+								// PAGE
+								leaps : true,
+								firstLastUse : true,
+								first : '←',
+								last : '→',
+								next : 'Next',
+								prev : 'Prev',
+								maxVisible : 10
+							});
 						}, function(response) {
 
 						});
@@ -350,21 +402,37 @@ app
 
 					/* Starting of University */
 
+					$('#UNIVERSITY_PAGIN').on("page",
+							function(event, currentPage) {
+								$scope.filter.page = currentPage;
+								$scope.getDataOfUniversity();
+							});
+
 					$scope.getDataOfUniversity = function() {
 						$http({
 							url : 'http://localhost:3333/rest/university',
-							method : 'GET'
+							method : 'GET',
+							params : {
+								page : $scope.filter.page,
+								limit : 10
+							}
+
 						}).then(function(response) {
 							console.log("this is university");
 							console.log(response);
 							$scope.universityObject = response.data.DATA; // array
-							/*
-							 * $('#PAGINATION_UNIVERSITY').bootpag({ total : 10,
-							 * page : $scope.filter.page, // CURRENT // PAGE
-							 * leaps : true, firstLastUse : true, first : '←',
-							 * last : '→', next : 'Next', prev : 'Prev',
-							 * maxVisible : 10 });
-							 */
+							$("#UNIVERSITY_PAGIN").bootpag({
+								total : response.data.PAGINATION.TOTAL_PAGES,
+								page : $scope.filter.page, // CURRENT
+								// PAGE
+								leaps : true,
+								firstLastUse : true,
+								first : '←',
+								last : '→',
+								next : 'Next',
+								prev : 'Prev',
+								maxVisible : 10
+							});
 						}, function(response) {
 
 						});
@@ -497,7 +565,6 @@ app
 					/* End of university */
 
 					/* Starting Institution */
-
 					$scope.getDataOfInstitution = function() {
 						$http({
 							url : 'http://localhost:3333/rest/institution',
@@ -837,14 +904,35 @@ app
 						});
 					}
 
+					$('#MAJOR_PAGIN').on("page", function(event, currentPage) {
+						$scope.filter.page = currentPage;
+						$scope.getDataOfDistrict();
+					});
+
 					$scope.getDataOfMajor = function() {
 						$http({
 							url : 'http://localhost:3333/rest/major',
 							method : "GET",
+							params : {
+								page : $scope.filter.page,
+								limit : 10
+							}
 						}).then(function(response) {
 							console.log("this is major");
 							console.log(response);
 							$scope.majorObject = response.data.DATA;
+							$("#MAJOR_PAGIN").bootpag({
+								total : response.data.PAGINATION.TOTAL_PAGES,
+								page : $scope.filter.page, // CURRENT
+								// PAGE
+								leaps : true,
+								firstLastUse : true,
+								first : '←',
+								last : '→',
+								next : 'Next',
+								prev : 'Prev',
+								maxVisible : 10
+							});
 						}, function(response) {
 
 						});
@@ -905,12 +993,34 @@ app
 
 					/* Starting of Language */
 
+					$('#LANGUAGE_PAGIN').on("page",
+							function(event, currentPage) {
+								$scope.filter.page = currentPage;
+								$scope.getDataOfLanguage();
+							});
+
 					$scope.getDataOfLanguage = function() {
 						$http({
 							url : 'http://localhost:3333/rest/language',
-							method : 'GET'
+							method : 'GET',
+							params : {
+								page : $scope.filter.page,
+								limit : 10
+							}
 						}).then(function(response) {
 							$scope.languageObject = response.data.DATA; // array
+							$("#LANGUAGE_PAGIN").bootpag({
+								total : response.data.PAGINATION.TOTAL_PAGES,
+								page : $scope.filter.page, // CURRENT
+								// PAGE
+								leaps : true,
+								firstLastUse : true,
+								first : '←',
+								last : '→',
+								next : 'Next',
+								prev : 'Prev',
+								maxVisible : 10
+							});
 						}, function(response) {
 
 						});
@@ -1165,14 +1275,36 @@ app
 
 					// Province Block
 
+					$('#PROVINCE_PAGIN').on("page",
+							function(event, currentPage) {
+								$scope.filter.page = currentPage;
+								$scope.getDataOfProvinceOrCity();
+							});
+
 					$scope.getDataOfProvinceOrCity = function() {
 						$http({
 							url : 'http://localhost:3333/rest/cityorprovince',
-							method : 'GET'
+							method : 'GET',
+							params : {
+								page : $scope.filter.page,
+								limit : 10
+							}
 						}).then(function(response) {
 							console.log("CITY: ")
 							console.log(response)
 							$scope.provinceOrCity = response.data.DATA; // array
+							$("#PROVINCE_PAGIN").bootpag({
+								total : response.data.PAGINATION.TOTAL_PAGES,
+								page : $scope.filter.page, // CURRENT
+								// PAGE
+								leaps : true,
+								firstLastUse : true,
+								first : '←',
+								last : '→',
+								next : 'Next',
+								prev : 'Prev',
+								maxVisible : 10
+							});
 						}, function(response) {
 
 						});
@@ -1339,14 +1471,37 @@ app
 
 					// District Block
 
+					$('#DISTRICT_PAGIN').on("page",
+							function(event, currentPage) {
+								$scope.filter.page = currentPage;
+								$scope.getDataOfDistrict();
+							});
+
 					$scope.getDataOfDistrict = function() {
 						$http({
 							url : 'http://localhost:3333/rest/district',
-							method : 'GET'
+							method : 'GET',
+							params : {
+								page : $scope.filter.page,
+								limit : 10
+							}
 						}).then(function(response) {
 							console.log("This is district");
 							console.log(response);
 							$scope.districtObject = response.data.DATA; // array
+							$scope.communeObject = response.data.DATA; // array
+							$("#DISTRICT_PAGIN").bootpag({
+								total : response.data.PAGINATION.TOTAL_PAGES,
+								page : $scope.filter.page, // CURRENT
+								// PAGE
+								leaps : true,
+								firstLastUse : true,
+								first : '←',
+								last : '→',
+								next : 'Next',
+								prev : 'Prev',
+								maxVisible : 10
+							});
 						}, function(response) {
 
 						});
@@ -1522,14 +1677,37 @@ app
 						});
 					};
 
+					$('#COMMUNE_PAGIN').on("page",
+							function(event, currentPage) {
+								$scope.filter.page = currentPage;
+								$scope.getDataOfCommune();
+							});
+
 					$scope.getDataOfCommune = function() {
 						$http({
 							url : 'http://localhost:3333/rest/commune',
-							method : 'GET'
+							method : 'GET',
+							params : {
+								page : $scope.filter.page,
+								limit : 10
+							}
 						}).then(function(response) {
 							console.log("this is commune");
 							console.log(response);
+
 							$scope.communeObject = response.data.DATA; // array
+							$("#COMMUNE_PAGIN").bootpag({
+								total : response.data.PAGINATION.TOTAL_PAGES,
+								page : $scope.filter.page, // CURRENT
+								// PAGE
+								leaps : true,
+								firstLastUse : true,
+								first : '←',
+								last : '→',
+								next : 'Next',
+								prev : 'Prev',
+								maxVisible : 10
+							});
 						}, function(response) {
 
 						});
@@ -1908,15 +2086,38 @@ app
 
 					// experience
 
+					$('#INSTITUTION_PAGIN').on("page",
+							function(event, currentPage) {
+								$scope.filter.page = currentPage;
+								$scope.getDataOfInstitution();
+							});
+
 					// call institution
 					$scope.getDataOfInstitution = function() {
 						$http({
 							url : 'http://localhost:3333/rest/institution',
-							method : 'GET'
+							method : 'GET',
+							params : {
+								page : $scope.filter.page,
+								limit : 10
+							}
 						}).then(function(response) {
 							console.log("this is intitution");
 							console.log(response)
 							$scope.institutionObject = response.data.DATA; // array
+							$scope.communeObject = response.data.DATA; // array
+							$("#INSTITUTION_PAGIN").bootpag({
+								total : response.data.PAGINATION.TOTAL_PAGES,
+								page : $scope.filter.page, // CURRENT
+								// PAGE
+								leaps : true,
+								firstLastUse : true,
+								first : '←',
+								last : '→',
+								next : 'Next',
+								prev : 'Prev',
+								maxVisible : 10
+							});
 						}, function(response) {
 
 						});
@@ -1924,14 +2125,37 @@ app
 
 					$scope.getDataOfInstitution();
 
+					$('#POSITION_PAGIN').on("page",
+							function(event, currentPage) {
+								$scope.filter.page = currentPage;
+								$scope.getDataOfPosition();
+							});
+
 					$scope.getDataOfPosition = function() {
 						$http({
 							url : 'http://localhost:3333/rest/position',
-							method : 'GET'
+							method : 'GET',
+							params : {
+								page : $scope.filter.page,
+								limit : 10
+							}
 						}).then(function(response) {
 							console.log("this is position");
 							console.log(response)
 							$scope.positionObject = response.data.DATA; // array
+							$scope.communeObject = response.data.DATA; // array
+							$("#POSITION_PAGIN").bootpag({
+								total : response.data.PAGINATION.TOTAL_PAGES,
+								page : $scope.filter.page, // CURRENT
+								// PAGE
+								leaps : true,
+								firstLastUse : true,
+								first : '←',
+								last : '→',
+								next : 'Next',
+								prev : 'Prev',
+								maxVisible : 10
+							});
 						}, function(response) {
 
 						});
