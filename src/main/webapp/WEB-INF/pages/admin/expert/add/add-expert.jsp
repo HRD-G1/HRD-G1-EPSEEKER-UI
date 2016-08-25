@@ -754,18 +754,7 @@
 										</div>
 									</div>
 									<div class="col-md-6 col-sm-6">
-										<label for="gender">Upload File Here</label>
-										<div class="input-group">
-											<span class="input-group-btn">
-												<button id="fake-file-button-browse" type="button"
-													class="btn btn-default">
-													<span class="glyphicon glyphicon-file"></span>
-												</button>
-											</span> <input type="file" id="files-input-upload"
-												style="display: none"> <input type="text"
-												id="fake-file-input-name" disabled="disabled"
-												placeholder="File not selected" class="form-control">
-										</div>
+										<input style="padding: 20px; font-family: 'Arial'" type="file" file-model="uploadFileDoc">
 									</div>
 									<div class="col-md-12">Document of Expert {{$index+1}}</div>
 								</div>

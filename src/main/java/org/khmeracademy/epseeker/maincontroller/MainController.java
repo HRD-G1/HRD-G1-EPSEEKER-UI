@@ -90,6 +90,16 @@ public class MainController {
 		return "admin/language/view/view-language";
 	}
 
+	@RequestMapping(value = "rest/admin/institution/view")
+	public String viewInstitution() {
+		return "admin/institution/view/view-institution";
+	}
+	
+	@RequestMapping(value = "rest/admin/position/view")
+	public String viewPosition() {
+		return "admin/position/view/view-position";
+	}
+	
 	@RequestMapping(value = "rest/admin/filetype/view")
 	public String viewFileType() {
 		return "admin/file/view/view-file";

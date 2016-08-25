@@ -49,8 +49,6 @@ app
 				'expertController',
 				function($scope, $http, uploadFile) {
 
-					
-
 					$scope.whenInsert = function() {
 						alert(2);
 						$scope.insertBOOL = true;
@@ -77,14 +75,14 @@ app
 							swal({
 								title : "Inserted",
 								text : "Inserted Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Insert",
 								text : "Inserted Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -122,14 +120,14 @@ app
 							swal({
 								title : "Updated",
 								text : "Updated Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Updated",
 								text : "Updated Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -163,7 +161,7 @@ app
 															swal({
 																title : "Deleted",
 																text : "Deleted Successfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															})
 														},
@@ -171,7 +169,7 @@ app
 															swal({
 																title : "Failed To Deleted",
 																text : "Deleted Unsuccessfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															});
 														});
@@ -237,14 +235,14 @@ app
 							swal({
 								title : "Inserted",
 								text : "Inserted Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Insert",
 								text : "Inserted Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -279,14 +277,14 @@ app
 							swal({
 								title : "Updated",
 								text : "Updated Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Updated",
 								text : "Updated Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -323,14 +321,14 @@ app
 																swal({
 																	title : "Deleted",
 																	text : "Deleted Successfully",
-																	timer : 1000,
+																	timer : 600,
 																	showConfirmButton : false
 																})
 															} else {
 																swal({
 																	title : "Failed To Deleted",
 																	text : "Deleted Unsuccessfully",
-																	timer : 1000,
+																	timer : 600,
 																	showConfirmButton : false
 																});
 															}
@@ -389,14 +387,14 @@ app
 							swal({
 								title : "Inserted",
 								text : "Inserted Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Insert",
 								text : "Inserted Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -425,14 +423,14 @@ app
 							swal({
 								title : "Updated",
 								text : "Updated Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Updated",
 								text : "Updated Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -466,7 +464,7 @@ app
 															swal({
 																title : "Deleted",
 																text : "Deleted Successfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															})
 														},
@@ -474,7 +472,7 @@ app
 															swal({
 																title : "Failed To Deleted",
 																text : "Deleted Unsuccessfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															});
 														});
@@ -488,7 +486,293 @@ app
 
 					}
 
+					$scope.getUpdateUniversity = function(inti) {
+
+						$scope.insertBOOL = false;
+
+						$scope.universityID = uni.uni.UNIVERSITY_ID;
+						$scope.universityName = uni.uni.UNIVERSITY_NAME;
+					}
+
 					/* End of university */
+
+					/* Starting Institution */
+
+					$scope.getDataOfInstitution = function() {
+						$http({
+							url : 'http://localhost:3333/rest/institution',
+							method : 'GET'
+						}).then(function(response) {
+							console.log("this is institution");
+							console.log(response);
+							$scope.institutionObject = response.data.DATA; // array
+							/*
+							 * $('#PAGINATION_UNIVERSITY').bootpag({ total : 10,
+							 * page : $scope.filter.page, // CURRENT // PAGE
+							 * leaps : true, firstLastUse : true, first : '←',
+							 * last : '→', next : 'Next', prev : 'Prev',
+							 * maxVisible : 10 });
+							 */
+						}, function(response) {
+
+						});
+					};
+
+					$scope.insertInstitution = function() {
+						$http(
+								{
+									url : 'http://localhost:3333/rest/institution',
+									method : "POST",
+									data : {
+										"INSTITUTION_ID" : 0,
+										"INSTITUTION_NAME" : $scope.institutionName,
+										"INSTITUTION_ADDRESS" : $scope.institutionAddress
+									}
+								}).then(function(response) {
+							$scope.institutionName = "";
+							$scope.institutionAddress = "";
+							$scope.getDataOfInstitution();
+							swal({
+								title : "Inserted",
+								text : "Inserted Successfully",
+								timer : 600,
+								showConfirmButton : false
+							})
+						}, function(response) {
+							swal({
+								title : "Failed To Insert",
+								text : "Inserted Unsuccessfully",
+								timer : 600,
+								showConfirmButton : false
+							});
+						});
+					};
+
+					$scope.getUpdateInstitution = function(ints) {
+
+						$scope.insertBOOL = false;
+
+						$scope.institutionID = ints.ints.INSTITUTION_ID;
+						$scope.institutionName = ints.ints.INSTITUTION_NAME;
+						$scope.institutionAddress = ints.ints.INSTITUTION_ADDRESS;
+					}
+
+					$scope.updateInstitution = function() {
+						$http({
+							url : 'http://localhost:3333/rest/institution',
+							method : "PUT",
+							data : {
+								INSTITUTION_ID : $scope.institutionID,
+								INSTITUTION_NAME : $scope.institutionName,
+								INSTITUTION_ADDRESS : $scope.institutionAddress
+							}
+						}).then(function(response) {
+							$scope.institutionName = "";
+							$scope.institutionAddress = "";
+							$scope.getDataOfInstitution();
+							swal({
+								title : "Updated",
+								text : "Updated Successfully",
+								timer : 600,
+								showConfirmButton : false
+							})
+						}, function(response) {
+							swal({
+								title : "Failed To Updated",
+								text : "Updated Unsuccessfully",
+								timer : 600,
+								showConfirmButton : false
+							});
+						});
+					}
+
+					$scope.remvoeInstitution = function(id) {
+						swal(
+								{
+									title : "Are you sure?",
+									text : "You will not be able to recover this imaginary file!",
+									type : "warning",
+									showCancelButton : true,
+									confirmButtonColor : "#DD6B55",
+									confirmButtonText : "Yes, delete it!",
+									cancelButtonText : "No, cancel plx!",
+									closeOnConfirm : false,
+									closeOnCancel : false
+								},
+								function(isConfirm) {
+									if (isConfirm) {
+										$http(
+												{
+													url : 'http://localhost:3333/rest/institution/'
+															+ id,
+													method : "DELETE"
+												})
+												.then(
+														function(response) {
+															$scope
+																	.getDataOfInstitution();
+															swal({
+																title : "Deleted",
+																text : "Deleted Successfully",
+																timer : 600,
+																showConfirmButton : false
+															})
+														},
+														function(response) {
+															swal({
+																title : "Failed To Deleted",
+																text : "Deleted Unsuccessfully",
+																timer : 600,
+																showConfirmButton : false
+															});
+														});
+									} else {
+										swal(
+												"Cancelled",
+												"Your imaginary file is safe :)",
+												"error");
+									}
+								});
+
+					}
+
+					/* Ending Institution */
+
+					/* Starting Position */
+
+					$scope.getDataOfPosition = function() {
+						$http({
+							url : 'http://localhost:3333/rest/position',
+							method : 'GET'
+						}).then(function(response) {
+							console.log("this is position");
+							console.log(response);
+							$scope.positionObject = response.data.DATA; // array
+							/*
+							 * $('#PAGINATION_UNIVERSITY').bootpag({ total : 10,
+							 * page : $scope.filter.page, // CURRENT // PAGE
+							 * leaps : true, firstLastUse : true, first : '←',
+							 * last : '→', next : 'Next', prev : 'Prev',
+							 * maxVisible : 10 });
+							 */
+						}, function(response) {
+
+						});
+					};
+
+					$scope.insertPosition = function() {
+						$http({
+							url : 'http://localhost:3333/rest/position',
+							method : "POST",
+							data : {
+								POSITION_ID : 0,
+								POSITION_NAME : $scope.positionName
+							}
+						}).then(function(response) {
+							$scope.positionName = "";
+							$scope.getDataOfPosition();
+							swal({
+								title : "Inserted",
+								text : "Inserted Successfully",
+								timer : 600,
+								showConfirmButton : false
+							})
+						}, function(response) {
+							swal({
+								title : "Failed To Insert",
+								text : "Inserted Unsuccessfully",
+								timer : 600,
+								showConfirmButton : false
+							});
+						});
+					};
+
+					$scope.getUpdatePostion = function(pos) {
+
+						$scope.insertBOOL = false;
+
+						$scope.positionID = pos.pos.POSITION_ID;
+						$scope.positionName = pos.pos.POSITION_NAME;
+					}
+
+					$scope.updatePosition = function() {
+						$http({
+							url : 'http://localhost:3333/rest/position',
+							method : "PUT",
+							data : {
+								POSITION_ID : $scope.positionID,
+								POSITION_NAME : $scope.positionName
+							}
+						}).then(function(response) {
+							$scope.positionName = "";
+							$scope.getDataOfPosition();
+							swal({
+								title : "Updated",
+								text : "Updated Successfully",
+								timer : 600,
+								showConfirmButton : false
+							})
+						}, function(response) {
+							swal({
+								title : "Failed To Updated",
+								text : "Updated Unsuccessfully",
+								timer : 600,
+								showConfirmButton : false
+							});
+						});
+					}
+
+					$scope.removePosition = function(id) {
+						swal(
+								{
+									title : "Are you sure?",
+									text : "You will not be able to recover this imaginary file!",
+									type : "warning",
+									showCancelButton : true,
+									confirmButtonColor : "#DD6B55",
+									confirmButtonText : "Yes, delete it!",
+									cancelButtonText : "No, cancel plx!",
+									closeOnConfirm : false,
+									closeOnCancel : false
+								},
+								function(isConfirm) {
+									if (isConfirm) {
+										$http(
+												{
+													url : 'http://localhost:3333/rest/position/'
+															+ id,
+													method : "DELETE"
+												})
+												.then(
+														function(response) {
+															$scope
+																	.getDataOfPosition();
+															swal({
+																title : "Deleted",
+																text : "Deleted Successfully",
+																timer : 600,
+																showConfirmButton : false
+															})
+														},
+														function(response) {
+															swal({
+																title : "Failed To Deleted",
+																text : "Deleted Unsuccessfully",
+																timer : 600,
+																showConfirmButton : false
+															});
+														});
+									} else {
+										swal(
+												"Cancelled",
+												"Your imaginary file is safe :)",
+												"error");
+									}
+								});
+
+					}
+
+					/* Ending Position */
 
 					/* Starting of Major */
 					$scope.insertMajor = function() {
@@ -505,14 +789,14 @@ app
 							swal({
 								title : "Inserted",
 								text : "Inserted Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Insert",
 								text : "Inserted Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -540,14 +824,14 @@ app
 							swal({
 								title : "Updated",
 								text : "Updated Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Updated",
 								text : "Updated Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -596,7 +880,7 @@ app
 															swal({
 																title : "Deleted",
 																text : "Deleted Successfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															})
 														},
@@ -604,7 +888,7 @@ app
 															swal({
 																title : "Failed To Deleted",
 																text : "Deleted Unsuccessfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															});
 														});
@@ -656,14 +940,14 @@ app
 							swal({
 								title : "Updated",
 								text : "Updated Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Updated",
 								text : "Updated Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -697,7 +981,7 @@ app
 															swal({
 																title : "Deleted",
 																text : "Deleted Successfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															})
 														},
@@ -705,7 +989,7 @@ app
 															swal({
 																title : "Failed To Deleted",
 																text : "Deleted Unsuccessfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															});
 														});
@@ -734,14 +1018,14 @@ app
 							swal({
 								title : "Inserted",
 								text : "Inserted Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Insert",
 								text : "Inserted Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -778,14 +1062,14 @@ app
 							swal({
 								title : "Inserted",
 								text : "Inserted Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Insert",
 								text : "Inserted Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -814,14 +1098,14 @@ app
 							swal({
 								title : "Updated",
 								text : "Updated Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Updated",
 								text : "Updated Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -855,7 +1139,7 @@ app
 															swal({
 																title : "Deleted",
 																text : "Deleted Successfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															})
 														},
@@ -863,7 +1147,7 @@ app
 															swal({
 																title : "Failed To Deleted",
 																text : "Deleted Unsuccessfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															});
 														});
@@ -947,14 +1231,14 @@ app
 							swal({
 								title : "Inserted",
 								text : "Inserted Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Insert",
 								text : "Inserted Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -988,14 +1272,14 @@ app
 							swal({
 								title : "Updated",
 								text : "Updated Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Updated",
 								text : "Updated Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -1029,7 +1313,7 @@ app
 															swal({
 																title : "Deleted",
 																text : "Deleted Successfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															})
 														},
@@ -1037,7 +1321,7 @@ app
 															swal({
 																title : "Failed To Delete",
 																text : "Deleted Unsuccessfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															});
 														});
@@ -1088,14 +1372,14 @@ app
 							swal({
 								title : "Inserted",
 								text : "Inserted Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Insert",
 								text : "Inserted Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -1134,14 +1418,14 @@ app
 							swal({
 								title : "Updated",
 								text : "Updated Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Update",
 								text : "Updated Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -1176,7 +1460,7 @@ app
 															swal({
 																title : "Deleted",
 																text : "Deleted Successfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															})
 														},
@@ -1184,7 +1468,7 @@ app
 															swal({
 																title : "Failed To Delete",
 																text : "Deleted Unsuccessfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															});
 														});
@@ -1192,7 +1476,7 @@ app
 										swal({
 											title : "Delete Cancel",
 											text : "Delete Cancel",
-											timer : 1000,
+											timer : 600,
 											showConfirmButton : false
 										});
 									}
@@ -1225,14 +1509,14 @@ app
 							swal({
 								title : "Inserted",
 								text : "Inserted Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Insert",
 								text : "Inserted Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -1290,14 +1574,14 @@ app
 							swal({
 								title : "Updated",
 								text : "Updated Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Update",
 								text : "Updated Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -1332,7 +1616,7 @@ app
 															swal({
 																title : "Deleted",
 																text : "Deleted Successfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															})
 														},
@@ -1340,7 +1624,7 @@ app
 															swal({
 																title : "Failed To Delete",
 																text : "Deleted Unsuccessfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															});
 														});
@@ -1348,7 +1632,7 @@ app
 										swal({
 											title : "Delete Cancel",
 											text : "Delete Cancel",
-											timer : 1000,
+											timer : 600,
 											showConfirmButton : false
 										});
 									}
@@ -1374,14 +1658,14 @@ app
 							swal({
 								title : "Inserted",
 								text : "Inserted Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Insert",
 								text : "Inserted Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -1429,14 +1713,14 @@ app
 							swal({
 								title : "Updated",
 								text : "Updated Successfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							})
 						}, function(response) {
 							swal({
 								title : "Failed To Updated",
 								text : "Updated Unsuccessfully",
-								timer : 1000,
+								timer : 600,
 								showConfirmButton : false
 							});
 						});
@@ -1470,7 +1754,7 @@ app
 															swal({
 																title : "Deleted",
 																text : "Deleted Successfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															})
 														},
@@ -1478,7 +1762,7 @@ app
 															swal({
 																title : "Failed To Delete",
 																text : "Deleted Unsuccessfully",
-																timer : 1000,
+																timer : 600,
 																showConfirmButton : false
 															});
 														});
@@ -1792,8 +2076,23 @@ app
 					}
 
 					// function add
-					
+
 					/* ADD IMAGE */
+
+					$scope.fileUrl = "";
+
+					$scope.addFile = function() {
+						alert(1);
+						var file = $scope.uploadFileDoc;
+						console.log('file is');
+						console.dir(file);
+
+						var uploadUrl = "http://localhost:3333/rest/uploadfile";
+						uploadFile.uploadFileToUrl(file, uploadUrl, function(
+								response) {
+							console.log("File URL: ", response)
+						});
+					}
 
 					$scope.addImage = function() {
 						alert(1);
@@ -1802,102 +2101,112 @@ app
 						console.dir(file);
 
 						var uploadUrl = "http://localhost:3333/rest/uploadphoto";
-						uploadFile.uploadFileToUrl(file, uploadUrl, function(response) {
+						uploadFile
+								.uploadFileToUrl(
+										file,
+										uploadUrl,
+										function(response) {
 
-							//if insert photo success
-							
-							$scope.expertAllTheTimes = {
-									DOB : $scope.dateOfBirth,
-									EDUCATIONS : $scope.eduOfExpert,
-									EXPERT_ADVANCE_COURSE : $scope.advanceCourse,
-									EXPERT_CURRENT_ADDRESS : {
-										CITY_OR_PROVINCE_ID : $scope.objectCommuneOfCurrentAddress.CITY_OR_PROVINCE_ID,
-										CITY_OR_PROVINCE_NAME : "",
-										COMMUNE_ID : $scope.objectCommuneOfCurrentAddress.COMMUNE_ID,
-										COMMUNE_NAME : "",
-										COUNTRY_ID : $scope.objectCommuneOfCurrentAddress.COUNTRY_ID,
-										COUNTRY_NAME : "",
-										DISTRICT_ID : $scope.objectCommuneOfCurrentAddress.DISTRICT_ID,
-										DISTRICT_NAME : "",
-										EXPERT_ID : 0
-									},
-									EXPERT_CURRENT_JOBS : $scope.currentJobOfExpert,
-									EXPERT_DOCUMENTS : $scope.fileDocOfExpert,
-									EXPERT_EMAIL : $scope.email,
-									EXPERT_EXPERIENCES : $scope.expOfExpert,
-									EXPERT_FIRST_NAME : $scope.firstName,
-									EXPERT_GENDER : $scope.gender,
-									EXPERT_GENDERATION : $scope.generation,
-									EXPERT_ID : 0,
-									EXPERT_JOB_EXPECTATIONS : $scope.jobExpectationOfExpert,
-									EXPERT_LAST_NAME : $scope.lastName,
-									EXPERT_PHONE1 : $scope.phone1,
-									EXPERT_PHONE2 : $scope.phone2,
-									EXPERT_PHOTO : response.THUMBNAIL_IMAGE,
-									EXPERT_STATUS : "",
-									KA_ID : 0,
-									LANGUAGES : [ {
-										LANGUAGE_DESCRIPTION : "",
-										LANGUAGE_ID : 0,
-										LANGUAGE_NAME : ""
-									} ],
-									MAX_AGE : 0,
-									MAX_SALARY : 0,
-									MIN_AGE : 0,
-									MIN_SALARY : 0,
-									PLACE_OF_BIRTH : {
-										CITY_OR_PROVINCE_ID : $scope.objectCommuneOfPlaceOfBirth.CITY_OR_PROVINCE_ID,
-										CITY_OR_PROVINCE_NAME : "",
-										COMMUNE_ID : $scope.objectCommuneOfPlaceOfBirth.COMMUNE_ID,
-										COMMUNE_NAME : "",
-										COUNTRY_ID : $scope.objectCommuneOfPlaceOfBirth.COUNTRY_ID,
-										COUNTRY_NAME : "",
-										DISTRICT_ID : $scope.objectCommuneOfPlaceOfBirth.DISTRICT_ID,
-										DISTRICT_NAME : "",
-										EXPERT_ID : 0
-									},
-									PROJECT_LINK_DEMO : $scope.projectLinkDemo,
-									SUBJECTS : [ {
-										NUMBER_OF_EXPERT_EACH_SKILL : 0,
-										NUM_OF_SKILLS : 0,
-										SUBJECT_CATEGORY_ID : 0,
-										SUBJECT_CATEGORY_NAME : "",
-										SUBJECT_ID : 0,
-										SUBJECT_NAME : ""
-									} ],
-									EXPERT_LANGUAGE_DETAIL : $scope.langOfExpert,
-									EXPERT_SUBJECT_DETAIL : $scope.subjectOfExpert
-								};
+											// if insert photo success
 
-								console.log($scope.expertAllTheTimes);
+											$scope.expertAllTheTimes = {
+												DOB : $scope.dateOfBirth,
+												EDUCATIONS : $scope.eduOfExpert,
+												EXPERT_ADVANCE_COURSE : $scope.advanceCourse,
+												EXPERT_CURRENT_ADDRESS : {
+													CITY_OR_PROVINCE_ID : $scope.objectCommuneOfCurrentAddress.CITY_OR_PROVINCE_ID,
+													CITY_OR_PROVINCE_NAME : "",
+													COMMUNE_ID : $scope.objectCommuneOfCurrentAddress.COMMUNE_ID,
+													COMMUNE_NAME : "",
+													COUNTRY_ID : $scope.objectCommuneOfCurrentAddress.COUNTRY_ID,
+													COUNTRY_NAME : "",
+													DISTRICT_ID : $scope.objectCommuneOfCurrentAddress.DISTRICT_ID,
+													DISTRICT_NAME : "",
+													EXPERT_ID : 0
+												},
+												EXPERT_CURRENT_JOBS : $scope.currentJobOfExpert,
+												EXPERT_DOCUMENTS : $scope.fileDocOfExpert,
+												EXPERT_EMAIL : $scope.email,
+												EXPERT_EXPERIENCES : $scope.expOfExpert,
+												EXPERT_FIRST_NAME : $scope.firstName,
+												EXPERT_GENDER : $scope.gender,
+												EXPERT_GENDERATION : $scope.generation,
+												EXPERT_ID : 0,
+												EXPERT_JOB_EXPECTATIONS : $scope.jobExpectationOfExpert,
+												EXPERT_LAST_NAME : $scope.lastName,
+												EXPERT_PHONE1 : $scope.phone1,
+												EXPERT_PHONE2 : $scope.phone2,
+												EXPERT_PHOTO : response.THUMBNAIL_IMAGE,
+												EXPERT_STATUS : "",
+												KA_ID : 0,
+												LANGUAGES : [ {
+													LANGUAGE_DESCRIPTION : "",
+													LANGUAGE_ID : 0,
+													LANGUAGE_NAME : ""
+												} ],
+												MAX_AGE : 0,
+												MAX_SALARY : 0,
+												MIN_AGE : 0,
+												MIN_SALARY : 0,
+												PLACE_OF_BIRTH : {
+													CITY_OR_PROVINCE_ID : $scope.objectCommuneOfPlaceOfBirth.CITY_OR_PROVINCE_ID,
+													CITY_OR_PROVINCE_NAME : "",
+													COMMUNE_ID : $scope.objectCommuneOfPlaceOfBirth.COMMUNE_ID,
+													COMMUNE_NAME : "",
+													COUNTRY_ID : $scope.objectCommuneOfPlaceOfBirth.COUNTRY_ID,
+													COUNTRY_NAME : "",
+													DISTRICT_ID : $scope.objectCommuneOfPlaceOfBirth.DISTRICT_ID,
+													DISTRICT_NAME : "",
+													EXPERT_ID : 0
+												},
+												PROJECT_LINK_DEMO : $scope.projectLinkDemo,
+												SUBJECTS : [ {
+													NUMBER_OF_EXPERT_EACH_SKILL : 0,
+													NUM_OF_SKILLS : 0,
+													SUBJECT_CATEGORY_ID : 0,
+													SUBJECT_CATEGORY_NAME : "",
+													SUBJECT_ID : 0,
+													SUBJECT_NAME : ""
+												} ],
+												EXPERT_LANGUAGE_DETAIL : $scope.langOfExpert,
+												EXPERT_SUBJECT_DETAIL : $scope.subjectOfExpert
+											};
 
-								$http({
-									url : 'http://localhost:3333/rest/expert',
-									method : "POST",
-									data : $scope.expertAllTheTimes
+											console
+													.log($scope.expertAllTheTimes);
 
-								}).then(function(response) {
-									swal({
-										title : "Inserted",
-										text : "Inserted Successfully",
-										timer : 1000,
-										showConfirmButton : false
-									})
-								}, function(response) {
-									swal({
-										title : "Failed To Insert",
-										text : "Inserted Unsuccessfully",
-										timer : 1000,
-										showConfirmButton : false
-									});
-								});
-							
-						});
+											$http(
+													{
+														url : 'http://localhost:3333/rest/expert',
+														method : "POST",
+														data : $scope.expertAllTheTimes
+
+													})
+													.then(
+															function(response) {
+																swal({
+																	title : "Inserted",
+																	text : "Inserted Successfully",
+																	timer : 600,
+																	showConfirmButton : false
+																})
+															},
+															function(response) {
+																swal({
+																	title : "Failed To Insert",
+																	text : "Inserted Unsuccessfully",
+																	timer : 600,
+																	showConfirmButton : false
+																});
+															});
+
+										});
 
 					}
 
 					$scope.insertExpertAllTheTime = function() {
-						$scope.addImage();
+						$scope.addFile();
+						// $scope.addImage();
 					}
 
 				});

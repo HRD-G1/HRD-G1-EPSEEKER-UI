@@ -301,6 +301,8 @@
 			</div>
 		</div>
 	</div>
+</div>
+	
 	<br>
 	<div id="page-selection"></div>
 	<jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>

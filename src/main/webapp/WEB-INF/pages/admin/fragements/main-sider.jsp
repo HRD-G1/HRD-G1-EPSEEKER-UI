@@ -168,6 +168,32 @@
 							class="fa fa-eye"></i> View File Type</a></li>
 				</ul></li>
 			<!-- File Type -->
+			<!-- Institution -->
+			<li class="treeview"><a href="#"> <i
+					class="fa fa-university"></i> <span>Institution</span> <i
+					class="fa fa-angle-left pull-right"></i>
+			</a>
+				<ul class="treeview-menu">
+					<li ng-click="whenInsert()"><a style="cursor: pointer"
+						data-toggle="modal" data-target="#addInstitution"><i
+							class="fa fa-plus"></i> Add Institution</a></li>
+					<li><a href="../../../../../../rest/admin/institution/view"><i
+							class="fa fa-eye"></i> View Institution</a></li>
+				</ul></li>
+			<!-- Institution -->
+			<!-- Position -->
+			<li class="treeview"><a href="#"> <i
+					class="fa fa-get-pocket"></i> <span>Position</span> <i
+					class="fa fa-angle-left pull-right"></i>
+			</a>
+				<ul class="treeview-menu">
+					<li ng-click="whenInsert()"><a style="cursor: pointer"
+						data-toggle="modal" data-target="#addPosition"><i
+							class="fa fa-plus"></i> Add Position</a></li>
+					<li><a href="../../../../../../rest/admin/position/view"><i
+							class="fa fa-eye"></i> View Position</a></li>
+				</ul></li>
+			<!-- Position -->
 		</ul>
 	</section>
 	<!-- /.sidebar -->
@@ -326,6 +352,109 @@
 	</div>
 </div>
 <!-- UNIVERSITY -->
+
+<!-- INSTITUTION -->
+<!-- line modal -->
+<div class="modal fade" id="addInstitution" tabindex="-1" role="dialog"
+	aria-labelledby="modalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+				</button>
+				<h3 class="modal-title" id="lineModalLabel">My Modal</h3>
+			</div>
+			<div class="modal-body">
+
+				<!-- content goes here -->
+				<form>
+					<div class="form-group">
+						<label for="country">Add New Institution</label> <input
+							type="text" class="form-control" id="commune"
+							placeholder="Add New University" ng-model="institutionName">
+					</div>
+					<div class="form-group">
+						<label for="country">Address</label> <input
+							type="text" class="form-control" id="commune"
+							placeholder="Add New University" ng-model="institutionAddress">
+					</div>
+				</form>
+
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group btn-group-justified" role="group"
+					aria-label="group button">
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-default" data-dismiss="modal"
+							role="button">Close</button>
+					</div>
+					<div class="btn-group btn-update" role="group" ng-hide="insertBOOL"
+						ng-show="universityBOOL">
+						<button type="button" id="delImage"
+							class="btn btn-default btn-hover-red" data-dismiss="modal"
+							role="button" ng-click="updateInstitution()">Update</button>
+					</div>
+					<div class="btn-group" role="group" ng-show="insertBOOL">
+						<button type="button" id="saveImage"
+							class="btn btn-default btn-hover-green" data-action="save"
+							role="button" ng-click="insertInstitution()">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- INSTITUTION -->
+
+<!-- POSITION -->
+<!-- line modal -->
+<div class="modal fade" id="addPosition" tabindex="-1" role="dialog"
+	aria-labelledby="modalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+				</button>
+				<h3 class="modal-title" id="lineModalLabel">My Modal</h3>
+			</div>
+			<div class="modal-body">
+
+				<!-- content goes here -->
+				<form>
+					<div class="form-group">
+						<label for="country">Add New Position</label> <input type="text"
+							class="form-control" id="commune"
+							placeholder="Add New University" ng-model="positionName">
+					</div>
+				</form>
+
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group btn-group-justified" role="group"
+					aria-label="group button">
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-default" data-dismiss="modal"
+							role="button">Close</button>
+					</div>
+					<div class="btn-group btn-update" role="group" ng-hide="insertBOOL"
+						ng-show="universityBOOL">
+						<button type="button" id="delImage"
+							class="btn btn-default btn-hover-red" data-dismiss="modal"
+							role="button" ng-click="updatePosition()">Update</button>
+					</div>
+					<div class="btn-group" role="group" ng-show="insertBOOL">
+						<button type="button" id="saveImage"
+							class="btn btn-default btn-hover-green" data-action="save"
+							role="button" ng-click="insertPosition()">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- POSITION -->
 
 <!-- LOCATION -->
 
