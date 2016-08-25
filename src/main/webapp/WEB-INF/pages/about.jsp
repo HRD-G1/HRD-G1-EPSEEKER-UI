@@ -31,6 +31,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
 <!-- Angular -->
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.11/angular-filter.js"></script>
 <script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
 <style type="text/css">
 		.dropdown-menu > li > a:hover
@@ -107,7 +108,7 @@
 					</a>
 						<ul class="dropdown-menu" style="margin: 0px; padding: 0px;">
 							<li style="background-color: #008080;padding: 10px;">
-							<a href="/logout" class="waves-effect waves-light" style="font-family: 'Khmer OS Battambang';color: #fff;">	
+							<a style="font-family: 'Angkor';color: #fff;"  href="/logout" class="waves-effect waves-light" style="font-family: 'Khmer OS Battambang';color: #fff;">	
 							<i class="fa fa-sign-out "></i>ចាកចេញ</a>
 							<security:authorize  access="hasRole('ADMIN')">
 								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/admin/dashboard" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user-secret"></i> គ្រប់គ្រង</a></li>

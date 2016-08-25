@@ -18,6 +18,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
 	<!-- Angular -->
 	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.11/angular-filter.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
     <!--custom-->
     <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
@@ -100,7 +101,7 @@
 			    <div class="panel-heading" style="  font-family: 'Khmer OS Battambang';font-size: 17px;">បង្កើតគណនីថ្មី</div>
 			    <!-- start content body -->
 			    <div class="panel-body text-left">
-			    	<form name="mysignup">
+			    	<form name="mysignup" action="/login">
 			    	<div class="col-md-offset-2 col-md-8">
 			    	<label for="email" class="signup-label">សារអេឡិចត្រូនិច</label>
 			    		<input name="myemail" class="form-control signup-email" id="email" type="email" ng-model="emails" placeholder="sample@gmail.com"  required ><br>

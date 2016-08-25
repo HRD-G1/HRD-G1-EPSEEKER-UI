@@ -59,6 +59,42 @@ app
 						});
 					}
 
+					/* get all subject name by category id */
+					$scope.getAllSubjectByCategoryID = function(catID) {
+						$http(
+								{
+									url : 'http://localhost:3333/rest/subject/bysubjectcategory/'
+											+ catID,
+									/*
+									 * url:
+									 * 'http://localhost:7777/rest/subject/bysubjectcategory/'+catID,
+									 */
+									method : 'GET'
+								}).then(function(response) {
+							/* console.log(response.data); */
+							$scope.categories = response.data.DATA;
+						}, function(response) {
+
+						});
+					}
+					$scope.getAllSubjectByCategoryID(1);
+					/* get all subject name by category id */
+
+					$scope.getExpertsByRandom = function() {
+						$http({
+							url : 'http://localhost:3333/rest/expertbyrandom',
+							method : 'GET'
+						}).then(function(response) {
+
+							console.log("Expert");
+							console.log(response.data);
+
+							$scope.experts = response.data.DATA;
+						}, function(response) {
+
+						});
+					}
+
 					$scope.getExpertsByRandom();
 
 					$scope.getStatistic = function() {

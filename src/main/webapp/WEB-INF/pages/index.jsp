@@ -22,6 +22,7 @@
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 <!-- Angular -->
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.11/angular-filter.js"></script>
 
 
 <!-- Exucuse Me can i put my cdn here? - Recommend Expert -->
