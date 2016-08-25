@@ -32,6 +32,31 @@
 <!-- Angular -->
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
+<style type="text/css">
+		.dropdown-menu > li > a:hover
+		{
+			background-color: #008080;
+		}
+		   .media
+    {
+        /*box-shadow:0px 0px 4px -2px #000;*/
+        margin: 20px 0;
+        padding:30px;
+    }
+    .dp
+    {
+        border:10px solid #eee;
+        transition: all 0.2s ease-in-out;
+    }
+    .dp:hover
+    {
+        border:2px solid #eee;
+        transform:rotate(360deg);
+        -ms-transform:rotate(360deg);  
+        -webkit-transform:rotate(360deg);  
+        /*-webkit-font-smoothing:antialiased;*/
+    }
+</style>
  </head>
   <body ng-controller="expertController">
   <div class="container-fluid">
@@ -64,28 +89,36 @@
               <a href="/contact" class="waves-effect waves-light " "><i class="fa fa-phone " ></i> ទំនាក់ទំនង</a>
             </li>
             <li class="active menu">
-              <a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពីយើង</a>
+              <a href="/about" class="waves-effect waves-light"><i class="fa fa-users" ></i> អំពីយើង</a>
             </li>
-           <li class="menu">
-					<security:authorize access="isAuthenticated()">
-						<a href="/logout" class="waves-effect waves-light "><i class="fa fa-sign-out "></i>
-							    <!--  {{userlogined.username }} -->	ចាកចេញ
-						</a>
-						</security:authorize> 
+           <li class="menu"><a href="/signup"	class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ</a></li>
+					<li class="menu">
 						<security:authorize access="isAnonymous()">
-							   <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
-							   	 ចូល	
-								</a>
+						  <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
+						   	 ចូល	
+						 </a>
+						</security:authorize> 	
+					</li> 
 
-							</security:authorize> 	
-							
-						</li>
-            <li class="menu">
-              <a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i>ចុះឈ្មោះ</a>
-            </li>
-            <!-- <li>
-              <a href="/search" class="waves-effect waves-light ">SEARCH</a>
-            </li> -->
+				<security:authorize access="isAuthenticated()">
+					<li role="presentation" class="dropdown">
+					<a style="text-transform: uppercase;"  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-user" aria-hidden="true"></i> សួស្ដី {{userlogined.username}} <span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" style="margin: 0px; padding: 0px;">
+							<li style="background-color: #008080;padding: 10px;">
+							<a href="/logout" class="waves-effect waves-light" style="font-family: 'Khmer OS Battambang';color: #fff;">	
+							<i class="fa fa-sign-out "></i>ចាកចេញ</a>
+							<security:authorize  access="hasRole('ADMIN')">
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/admin/dashboard" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user-secret"></i> គ្រប់គ្រង</a></li>
+							</security:authorize>
+							<security:authorize  access="hasRole('USER')">
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/setting" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user"></i> គ្រប់គ្រង</a></li>
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/promote" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-hand-o-up"></i> ដំឡើងឋានៈ</a></li>
+							</security:authorize>
+						</ul>
+					</li>
+				</security:authorize>	
           </ul>
         </div>
       </div>
@@ -109,18 +142,101 @@
 							ប្រាស់គ្រប់មុខងារជាពិសេសការបង្ហាញផ្នែកលំអិតរប​ស់បេក្ខជន
 							ដែលអ្នកចាប់អារម្មណ៍ដូ​ចជាកម្រិតនៃការសិក្សាមុខជំនាញ ​ សញ្ញាបត្រ
 							អាសយដ្ឋាន និង ព័ត៌មានជាច្រើនទៀតសូម ធ្វើការចុះឈ្មោះ
-							និងចូលក្នុងគណនីរបស់អ្នក ដោយឥតគិតថ្លៃ។</p>
+							និងចូលក្នុងគណនីរបស់អ្នក ដោយឥតគិតថ្លៃ ។</p>
 					</div>
 				</div>
 			</div>
 		</div>
+		
+		<div class="panel panel-primary text-center">
+		<div class="panel-heading  text-center home-header">ព័ត៏មានអំពី Developer</div><br>
 		<div class="row">
 			<div class="col-md-12">
-				
+				<div class="row">
+					
+				    <div class="col-lg-6">
+				        <div class="media">
+				            <a class="pull-left" href="#">
+				                <img class="media-object dp img-circle" src="${pageContext.request.contextPath}/resources/experts/img/sal.jpg" style="width: 100px;height:100px;">
+				            </a>
+				            <div class="media-body">
+				                <h4 class="media-heading">Sous Visal <small> Cambodia</small></h4>
+				                <h6>Software Developer at <a href="http://kshrd.com.kh/jsp/index.hrd">KSHRD</a></h6>
+				                <hr style="margin:8px auto">
+				                <span class="label label-default">Web Dev</span>
+				                <span class="label label-info">Spring</span>
+				                <span class="label label-default">Android</span>
+				            </div>
+				        </div>
+				    </div>	
+				    <div class="col-lg-6">
+				        <div class="media">
+				            <a class="pull-left" href="#">
+				                <img class="media-object dp img-circle" src="${pageContext.request.contextPath}/resources/experts/img/tey.jpg" style="width: 100px;height:100px;">
+				            </a>
+				            <div class="media-body">
+				                <h4 class="media-heading">Khem Sovatey <small> Cambodia</small></h4>
+				                <h6>Software Developer at <a href="http://kshrd.com.kh/jsp/index.hrd">KSHRD</a></h6>
+				                <hr style="margin:8px auto">
+				               <span class="label label-default">Web Dev</span>
+				                <span class="label label-info">Spring</span>
+				                <span class="label label-default">Android</span>
+				            </div>
+				        </div>
+				    </div>	
+				    				    <div class="col-lg-6">
+				        <div class="media">
+				            <a class="pull-left" href="#">
+				                <img class="media-object dp img-circle" src="${pageContext.request.contextPath}/resources/experts/img/ly.jpg" style="width: 100px;height:100px;">
+				            </a>
+				            <div class="media-body">
+				                <h4 class="media-heading">Torn Sokly <small> Cambodia</small></h4>
+				                <h6>Software Developer at <a href="http://kshrd.com.kh/jsp/index.hrd">KSHRD</a></h6>
+				                <hr style="margin:8px auto">
+				                <span class="label label-default">Web Dev</span>
+				                <span class="label label-info">Spring</span>
+				                <span class="label label-default">Android</span>
+				            </div>
+				        </div>
+				    </div>	
+				    <div class="col-lg-6">
+				        <div class="media">
+				            <a class="pull-left" href="#">
+				                <img class="media-object dp img-circle" src="${pageContext.request.contextPath}/resources/experts/img/ra.jpg" style="width: 100px;height:100px;">
+				            </a>
+				            <div class="media-body">
+				                <h4 class="media-heading">Srun Vanara <small> Cambodia</small></h4>
+				                <h6>Software Developer at <a href="http://kshrd.com.kh/jsp/index.hrd">KSHRD</a></h6>
+				                <hr style="margin:8px auto">
+				               <span class="label label-default">Web Dev</span>
+				                <span class="label label-info">Spring</span>
+				                <span class="label label-default">Android</span>
+				            </div>
+				        </div>
+				    </div>	
+				    				    <div class="col-lg-6">
+				        <div class="media">
+				            <a class="pull-left" href="#">
+				                <img class="media-object dp img-circle" src="${pageContext.request.contextPath}/resources/experts/img/nang.jpg" style="width: 100px;height:100px;">
+				            </a>
+				            <div class="media-body">
+				                <h4 class="media-heading">Heng Samnang <small> Cambodia</small></h4>
+				                <h6>Software Developer at <a href="http://kshrd.com.kh/jsp/index.hrd">KSHRD</a></h6>
+				                <hr style="margin:8px auto">
+				               <span class="label label-default">Web Dev</span>
+				                <span class="label label-info">Spring</span>
+				                <span class="label label-default">Android</span>
+				            </div>
+				        </div>
+				    </div>			
+				</div>
 			</div>
+		</div>
+		</div>
 		</div>
 	</div>
     <br>
   <jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
-  </div>
-</body></html>
+
+</body>
+</html>
