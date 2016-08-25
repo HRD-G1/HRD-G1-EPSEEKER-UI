@@ -106,6 +106,7 @@ app.controller('expertController',function($scope, $http) {
 								})
 								.then(
 										function(response) {
+											console.log("This is Result Subject: ", response);
 											$scope.resultExpert = response.data.DATA;
 
 											if ($scope.checkPagination) {

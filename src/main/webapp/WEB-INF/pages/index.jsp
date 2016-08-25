@@ -254,14 +254,14 @@
 									
 										<td>
 										<a href="/rest/expert/content/?id={{ep.EXPERT_ID}}" target="_blank"><img alt=""
-											src="${pageContext.request.contextPath}/resources/experts/img/tempPic.png"
-											style="width: 50px; height: 50px"></a>
+											src="{{ep.EXPERT_PHOTO}}"
+											style="width: 85px; height: 85px; border: 2px solid #999" class="img-circle"></a>
 											</td>
-										<td style="max-width: 100px; vertical-align: initial; padding-top: 23px">{{ep.EXPERT_LAST_NAME}}
+										<td style="max-width: 100px; vertical-align: initial; padding-top: 45px">{{ep.EXPERT_LAST_NAME}}
 											{{ep.EXPERT_FIRST_NAME}}</td>
-										<td style="max-width: 150px;padding-top: 23px">{{ep.EXPERT_ADVANCE_COURSE}}</td>
-										<td style="max-width: 100px; padding-top: 23px">{{ep.EXPERT_CURRENT_ADDRESS.CITY_OR_PROVINCE_NAME}}</td>
-										<td style="max-width: 30px; padding-top: 23px">{{ep.EXPERT_EXPERIENCES[0].PERIOD}}</td>
+										<td style="max-width: 150px;padding-top: 45px">{{ep.EXPERT_ADVANCE_COURSE}}</td>
+										<td style="max-width: 100px; padding-top: 45px">{{ep.EXPERT_CURRENT_ADDRESS.CITY_OR_PROVINCE_NAME}}</td>
+										<td style="max-width: 30px; padding-top: 45px">{{ep.EXPERT_EXPERIENCES[0].PERIOD}}</td>
 								</tr>
 							</tbody>
 						</table>

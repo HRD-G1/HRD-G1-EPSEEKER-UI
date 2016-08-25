@@ -729,8 +729,8 @@ a:hover, a:focus {
 											<div>
 												<a href="/rest/expert/content/?id={{ers.EXPERT_ID}}"
 													target="_blank"> <img
-													src="${pageContext.request.contextPath}/resources/experts/img/tempPic.png"
-													width="85px" height="85px" alt="" class="circle">
+													src="{{ers.EXPERT_PHOTO}}"
+													width="85px" height="85px" alt="" class="img-circle" style="border: 2px solid teal;">
 												</a>
 											</div>
 										</td>

@@ -16,54 +16,40 @@ app.directive('fileModel', [ '$parse', function($parse) {
 	};
 } ]);
 
-app.service('uploadFile', [ '$http', '$rootScope',
-		function($http, $rootScope) {
-			this.uploadFileToUrl = function(file, uploadUrl) {
-				var fd = new FormData();
-				fd.append('file', file);
-				 
-				$http.post(uploadUrl, fd, {
-					transformRequest : angular.identity,
-				 
-					headers : {
-						'Content-Type' : undefined
-					}
-				})
+app.service('uploadFile', [ '$http', '$rootScope', function($http, $rootScope) {
+	this.uploadFileToUrl = function(file, uploadUrl, fnCallback) {
+		var fd = new FormData();
+		fd.append('file', file);
 
-				.success(function(response) {
-					console.log(response);
-					$rootScope.$emit("CallParentMethod", {});
+		$http.post(uploadUrl, fd, {
+			transformRequest : angular.identity,
 
-				})
-
-				.error(function() {
-					swal({title:"មានបញ្ហានៅពេលបញ្ចូលសេចក្តីប្រកាសដោយសារសេវា Internet",type:"error"});
-				});
+			headers : {
+				'Content-Type' : undefined
 			}
-		} ]);
+		})
+
+		.success(function(response) {
+			if (fnCallback) {
+				fnCallback(response);
+			}
+		})
+
+		.error(function() {
+			swal({
+				title : "Error Internet",
+				type : "error"
+			});
+		});
+	}
+} ]);
 
 app
 		.controller(
 				'expertController',
-				function($scope, $http,uploadFile) {
-					/* ADD IMAGE */
+				function($scope, $http, uploadFile) {
+
 					
-					$scope.addImage = function() {
-				 		var file = $scope.photoUpload;
-						console.log('file is');
-						console.dir(file);
-						
-						var uploadUrl = "http://localhost:3333/rest/uploadphoto";
-					 	swal({
-							title : "បញ្ជាក់",
-							text : "តើអ្នកពិតជាចង់ដាក់រូបភាពមួយនេះ?",
-							type : "info",
-							showCancelButton : true,
-							closeOnConfirm : true,
-						}, function() {
-							uploadFile.uploadFileToUrl(file, uploadUrl);
-						});	
-					}
 
 					$scope.whenInsert = function() {
 						alert(2);
@@ -1806,123 +1792,112 @@ app
 					}
 
 					// function add
+					
+					/* ADD IMAGE */
+
+					$scope.addImage = function() {
+						alert(1);
+						var file = $scope.photoUpload;
+						console.log('file is');
+						console.dir(file);
+
+						var uploadUrl = "http://localhost:3333/rest/uploadphoto";
+						uploadFile.uploadFileToUrl(file, uploadUrl, function(response) {
+
+							//if insert photo success
+							
+							$scope.expertAllTheTimes = {
+									DOB : $scope.dateOfBirth,
+									EDUCATIONS : $scope.eduOfExpert,
+									EXPERT_ADVANCE_COURSE : $scope.advanceCourse,
+									EXPERT_CURRENT_ADDRESS : {
+										CITY_OR_PROVINCE_ID : $scope.objectCommuneOfCurrentAddress.CITY_OR_PROVINCE_ID,
+										CITY_OR_PROVINCE_NAME : "",
+										COMMUNE_ID : $scope.objectCommuneOfCurrentAddress.COMMUNE_ID,
+										COMMUNE_NAME : "",
+										COUNTRY_ID : $scope.objectCommuneOfCurrentAddress.COUNTRY_ID,
+										COUNTRY_NAME : "",
+										DISTRICT_ID : $scope.objectCommuneOfCurrentAddress.DISTRICT_ID,
+										DISTRICT_NAME : "",
+										EXPERT_ID : 0
+									},
+									EXPERT_CURRENT_JOBS : $scope.currentJobOfExpert,
+									EXPERT_DOCUMENTS : $scope.fileDocOfExpert,
+									EXPERT_EMAIL : $scope.email,
+									EXPERT_EXPERIENCES : $scope.expOfExpert,
+									EXPERT_FIRST_NAME : $scope.firstName,
+									EXPERT_GENDER : $scope.gender,
+									EXPERT_GENDERATION : $scope.generation,
+									EXPERT_ID : 0,
+									EXPERT_JOB_EXPECTATIONS : $scope.jobExpectationOfExpert,
+									EXPERT_LAST_NAME : $scope.lastName,
+									EXPERT_PHONE1 : $scope.phone1,
+									EXPERT_PHONE2 : $scope.phone2,
+									EXPERT_PHOTO : response.THUMBNAIL_IMAGE,
+									EXPERT_STATUS : "",
+									KA_ID : 0,
+									LANGUAGES : [ {
+										LANGUAGE_DESCRIPTION : "",
+										LANGUAGE_ID : 0,
+										LANGUAGE_NAME : ""
+									} ],
+									MAX_AGE : 0,
+									MAX_SALARY : 0,
+									MIN_AGE : 0,
+									MIN_SALARY : 0,
+									PLACE_OF_BIRTH : {
+										CITY_OR_PROVINCE_ID : $scope.objectCommuneOfPlaceOfBirth.CITY_OR_PROVINCE_ID,
+										CITY_OR_PROVINCE_NAME : "",
+										COMMUNE_ID : $scope.objectCommuneOfPlaceOfBirth.COMMUNE_ID,
+										COMMUNE_NAME : "",
+										COUNTRY_ID : $scope.objectCommuneOfPlaceOfBirth.COUNTRY_ID,
+										COUNTRY_NAME : "",
+										DISTRICT_ID : $scope.objectCommuneOfPlaceOfBirth.DISTRICT_ID,
+										DISTRICT_NAME : "",
+										EXPERT_ID : 0
+									},
+									PROJECT_LINK_DEMO : $scope.projectLinkDemo,
+									SUBJECTS : [ {
+										NUMBER_OF_EXPERT_EACH_SKILL : 0,
+										NUM_OF_SKILLS : 0,
+										SUBJECT_CATEGORY_ID : 0,
+										SUBJECT_CATEGORY_NAME : "",
+										SUBJECT_ID : 0,
+										SUBJECT_NAME : ""
+									} ],
+									EXPERT_LANGUAGE_DETAIL : $scope.langOfExpert,
+									EXPERT_SUBJECT_DETAIL : $scope.subjectOfExpert
+								};
+
+								console.log($scope.expertAllTheTimes);
+
+								$http({
+									url : 'http://localhost:3333/rest/expert',
+									method : "POST",
+									data : $scope.expertAllTheTimes
+
+								}).then(function(response) {
+									swal({
+										title : "Inserted",
+										text : "Inserted Successfully",
+										timer : 1000,
+										showConfirmButton : false
+									})
+								}, function(response) {
+									swal({
+										title : "Failed To Insert",
+										text : "Inserted Unsuccessfully",
+										timer : 1000,
+										showConfirmButton : false
+									});
+								});
+							
+						});
+
+					}
 
 					$scope.insertExpertAllTheTime = function() {
 						$scope.addImage();
-						
-					$scope.expertAllTheTimes = {
-							DOB : $scope.dateOfBirth,
-							EDUCATIONS : $scope.eduOfExpert,
-							EXPERT_ADVANCE_COURSE : $scope.advanceCourse,
-							EXPERT_CURRENT_ADDRESS : {
-								CITY_OR_PROVINCE_ID : $scope.objectCommuneOfCurrentAddress.CITY_OR_PROVINCE_ID,
-								CITY_OR_PROVINCE_NAME : "",
-								COMMUNE_ID : $scope.objectCommuneOfCurrentAddress.COMMUNE_ID,
-								COMMUNE_NAME : "",
-								COUNTRY_ID : $scope.objectCommuneOfCurrentAddress.COUNTRY_ID,
-								COUNTRY_NAME : "",
-								DISTRICT_ID : $scope.objectCommuneOfCurrentAddress.DISTRICT_ID,
-								DISTRICT_NAME : "",
-								EXPERT_ID : 0
-							},
-							EXPERT_CURRENT_JOBS : $scope.currentJobOfExpert,
-							EXPERT_DOCUMENTS : $scope.fileDocOfExpert,
-							EXPERT_EMAIL : $scope.email,
-							EXPERT_EXPERIENCES : $scope.expOfExpert,
-							EXPERT_FIRST_NAME : $scope.firstName,
-							EXPERT_GENDER : $scope.gender,
-							EXPERT_GENDERATION : $scope.generation,
-							EXPERT_ID : 0,
-							EXPERT_JOB_EXPECTATIONS : $scope.jobExpectationOfExpert,
-							EXPERT_LAST_NAME : $scope.lastName,
-							EXPERT_PHONE1 : $scope.phone1,
-							EXPERT_PHONE2 : $scope.phone2,
-							EXPERT_PHOTO : "",
-							EXPERT_STATUS : "",
-							KA_ID : 0,
-							LANGUAGES : [ {
-								LANGUAGE_DESCRIPTION : "",
-								LANGUAGE_ID : 0,
-								LANGUAGE_NAME : ""
-							} ],
-							MAX_AGE : 0,
-							MAX_SALARY : 0,
-							MIN_AGE : 0,
-							MIN_SALARY : 0,
-							PLACE_OF_BIRTH : {
-								CITY_OR_PROVINCE_ID : $scope.objectCommuneOfPlaceOfBirth.CITY_OR_PROVINCE_ID,
-								CITY_OR_PROVINCE_NAME : "",
-								COMMUNE_ID : $scope.objectCommuneOfPlaceOfBirth.COMMUNE_ID,
-								COMMUNE_NAME : "",
-								COUNTRY_ID : $scope.objectCommuneOfPlaceOfBirth.COUNTRY_ID,
-								COUNTRY_NAME : "",
-								DISTRICT_ID : $scope.objectCommuneOfPlaceOfBirth.DISTRICT_ID,
-								DISTRICT_NAME : "",
-								EXPERT_ID : 0
-							},
-							PROJECT_LINK_DEMO : $scope.projectLinkDemo,
-							SUBJECTS : [ {
-								NUMBER_OF_EXPERT_EACH_SKILL : 0,
-								NUM_OF_SKILLS : 0,
-								SUBJECT_CATEGORY_ID : 0,
-								SUBJECT_CATEGORY_NAME : "",
-								SUBJECT_ID : 0,
-								SUBJECT_NAME : ""
-							} ],
-							EXPERT_LANGUAGE_DETAIL : $scope.langOfExpert,
-							EXPERT_SUBJECT_DETAIL : $scope.subjectOfExpert
-						};
-
-						console.log($scope.expertAllTheTimes);
-
-						$http({
-							url : 'http://localhost:3333/rest/expert',
-							method : "POST",
-							data : $scope.expertAllTheTimes
-
-						}).then(function(response) {
-							swal({
-								title : "Inserted",
-								text : "Inserted Successfully",
-								timer : 1000,
-								showConfirmButton : false
-							})
-						}, function(response) {
-							swal({
-								title : "Failed To Insert",
-								text : "Inserted Unsuccessfully",
-								timer : 1000,
-								showConfirmButton : false
-							});
-						}); 
-					};
-
-					// Add Expert
-					
-					$scope.projectLinkDemo = "";
+					}
 
 				});
-
-app.controller('mainSkillAndSubSkillController', function($scope, $http) {
-
-});
-
-app.controller('universityController', function($scope, $http) {
-
-});
-
-app.controller('majorController', function($scope, $http) {
-
-});
-
-app.controller('languageController', function($scope, $http) {
-
-});
-
-app.controller('locationController', function($scope, $http) {
-
-});
-
-app.controller('fileTypeController', function($scope, $http) {
-
-});
