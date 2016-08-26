@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html ng-app="expertFrontEndApp">
 <head>
@@ -8,17 +9,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- My APP -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.11/angular-filter.js"></script>
+<script	src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
 <!-- My APP -->
 
 <!-- font for navbar -->
 <link href='https://fonts.googleapis.com/css?family=Angkor'	rel='stylesheet' type='text/css'>
-
 <script type="text/javascript"	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
 <script type="text/javascript"	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <link	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
 <link	href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"	rel="stylesheet" type="text/css">
@@ -28,11 +26,9 @@
 <link	href="${pageContext.request.contextPath}/resources/experts/css/custom.css"	rel="stylesheet" type="text/css">
 
 <!-- font-awesome-4.6.3 -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/expert/font-awesome-4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet"	href="${pageContext.request.contextPath}/resources/expert/font-awesome-4.6.3/css/font-awesome.min.css">
 
-<script
-	src="${pageContext.request.contextPath}/resources/experts/js/jquery.bootpage.min.js"></script>
+<script	src="${pageContext.request.contextPath}/resources/experts/js/jquery.bootpage.min.js"></script>
 
 <script>
 	
@@ -453,9 +449,18 @@ a:hover, a:focus {
 
 .widget.widget-body-white .widget-body {
 	background: #fff;
-}
+	}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    padding-right: 158px;
+    
+    }
 </style>
-
+<style type="text/css">
+		.dropdown-menu > li > a:hover
+		{
+			background-color: #008080;
+		}
+</style>
 </head>
 	<body ng-controller="expertController"	ng-init="goToSearchBySubjectID(<%=request.getParameter("id")%>)">
 	
@@ -498,7 +503,6 @@ a:hover, a:focus {
 						 </a>
 						</security:authorize> 	
 					</li> 
-		
 				<security:authorize access="isAuthenticated()">
 					<li role="presentation" class="dropdown">
 					<a style="text-transform: uppercase;" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -517,7 +521,7 @@ a:hover, a:focus {
 							</security:authorize>
 						</ul>
 					</li>
-				</security:authorize>	
+				</security:authorize>		
 					</ul>
 				</div>
 			</div>

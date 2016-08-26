@@ -1,8 +1,8 @@
 <!--[*my CSS*] for general uses for only detail page-->
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath }/resources/expert/css/detail.css" />
-<script
-	src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
+<link rel="stylesheet" type="text/css"	href="${pageContext.request.contextPath }/resources/expert/css/detail.css" />
+<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/resources/experts/css/detail.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.11/angular-filter.js"></script>
+<script	src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
 <div ​​​​ ng-app="expertFrontEndApp">
 	<!--start row personal data by visal-->
 	<div class="container" ng-controller="expertController"
@@ -215,26 +215,17 @@
 							</table>
 						</div>
 						<div class="tab-pane fade" id="skill">
-							<table id="skill-block" class="col-md-12 col-xs-12">
-
-								<tr ng-repeat="eSkill in expertDetail.SUBJECTS">
-									<td id="{{eSkill.SUBJECT_ID}}"><span class="alignleft"
-										style="font-family: 'Arial'; font-weight: 600">{{eSkill.SUBJECT_CATEGORY_NAME}}
-											: {{eSkill.SUBJECT_NAME}} </span> <!-- <span class="alignright">
-                                    <span style="color: #3dc9b3" class="btn btn-xs fa fa-minus-circle" ng-click="delete(eSkill.id)"></span>
-                                    <span style="color: #3dc9b3" class="btn btn-xs fa fa-pencil" ng-click="getUpdate(this)" data-toggle="modal" data-target="#skill"></span>
-                                </span> -->
-
-										<div style="clear: both;"></div>
-										<div class="progress">
-											<div class="progress-bar progress-bar-info"
-												role="progressbar" style="width: 25%">{{eSkill.EXPERT_SUBJECT_DETAIL_LEVEL}}</div>
-											<div class="progress-bar progress-bar-danger"
-												role="progressbar" style="width: {{eSkill.LEVEL_NUMBER"></div>
-										</div></td>
-								</tr>
-							</table>
-						</div>
+							 <div class="row">   
+					                <div class="col-md-6 col-sm-6 col-xs-12 list-category text-primary" ng-repeat="(key,value) in expertDetail.SUBJECTS | groupBy: 'SUBJECT_CATEGORY_NAME'">
+					                  <h3 class="title text-center" style="background-color: #008080;color:#fff;border-radius: 5px;"> {{key}} </h3>
+					                  <div class="list-group">
+							  			<a  href="" class="list-group-item" ng-repeat="subject in value">
+											<div class="truncate pull-left">{{subject.SUBJECT_NAME}}</div><span class="badge">{{subject.EXPERT_SUBJECT_DETAIL_LEVEL}}</span>
+										</a>
+					                  </div>
+					                </div>       
+					            </div> 
+					    </div>          
 						<div class="tab-pane fade" id="lang">
 							<table class="col-md-12 col-xs-12">
 
@@ -279,5 +270,4 @@
 		</div>
 	</div>
 
-</div>
 </div>

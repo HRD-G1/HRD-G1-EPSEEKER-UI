@@ -1,4 +1,4 @@
-var app = angular.module('expertFrontEndApp', []);
+var app = angular.module('expertFrontEndApp', ['angular.filter']);
 app.controller('expertController',function($scope, $http) {
 					// expert detail
 					$scope.getDataDetail = function(ID) {
@@ -12,8 +12,9 @@ app.controller('expertController',function($scope, $http) {
 						}).then(function(response) {
 
 							$scope.expertDetail = response.data.DATA;
+							console.log(JSON.stringify($scope.expertDetail));
 							console.log("This is expert detail");
-							console.log($scope.expertDetail);
+							/*console.log($scope.expertDetail);*/
 						}, function(response) {
 
 						});

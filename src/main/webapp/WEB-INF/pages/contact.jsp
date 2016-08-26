@@ -32,6 +32,7 @@
 <!-- Angular -->
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.11/angular-filter.js"></script>
 <style type="text/css">
 		.dropdown-menu > li > a:hover
 		{
