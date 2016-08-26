@@ -32,7 +32,12 @@
 <!-- Angular -->
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
-
+<style type="text/css">
+		.dropdown-menu > li > a:hover
+		{
+			background-color: #008080;
+		}
+</style>
   </head>
   <body ng-controller="expertController">
   <!-- get user login by id  -->
@@ -57,23 +62,34 @@
           <ul class="nav navbar-nav navbar-right">
            <li class="menu"><a href="/" class="waves-effect waves-light " ><i class="fa fa-home " ></i> ទំព័រដើម</a></li>
            <li class="active menu"><a href="/contact" class="waves-effect waves-light " "><i class="fa fa-phone " ></i> ទំនាក់ទំនង</a></li>
-            <li class=" menu"><a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret" ></i> អំពីយើង</a></li>
-           <li class="menu">
-           <!-- if login success -->
+            <li class=" menu"><a href="/about" class="waves-effect waves-light"><i class="fa fa-users" ></i> អំពីយើង</a></li>
+          <li class="menu"><a href="/signup"	class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ</a></li>
+					<li class="menu">
+						<security:authorize access="isAnonymous()">
+						  <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
+						   	 ចូល	
+						 </a>
+						</security:authorize> 	
+					</li> 
 				<security:authorize access="isAuthenticated()">
-					<a href="/logout" class="waves-effect waves-light "><i class="fa fa-sign-out "></i>
-				   		<!-- {{userlogined.username}}  -->
-				   		ចាកចេញ
+					<li role="presentation" class="dropdown">
+					<a style="text-transform: uppercase;"  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-user" aria-hidden="true"></i> សួស្ដី {{userlogined.username}} <span class="caret"></span>
 					</a>
-		    <!-- if login not success -->
-				</security:authorize> 
-				<security:authorize access="isAnonymous()">
-				   <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
-					  	 ចូល	
-						</a>
-				</security:authorize> 	
-			</li>
-            <li class="menu"><a href="/signup" class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ</a></li>
+						<ul class="dropdown-menu" style="margin: 0px; padding: 0px;">
+							<li style="background-color: #008080;padding: 10px;">
+							<a href="/logout" class="waves-effect waves-light" style="font-family: 'Angkor';color: #fff;">	
+							<i class="fa fa-sign-out "></i>ចាកចេញ</a>
+							<security:authorize  access="hasRole('ADMIN')">
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/admin/dashboard" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user-secret"></i> គ្រប់គ្រង</a></li>
+							</security:authorize>
+							<security:authorize  access="hasRole('USER')">
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/setting" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user"></i> គ្រប់គ្រង</a></li>
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/promote" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-hand-o-up"></i> ដំឡើងឋានៈ</a></li>
+							</security:authorize>
+						</ul>
+					</li>
+				</security:authorize>	
           </ul>
         </div>
       </div>
@@ -114,39 +130,39 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-12">
           <div class="panel panel-primary text-center">
             <div class="panel-heading cotact-header">ផ្ញើសារ</div>
             <div class="panel-body">
               <div class="row">
-                <form class="col s12 text-center">
+                <form class="col s12 text-center"​​ action="MAILTO:soklytorn.ly@gmail.com" method="post" enctype="text/plain">
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">person_pin</i>
                       <input id="icon_prefix" type="text" required="សកក">
-                      <label for="icon_prefix" class="contact-info">ឈ្មោះ</label>
+                      <label for="icon_prefix" class="contact-info">ឈ្មោះរបស់អ្នក</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">phone</i>
                       <input id="icon_prefix" type="text" required>
-                      <label for="icon_prefix" class="contact-info">ទូរស័ព្ទ</label>
+                      <label for="icon_prefix" class="contact-info">ទូរស័ព្ទរបស់អ្នក</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
                       <i class="material-icons prefix">email</i>
                       <input id="icon_prefix" type="email" required="">
-                      <label for="icon_prefix" class="contact-info">អ៊ីម៉ែល</label>
+                      <label for="icon_prefix" class="contact-info">អ៊ីម៉ែល​បស់អ្នក</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="control-group form-group">
                       <div class="controls">
                         <label class="cotact-header">សាររបស់អ្នក</label>
-                        <textarea rows="10" cols="100" class="form-control" id="message" required="" data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                        <textarea rows="5" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
                       </div>
                     </div>
                   </div>
@@ -156,7 +172,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <br>
   <jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>

@@ -490,26 +490,34 @@ a:hover, a:focus {
 						<li class=" menu"><a href="/about"
 							class="waves-effect waves-light"><i class="fa fa-user-secret"></i>
 								អំពីយើង</a></li>
+						<li class="menu"><a href="/signup"	class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ</a></li>
 						<li class="menu">
-					<security:authorize access="isAuthenticated()">
-						<a href="/logout" class="waves-effect waves-light "><i class="fa fa-sign-out "></i>
-							  <!--   {{userlogined.username}} -->ចាកចេញ 	
-						</a>
-						</security:authorize> 
 						<security:authorize access="isAnonymous()">
-							   <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
-							   	 ចូល	
-								</a>
-
-							</security:authorize> 	
-							
-						</li>
-						<li class="menu"><a href="/signup"
-							class="waves-effect waves-light "> <i class="fa fa-user-plus"></i>ចុះឈ្មោះ
-						</a></li>
-						<!-- <li>
-              <a href="/search" class="waves-effect waves-light ">SEARCH</a>
-            </li> -->
+						  <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
+						   	 ចូល	
+						 </a>
+						</security:authorize> 	
+					</li> 
+		
+				<security:authorize access="isAuthenticated()">
+					<li role="presentation" class="dropdown">
+					<a style="text-transform: uppercase;" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-user" aria-hidden="true"></i> សួស្ដី {{userlogined.username}} <span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" style="margin: 0px; padding: 0px;">
+							<li style="background-color: #008080;padding: 10px;">
+							<a href="/logout" class="waves-effect waves-light" style="font-family: 'Angkor';color: #fff;">	
+							<i class="fa fa-sign-out "></i>ចាកចេញ</a>
+							<security:authorize  access="hasRole('ADMIN')">
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/admin/dashboard" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user-secret"></i> គ្រប់គ្រង</a></li>
+							</security:authorize>
+							<security:authorize  access="hasRole('USER')">
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/setting" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user"></i> គ្រប់គ្រង</a></li>
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/promote" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-hand-o-up"></i> ដំឡើងឋានៈ</a></li>
+							</security:authorize>
+						</ul>
+					</li>
+				</security:authorize>	
 					</ul>
 				</div>
 			</div>

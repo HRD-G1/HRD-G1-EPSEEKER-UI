@@ -60,18 +60,17 @@
 
 
 <style type="text/css">
-	.hide-logout
-	{
-		style="display: none;
-	}
+		.dropdown-menu > li > a:hover
+		{
+			background-color: #008080;
+		}
 </style>
 </head>
 <body ng-controller="expertController">
 <!-- get user login by id  -->
- <security:authorize access="isAuthenticated()">
+<security:authorize access="isAuthenticated()">
     <span ng-init="getUserById(<security:authentication property="principal.id" />)"></span>
 </security:authorize> 
- 
 	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header ">
@@ -91,42 +90,37 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li class=" active menu"><a href="/" class="waves-effect waves-light "><i class="fa fa-home "></i> ទំព័រដើម</a></li>
 					<li class="menu"><a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone "></i> ទំនាក់ទំនង</a></li>
-					<li class=" menu"><a href="/about" class="waves-effect waves-light"><i class="fa fa-user-secret"></i> អំពីយើង</a></li>
-					<li class="menu"><a href="/signup"
-						class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ
-					</a></li>
-					<%-- <li class="menu">
-					<security:authorize access="isAuthenticated()">
-						<a href="/logout" class="waves-effect waves-light "><i class="fa fa-sign-out "></i>
-							សួស្ដី {{userlogined.username}} 	<!-- ចាកចេញ  -->
-						</a>
-						</security:authorize> 
+					<li class=" menu"><a href="/about" class="waves-effect waves-light"><i class="fa fa-users"></i> អំពីយើង</a></li>
+					<li class="menu"><a href="/signup"	class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ</a></li>
+					<li class="menu">
 						<security:authorize access="isAnonymous()">
 						  <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
 						   	 ចូល	
 						 </a>
 						</security:authorize> 	
-					</li> --%>
+					</li> 
 
 				<security:authorize access="isAuthenticated()">
 					<li role="presentation" class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-						សួស្ដី {{userlogined.username}} <span class="caret"></span>
+					<a style="text-transform: uppercase;" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-user" aria-hidden="true"></i> សួស្ដី {{userlogined.username}} <span class="caret"></span>
 					</a>
 						<ul class="dropdown-menu" style="margin: 0px; padding: 0px;">
-							<li style="background-color: #008080;">
-							<a href="/logout" class="waves-effect waves-light" style="font-family: 'Khmer OS Battambang';color: #fff;">	
+							<li style="background-color: #008080;padding: 10px;">
+							<a href="/logout" class="waves-effect waves-light" style="font-family: 'Angkor';color: #fff;">	
 							<i class="fa fa-sign-out "></i>ចាកចេញ</a>
+							<security:authorize  access="hasRole('ADMIN')">
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/admin/dashboard" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user-secret"></i> គ្រប់គ្រង</a></li>
+							</security:authorize>
+							<security:authorize  access="hasRole('USER')">
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/setting" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user"></i> គ្រប់គ្រង</a></li>
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/promote" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-hand-o-up"></i> ដំឡើងឋានៈ</a></li>
+							</security:authorize>
 						</ul>
 					</li>
-				</security:authorize>
-				
-					<%-- <li class="hide-logout">
-						<security:authorize access="isAuthenticated()">
-							<a href="/logout" class="waves-effect waves-light">	ចាកចេញ</a>
-						</security:authorize>
-					</li> --%> 
+				</security:authorize>	
 					
+				
 				</ul>
 			</div>
 		</div>
@@ -254,14 +248,14 @@
 									
 										<td>
 										<a href="/rest/expert/content/?id={{ep.EXPERT_ID}}" target="_blank"><img alt=""
-											src="{{ep.EXPERT_PHOTO}}"
-											style="width: 85px; height: 85px; border: 2px solid #999" class="img-circle"></a>
+											src="${pageContext.request.contextPath}/resources/experts/img/tempPic.png"
+											style="width: 50px; height: 50px"></a>
 											</td>
-										<td style="max-width: 100px; vertical-align: initial; padding-top: 45px">{{ep.EXPERT_LAST_NAME}}
+										<td style="max-width: 100px; vertical-align: initial; padding-top: 23px">{{ep.EXPERT_LAST_NAME}}
 											{{ep.EXPERT_FIRST_NAME}}</td>
-										<td style="max-width: 150px;padding-top: 45px">{{ep.EXPERT_ADVANCE_COURSE}}</td>
-										<td style="max-width: 100px; padding-top: 45px">{{ep.EXPERT_CURRENT_ADDRESS.CITY_OR_PROVINCE_NAME}}</td>
-										<td style="max-width: 30px; padding-top: 45px">{{ep.EXPERT_EXPERIENCES[0].PERIOD}}</td>
+										<td style="max-width: 150px;padding-top: 23px">{{ep.EXPERT_ADVANCE_COURSE}}</td>
+										<td style="max-width: 100px; padding-top: 23px">{{ep.EXPERT_CURRENT_ADDRESS.CITY_OR_PROVINCE_NAME}}</td>
+										<td style="max-width: 30px; padding-top: 23px">{{ep.EXPERT_EXPERIENCES[0].PERIOD}}</td>
 								</tr>
 							</tbody>
 						</table>

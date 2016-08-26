@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 public class WebClientSecurity extends WebSecurityConfigurerAdapter{
 	/*
 	@Autowired	
+	@Qualifier("ajaxAuthenticationSuccessHandler")
 	private CustomSuccessHandler successHandler;*/
 	
 	@Autowired
@@ -33,12 +34,13 @@ public class WebClientSecurity extends WebSecurityConfigurerAdapter{
 				.usernameParameter("email")
 				.passwordParameter("password")
 				.defaultSuccessUrl("/")
-				/*.successHandler(successHandler)*/
-				.permitAll();
+			/*	.successHandler(successHandler)
+*/				.permitAll();
 			
 			http.authorizeRequests()
 				.antMatchers("/rest/admin/**").hasRole("ADMIN")
-				.antMatchers("/rest/expert/**").hasAnyRole("ADMIN","USER");
+				.antMatchers("/rest/expert/**").hasAnyRole("ADMIN","USER")
+				.antMatchers("/rest/user/**").hasAnyRole("ADMIN","USER");
 			http.exceptionHandling().accessDeniedPage("/error/access-denied");
 		}
 }

@@ -114,5 +114,15 @@ public class MainController {
 	public String viewCommune() {
 		return "admin/commune/view/view-commune";
 	}
+	
+	@RequestMapping(value = "rest/user/setting")
+	public String userSetting() {
+		return "users/setting";
+	}
+	
+	@RequestMapping(value = "rest/user/promote")
+	public String userPromote() {
+		return "users/promote";
+	}
 
 }

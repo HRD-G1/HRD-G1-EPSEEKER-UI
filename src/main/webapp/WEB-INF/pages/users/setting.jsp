@@ -56,7 +56,7 @@
            <li class="menu"><a href="/" class="waves-effect waves-light "><i class="fa fa-home "></i> ទំព័រដើម</a></li>
             <li class="menu"><a href="/contact" class="waves-effect waves-light "><i class="fa fa-phone " ></i> ទំនាក់ទំនង</a></li>
             <li class=" menu"><a href="/about" class="waves-effect waves-light"><i class="fa fa-users" ></i> អំពីយើង</a></li>
-            <li class="menu active"><a href="/signup"	class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ</a></li>
+            <li class="menu"><a href="/signup"	class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ</a></li>
             <li class=" menu">
 						<security:authorize access="isAnonymous()">
 						  <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
@@ -97,35 +97,23 @@
       <div class="row">
   		<div class="col-md-offset-1 col-md-10">
 			  <div class="panel panel-primary text-center">
-			    <div class="panel-heading" style="  font-family: 'Khmer OS Battambang';font-size: 17px;">បង្កើតគណនីថ្មី</div>
+			    <div class="panel-heading" style="  font-family: 'Khmer OS Battambang';font-size: 17px;">កែប្រែគណនីរបស់អ្នក</div>
 			    <!-- start content body -->
 			    <div class="panel-body text-left">
-			    	<form name="mysignup">
+			    	<form name="mysignup" method="POST">
 			    	<div class="col-md-offset-2 col-md-8">
 			    	<label for="email" class="signup-label">សារអេឡិចត្រូនិច</label>
-			    		<input name="myemail" class="form-control signup-email" id="email" type="email" ng-model="emails" placeholder="sample@gmail.com"  required ><br>
-			    	<label for="username" class="signup-label">ឈ្មោះ​ </label>
-			    		<input type="text" class="form-control signup-username" id="username" ng-model="usernamess" placeholder="Jonh Doe" min="8" required ><br>
-			    	<label for="password" class="signup-label">លេខសំងាត់ </label>
-			    		<input  type="password"  id="password" class="form-control signup-password" ng-model="passwords" required ><br>
-			    	<label for="password" class="signup-label">លេខសំងាត់ ម្ដងទៀត  <span ng-show="confirmStatus==false">Not Match</span></label>
-			    		<input ng-keyup="confirmPassword()" type="password" ng-model="cpwd" id="password" class="form-control signup-password" ><br>
-			    	<label class="signup-label">ប្រភេទអ្នកប្រើប្រាស់ </label>
-			    		<!-- get it from angularjs request -->
-			    		<!-- <select class="form-control" ng-model="selectedroleid" ng-options="role.id as role.roleName for role in roles" > -->
-			    		<select  class="form-control signup-usertype" ng-model="selectedroleid" ng-options="role.id as role.rolename for role in roles" required>
-			    			<option style="display: none" value="">--^ សូមជ្រើសរើស ^--</option>
-			    		</select>
-			    		<br>
+			    		<input name="myemail" ng-model="email" class="form-control signup-email" id="email" type="email"  required> <br>
+			    	<label for="username" class="signup-label">ឈ្មោះ​</label>
+			    		<input type="text" class="form-control signup-username" id="username" ng-model="username" required ><br>
+			    	<label for="password" class="signup-label">លេខសំងាត់ចាស់ </label>
+			    		<input ng-keyup="validateOldPassword()" type="password"  id="password" class="form-control signup-password" ng-model="opwd" required ><br>
+			    	<label for="password" class="signup-label">លេខសំងាត់ ថ្មី </label>
+			    		<input ng-disabled="pstatus==false" type="password" ng-model="npwd" id="password" class="form-control signup-password" ><br>
 			    	<div class="col-md-offset-4 col-sm-offset-4 col-xs-offset-4">	
-			    		<button ng-disabled=" !emails || !usernamess || !passwords || !cpwd || confirmStatus==false || mysignup.$invalid " class="btn btn-signup" 
-			    		ng-click="addUserAndRole()"><i class="fa fa-user-plus"></i> បង្កើតគណនី</button>
-			    		<button class="btn btn-signup" type="reset"> <i class="fa fa-eraser"></i> សម្អាត</button>
+			    		<button ng-disabled=" !email || !username || !opwd || !npwd || mysignup.$invalid " class="btn btn-signup" 
+			    		ng-click="updateUser()"><i class="fa fa-user-plus"></i> កែប្រែ</button>
 			    	</div>
-			    	<div class="col-md-12"><br>
-			    		<p class="well text-center note">ប្រសិនបើអ្នកមានគណនីរូចហើយ សូម​  <a href="/login">ចូលប្រើប្រាស់ទីនេះ</a>
-			    		<br>If you have account already <a href="/login">Login here!</a></p>
-			    	</div><br>
 			    	</div>
 			    	</form>
 			    </div>
@@ -135,5 +123,6 @@
       </div>
     </div>
     <br>
-  <jsp:include page="expert/fragements/footer/footer.jsp"></jsp:include>
-</body></html>
+  <jsp:include page="../expert/fragements/footer/footer.jsp"></jsp:include>
+</body>
+</html>

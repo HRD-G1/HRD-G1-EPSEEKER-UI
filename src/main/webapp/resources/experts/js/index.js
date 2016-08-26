@@ -500,9 +500,6 @@ app.controller('expertController',function($scope, $http) {
 
 					// getUserById
 					$scope.getUserById = function(userId) {
-						
-						$scope.username="ចូល";
-						
 						$scope.id = userId;
 						$http({
 							url : 'http://localhost:3333/rest/getuserbyid/%7BuserId%7D?userId=' + $scope.id,
@@ -510,6 +507,9 @@ app.controller('expertController',function($scope, $http) {
 							method : 'GET'
 						}).then(function(response) {
 							$scope.userlogined = response.data;
+							$scope.email= response.data.email;
+							$scope.username = response.data.username;
+							$scope.password = response.data.password;
 							console.log("This is user have logined");
 							console.log($scope.userlogined);
 						}, function(response) {
@@ -522,9 +522,9 @@ app.controller('expertController',function($scope, $http) {
 					$scope.addUserAndRole = function() {	
 						/*when our data are array should be create new scope array*/
 						var i = {
-								"email" : $scope.email,
-								"password" : $scope.password,
-								"username" : $scope.usernames,
+								"email" : $scope.emails,
+								"password" : $scope.passwords,
+								"username" : $scope.usernamess,
 								"roles": [{id:$scope.selectedroleid,roleName:""}],
 								"status" : true
 							};
@@ -545,6 +545,17 @@ app.controller('expertController',function($scope, $http) {
 				/*	$scope.addUserAndRole();*/
 					
 					
+					$scope.pstatus= false;
+					
+					$scope.validateOldPassword = function(){
+						if($scope.password == $scope.opwd){
+							$scope.pstatus= true;
+						}else
+							{
+							$scope.pstatus= false;
+							}
+					}
+					
 					/*getRole*/
 					$scope.getRole = function() {			
 						$http({
@@ -559,6 +570,44 @@ app.controller('expertController',function($scope, $http) {
 						});
 					
 					}
+					/*upate user*/
+					$scope.updateUser=function (user){
+							$http({
+								url:'http://localhost:3333/rest/user/',
+								method:'PUT',
+								data:{
+									'email' : $scope.email,
+									'id' : $scope.id,
+									'username' : $scope.username,
+									'password' : $scope.npwd
+								}
+							}).then(function(response){
+								$scope.email="",
+								$scope.username="",
+								$scope.npwd="",
+								$scope.opwd=""
+							},function(response)
+							{
+							});
+						}
+					/*upate user*/
+					
+					/*confirm password*/
+					$scope.confirmStatus=false;
+					$scope.confirmPassword = function()
+					{
+						if($scope.passwords == $scope.cpwd)
+							{
+								$scope.confirmStatus=true;
+							}
+						else
+							{
+							$scope.confirmStatus=false;
+							}
+						
+					}
+					/*confirm password*/
+					
 					/*getRole*//*$scope.getRole();*/
 //					array of roles
 					$scope.roles = [ /*{
