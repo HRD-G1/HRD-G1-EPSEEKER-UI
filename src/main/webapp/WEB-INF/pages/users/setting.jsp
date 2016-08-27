@@ -18,6 +18,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
 	<!-- Angular -->
 	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.11/angular-filter.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
     <!--custom-->
     <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
@@ -35,9 +36,12 @@
 </style>
   </head>
   <body  ng-controller="expertController">
+  	<!-- getUserById() after login -->
 	  <security:authorize access="isAuthenticated()">
 	    <span ng-init="getUserById(<security:authentication property="principal.id" />)"></span>
-	</security:authorize>
+	  </security:authorize>
+	<!--end  getUserById() after login -->
+	  
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header ">
@@ -47,9 +51,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand">
-          		<img alt="EPSEEKER" class="logo" src="${pageContext.request.contextPath}/resources/experts/img/logo11.png">
-          	</a>
+          <a class="navbar-brand"><img alt="EPSEEKER" class="logo" src="${pageContext.request.contextPath}/resources/experts/img/logo11.png"></a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -59,12 +61,9 @@
             <li class="menu"><a href="/signup"	class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ</a></li>
             <li class=" menu">
 						<security:authorize access="isAnonymous()">
-						  <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
-						   	 ចូល	
-						 </a>
+						  <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>ចូល</a>
 						</security:authorize> 	
 					</li> 
-
 				<security:authorize access="isAuthenticated()">
 					<li role="presentation" class="dropdown">
 					<a style="text-transform: uppercase;"  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -72,27 +71,24 @@
 					</a>
 						<ul class="dropdown-menu" style="margin: 0px; padding: 0px;">
 							<li style="background-color: #008080;padding: 10px;">
-							<a href="/logout" class="waves-effect waves-light" style="font-family: 'Angkor';color: #fff;">	
+								<a href="/logout" class="waves-effect waves-light" style="font-family: 'Angkor';color: #fff;">	
 							<i class="fa fa-sign-out "></i>ចាកចេញ</a>
-							<security:authorize  access="hasRole('ADMIN')">
-								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/admin/dashboard" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user-secret"></i> គ្រប់គ្រង</a></li>
+							<security:authorize  access="hasRole('ADMIN')"><!-- if user is Admin -->
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/admin/dashboard" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-cog"></i> គ្រប់គ្រង</a></li>
 							</security:authorize>
-							<security:authorize  access="hasRole('USER')">
-								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/setting" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user"></i> គ្រប់គ្រង</a></li>
+							<security:authorize  access="hasRole('USER')"><!-- if user is simple user -->
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/setting" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-cog"></i> គ្រប់គ្រង</a></li>
 								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/promote" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-hand-o-up"></i> ដំឡើងឋានៈ</a></li>
 							</security:authorize>
 						</ul>
 					</li>
 				</security:authorize>
-				
           </ul>
         </div>
       </div>
     </div>
     <!--end bavbar-->
-    <br>
-    <br>
-    <br>
+    <br><br><br>
     <div class="container">
       <div class="row">
   		<div class="col-md-offset-1 col-md-10">
@@ -101,20 +97,20 @@
 			    <!-- start content body -->
 			    <div class="panel-body text-left">
 			    	<form name="mysignup" method="POST">
-			    	<div class="col-md-offset-2 col-md-8">
-			    	<label for="email" class="signup-label">សារអេឡិចត្រូនិច</label>
-			    		<input name="myemail" ng-model="email" class="form-control signup-email" id="email" type="email"  required> <br>
-			    	<label for="username" class="signup-label">ឈ្មោះ​</label>
-			    		<input type="text" class="form-control signup-username" id="username" ng-model="username" required ><br>
-			    	<label for="password" class="signup-label">លេខសំងាត់ចាស់ </label>
-			    		<input ng-keyup="validateOldPassword()" type="password"  id="password" class="form-control signup-password" ng-model="opwd" required ><br>
-			    	<label for="password" class="signup-label">លេខសំងាត់ ថ្មី </label>
-			    		<input ng-disabled="pstatus==false" type="password" ng-model="npwd" id="password" class="form-control signup-password" ><br>
-			    	<div class="col-md-offset-4 col-sm-offset-4 col-xs-offset-4">	
-			    		<button ng-disabled=" !email || !username || !opwd || !npwd || mysignup.$invalid " class="btn btn-signup" 
-			    		ng-click="updateUser()"><i class="fa fa-user-plus"></i> កែប្រែ</button>
-			    	</div>
-			    	</div>
+				    	<div class="col-md-offset-2 col-md-8">
+				    	<label for="email" class="signup-label">សារអេឡិចត្រូនិច</label>
+				    		<input name="myemail" ng-model="email" class="form-control signup-email" id="email" type="email"  required> <br>
+				    	<label for="username" class="signup-label">ឈ្មោះ​</label>
+				    		<input type="text" class="form-control signup-username" id="username" ng-model="username" required ><br>
+				    	<label for="password" class="signup-label">លេខសំងាត់ចាស់ </label>
+				    		<input ng-keyup="validateOldPassword()" type="password"  id="password" class="form-control signup-password" ng-model="opwd" required ><br>
+				    	<label for="password" class="signup-label">លេខសំងាត់ ថ្មី </label>
+				    		<input ng-disabled="pstatus==false" type="password" ng-model="npwd" id="password" class="form-control signup-password" ><br>
+				    	<div class="col-md-offset-4 col-sm-offset-4 col-xs-offset-4">	
+				    		<button ng-disabled=" !email || !username || !opwd || !npwd || mysignup.$invalid " class="btn btn-signup" 
+				    		ng-click="updateUser()"><i class="fa fa-user-plus"></i> កែប្រែ</button>
+				    	</div>
+				    	</div>
 			    	</form>
 			    </div>
 			    <!-- end content body -->

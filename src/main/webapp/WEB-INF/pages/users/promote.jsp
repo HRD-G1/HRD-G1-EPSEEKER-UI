@@ -9,35 +9,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- font for navbar -->
  	<link href='https://fonts.googleapis.com/css?family=Angkor' rel='stylesheet' type='text/css'> 
- 	
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css"> 
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>	
 	<!-- Angular -->
 	<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.11/angular-filter.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/experts/js/index.js"></script>
     <!--custom-->
     <link href="${pageContext.request.contextPath}/resources/experts/css/custom.css" rel="stylesheet" type="text/css">
     <style>
-    
-.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
-    padding-right: 158px;
-}
-    </style>
-    <style type="text/css">
-		.dropdown-menu > li > a:hover
-		{
-			background-color: #008080;
+		.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
+		    padding-right: 158px;
 		}
-</style>
+		.dropdown-menu > li > a:hover
+			{
+				background-color: #008080;
+			}
+	</style>
   </head>
   <body  ng-controller="expertController">
+  	<!-- getUserById after login -->
 	  <security:authorize access="isAuthenticated()">
 	    <span ng-init="getUserById(<security:authentication property="principal.id" />)"></span>
-	</security:authorize>
+	  </security:authorize>
+	<!--end getUserById after login -->  
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header ">
@@ -47,9 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand">
-          		<img alt="EPSEEKER" class="logo" src="${pageContext.request.contextPath}/resources/experts/img/logo11.png">
-          	</a>
+          <a class="navbar-brand"><img alt="EPSEEKER" class="logo" src="${pageContext.request.contextPath}/resources/experts/img/logo11.png"></a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -59,12 +55,9 @@
             <li class="menu"><a href="/signup"	class="waves-effect waves-light "> <i class="fa fa-user-plus"></i> ចុះឈ្មោះ</a></li>
             <li class=" menu">
 						<security:authorize access="isAnonymous()">
-						  <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i>
-						   	 ចូល	
-						 </a>
+						  <a href="/login" class="waves-effect waves-light "><i class="fa fa-sign-in "></i> ចូល</a>
 						</security:authorize> 	
 					</li> 
-
 				<security:authorize access="isAuthenticated()">
 					<li role="presentation" class="dropdown">
 					<a style="text-transform: uppercase;"  class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -72,19 +65,18 @@
 					</a>
 						<ul class="dropdown-menu" style="margin: 0px; padding: 0px;">
 							<li style="background-color: #008080;padding: 10px;">
-							<a href="/logout" class="waves-effect waves-light" style="font-family: 'Angkor';color: #fff;">	
+								<a href="/logout" class="waves-effect waves-light" style="font-family: 'Angkor';color: #fff;">	
 							<i class="fa fa-sign-out "></i>ចាកចេញ</a>
 							<security:authorize  access="hasRole('ADMIN')">
-								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/admin/dashboard" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user-secret"></i> គ្រប់គ្រង</a></li>
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/admin/dashboard" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user-cog"></i> គ្រប់គ្រង</a></li>
 							</security:authorize>
 							<security:authorize  access="hasRole('USER')">
-								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/setting" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-user"></i> គ្រប់គ្រង</a></li>
+								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/setting" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-cog"></i> គ្រប់គ្រង</a></li>
 								<li class="menu" style="background-color: #008080;padding: 10px;"><a href="/rest/user/promote" style="font-family: 'Angkor';color: #fff;"	class="waves-effect waves-light "> <i class="fa fa-hand-o-up"></i> ដំឡើងឋានៈ</a></li>
 							</security:authorize>
 						</ul>
 					</li>
 				</security:authorize>
-				
           </ul>
         </div>
       </div>
